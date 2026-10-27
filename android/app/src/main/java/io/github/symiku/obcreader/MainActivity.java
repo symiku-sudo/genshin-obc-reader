@@ -23,6 +23,7 @@ public class MainActivity extends Activity {
     private static final Object INIT = new Object();
     private static boolean ready;
     WebView web;
+    volatile String startupError;
     private ValueCallback<Uri[]> fileCallback;
     private String saveId, saveData;
 
@@ -36,15 +37,21 @@ public class MainActivity extends Activity {
             try {
                 synchronized (INIT) {
                     if (!ready) {
+                        android.util.Log.i("OBCStartup", "Installing bundled corpus");
                         installCorpus();
+                        android.util.Log.i("OBCStartup", "Corpus verified; copying resources");
                         copyAssets("resources", new File(getFilesDir(), "resources"));
+                        android.util.Log.i("OBCStartup", "Starting embedded Python");
                         if (!Python.isStarted()) Python.start(new AndroidPlatform(getApplicationContext()));
                         Python.getInstance().getModule("android_runtime").callAttr("initialize", getFilesDir().getPath(), new File(getFilesDir(), "resources").getPath());
                         ready = true;
+                        android.util.Log.i("OBCStartup", "Local database ready");
                     }
                 }
                 runOnUiThread(() -> { if (!isDestroyed()) showReader(); });
             } catch (Exception e) {
+                startupError = e.toString();
+                android.util.Log.e("OBCStartup", "Initialization failed", e);
                 runOnUiThread(() -> loading.setText("无法准备文本库：" + e.getMessage() + "\n请检查可用存储空间后重新打开。"));
             }
         });

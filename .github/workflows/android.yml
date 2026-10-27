@@ -59,6 +59,10 @@ jobs:
           "$ANDROID_HOME/build-tools/35.0.0/zipalign" -c -P 16 4 app/build/outputs/apk/release/app-release.apk
           cd app/build/outputs/apk/release
           sha256sum app-release.apk > app-release.apk.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: obc-reader-release
+          path: android/app/build/outputs/apk/release/*.apk*
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
@@ -83,7 +87,3 @@ jobs:
             android/app/build/outputs/androidTest-results/
             android/device-*.log
             android/device-evidence/
-      - uses: actions/upload-artifact@v4
-        with:
-          name: obc-reader-release
-          path: android/app/build/outputs/apk/release/*.apk*

@@ -40,6 +40,7 @@ public class OfflineTest {
     private void await(String expression) throws Exception {
         long deadline = System.currentTimeMillis() + 180000;
         while (System.currentTimeMillis() < deadline) {
+            assertNull("Native startup failure", activity.getActivity().startupError);
             if ("true".equals(js(expression))) return;
             Thread.sleep(300);
         }
