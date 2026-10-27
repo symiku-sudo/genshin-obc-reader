@@ -17,7 +17,9 @@
   };
   const originalFetch = window.fetch.bind(window);
   window.fetch = async (url, options = {}) => {
-    if (typeof url !== 'string' || !url.startsWith('/api/')) return originalFetch(url, options);
+    if (typeof url !== 'string' || !url.startsWith('/api/')) {
+      return originalFetch(typeof url === 'string' && url.startsWith('/') ? '/web' + url : url, options);
+    }
     const result = await call('request', options.method || 'GET', url, options.body || '');
     return new Response(JSON.stringify(result.data), {status: result.status, headers: {'Content-Type': 'application/json'}});
   };
