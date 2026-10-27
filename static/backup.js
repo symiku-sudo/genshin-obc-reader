@@ -18,9 +18,14 @@ $('export-reading').onclick = async () => {
     const saved = await api('/api/reading-backup');
     const data = validateBackup({format:'obc-reading-backup',version:1,exported_at:new Date().toISOString(),
       read_entries:saved.read_entries,bookmarks,positions,font:fontSize});
+    const filename='观测枢阅读记录-'+new Date().toISOString().slice(0,10)+'.json';
+    if (window.saveReadingFile) {
+      await window.saveReadingFile(filename, JSON.stringify(data,null,2));
+    } else {
     const url = URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));
     const link = document.createElement('a');link.href=url;link.download='观测枢阅读记录-'+new Date().toISOString().slice(0,10)+'.json';
     document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+    }
     $('backup-status').textContent='已生成备份，请保留下载的 JSON 文件。';
   } catch(e) { $('backup-status').textContent='导出失败：'+e.message; }
   finally { $('export-reading').disabled=false; }

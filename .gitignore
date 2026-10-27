@@ -10,3 +10,11 @@ __pycache__/
 # Downloaded upstream bundles and raw page shell used for reverse engineering
 research/*.js
 research/home.html
+
+# Android generated outputs, corpus and signing material
+android/.gradle/
+android/**/build/
+android/local.properties
+data/android/
+*.jks
+*.keystore
