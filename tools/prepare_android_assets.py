@@ -23,7 +23,8 @@ def prepare(corpus):
     shutil.copytree(ROOT / 'static', assets / 'web')
     shutil.copy(ROOT / 'android/runtime.js', assets / 'web/runtime.js')
     index = assets / 'web/index.html'
-    index.write_text(index.read_text().replace('<script src="app.js"', '<script src="runtime.js" defer></script><script src="app.js"'))
+    csp = "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'"
+    index.write_text(index.read_text().replace('<head>', '<head><meta http-equiv="Content-Security-Policy" content="'+csp+'">').replace('<script src="app.js"', '<script src="runtime.js" defer></script><script src="app.js"'))
     for module in MODULES:
         shutil.copy(ROOT / (module + '.py'), python)
     research = assets / 'resources/research'

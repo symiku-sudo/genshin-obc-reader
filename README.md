@@ -42,3 +42,31 @@ node test_ui.cjs
 所有下载的正文、搜索索引、阅读标记和数据库备份保存在 `data/`；该目录被 Git 忽略。不要提交个人的 SQLite 数据库或阅读记录备份。样本响应和目录清单位于 `research/`，用于测试与离线解析；它们包含观测枢文本，当前 GitHub 仓库设为私有。
 
 `python audit_imports.py` 和 `python audit_map_cache.py` 可从本地缓存生成覆盖报告；`python recheck_saved_reviews.py JOB_ID [...]` 只用数据库已保存的原始响应重查待适配项，不联网。
+
+## 独立安卓 App（开发中）
+
+安卓版本复用同一套页面、提取器与搜索接口，Python 通过 Chaquopy 运行在 App
+进程内。没有监听端口，不依赖 Termux 或网页服务。内置当前完整中文文本库，
+首次启动在 App 私有目录解压；升级不会覆盖已有数据库。已读记录保存在 SQLite，
+收藏、位置和字号保存在 App 的 WebView 存储。网页已有的阅读记录可以通过管理区
+导出 JSON，再在 App 中选择文件合并恢复。
+
+构建需要 JDK 17、Python 3.13、Gradle 8.11.1、Android SDK 35。GitHub Actions
+工作流下载私有 Release 中的文本包，并运行后端测试及模拟器断网验收。
+签名密钥保存在 Actions Secrets，构建日志与 Git 不包含密钥。后续版本必须沿用
+同一签名密钥及 applicationId，才能保留数据覆盖安装。
+
+本地准备资产与构建调试包：
+
+```sh
+# 从当前网页数据库生成全量文本快照；不会修改原数据库
+python tools/prepare_android_assets.py --snapshot
+cd android
+gradle :app:assembleDebug
+```
+
+已有文本包时使用 `python tools/prepare_android_assets.py`。
+发布构建使用 `OBC_SIGNING_FILE` 指向 PKCS12 文件，`OBC_SIGNING_PASSWORD`
+通过环境变量提供，别名为 `reader`。不配置签名时只能直接安装调试构建。
+
+验收范围和待验证事项见 [Android 验收清单](docs/android-parity.md)。
