@@ -3,6 +3,9 @@ on:
   workflow_dispatch:
   push:
     branches: [android-offline]
+concurrency:
+  group: android-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -34,9 +37,18 @@ jobs:
           python tools/prepare_android_assets.py
       - name: Shared backend tests
         run: python -m unittest discover -v
+      - name: Restore private signing key
+        env:
+          SIGNING_STORE: ${{ secrets.ANDROID_SIGNING_STORE }}
+          SIGNING_PASSWORD: ${{ secrets.ANDROID_SIGNING_PASSWORD }}
+        run: |
+          printf '%s' "$SIGNING_STORE" | base64 --decode > "$RUNNER_TEMP/reader.p12"
+          chmod 600 "$RUNNER_TEMP/reader.p12"
+          echo "OBC_SIGNING_FILE=$RUNNER_TEMP/reader.p12" >> "$GITHUB_ENV"
+          echo "OBC_SIGNING_PASSWORD=$SIGNING_PASSWORD" >> "$GITHUB_ENV"
       - name: Build APK
         working-directory: android
-        run: gradle :app:assembleDebug --stacktrace
+        run: gradle :app:assembleRelease --stacktrace
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
@@ -49,16 +61,17 @@ jobs:
           arch: x86_64
           target: google_apis
           working-directory: android
-          script: |
-            adb shell svc wifi disable
-            adb shell svc data disable
-            gradle :app:connectedDebugAndroidTest --stacktrace
+          script: bash ../tools/test_android_device.sh
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: android-test-results
-          path: android/app/build/reports/androidTests/
+          path: |
+            android/app/build/reports/androidTests/
+            android/app/build/outputs/androidTest-results/
+            android/device-*.log
+            android/device-evidence/
       - uses: actions/upload-artifact@v4
         with:
-          name: obc-reader-debug
-          path: android/app/build/outputs/apk/debug/*.apk
+          name: obc-reader-release
+          path: android/app/build/outputs/apk/release/*.apk
