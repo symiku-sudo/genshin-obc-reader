@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-10-27T13:06:44.341475+00:00",
+  "scope": "观测枢地图文本公开目录，不代表游戏全部零散文本",
+  "listed": 706,
+  "source_pages": 247,
+  "cached": 244,
+  "sections": 781,
+  "review": [],
+  "missing_text": [
+    {
+      "id": "501716",
+      "blocks": 116,
+      "cached": false
+    },
+    {
+      "id": "501740",
+      "blocks": 11,
+      "cached": false
+    },
+    {
+      "id": "6121",
+      "blocks": 121,
+      "cached": false
+    }
+  ],
+  "excluded_dialogue": [],
+  "job": {
+    "id": "c06c30211b0d4ce0967cc5707e85e8d7",
+    "state": "running",
+    "counts": {
+      "pending": 458,
+      "processing": 1,
+      "review": 3,
+      "success": 244
+    }
+  }
+}

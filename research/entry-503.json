@@ -1,0 +1,136 @@
+{
+  "retcode": 0,
+  "data": {
+    "page": {
+      "id": "503",
+      "name": "林间风·故事拔萃节选",
+      "desc": "数百年前的学者们整理记录了蒙德诸多无名游吟诗人的诗篇，将其编纂结集，命名为《林间风》。",
+      "icon_url": "https://act-upload.mihoyo.com/wiki-user-upload/2024/11/15/181950745/f55c6684af1b51b7f21db60100985e8b_621823037164557778.png",
+      "header_img_url": "",
+      "modules": [
+        {
+          "name": "林间风·故事拔萃节选",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "material_base_info",
+              "layout": "",
+              "data": "{\"name\":\"林间风·故事拔萃节选\",\"img\":\"https://act-upload.mihoyo.com/wiki-user-upload/2024/11/15/181950745/f55c6684af1b51b7f21db60100985e8b_4713800881386517682.png\",\"star\":3,\"materials\":{\"key\":\"获得方式\",\"value\":\"<p>蒙德图书馆拾取 或 与<span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1299\\\" data-entry-ratio=\\\"text\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2023/01/29/288180982/0d43950e7e2ab99cf947c7b1656ff53c_879243144181848862.png\\\" data-entry-name=\\\"六指乔瑟【吟游诗人】\\\" data-entry-link=\\\"/ys/obc/content/1299/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1299/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-text\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">六指乔瑟【吟游诗人】</span></span></a></span>对话获得</p>\"},\"attr\":[{\"key\":\"描述\",\"value\":[\"<p>数百年前的学者们整理记录了蒙德诸多无名游吟诗人的诗篇，将其编纂结集，命名为《林间风》。</p>\"]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "129",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "林间风·故事拔萃节选",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p style=\\\"\\\">《林间风》与《湖心风》是两册叙事诗诗集。学者们整理记录了蒙德诸多无名游吟诗人的诗篇，两册正是由此编纂结集而成。</p><p style=\\\"\\\">游吟诗人的歌谣为了赚取听众与摩拉，往往言过其实或者捏造歪曲历史，大部分内容可信度很低。但是瑰丽的想象与才华横溢的修辞，穿越了时间千风，使之流传至今。</p><p style=\\\"\\\">……</p><p style=\\\"\\\">「复白亘古事，诗人起歌喉。」</p><p style=\\\"\\\">「(彼时)众神居尘世，人世几春秋。」</p><p style=\\\"\\\">诗人说完了那片废墟的故事、温妮莎的故事，又开始说起了风龙的故事。他诵道：「我的诉说的故事来自于太古，那时众神还行走人世。」就在那个时候，挟带着风元素的龙在高天诞生了(注释 1)。它缓缓降下，对世间一切充满了好奇。</p><p style=\\\"\\\">他落在村落，却被恐惧的人们扔石头击打。龙听不懂人们的恐惧中说出来的话。他落在墓园，只听到了悲伤的人们嗟叹连绵。龙听不懂人们的悲伤中说出来的话。</p><p style=\\\"\\\">他落在果园，却被失去了果树的愤怒的人们咒骂。龙听不懂人们的愤怒中说出来的话。</p><p style=\\\"\\\">人世间种种太过纷繁复杂。龙迷惑了，但是龙还是想要尝试。</p><p style=\\\"\\\">直到有一日，龙听到了天空之琴的声音。「天空」是里拉琴的名字，也是风之神的伴侣。龙被诗文吸引，落在了天空之下最好的歌者身边。</p><p style=\\\"\\\">人们开始惊慌，因强大的元素之龙和主宰尘世的大神们，向来难以和睦相处。</p><p style=\\\"\\\">「看啊，它多么美丽，多么温柔。」风之歌者说。</p><p style=\\\"\\\">「可是，我们不知道它在想什么啊。」人们说。</p><p style=\\\"\\\">旋律与诗文吸引了龙和人们，这是什么样的魔力呢?龙决定留在歌者身边，因为它也想要万物都能理解它的心。它学会了人的言语，学会了风之歌者的技法。</p><p style=\\\"\\\">……中略…..</p><p style=\\\"\\\">后世都把它视作守护蒙德的四方之风之一。</p><p style=\\\"white-space: pre-wrap; min-height: 1.5em;\\\"> </p><p style=\\\"\\\">「古国黑日落，明珠失其光。</p><p style=\\\"\\\">「黄金失其色，白绸染昏黄。」</p><p style=\\\"\\\">那是发生在地下失落王国坎瑞亚的另外一个故事了。黑日王朝覆灭，灾难突破了古国城墙在大陆上散布开来。被称为「黄金」的炼金士堕落为了罪人，孕育了大量漆黑的魔兽。漆黑的大蛇——恶龙，「杜林」从海上升起，阴影迫近了蒙德。可这个时候，狮牙骑士的传承出现了空缺，西风骑士团的鹰旗无法迎风而扬。</p><p style=\\\"\\\">连绵的嗟怨最终再度唤出了蒙德的神——风之歌者。天空之琴再度拨动，风龙也再度被唤来。</p><p style=\\\"\\\">如今蒙德只剩下风龙可以依靠了。恶龙与风龙便在暴风之中展开了决死的厮杀。</p><p style=\\\"\\\">风龙最后获胜了，他咬住了恶龙的咽喉，却咽下了毒血。恶龙的毒血，正是被歪曲的黄金，让山峦崩塌、大地坏灭的力量。</p><p style=\\\"\\\">风龙守护了蒙德，他以为这样人们就会理解它了吧。于是它陷入了长眠。</p><p style=\\\"\\\">天空之琴奏响了哀伤的曲调。</p><p style=\\\"\\\">天空之琴说，下一次你醒来时，你应该自由。本应该自由在高天飞行的龙，万物终究会理解你的美丽……</p><p style=\\\"white-space: pre-wrap; min-height: 1.5em;\\\"> </p><p style=\\\"\\\"> (注释：元素诞生出的生命，沉积则会变成史莱姆，上升则形成晶蝶；少数会变成危险的元素怪物。龙形的元素生物十分少见，而且强大，可以与昔日魔神匹敌。）</p>\",\"switch\":true,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "130",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        }
+      ],
+      "filter_values": {},
+      "menu_id": "0",
+      "menu_name": "",
+      "version": "1731890301",
+      "langs": [],
+      "template_layout": {
+        "tab": [
+          {
+            "tab_id": "47",
+            "tab_name": "页签1",
+            "module_group": [
+              {
+                "module_group_id": "86",
+                "layout": "l1r1",
+                "module": [
+                  {
+                    "id": "129",
+                    "pos": "banner"
+                  },
+                  {
+                    "id": "130",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "一、",
+                "repeated": true,
+                "parent_group_id": "0"
+              }
+            ]
+          }
+        ]
+      },
+      "edit_lock_status": "Unlock",
+      "correct_lock_status": "Unlock",
+      "menus": [
+        {
+          "id": "68",
+          "name": "书籍",
+          "has_page": false,
+          "style": "",
+          "sub_menus": [],
+          "icon": "",
+          "mi18n_key": "书籍",
+          "is_hidden": false,
+          "parent_id": "189",
+          "template_id": "",
+          "bg_img": "",
+          "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"default\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"书籍类型\\\",\\\"children\\\":[{\\\"label\\\":\\\"童话寓言\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"小说故事\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"民俗传说\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"诗歌哲学\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"学术作品\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"手册指南\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"书信日志\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"获取方式\\\",\\\"children\\\":[{\\\"label\\\":\\\"NPC购买\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"地图探索\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"任务获取\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/189/68?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"\"}]",
+          "updated_at": "-62135596800"
+        }
+      ],
+      "template_id": "670d4a15cfbc5af065f63488",
+      "ext": {
+        "fe_ext": "{\"c_68\":{\"filter\":{\"text\":\"[\\\"书籍类型/诗歌哲学\\\",\\\"获取方式/地图探索\\\"]\"}}}",
+        "post_ext": {
+          "post_id": "",
+          "post_user_name": "",
+          "post_time": "0",
+          "post_avatar_url": "",
+          "url": ""
+        },
+        "server_ext": "",
+        "personalized_color": "",
+        "scrolling_text": "",
+        "corner_mark": "None"
+      },
+      "alias_name": "",
+      "lang": "",
+      "beta": false,
+      "page_type": "Default",
+      "menu_style": "",
+      "status": "Online"
+    }
+  }
+}

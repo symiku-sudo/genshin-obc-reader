@@ -1,0 +1,261 @@
+{
+  "retcode": 0,
+  "data": {
+    "page": {
+      "id": "174",
+      "name": "西风大剑",
+      "desc": "西风大剑",
+      "icon_url": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/47f4b0b6df134120d87325b844a17d49_6273275913237624715.png",
+      "header_img_url": "",
+      "modules": [
+        {
+          "name": "",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "equipment_base_info",
+              "layout": "",
+              "data": "{\"category\":\"双手剑\",\"image\":\"https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/47f4b0b6df134120d87325b844a17d49_6026981933528014168.png\",\"name\":\"西风大剑\",\"star\":4}\n",
+              "style": ""
+            }
+          ],
+          "id": "1187",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "装备描述",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "good_desc",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p><span style=\\\"color: rgb(172, 133, 86)\\\">精炼(1/2/3/4/5)阶</span></p><p><strong><span style=\\\"color: rgb(0, 0, 0)\\\">顺风而行</span><br> <span style=\\\"color: rgb(0, 0, 0)\\\">· 攻击造成暴击时，有(</span><span style=\\\"color: rgb(0, 151, 225)\\\">60%/70%/80%/90%/100%</span><span style=\\\"color: rgb(0, 0, 0)\\\">)的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每(</span><span style=\\\"color: rgb(0, 151, 225)\\\">12/10.5/9/7.5/6</span><span style=\\\"color: rgb(0, 0, 0)\\\">)秒只能触发一次。</span></strong></p><hr><p><span style=\\\"color: rgb(0, 0, 0)\\\">西风骑士团的重型仪式剑。能轻易导出元素力量，具有卓越的破坏力。</span></p>\",\"attr\":[{\"key\":\"冒险等阶限制：\",\"value\":[\"<p>无</p>\"]},{\"key\":\"获取途径：\",\"value\":[\"<p>祈愿</p>\"]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1188",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "成长数值",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "equipment_growth_info",
+              "layout": "",
+              "data": "{\"list\":[{\"attr\":[{\"key\":\"初始基础数值：\",\"value\":[\"<p>基础攻击力: 41</p><p>元素充能效率: 13.3%</p>\"]},{\"key\":\"平均每级提升：\",\"value\":[\"<p>基础攻击力: +3.05</p><p>元素充能效率: +0.54%</p>\"]}],\"materials\":[{\"amount\":3,\"ep_id\":799,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/24/76373921/6d470c1b5ee18858ccdba71d5080362f_5272148400161409919.png\",\"link\":\"/ys/obc/content/799/detail\",\"nickname\":\"狮牙斗士的枷锁\"},{\"amount\":9,\"ep_id\":800,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/24/76373921/d619c076e9e3e2f089dea0be8e07d96d_3356277096177818816.png\",\"link\":\"/ys/obc/content/800/detail\",\"nickname\":\"狮牙斗士的铁链\"},{\"amount\":9,\"ep_id\":801,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/f252fa0afa9b26a7c007d89fc8023a6b_4841560863950010325.png\",\"link\":\"/ys/obc/content/801/detail\",\"nickname\":\"狮牙斗士的镣铐\"},{\"amount\":4,\"ep_id\":802,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/fd1c52fee055bee05121e9e4fe8694a1_4321569712771258299.png\",\"link\":\"/ys/obc/content/802/detail\",\"nickname\":\"狮牙斗士的理想\"},{\"amount\":15,\"ep_id\":907,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/24/76373921/23abf836d43695ea2e1ccde361c16619_1928733333015253082.png\",\"link\":\"/ys/obc/content/907/detail\",\"nickname\":\"混沌装置\"},{\"amount\":18,\"ep_id\":908,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/25fbf43c03fb16d6d95d875015afb280_260608334485857602.png\",\"link\":\"/ys/obc/content/908/detail\",\"nickname\":\"混沌回路\"},{\"amount\":27,\"ep_id\":909,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/9870089f9757707b4e2cf61518d500ff_8723714481289233526.png\",\"link\":\"/ys/obc/content/909/detail\",\"nickname\":\"混沌炉心\"},{\"amount\":10,\"ep_id\":916,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/09/26/6878652/c719117e1d21e7846daecbe5fd31c2d5_175575204698072685.png\",\"link\":\"/ys/obc/content/916/detail\",\"nickname\":\"新兵的徽记\"},{\"amount\":15,\"ep_id\":917,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/0412298535c6c812691668532efac120_5303827913924760833.png\",\"link\":\"/ys/obc/content/917/detail\",\"nickname\":\"士官的徽记\"},{\"amount\":18,\"ep_id\":918,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/83758f8c42808c348c76da0e7706d365_141751813267958561.png\",\"link\":\"/ys/obc/content/918/detail\",\"nickname\":\"尉官的徽记\"},{\"amount\":605,\"ep_id\":1030,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/21/15568211/2e39a9f5b912ec7717a4f77182e8605b_4227205780581648845.png\",\"link\":\"/ys/obc/content/1030/detail\",\"nickname\":\"精锻用魔矿\"},{\"amount\":754265,\"ep_id\":0,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2022/01/26/183046623/ba976c9d2e725a18873d91a2614558a4_853547209390897208.jpg\",\"link\":\"/ys/obc/content/5565/detail?bbs_presentation_style=no_header\",\"nickname\":\"摩拉\"}],\"tab_name\":\"1级\"},{\"attr\":[{\"key\":\"初始基础数值：\",\"value\":[\"<p>基础攻击力（未突破）: 99</p><p>基础攻击力（突破后）: 125</p><p>元素充能效率: 23.6%</p>\"]},{\"key\":\"平均每级提升：\",\"value\":[\"<p>基础攻击力: +2.95</p><p>元素充能效率: +0.54%</p>\"]}],\"materials\":[{\"amount\":3,\"ep_id\":799,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/24/76373921/6d470c1b5ee18858ccdba71d5080362f_5272148400161409919.png\",\"link\":\"/ys/obc/content/799/detail\",\"nickname\":\"狮牙斗士的枷锁\"},{\"amount\":3,\"ep_id\":907,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/24/76373921/23abf836d43695ea2e1ccde361c16619_1928733333015253082.png\",\"link\":\"/ys/obc/content/907/detail\",\"nickname\":\"混沌装置\"},{\"amount\":2,\"ep_id\":916,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/09/26/6878652/c719117e1d21e7846daecbe5fd31c2d5_175575204698072685.png\",\"link\":\"/ys/obc/content/916/detail\",\"nickname\":\"新兵的徽记\"}],\"tab_name\":\"20级\"},{\"attr\":[{\"key\":\"初始基础数值：\",\"value\":[\"<p>基础攻击力（未突破）: 184</p><p>基础攻击力（突破后）: 210</p><p>元素充能效率: 34.3%</p>\"]},{\"key\":\"平均每级提升：\",\"value\":[\"<p>基础攻击力: +2.80</p><p>元素充能效率: +0.54%</p>\"]}],\"materials\":[{\"amount\":3,\"ep_id\":800,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/24/76373921/d619c076e9e3e2f089dea0be8e07d96d_3356277096177818816.png\",\"link\":\"/ys/obc/content/800/detail\",\"nickname\":\"狮牙斗士的铁链\"},{\"amount\":12,\"ep_id\":907,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/24/76373921/23abf836d43695ea2e1ccde361c16619_4461046680422730170.png\",\"link\":\"/ys/obc/content/907/detail\",\"nickname\":\"混沌装置\"},{\"amount\":8,\"ep_id\":916,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/09/26/6878652/c719117e1d21e7846daecbe5fd31c2d5_8726677238409043381.png\",\"link\":\"/ys/obc/content/916/detail\",\"nickname\":\"新兵的徽记\"}],\"tab_name\":\"40级\"},{\"attr\":[{\"key\":\"初始基础数值：\",\"value\":[\"<p>基础攻击力（未突破）: 238</p><p>基础攻击力（突破后）: 264</p><p>元素充能效率: 39.7%</p>\"]},{\"key\":\"平均每级提升：\",\"value\":[\"<p>基础攻击力: +2.90</p><p>元素充能效率: +0.54%</p>\"]}],\"materials\":[{\"amount\":6,\"ep_id\":800,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/d619c076e9e3e2f089dea0be8e07d96d_3794688266276725416.png\",\"link\":\"/ys/obc/content/800/detail\",\"nickname\":\"狮牙斗士的铁链\"},{\"amount\":6,\"ep_id\":908,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/25fbf43c03fb16d6d95d875015afb280_260608334485857602.png\",\"link\":\"/ys/obc/content/908/detail\",\"nickname\":\"混沌回路\"},{\"amount\":6,\"ep_id\":917,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/0412298535c6c812691668532efac120_5303827913924760833.png\",\"link\":\"/ys/obc/content/917/detail\",\"nickname\":\"士官的徽记\"}],\"tab_name\":\"50级\"},{\"attr\":[{\"key\":\"初始基础数值：\",\"value\":[\"<p>基础攻击力（未突破）: 293</p><p>基础攻击力（突破后）: 319</p><p>元素充能效率: 45.1%</p>\"]},{\"key\":\"平均每级提升：\",\"value\":[\"<p>基础攻击力: +2.80</p><p>元素充能效率: +0.54%</p>\"]}],\"materials\":[{\"amount\":3,\"ep_id\":801,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/f252fa0afa9b26a7c007d89fc8023a6b_4841560863950010325.png\",\"link\":\"/ys/obc/content/801/detail\",\"nickname\":\"狮牙斗士的镣铐\"},{\"amount\":12,\"ep_id\":908,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/25fbf43c03fb16d6d95d875015afb280_6099951092914115566.png\",\"link\":\"/ys/obc/content/908/detail\",\"nickname\":\"混沌回路\"},{\"amount\":9,\"ep_id\":917,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/0412298535c6c812691668532efac120_2046349344569372075.png\",\"link\":\"/ys/obc/content/917/detail\",\"nickname\":\"士官的徽记\"}],\"tab_name\":\"60级\"},{\"attr\":[{\"key\":\"初始基础数值：\",\"value\":[\"<p>基础攻击力（未突破）: 347</p><p>基础攻击力（突破后）: 373</p><p>元素充能效率: 50.5%</p>\"]},{\"key\":\"平均每级提升：\",\"value\":[\"<p>基础攻击力: +2.80</p><p>元素充能效率: +0.54%</p>\"]}],\"materials\":[{\"amount\":6,\"ep_id\":801,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/f252fa0afa9b26a7c007d89fc8023a6b_1066068242633471141.png\",\"link\":\"/ys/obc/content/801/detail\",\"nickname\":\"狮牙斗士的镣铐\"},{\"amount\":9,\"ep_id\":909,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/9870089f9757707b4e2cf61518d500ff_8723714481289233526.png\",\"link\":\"/ys/obc/content/909/detail\",\"nickname\":\"混沌炉心\"},{\"amount\":6,\"ep_id\":918,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/83758f8c42808c348c76da0e7706d365_141751813267958561.png\",\"link\":\"/ys/obc/content/918/detail\",\"nickname\":\"尉官的徽记\"}],\"tab_name\":\"70级\"},{\"attr\":[{\"key\":\"初始基础数值：\",\"value\":[\"<p>基础攻击力（未突破）: 401</p><p>基础攻击力（突破后）: 427</p><p>元素充能效率: 55.9%</p>\"]},{\"key\":\"平均每级提升：\",\"value\":[\"<p>基础攻击力: +2.70</p><p>元素充能效率: +0.54%</p>\"]}],\"materials\":[{\"amount\":4,\"ep_id\":802,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/fd1c52fee055bee05121e9e4fe8694a1_4321569712771258299.png\",\"link\":\"/ys/obc/content/802/detail\",\"nickname\":\"狮牙斗士的理想\"},{\"amount\":18,\"ep_id\":909,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/9870089f9757707b4e2cf61518d500ff_1320037201164850607.png\",\"link\":\"/ys/obc/content/909/detail\",\"nickname\":\"混沌炉心\"},{\"amount\":12,\"ep_id\":918,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/01/75833613/83758f8c42808c348c76da0e7706d365_4693042939367879690.png\",\"link\":\"/ys/obc/content/918/detail\",\"nickname\":\"尉官的徽记\"}],\"tab_name\":\"80级\"},{\"attr\":[{\"key\":\"初始基础数值：\",\"value\":[\"<p>基础攻击力: 454</p><p>元素充能效率: 61.3%</p>\"]},{\"key\":\"平均每级提升：\",\"value\":[\"<p></p>\"]}],\"materials\":[],\"tab_name\":\"90级\"}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1189",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "相关故事",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p><span style=\\\"color: rgb(0, 0, 0)\\\">西风骑士团的重型仪式剑，通常需要经过团长和教会的双重通过才能获批配发。</span></p><p><span style=\\\"color: rgb(0, 0, 0)\\\">通过解析蒙德远古的圣遗物，蒙德的工匠学者在元素亲和的道路上取得了成果。</span></p><p><span style=\\\"color: rgb(0, 0, 0)\\\">这把厚重的大剑因此不但是西风骑士的殊荣，也是蒙德卫士勤奋和技术的结晶。</span></p><p><span style=\\\"color: rgb(0, 0, 0)\\\">通过它能轻易导出元素力量。谨记，破坏是为了守护必须守护的。</span></p><p><span style=\\\"color: rgb(0, 0, 0)\\\">虽然如今流传下来的，幼狼鲁斯坦创立的西风剑术，是以单手持握的长剑施展，</span></p><p><span style=\\\"color: rgb(0, 0, 0)\\\">但这剑术仍有失传的另一脉，即是光之狮艾伦德林同时使用长剑与大剑的战舞。</span></p><p><span style=\\\"color: rgb(0, 0, 0)\\\">因为对力量的要求过高，仅有天资极强者才可以施展。因此传承的脉络断绝了。</span></p><p><span style=\\\"color: rgb(0, 0, 0)\\\">艾伦德林与鲁斯坦是自幼一同长大的玩伴，分别出生自正统的骑士家族与佃户。</span></p><p><span style=\\\"color: rgb(0, 0, 0)\\\">成为英雄的梦想让他们成为了朋友，之后则是同僚，最后分别成为团长与副手。</span></p><p><span style=\\\"color: rgb(0, 0, 0)\\\">作为大团长，艾伦德林未曾获授神之眼。他的力量来自天资与极为刻苦的训练。</span></p><p><span style=\\\"color: rgb(0, 0, 0)\\\">他为自己的力量感到骄傲。整个骑士团乃至整个蒙德也为这样的团长感到骄傲。</span></p><p><span style=\\\"color: rgb(0, 0, 0)\\\">在鲁斯坦殒命后，艾伦德林不再展示自己的力量，不再以挑战凶暴魔兽为荣耀。</span></p><p></p>\",\"switch\":false,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1190",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "推荐角色",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "multi_table",
+              "layout": "",
+              "data": "{\"tables\":[{\"tab_name\":\"角色\",\"header\":[\"角色名称\",\"描述\"],\"row\":[[\"<p>大多数辅助型双手剑角色</p>\",\"<p>该武器特效可提供额外能量微粒，缓解全队充能压力，适合绝大多数辅助型角色使用。</p><p>使用时需要注意堆叠暴击率以保证武器特效的触发概率。</p>\"]]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1191",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "装备展示",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "map_desc",
+              "layout": "",
+              "data": "{\"list\":[{\"tab_name\":\"突破前\",\"image\":\"https://act-upload.mihoyo.com/wiki-user-upload/2024/09/04/72548016/dd6581e5ecc199d1f24463f955c3fe3c_6615616807799316547.gif\"},{\"tab_name\":\"突破后\",\"image\":\"https://act-upload.mihoyo.com/wiki-user-upload/2024/09/04/72548016/4baab5ab2a084cb2ddd62ef05f53fb9b_2679684901007442933.gif\"}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "6013",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        }
+      ],
+      "filter_values": {},
+      "menu_id": "0",
+      "menu_name": "",
+      "version": "1758162561",
+      "langs": [],
+      "template_layout": {
+        "tab": [
+          {
+            "tab_id": "65",
+            "tab_name": "页签1",
+            "module_group": [
+              {
+                "module_group_id": "680",
+                "layout": "l1r2",
+                "module": [
+                  {
+                    "id": "1187",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1188",
+                    "pos": "right"
+                  },
+                  {
+                    "id": "1189",
+                    "pos": "right"
+                  },
+                  {
+                    "id": "6013",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1190",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "",
+                "repeated": false,
+                "parent_group_id": "0"
+              },
+              {
+                "module_group_id": "681",
+                "layout": "l1r1",
+                "module": [
+                  {
+                    "id": "1191",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "",
+                "repeated": false,
+                "parent_group_id": "0"
+              }
+            ]
+          }
+        ]
+      },
+      "edit_lock_status": "Unlock",
+      "correct_lock_status": "Unlock",
+      "menus": [
+        {
+          "id": "5",
+          "name": "武器",
+          "has_page": false,
+          "style": "",
+          "sub_menus": [],
+          "icon": "",
+          "mi18n_key": "武器",
+          "is_hidden": false,
+          "parent_id": "189",
+          "template_id": "",
+          "bg_img": "",
+          "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"collectionAvatar\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"武器星级\\\",\\\"children\\\":[{\\\"label\\\":\\\"五星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"四星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"三星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"二星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"一星\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"武器类型\\\",\\\"children\\\":[{\\\"label\\\":\\\"单手剑\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"双手剑\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"弓\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"长柄武器\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"法器\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"属性加成\\\",\\\"children\\\":[{\\\"label\\\":\\\"攻击力\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"物理伤害加成\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"防御力\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"暴击率\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"暴击伤害\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素精通\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素充能效率\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"生命值\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"移动速度\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"攻击速度\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"护盾强效\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素伤害\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"获取途径\\\",\\\"children\\\":[{\\\"label\\\":\\\"祈愿\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"宝箱\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"初始武器\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"商城兑换\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"商店\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"锻造\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"珍珠纪行\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"活动\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"其他\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/189/5?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"\"}]",
+          "updated_at": "-62135596800"
+        }
+      ],
+      "template_id": "66d8899ceb210fc7db310610",
+      "ext": {
+        "fe_ext": "{\"c_5\":{\"filter\":{\"text\":\"[\\\"武器类型/双手剑\\\",\\\"武器星级/四星\\\",\\\"属性加成/元素充能效率\\\",\\\"获取途径/祈愿\\\"]\"}}}",
+        "post_ext": {
+          "post_id": "",
+          "post_user_name": "",
+          "post_time": "0",
+          "post_avatar_url": "",
+          "url": ""
+        },
+        "server_ext": "",
+        "personalized_color": "",
+        "scrolling_text": "",
+        "corner_mark": "None"
+      },
+      "alias_name": "",
+      "lang": "",
+      "beta": false,
+      "page_type": "Default",
+      "menu_style": "",
+      "status": "Online"
+    }
+  }
+}

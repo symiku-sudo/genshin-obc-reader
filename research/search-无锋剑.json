@@ -1,0 +1,99 @@
+{
+  "retcode": 0,
+  "message": "OK",
+  "data": {
+    "list": [
+      {
+        "entry_page_id": "127",
+        "name": "<em>无</em><em>锋</em><em>剑</em>",
+        "icon_url": "https://act-upload.mihoyo.com/wiki-user-upload/2024/02/21/82503813/324f8876dccb8fc6214d9b8b08c664b5_1958739235608357610.png",
+        "menu": null,
+        "hit": null,
+        "menus": [
+          {
+            "id": "5",
+            "name": "武器",
+            "has_page": false,
+            "style": "",
+            "sub_menus": [],
+            "icon": "",
+            "mi18n_key": "武器",
+            "is_hidden": false,
+            "parent_id": "189",
+            "template_id": "",
+            "bg_img": "",
+            "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"collectionAvatar\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"武器星级\\\",\\\"children\\\":[{\\\"label\\\":\\\"五星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"四星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"三星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"二星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"一星\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"武器类型\\\",\\\"children\\\":[{\\\"label\\\":\\\"单手剑\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"双手剑\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"弓\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"长柄武器\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"法器\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"属性加成\\\",\\\"children\\\":[{\\\"label\\\":\\\"攻击力\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"物理伤害加成\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"防御力\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"暴击率\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"暴击伤害\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素精通\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素充能效率\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"生命值\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"移动速度\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"攻击速度\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"护盾强效\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素伤害\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"获取途径\\\",\\\"children\\\":[{\\\"label\\\":\\\"祈愿\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"宝箱\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"初始武器\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"商城兑换\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"商店\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"锻造\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"珍珠纪行\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"活动\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"其他\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/189/5?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"\"}]",
+            "updated_at": "-62135596800"
+          }
+        ],
+        "desc": "",
+        "body": "<em>无锋剑</em> 单手剑 少年人的梦想，踏上旅途的兴奋——如果这两种珍贵的品质还不够锋利，那就用勇气补足吧。",
+        "menu_enum": "Default",
+        "ext": "",
+        "bbs_url": "",
+        "alias_name": ""
+      },
+      {
+        "entry_page_id": "1288",
+        "name": "<em>无</em>工之<em>剑</em>",
+        "icon_url": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/8ea8b899451d15af21dd13ace70a381f_9158827088868298445.png",
+        "menu": null,
+        "hit": null,
+        "menus": [
+          {
+            "id": "5",
+            "name": "武器",
+            "has_page": false,
+            "style": "",
+            "sub_menus": [],
+            "icon": "",
+            "mi18n_key": "武器",
+            "is_hidden": false,
+            "parent_id": "189",
+            "template_id": "",
+            "bg_img": "",
+            "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"collectionAvatar\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"武器星级\\\",\\\"children\\\":[{\\\"label\\\":\\\"五星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"四星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"三星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"二星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"一星\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"武器类型\\\",\\\"children\\\":[{\\\"label\\\":\\\"单手剑\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"双手剑\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"弓\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"长柄武器\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"法器\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"属性加成\\\",\\\"children\\\":[{\\\"label\\\":\\\"攻击力\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"物理伤害加成\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"防御力\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"暴击率\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"暴击伤害\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素精通\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素充能效率\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"生命值\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"移动速度\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"攻击速度\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"护盾强效\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素伤害\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"获取途径\\\",\\\"children\\\":[{\\\"label\\\":\\\"祈愿\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"宝箱\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"初始武器\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"商城兑换\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"商店\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"锻造\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"珍珠纪行\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"活动\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"其他\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/189/5?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"\"}]",
+            "updated_at": "-62135596800"
+          }
+        ],
+        "desc": "",
+        "body": "能靖祛妖魔奸佞，仿佛有神威的<em>无锋</em>大剑。",
+        "menu_enum": "Default",
+        "ext": "",
+        "bbs_url": "",
+        "alias_name": ""
+      },
+      {
+        "entry_page_id": "1044",
+        "name": "舒茨【铁匠学徒】",
+        "icon_url": "https://uploadstatic.mihoyo.com/ys-obc/2023/01/17/288180982/f64e155600a2b27b2cbf3012ff068392_8582306960783602903.png",
+        "menu": null,
+        "hit": null,
+        "menus": [
+          {
+            "id": "20",
+            "name": "NPC&商店",
+            "has_page": false,
+            "style": "",
+            "sub_menus": [],
+            "icon": "",
+            "mi18n_key": "NPC&商店",
+            "is_hidden": false,
+            "parent_id": "189",
+            "template_id": "",
+            "bg_img": "",
+            "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"avatar\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"地区\\\",\\\"children\\\":[{\\\"label\\\":\\\"蒙德\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"璃月\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"稻妻\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"须弥\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"枫丹\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"纳塔\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"挪德卡莱\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"至冬\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"活动地区\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"洞天\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"类型\\\",\\\"children\\\":[{\\\"label\\\":\\\"活动\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"商人\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"其他\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"任务\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"牌手挑战\\\",\\\"children\\\":[{\\\"label\\\":\\\"有\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"对话奖励\\\",\\\"children\\\":[{\\\"label\\\":\\\"有\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"特殊效果\\\",\\\"children\\\":[{\\\"label\\\":\\\"心声\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"秘闻馆情报\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/189/20?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"0\"}]",
+            "updated_at": "-62135596800"
+          }
+        ],
+        "desc": "",
+        "body": "编者注： 卖一星武器的铁匠学徒 性别 男 位置 蒙德城 功能 商店 职业 铁匠学徒 截图 位置 【商品名称】 【商品种类】 价格【摩拉】 【限购】 <em>无锋剑</em> 武器 300 1（每日） 训练大剑 300",
+        "menu_enum": "Default",
+        "ext": "",
+        "bbs_url": "",
+        "alias_name": ""
+      }
+    ],
+    "total": 0
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "retcode": 0,
+  "message": "OK",
+  "data": {
+    "page": {
+      "id": "103",
+      "name": "甜甜花酿鸡",
+      "desc": " 甜甜花酿鸡介绍\n罗莎莉亚特色料理：审判的晚宴",
+      "icon_url": "https://act-upload.mihoyo.com/wiki-user-upload/2023/09/26/24077343/5a839a66fdddb522d9612386b75255cb_368187993595514715.png",
+      "header_img_url": "",
+      "modules": [
+        {
+          "name": "",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "material_base_info",
+              "layout": "",
+              "data": "{\"name\":\"奇怪的甜甜花酿鸡\",\"img\":\"https://act-upload.mihoyo.com/wiki-user-upload/2023/09/26/24077343/e4f4263c2d8c0d19608eb88c4f6ffa59_4551109472004327416.png\",\"star\":2,\"materials\":{\"key\":\"加工材料\",\"value\":\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"784\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/ys-obc/2023/10/08/24077343/8f33d41eadcd12b1e00b53a9196c9163_2237734340651292985.png\\\" data-entry-name=\\\"禽肉\\\" data-entry-amount=\\\"2\\\" data-entry-link=\\\"/ys/obc/content/784/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/784/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/ys-obc/2023/10/08/24077343/8f33d41eadcd12b1e00b53a9196c9163_2237734340651292985.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">禽肉</span></span><span class=\\\"amount\\\">*2</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"763\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/ys-obc/2023/12/13/24077343/965ee7b15bbc31e1a8223d522e57b546_2973791949815065954.png\\\" data-entry-name=\\\"甜甜花\\\" data-entry-amount=\\\"2\\\" data-entry-link=\\\"/ys/obc/content/763/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/763/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/ys-obc/2023/12/13/24077343/965ee7b15bbc31e1a8223d522e57b546_2973791949815065954.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">甜甜花</span></span><span class=\\\"amount\\\">*2</span></a></span></p>\"},\"attr\":[{\"key\":\"描述\",\"value\":[\"<p>蜜酿后烤熟的禽肉。甜甜花在过度的烤制下凋谢了，只留下了禽肉柴苦的口感。</p>\"]},{\"key\":\"使用效果\",\"value\":[\"<p>为选中的角色恢复生命值上限的20% ，并额外恢复900点生命值。</p>\"]},{\"key\":\"获得方式\",\"value\":[\"<p>完成烹饪甜甜花酿鸡</p>\"]},{\"key\":\"食谱获得\",\"value\":[\"<p>玩家自带</p>\"]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "128",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "material_base_info",
+              "layout": "",
+              "data": "{\"name\":\"甜甜花酿鸡\",\"img\":\"https://act-upload.mihoyo.com/wiki-user-upload/2023/09/26/24077343/5a839a66fdddb522d9612386b75255cb_1589490301901799094.png\",\"star\":2,\"materials\":{\"key\":\"加工材料\",\"value\":\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"784\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/ys-obc/2023/10/08/24077343/8f33d41eadcd12b1e00b53a9196c9163_2237734340651292985.png\\\" data-entry-name=\\\"禽肉\\\" data-entry-amount=\\\"2\\\" data-entry-link=\\\"/ys/obc/content/784/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/784/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/ys-obc/2023/10/08/24077343/8f33d41eadcd12b1e00b53a9196c9163_2237734340651292985.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">禽肉</span></span><span class=\\\"amount\\\">*2</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"763\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/ys-obc/2023/12/13/24077343/965ee7b15bbc31e1a8223d522e57b546_2973791949815065954.png\\\" data-entry-name=\\\"甜甜花\\\" data-entry-amount=\\\"2\\\" data-entry-link=\\\"/ys/obc/content/763/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/763/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/ys-obc/2023/12/13/24077343/965ee7b15bbc31e1a8223d522e57b546_2973791949815065954.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">甜甜花</span></span><span class=\\\"amount\\\">*2</span></a></span></p>\"},\"attr\":[{\"key\":\"描述\",\"value\":[\"<p>蜜酿后烤熟的禽肉。细嫩的禽肉里渗着甜甜花的丝丝蜜汁，香甜可口。</p>\"]},{\"key\":\"使用效果\",\"value\":[\"<p>为选中的角色恢复生命值上限的22% ，并额外恢复1200点生命值。</p>\"]},{\"key\":\"获得方式\",\"value\":[\"<p>成功烹饪甜甜花酿鸡</p>\"]},{\"key\":\"食谱获得\",\"value\":[\"<p>玩家自带</p>\"]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "155",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "128",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "material_base_info",
+              "layout": "",
+              "data": "{\"name\":\"美味的甜甜花酿鸡\",\"img\":\"https://act-upload.mihoyo.com/wiki-user-upload/2023/09/26/24077343/d5b98edc51b4273a3516612f43adb764_3639569170123070271.png\",\"star\":2,\"materials\":{\"key\":\"加工材料\",\"value\":\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"784\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/ys-obc/2023/10/08/24077343/8f33d41eadcd12b1e00b53a9196c9163_2237734340651292985.png\\\" data-entry-name=\\\"禽肉\\\" data-entry-amount=\\\"2\\\" data-entry-link=\\\"/ys/obc/content/784/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/784/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/ys-obc/2023/10/08/24077343/8f33d41eadcd12b1e00b53a9196c9163_2237734340651292985.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">禽肉</span></span><span class=\\\"amount\\\">*2</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"763\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/ys-obc/2023/12/13/24077343/965ee7b15bbc31e1a8223d522e57b546_2973791949815065954.png\\\" data-entry-name=\\\"甜甜花\\\" data-entry-amount=\\\"2\\\" data-entry-link=\\\"/ys/obc/content/763/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/763/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/ys-obc/2023/12/13/24077343/965ee7b15bbc31e1a8223d522e57b546_2973791949815065954.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">甜甜花</span></span><span class=\\\"amount\\\">*2</span></a></span></p>\"},\"attr\":[{\"key\":\"描述\",\"value\":[\"<p>蜜酿后烤熟的禽肉。肉质如同流蜜一般香甜软糯，叫人想把每一根骨头都吸食干净。</p>\"]},{\"key\":\"使用效果\",\"value\":[\"<p>为选中的角色恢复生命值上限的24% ，并额外恢复1500点生命值。</p>\"]},{\"key\":\"获得方式\",\"value\":[\"<p>完美烹饪甜甜花酿鸡</p>\"]},{\"key\":\"食谱获得\",\"value\":[\"<p>玩家自带</p>\"]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "156",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "128",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "material_base_info",
+              "layout": "",
+              "data": "{\"name\":\"审判的晚宴\",\"img\":\"https://act-upload.mihoyo.com/wiki-user-upload/2023/09/26/24077343/3c347daeb8f74ec03bfb787072e3b0d3_7183675754355385751.png\",\"star\":2,\"materials\":{\"key\":\"加工材料\",\"value\":\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"784\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/ys-obc/2023/10/08/24077343/8f33d41eadcd12b1e00b53a9196c9163_2237734340651292985.png\\\" data-entry-name=\\\"禽肉\\\" data-entry-amount=\\\"2\\\" data-entry-link=\\\"/ys/obc/content/784/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/784/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/ys-obc/2023/10/08/24077343/8f33d41eadcd12b1e00b53a9196c9163_2237734340651292985.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">禽肉</span></span><span class=\\\"amount\\\">*2</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"763\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/ys-obc/2023/12/13/24077343/965ee7b15bbc31e1a8223d522e57b546_2973791949815065954.png\\\" data-entry-name=\\\"甜甜花\\\" data-entry-amount=\\\"2\\\" data-entry-link=\\\"/ys/obc/content/763/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/763/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/ys-obc/2023/12/13/24077343/965ee7b15bbc31e1a8223d522e57b546_2973791949815065954.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">甜甜花</span></span><span class=\\\"amount\\\">*2</span></a></span></p>\"},\"attr\":[{\"key\":\"描述\",\"value\":[\"<p>罗莎莉亚的特色料理。看似「黑暗」的荆棘让人不知从何下手，经过一番折腾去除装饰，试着品尝时，香嫩的鸡肉竟然爆发出了惊人的美味。你的神情尽数落在罗莎莉亚眼里，她似乎对你的反应很满意。</p>\"]},{\"key\":\"使用效果\",\"value\":[\"<p>为选中的角色恢复生命值上限的30% ，并额外恢复1750点生命值。</p>\"]},{\"key\":\"获得方式\",\"value\":[\"<p>使用角色罗莎莉亚烹饪甜甜花酿鸡</p>\"]},{\"key\":\"食谱获得\",\"value\":[\"<p>玩家自带</p>\"]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "157",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "128",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        }
+      ],
+      "filter_values": {},
+      "menu_id": "0",
+      "menu_name": "",
+      "version": "1772176256",
+      "langs": [],
+      "template_layout": {
+        "tab": [
+          {
+            "tab_id": "46",
+            "tab_name": "页签1",
+            "module_group": [
+              {
+                "module_group_id": "85",
+                "layout": "l1r1",
+                "module": [
+                  {
+                    "id": "128",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "",
+                "repeated": true,
+                "parent_group_id": "0"
+              },
+              {
+                "module_group_id": "100",
+                "layout": "l1r1",
+                "module": [
+                  {
+                    "id": "155",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "",
+                "repeated": true,
+                "parent_group_id": "85"
+              },
+              {
+                "module_group_id": "101",
+                "layout": "l1r1",
+                "module": [
+                  {
+                    "id": "156",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "",
+                "repeated": true,
+                "parent_group_id": "85"
+              },
+              {
+                "module_group_id": "102",
+                "layout": "l1r1",
+                "module": [
+                  {
+                    "id": "157",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "",
+                "repeated": true,
+                "parent_group_id": "85"
+              }
+            ]
+          }
+        ]
+      },
+      "edit_lock_status": "Unlock",
+      "correct_lock_status": "Unlock",
+      "menus": [
+        {
+          "id": "21",
+          "name": "食物",
+          "has_page": false,
+          "style": "",
+          "sub_menus": [],
+          "icon": "",
+          "mi18n_key": "食物",
+          "is_hidden": false,
+          "parent_id": "189",
+          "template_id": "",
+          "bg_img": "",
+          "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"monsterImage\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"食物类型\\\",\\\"children\\\":[{\\\"label\\\":\\\"回复类\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"复活类\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"体力类\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"攻击类\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"防御类\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"暴击类\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"生命上限\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"治疗加成\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"合成药剂\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"特殊食物\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"食物星级\\\",\\\"children\\\":[{\\\"label\\\":\\\"其他\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"一星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"二星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"三星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"四星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"五星\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"食物获取方式\\\",\\\"children\\\":[{\\\"label\\\":\\\"NPC购买\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"任务获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"宝箱获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"其他\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"是否产出特殊料理\\\",\\\"children\\\":[{\\\"label\\\":\\\"是\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"否\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/189/21?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"0\"}]",
+          "updated_at": "-62135596800"
+        }
+      ],
+      "template_id": "64f967d89cb58888d94ed202",
+      "ext": {
+        "fe_ext": "{\"c_21\":{\"filter\":{\"text\":\"[\\\"食物类型/回复类\\\",\\\"食物星级/二星\\\",\\\"食物获取方式/其他\\\",\\\"是否产出特殊料理/是\\\"]\"},\"picture\":{\"allow_file_type\":[\"jpeg\",\"png\",\"gif\"],\"list\":[\"https://act-upload.mihoyo.com/wiki-user-upload/2023/09/26/24077343/8f33d41eadcd12b1e00b53a9196c9163_897591204024294635.png\",\"https://act-upload.mihoyo.com/wiki-user-upload/2023/09/26/24077343/965ee7b15bbc31e1a8223d522e57b546_9053856638145625503.png\"],\"max_file_size\":10,\"picture_num\":5}}}",
+        "post_ext": {
+          "post_id": "",
+          "post_user_name": "",
+          "post_time": "0",
+          "post_avatar_url": "",
+          "url": ""
+        },
+        "server_ext": "",
+        "personalized_color": "",
+        "scrolling_text": "",
+        "corner_mark": "None"
+      },
+      "alias_name": "",
+      "lang": "",
+      "beta": false,
+      "page_type": "Default",
+      "menu_style": "",
+      "status": "Online"
+    }
+  }
+}

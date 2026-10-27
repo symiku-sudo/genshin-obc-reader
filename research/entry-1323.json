@@ -1,0 +1,1129 @@
+{
+  "retcode": 0,
+  "data": {
+    "page": {
+      "id": "1323",
+      "name": "幼狮之章 第一幕「骑士团长的一日假期」",
+      "desc": "传说任务",
+      "icon_url": "https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png",
+      "header_img_url": "",
+      "modules": [
+        {
+          "name": "西风吹拂的日常",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "base_info",
+              "layout": "",
+              "data": "{\"list\":[{\"key\":\"触发条件\",\"value\":[\"接取琴传说任务\"]},{\"key\":\"等级限制\",\"value\":[\"冒险等阶达到34级\"]},{\"key\":\"特殊限制\",\"value\":[\"完成序章 第三幕 「巨龙与自由之歌」\"]}]}",
+              "style": ""
+            }
+          ],
+          "id": "1367",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "任务概述",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "rich_base_info",
+              "layout": "",
+              "data": "{\"list\":[{\"key\":\"前置任务\",\"value\":[\"<p>无</p>\"]},{\"key\":\"起始NPC\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"213\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2021/12/16/72954525/39249086ac775b619a9dae1c9e00f877_1373851255962577767.png\\\" data-entry-name=\\\"莎拉【「猎鹿人」侍应生】\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/213/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/213/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2021/12/16/72954525/39249086ac775b619a9dae1c9e00f877_1373851255962577767.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">莎拉【「猎鹿人」侍应生】</span></span></a></span></p><p>蒙德城内</p>\"]},{\"key\":\"结束NPC\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"76\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2021/08/23/75276545/60d8b985eef1e6e0e959410893a75dc0_6659933186171988912.png\\\" data-entry-name=\\\"凯亚\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/76/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/76/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2021/08/23/75276545/60d8b985eef1e6e0e959410893a75dc0_6659933186171988912.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">凯亚</span></span></a></span></p><p>西风骑士团门口</p>\"]},{\"key\":\"后续任务\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1323\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\" data-entry-name=\\\"幼狮之章 第一幕「骑士团长的一日假期」\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">幼狮之章 第一幕「骑士团长的一日假期」</span></span></a></span></p>\"]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1368",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "任务过程",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p>琴作为西风骑士团的代理团长，工作一直十分忙碌。今天又有接二连三的委托，需要琴去处理…</p><p>➢与「猎鹿人」的莎拉小姐对话，了解她的烦恼</p><p>➢与莎拉对话</p><p>➢与查尔斯对话</p><p>➢向琴传达居民的委托</p><p>➢与琴对话</p><p>➢向芭芭拉询问琴的情况</p><p>➢回到骑士团</p>\",\"switch\":false,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1369",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "任务奖励",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2023/12/24/81460104/6ee632dc08f8146408597e4b9001fa98_5405437258085303305.png\\\" data-entry-name=\\\"冒险阅历\\\" data-entry-amount=\\\"425\\\" data-entry-link=\\\"无\\\"><a href=\\\"%E6%97%A0\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2023/12/24/81460104/6ee632dc08f8146408597e4b9001fa98_5405437258085303305.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">冒险阅历</span></span><span class=\\\"amount\\\">*425</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"5565\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/12/08/160182379/605f7e564ce17decc9e09508567776ce_5737054899684571258.jpg\\\" data-entry-name=\\\"摩拉\\\" data-entry-amount=\\\"25450\\\" data-entry-link=\\\"/ys/obc/content/5565/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\" data-updated=\\\"1\\\"><a href=\\\"/ys/obc/content/5565/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/12/08/160182379/605f7e564ce17decc9e09508567776ce_5737054899684571258.jpg\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">摩拉</span></span><span class=\\\"amount\\\">*25450</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1025\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/20/15568211/d50fb37e3954b2b7105c61cf8f442c6e_7679619291811796065.png\\\" data-entry-name=\\\"大英雄的经验\\\" data-entry-amount=\\\"3\\\" data-entry-link=\\\"/ys/obc/content/1025/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1025/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/20/15568211/d50fb37e3954b2b7105c61cf8f442c6e_7679619291811796065.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">大英雄的经验</span></span><span class=\\\"amount\\\">*3</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1030\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/21/15568211/2e39a9f5b912ec7717a4f77182e8605b_4227205780581648845.png\\\" data-entry-name=\\\"精锻用魔矿\\\" data-entry-amount=\\\"5\\\" data-entry-link=\\\"/ys/obc/content/1030/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1030/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/21/15568211/2e39a9f5b912ec7717a4f77182e8605b_4227205780581648845.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">精锻用魔矿</span></span><span class=\\\"amount\\\">*5</span></a></span></p>\",\"switch\":false,\"is_show_switch\":false,\"without_border\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1370",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "地图说明",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "map_desc",
+              "layout": "",
+              "data": "{\"list\":[{\"tab_name\":\"任务开始位置\",\"image\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/12/16/76078930/e49f6ee149e3fec1c8e333ff9b70340f_7894598045200653888.png\"},{\"tab_name\":\"任务结束位置\",\"image\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/12/16/76078930/9506d03a294a35b9164e5bfd6a5daa65_1585383416869826164.png\"}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1371",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "剧情对话",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p>莎拉：“咦？是你们啊，这边这边！”</p><p>派蒙：“是「猎鹿人」的莎拉小姐！”</p><p>莎拉：“终于等到你们了。”</p><p>旅行者：“有什么事吗，莎拉小姐？”＆“抱歉，刚刚已经吃过饭了。”</p><p>（有什么事吗，莎拉小姐？）</p><p>莎拉：“我要委托骑士团一些事，想要麻烦你们带话给代理团长。”</p><p>派蒙：“原来是要找琴呀。”</p><p>莎拉：“嗯？你们和琴团长很熟吗？”</p><p>旅行者：“是互相信赖的伙伴。”＆“有过一面之交。”＆“是她忠实的奴仆。”</p><p>（是互相信赖的伙伴。）</p><p>莎拉：“这样啊？和琴小姐在一起的话，一定很令人安心吧。”</p><p>派蒙：“所以莎拉小姐要带的话是？”</p><p>莎拉：“嗯…很不好意思，我现在没办法自己去骑士团，因为最近餐馆里实在忙得团团转。可就在这种时候，我们与清泉镇的食材供应路线，似乎被丘丘人占领了。但清泉镇的猎人们一副事不关己的样子，说他们只负责狩猎。”</p><p>旅行者：“是要拜托骑士团清理道路吧。”＆“明白了，该给猎人们一点教训了！”</p><p>（明白了，该给猎人们一点教训了！）</p><p>派蒙：“不对吧！那样真的能解决问题吗？！”</p><p>莎拉：“请带我委托琴团长，安排人手，清理运输路线的丘丘人吧。”</p><p>旅行者：“没问题。”</p><p>莎拉：“呼…有救了。有琴去处理的话，一定很快就能解决了吧，谢谢啦。”</p><p>派蒙：“琴真是被大家信任着呢。”</p><p>莎拉：“啊，对了。酒保查尔斯先生也说过有些麻烦事的样子…不如你们先顺路去他那里看看？”</p><p>派蒙：“好吧，帮人帮到底也是派蒙我的作风哦…嗯，虽然好像不是那么顺路的感觉。”</p><p>查尔斯：“把我这里当果汁店了么？小朋友们。”</p><p>派蒙：“哼，真是失礼，我们明明是来帮忙的。”</p><p>查尔斯：“帮忙？哦对了，你们是代理团长面前的红人儿吧。”</p><p>派蒙：“唔…好奇怪的说法。”</p><p>查尔斯：“那麻烦你们帮我向琴要来这个季度的税收报表。毕竟又到了找埃泽先生汇总账目的时候了…不得不说，蒙德酒水的税费还真是高。”</p><p>旅行者：“这种事也要直接找琴吗？”＆“可晨曦酒庄依然那么有钱。”</p><p>（这种事也要直接找琴吗？）</p><p>查尔斯：“嗯，每一条账目都是代理团长亲自过目的。毕竟酒业是蒙德的主要收入来源，琴从来不会在这件事上含糊。”</p><p>派蒙：“这样啊…琴的工作好像比预想得还要辛苦呢。”</p><p>查尔斯：“可这位代理团长的努力，确实让我们轻松了很多。不过，怎么说呢，如今的大家都对这份幸运习以为常了吧。”</p><p>派蒙：“呜哇，你们就这样心安理得地依靠琴了吗？”</p><p>查尔斯：“这样说的话，确实有点惭愧…不如下次她来的时候，请她喝一杯。虽然我觉得…代理团长可能没有那样的空闲时间吧。”</p><p>派蒙：“我怎么感觉你在找借口…那旅行者，我们快点去见琴吧。”</p><p>玛格丽特：“等一下，两位。”</p><p>派蒙：“玛格丽特小姐，你怎么在这里？”</p><p>玛格丽特：“我的猫又走丢了呢，你们有见到它吗？”</p><p>旅行者：“没见到过。”＆“你是说…迪奥娜？”</p><p>（你是说…迪奥娜？）</p><p>玛格丽特：“不是那一只哦，迪奥娜还在酒馆里吧。我说的是「小王子」，刚刚还在家里的那只。”</p><p>派蒙：“真的吧迪奥娜和家猫划上等号了吗！”</p><p>玛格丽特：“这就有些苦恼了，万一它找不到回家的路…”</p><p>旅行者：“虽然很想帮忙…”＆“我们试着找找看？”</p><p>（我们试着找找看？）</p><p>派蒙：“旅行者还是一如既往地热心呐，可我们现在还有别的事要做吧？莎拉小姐和查尔斯先生也很着急，还是先去琴那里吧。”</p><p>玛格丽特：“欸，原来你们也要去找琴呀，这么巧。”</p><p>派蒙：“玛格丽特小姐不是来找猫的吗？”</p><p>玛格丽特：“是啊，我是来拜托琴帮忙找猫的呀。”</p><p>派蒙：“什么？找猫这样的小事都要拜托她吗？”</p><p>玛格丽特：“咦？这样做原来很不合适吗。可是，琴很亲切呀。”</p><p>旅行者：“这样的理由…”＆“怎么有种「人善被人欺」的感觉？”</p><p>（怎么有种「人善被人欺」的感觉？）</p><p>玛格丽特：“那就拜托跟琴说一声咯，回头我请你在「猫尾」喝一杯。”</p><p>派蒙：“啊，喂…真没办法，那叫做「小王子」的猫猫的事，一会也一起告诉琴吧。”</p><p><span style=\\\"color: rgb(255, 0, 0)\\\">与琴对话</span></p><p>琴：“咳咳…”</p><p>派蒙：“代理团长——”</p><p>琴：“……”</p><p>派蒙：“呃，团长大人？”</p><p>琴：“……”</p><p>旅行者：“团长？”＆“琴小姐？”＆“「蒲公英骑士」小姐？”</p><p>琴：“啊！…哦，是「荣誉骑士」啊。不好意思，我刚才有些恍神。二位有遇上什么麻烦吗？”</p><p>派蒙：“确实有一些麻烦事，不过我们是来替别人想你转达的…”</p><p>琴：“原来如此，辛苦你们为蒙德民众做出的贡献，咳咳…委托我已经记录在案了，马上…就去安排…处理。”</p><p>派蒙：“嗯嗯！我们好像没漏掉谁的委托吧…？莎拉小姐…查尔斯…玛格丽特…嗯，应该没错。那我们就先走啦，琴…琴小姐？喂…琴小姐你怎么了…”</p><p> </p><p>派蒙：“琴怎么样了？没有大碍吧？”</p><p>芭芭拉：“呼…只是工作辛苦造成的身体虚弱，多休息下应该就没事了。谢谢你们带她过来，不然她可能还会继续硬撑呢…”</p><p>派蒙：“也难怪，琴每天都有那么多事情要处理…”</p><p>芭芭拉：“真是的…琴从很久以前就那么喜欢勉强自己，而自己的事又总是恨不在意。这种情况也不是第一次了…”</p><p>旅行者：“琴真是辛苦。”＆“芭芭拉好像很关心琴的样子。”</p><p>（芭芭拉好像很关心琴的样子。）</p><p>芭芭拉：“啊…啊，有吗？毕、毕竟是代理团长嘛，随便就倒下的话会造成很大麻烦吧！所以，所以不是我个人的感情哦！是为了大家着想！嗯，没错！”</p><p>派蒙：“芭芭拉小姐的反应，有点奇怪…嗯…”</p><p>芭芭拉：“对了，旅行者，你是「荣誉骑士」吧？团长倒下了，在情理上也应该为她分忧…是这样吗？”</p><p>派蒙：“这么说也没错，但不是还有正牌的「西风骑士」吗…”</p><p>芭芭拉：“琴的工作那么多，多一份人手总归是好事啦。拜托你们回骑士团看看吧，琴这边有我在就好，我自己一个人就可以啦。”</p><p>派蒙：“怎么有点着急赶人走的样子…”</p><p>芭芭拉：“嗯？”</p><p>派蒙：“没事啦，那就不打扰你们了。走吧，旅行者。”</p><p> </p><p>派蒙：“咦，是凯亚。”</p><p>凯亚：“哦，我正在等你们。琴病倒的事我已经听说了，我应该代表骑士团的大家向你们感谢。”</p><p>派蒙：“凯亚突然这么认真的道谢，感觉好不习惯呢。”</p><p>凯亚：“哈哈，毕竟事关我们所重视的代理团长大人嘛。对了，除了道谢以外，还有…”</p><p>旅行者：“要安排工作给我们？”＆“是给奖励的环节了？”</p><p>（是给奖励的环节了？）</p><p>凯亚：“哈哈，我喜欢你的说话风格。不过在谈这些之前，希望还能再帮骑士团一些忙。”</p><p>派蒙：“是要分担琴的工作吧？”</p><p>凯亚：“是的，虽然你之前汇报给琴的委托已经安排过人去办了…可毕竟不是琴亲自出马，我担心还是会有些纰漏。希望你可以去看看有没有可以搭把手的地方。如果能有享誉蒙德的「荣誉骑士」出手的话，我也就可以放心了。”</p><p>派蒙：“即使你再怎么夸旅行者，我也要说——你为什么不自己去帮忙呀！”</p><p>凯亚：“哈哈，我的身上还有更重要的任务…有很多东西要…嗯，「准备」。”</p><p>派蒙：“哼，那好吧。我记得是…莎拉小姐、查尔斯先生还有玛格丽特小杰那边，对吧？”</p><p>凯亚：“没错，那么就辛苦二位了，回头见。”</p>\",\"switch\":false,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1372",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "攻略方法",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p></p>\",\"switch\":true,\"is_show_switch\":true}\n",
+              "style": ""
+            }
+          ],
+          "id": "1373",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": true,
+          "desc": "",
+          "repeated": true,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "任务过程",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p>琴因为过劳而病倒，你们被拜托分担琴的工作，协助处理城内居民的委托。玛格丽特走丢的猫「小王子」究竟跑到哪里去了呢?</p><p>➢与玛格丽特对话</p><p>➢找玛格丽特听取委托内容</p><p>➢寻找「小王子」</p><p>➢完成玛格丽特的委托</p>\",\"switch\":false,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1616",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1369",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "任务奖励",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2023/12/24/81460104/6ee632dc08f8146408597e4b9001fa98_2043899267479589911.png\\\" data-entry-name=\\\"冒险阅历\\\" data-entry-amount=\\\"300\\\" data-entry-link=\\\"无\\\"><a href=\\\"%E6%97%A0\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2023/12/24/81460104/6ee632dc08f8146408597e4b9001fa98_2043899267479589911.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">冒险阅历</span></span><span class=\\\"amount\\\">*300</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"5565\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/12/08/160182379/605f7e564ce17decc9e09508567776ce_5737054899684571258.jpg\\\" data-entry-name=\\\"摩拉\\\" data-entry-amount=\\\"18000\\\" data-entry-link=\\\"/ys/obc/content/5565/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\" data-updated=\\\"1\\\"><a href=\\\"/ys/obc/content/5565/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/12/08/160182379/605f7e564ce17decc9e09508567776ce_5737054899684571258.jpg\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">摩拉</span></span><span class=\\\"amount\\\">*18000</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1025\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/20/15568211/d50fb37e3954b2b7105c61cf8f442c6e_7679619291811796065.png\\\" data-entry-name=\\\"大英雄的经验\\\" data-entry-amount=\\\"2\\\" data-entry-link=\\\"/ys/obc/content/1025/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1025/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/20/15568211/d50fb37e3954b2b7105c61cf8f442c6e_7679619291811796065.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">大英雄的经验</span></span><span class=\\\"amount\\\">*2</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1030\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/21/15568211/2e39a9f5b912ec7717a4f77182e8605b_4227205780581648845.png\\\" data-entry-name=\\\"精锻用魔矿\\\" data-entry-amount=\\\"4\\\" data-entry-link=\\\"/ys/obc/content/1030/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1030/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/21/15568211/2e39a9f5b912ec7717a4f77182e8605b_4227205780581648845.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">精锻用魔矿</span></span><span class=\\\"amount\\\">*4</span></a></span></p>\",\"switch\":false,\"is_show_switch\":false,\"without_border\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1617",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1370",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "任务奖励",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2023/12/24/81460104/6ee632dc08f8146408597e4b9001fa98_2237094474013803639.png\\\" data-entry-name=\\\"冒险阅历\\\" data-entry-amount=\\\"550\\\" data-entry-link=\\\"无\\\"><a href=\\\"%E6%97%A0\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2023/12/24/81460104/6ee632dc08f8146408597e4b9001fa98_2237094474013803639.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">冒险阅历</span></span><span class=\\\"amount\\\">*550</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"5566\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/12/08/160182379/f9de059da2ee541c770eb1c83d0018a9_6412355601661015430.jpg\\\" data-entry-name=\\\"原石\\\" data-entry-amount=\\\"60\\\" data-entry-link=\\\"/ys/obc/content/5566/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/5566/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/12/08/160182379/f9de059da2ee541c770eb1c83d0018a9_6412355601661015430.jpg\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">原石</span></span><span class=\\\"amount\\\">*60</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"5565\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/12/08/160182379/605f7e564ce17decc9e09508567776ce_5737054899684571258.jpg\\\" data-entry-name=\\\"摩拉\\\" data-entry-amount=\\\"33200\\\" data-entry-link=\\\"/ys/obc/content/5565/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\" data-updated=\\\"1\\\"><a href=\\\"/ys/obc/content/5565/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/12/08/160182379/605f7e564ce17decc9e09508567776ce_5737054899684571258.jpg\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">摩拉</span></span><span class=\\\"amount\\\">*33200</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"822\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/01/80410800/30c780cb1af69170501658bf2563a95d_3648785555912655224.png\\\" data-entry-name=\\\"「抗争」的教导\\\" data-entry-amount=\\\"5\\\" data-entry-link=\\\"/ys/obc/content/822/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/822/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/01/80410800/30c780cb1af69170501658bf2563a95d_3648785555912655224.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">「抗争」的教导</span></span><span class=\\\"amount\\\">*5</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1025\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/20/15568211/d50fb37e3954b2b7105c61cf8f442c6e_7679619291811796065.png\\\" data-entry-name=\\\"大英雄的经验\\\" data-entry-amount=\\\"4\\\" data-entry-link=\\\"/ys/obc/content/1025/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1025/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/20/15568211/d50fb37e3954b2b7105c61cf8f442c6e_7679619291811796065.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">大英雄的经验</span></span><span class=\\\"amount\\\">*4</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1030\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/21/15568211/2e39a9f5b912ec7717a4f77182e8605b_4227205780581648845.png\\\" data-entry-name=\\\"精锻用魔矿\\\" data-entry-amount=\\\"7\\\" data-entry-link=\\\"/ys/obc/content/1030/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1030/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/21/15568211/2e39a9f5b912ec7717a4f77182e8605b_4227205780581648845.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">精锻用魔矿</span></span><span class=\\\"amount\\\">*7</span></a></span></p>\",\"switch\":false,\"is_show_switch\":false,\"without_border\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1596",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1370",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "地图说明",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "map_desc",
+              "layout": "",
+              "data": "{\"list\":[{\"tab_name\":\"任务开始位置\",\"image\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/12/16/76078930/e49f6ee149e3fec1c8e333ff9b70340f_8287067664950800451.png\"},{\"tab_name\":\"任务结束位置\",\"image\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/12/16/76078930/e49f6ee149e3fec1c8e333ff9b70340f_7730990082096201094.png\"}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1604",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1371",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "任务过程",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p>解决了城内居民的委托后，你们决定再到教堂探望琴的情况…</p><p>➢向芭芭拉询问琴的情况</p><p>➢前往「象征温妮莎的大树」</p><p>➢追击深渊教团的敌人</p><p>➢回蒙德城与琴对话</p><p>➢进入酒馆</p><p>➢去二楼露台寻找琴</p>\",\"switch\":false,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1595",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1369",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "攻略方法",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p></p>\",\"switch\":false,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1620",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": true,
+          "desc": "",
+          "repeated": true,
+          "is_submodule": false,
+          "origin_module_id": "1373",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "任务过程",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p>不知查尔斯拿到他要的税收报表了吗?</p><p>➢找查尔斯听取委托内容</p><p>➢与恩内斯特对话</p><p>➢护送货运热气球</p><p>➢完成查尔斯的委托</p>\",\"switch\":false,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1609",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1369",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "攻略方法",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p></p>\",\"switch\":false,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1613",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": true,
+          "desc": "",
+          "repeated": true,
+          "is_submodule": false,
+          "origin_module_id": "1373",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "任务过程",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p>莎拉小姐还在因为食材未送到的事而焦急…</p><p>➢找莎拉听取委托内容</p><p>➢收集甜甜花与禽肉各三份</p><p>➢烹饪甜甜花酿鸡</p><p>➢烹饪蜜酱胡萝卜煎肉</p>\",\"switch\":false,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1602",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1369",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "地图说明",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "map_desc",
+              "layout": "",
+              "data": "{\"list\":[{\"tab_name\":\"任务开始位置\",\"image\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/12/16/76078930/34bfbb79c7507db13ee5345df6254730_2694140387030470689.png\"},{\"tab_name\":\"任务结束位置\",\"image\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/12/16/76078930/34bfbb79c7507db13ee5345df6254730_6107294860555184014.png\"}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1618",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1371",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "剧情对话",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p>温迪：“…原来那只猫是你家走丢的呀。”</p><p>派蒙：“温迪！你也是来帮忙的吗？”</p><p>温迪：“帮忙？我倒觉得，需要帮忙的其实是我…”</p><p>派蒙：“咦？我看你刚才好像也在问玛格丽特小杰的「小王子」的事…”</p><p>温迪：“哦，所以偷走我备用的星铁弦的那只猫，名字叫「小王子」吗。虽说看到蒙德的生灵如此自由自在，是件好事…但未免也太为所欲为了吧。”</p><p>玛格丽特：“啊哈哈，「小王子」就是这样调皮机灵的宝贝呢。”</p><p>旅行者：“这就是喜欢放纵孩子的家长吧。”</p><p>派蒙：“好像巴巴托斯一样呢。”</p><p>温迪：“哈哈哈…真是巧妙的比喻，咳咳。还是先找到「小王子」再说吧。今晚我还有演出，那不会备用弦的话，可就要让听众失望了。”</p><p>派蒙：“话说猫咪为什么会去偷温迪的备用琴弦呢？”</p><p>玛格丽特：“猫咪都喜欢玩毛线团的呀！”</p><p>派蒙：“欸欸！？”</p><p>温迪：“星铁做的琴弦蕴含风的元素力，有超乎意料的韧性，所以平时我都卷成毛线团的样子带在身上啦。这可是吟游诗人的小秘密，哼哼。”</p><p>派蒙：“咦？你说那弦上有风的元素力？那好，我们有线索啦！旅行者，快用「元素视野」查看一下吧？应该会留下什么风元素的痕迹吧，比如…脚印什么的！”</p><p>玛格丽特：“靠你们咯，「小王子」应该就在城里和商业区和居民区附近，是一只纯黑色的猫哦。啊…对了，这块鱼肉是我家「小王子」最爱吃的，你带上的话兴许会派上用场。”</p><p></p><p>派蒙：“欸，快看！那边那只…好像和玛格丽特小姐描述的一样！那应该就是「小王子」吧？”</p><p>【若已完成「骰子、猫与卡牌的战场」】</p><p>派蒙：欸，快看！那只黑猫好眼熟，还记得我们去猫尾酒馆的时候看到的…</p><p>派蒙：果然，那只黑猫就是「小王子」！</p><p></p><p>玛格丽特：“「小王子」~！你跑哪去了呀，终于回来了。”</p><p>派蒙：“可让我们好找呢。”</p><p>玛格丽特：“唉，「小王子」呀，你怎么忍心这样抛弃我呢…”</p><p>派蒙：“已经进入「二人世界」了吗…还有你的星铁弦在这哦，温迪。”</p><p>温迪：“还真的被你们找到了，我原本都不怎么抱希望了。为了表示感谢，用这弦为你们办一场「专属演唱」都不过分呢…阿、阿…”</p><p>派蒙：“阿？”</p><p>温迪：“阿嚏——！咳咳…啊哈哈…离「小王子」这么近的话，我对猫过敏的体质果然又…”</p><p>派蒙：“怪不得你没有自己去抓它…”</p><p>温迪：“欸嘿，总之是帮了大忙啦，那我也先走…阿、阿嚏——”</p>\",\"switch\":false,\"is_show_switch\":false,\"without_border\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1619",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1372",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "任务概述",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "rich_base_info",
+              "layout": "",
+              "data": "{\"list\":[{\"key\":\"前置任务\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1323\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\" data-entry-name=\\\"幼狮之章 第一幕「骑士团长的一日假期」\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">幼狮之章 第一幕「骑士团长的一日假期」</span></span></a></span></p>\"]},{\"key\":\"起始NPC\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"213\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2021/12/16/72954525/39249086ac775b619a9dae1c9e00f877_1373851255962577767.png\\\" data-entry-name=\\\"莎拉【「猎鹿人」侍应生】\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/213/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/213/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2021/12/16/72954525/39249086ac775b619a9dae1c9e00f877_1373851255962577767.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">莎拉【「猎鹿人」侍应生】</span></span></a></span></p><p>蒙德城</p>\"]},{\"key\":\"结束NPC\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"213\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2021/12/16/72954525/39249086ac775b619a9dae1c9e00f877_1373851255962577767.png\\\" data-entry-name=\\\"莎拉【「猎鹿人」侍应生】\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/213/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/213/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2021/12/16/72954525/39249086ac775b619a9dae1c9e00f877_1373851255962577767.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">莎拉【「猎鹿人」侍应生】</span></span></a></span></p><p>蒙德城</p>\"]},{\"key\":\"后续任务\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1323\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\" data-entry-name=\\\"幼狮之章 第一幕「骑士团长的一日假期」\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">幼狮之章 第一幕「骑士团长的一日假期」</span></span></a></span></p>\"]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1601",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1368",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "任务奖励",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2023/12/24/81460104/6ee632dc08f8146408597e4b9001fa98_3839972152934398703.png\\\" data-entry-name=\\\"冒险阅历\\\" data-entry-amount=\\\"300\\\" data-entry-link=\\\"无\\\"><a href=\\\"%E6%97%A0\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2023/12/24/81460104/6ee632dc08f8146408597e4b9001fa98_3839972152934398703.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">冒险阅历</span></span><span class=\\\"amount\\\">*300</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"5565\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/12/08/160182379/605f7e564ce17decc9e09508567776ce_5737054899684571258.jpg\\\" data-entry-name=\\\"摩拉\\\" data-entry-amount=\\\"18000\\\" data-entry-link=\\\"/ys/obc/content/5565/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\" data-updated=\\\"1\\\"><a href=\\\"/ys/obc/content/5565/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/12/08/160182379/605f7e564ce17decc9e09508567776ce_5737054899684571258.jpg\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">摩拉</span></span><span class=\\\"amount\\\">*18000</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1025\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/20/15568211/d50fb37e3954b2b7105c61cf8f442c6e_7679619291811796065.png\\\" data-entry-name=\\\"大英雄的经验\\\" data-entry-amount=\\\"2\\\" data-entry-link=\\\"/ys/obc/content/1025/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1025/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/20/15568211/d50fb37e3954b2b7105c61cf8f442c6e_7679619291811796065.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">大英雄的经验</span></span><span class=\\\"amount\\\">*2</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1030\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/21/15568211/2e39a9f5b912ec7717a4f77182e8605b_4227205780581648845.png\\\" data-entry-name=\\\"精锻用魔矿\\\" data-entry-amount=\\\"4\\\" data-entry-link=\\\"/ys/obc/content/1030/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1030/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/21/15568211/2e39a9f5b912ec7717a4f77182e8605b_4227205780581648845.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">精锻用魔矿</span></span><span class=\\\"amount\\\">*4</span></a></span></p>\",\"switch\":false,\"is_show_switch\":false,\"without_border\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1603",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1370",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "剧情对话",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p>安柏：“我知道啦，我马上就出发！”</p><p>派蒙：“是安柏！你是来处理委托的吗？”</p><p>安柏：“哇，是你们。我正准备去呢，清理商路上的丘丘人什么的，交给侦察骑士再合适不过了！”</p><p>莎拉：“唉…”</p><p>安柏：“莎拉小姐…为什么还是很苦恼的样子？放心啦，侦察骑士的实力不会让你失望的！”</p><p>莎拉：“哦、哦不是这样的，我没有怀疑你的实力，只是眼下的订单实在太多了。就在刚才，又新来了一份奇怪的订单，看起来好像是要准备一整场宴会的量…”</p><p>安柏：“咳咳。”</p><p>旅行者：“还有什么可以帮忙的吗？”＆“其实我也可以帮忙做饭！”</p><p>（其实我也可以帮忙做饭！）</p><p>莎拉：“真的吗！你愿意帮忙吗？太好了，你简直就是「猎鹿人」的恩人！”</p><p>安柏：“唔…我怎么觉得我的风头被抢了？”</p><p>莎拉：“那这份新的订单就交给你了，先从收集食材开始吧！”</p><p>派蒙：“可是…旅行者真的可以吗，料理的口味什么的…”</p><p>莎拉：“顾不上那么多啦，这可是事关「猎鹿人」声誉的战斗，挑三拣四什么的是不行的！”</p><p>派蒙：“战、战斗？”</p><p>莎拉：“料理需要三份甜甜花和三份禽肉。好了，快去准备吧，还有安柏小姐那边也是，我在这里等你们哦！”</p><p>安柏：“哦…哦、哦！”</p><p>莎拉：“三份甜甜花和三份禽肉已经带回来了吗？我瞧瞧…快让我看看吧。”</p><p>莎拉：“嗯~没错，食材已经齐了。然后…7号订单的一份甜甜花酿鸡，谢谢啦。”</p><p>派蒙：“真把人家当厨子呀！”</p><p>莎拉：“都说好要给「猎鹿人」帮忙了嘛，做好趁热送过来哦。”</p><p>莎拉：“甜甜花酿鸡已经做好了吗？”</p><p>莎拉：“甜甜花酿鸡，已查收~！哦~！这料理闻起来真是太诱人了，你的手艺简直完全不输「猎鹿人」的主厨呢！既然这样…不如订单里的这份蜜酱胡萝卜煎肉也交给你吧。”</p><p>派蒙：“蜜酱胡萝卜煎肉！好像安柏和凯亚都有提过…”</p><p>莎拉：“没错，这可是「猎鹿人」的保留菜品，是「猎鹿人」的骄傲。骑士团来聚餐的时候，似乎常常会点。那现在就先把蜜酱胡萝卜煎肉的菜谱教给你…”</p><p>派蒙：“等等，不是说这是「猎鹿人」的保留菜品吗，就这样教给我们？”</p><p>莎拉：“以你的手艺的话，应该不会砸了「猎鹿人」的招牌吧，嘿嘿。那一份蜜酱胡萝卜煎肉，等做好就端过来吧。”</p><p> </p><p>莎拉：“蜜酱胡萝卜煎肉一份，你带过来了吗？已经做好了吗，来我看看我看看。”</p><p>莎拉：“这是…这是你做的吗？你的料理天赋真是吓了我一跳，不做大厨真是太可惜啦。”</p><p>派蒙：“这下可以交差了吗？”</p><p>莎拉：“嗯，真是太谢谢你们了，剩下的事安柏小姐应该会办好的。如果哪天不想冒险了，可以考虑下要不要来「猎鹿人」工作哦，嘿嘿。”</p>\",\"switch\":false,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1605",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1372",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "委托人查尔斯的烦恼",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "base_info",
+              "layout": "",
+              "data": "{\"list\":[{\"key\":\"触发条件\",\"value\":[\"与查尔斯对话\"]},{\"key\":\"等级限制\",\"value\":[\"冒险等阶达到34级\"]},{\"key\":\"特殊限制\",\"value\":[\"完成西风吹拂的日常\"]}]}",
+              "style": ""
+            }
+          ],
+          "id": "1607",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1367",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "任务概述",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "rich_base_info",
+              "layout": "",
+              "data": "{\"list\":[{\"key\":\"前置任务\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1323\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\" data-entry-name=\\\"幼狮之章 第一幕「骑士团长的一日假期」\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">幼狮之章 第一幕「骑士团长的一日假期」</span></span></a></span></p>\"]},{\"key\":\"起始NPC\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1109\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2023/01/17/288180982/0a3dc06b7c47ee8003893aea5ad55e89_1677926788515785425.png\\\" data-entry-name=\\\"查尔斯【「天使的馈赠」酒保】\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/1109/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1109/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2023/01/17/288180982/0a3dc06b7c47ee8003893aea5ad55e89_1677926788515785425.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">查尔斯【「天使的馈赠」酒保】</span></span></a></span></p><p>蒙德城</p>\"]},{\"key\":\"结束NPC\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"2038\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2023/02/12/288180982/c2ca6172aecf241dadfe92a682c7eae7_1514332186687256703.png\\\" data-entry-name=\\\"恩内斯特【仓库管理员】\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/2038/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/2038/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2023/02/12/288180982/c2ca6172aecf241dadfe92a682c7eae7_1514332186687256703.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">恩内斯特【仓库管理员】</span></span></a></span></p><p>晨曦酒庄</p>\"]},{\"key\":\"后续任务\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1323\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\" data-entry-name=\\\"幼狮之章 第一幕「骑士团长的一日假期」\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">幼狮之章 第一幕「骑士团长的一日假期」</span></span></a></span></p>\"]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1608",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1368",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "地图说明",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "map_desc",
+              "layout": "",
+              "data": "{\"list\":[{\"tab_name\":\"任务开始位置\",\"image\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/12/16/76078930/f9b9de0488bb643fc979940e852593c1_4831991910255917781.png\"},{\"tab_name\":\"任务结束位置\",\"image\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/12/16/76078930/5b4a7ece5ddbe848abe7e39604876891_3281669459998787443.png\"}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1611",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1371",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "攻略方法",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p></p>\",\"switch\":false,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1606",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": true,
+          "desc": "",
+          "repeated": true,
+          "is_submodule": false,
+          "origin_module_id": "1373",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "任务概述",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "rich_base_info",
+              "layout": "",
+              "data": "{\"list\":[{\"key\":\"前置任务\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1323\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\" data-entry-name=\\\"幼狮之章 第一幕「骑士团长的一日假期」\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">幼狮之章 第一幕「骑士团长的一日假期」</span></span></a></span></p>\"]},{\"key\":\"起始NPC\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1154\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2023/01/17/288180982/a04f782d1d43756c687eb4afc54940fa_6307344410618741775.png\\\" data-entry-name=\\\"玛格丽特【「猫尾」老板娘】\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/1154/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1154/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2023/01/17/288180982/a04f782d1d43756c687eb4afc54940fa_6307344410618741775.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">玛格丽特【「猫尾」老板娘】</span></span></a></span></p><p>蒙德城</p>\"]},{\"key\":\"结束NPC\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1154\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2023/01/17/288180982/a04f782d1d43756c687eb4afc54940fa_6307344410618741775.png\\\" data-entry-name=\\\"玛格丽特【「猫尾」老板娘】\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/1154/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1154/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2023/01/17/288180982/a04f782d1d43756c687eb4afc54940fa_6307344410618741775.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">玛格丽特【「猫尾」老板娘】</span></span></a></span></p><p>蒙德城</p>\"]},{\"key\":\"后续任务\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1323\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\" data-entry-name=\\\"幼狮之章 第一幕「骑士团长的一日假期」\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">幼狮之章 第一幕「骑士团长的一日假期」</span></span></a></span></p>\"]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1615",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1368",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "攻略方法",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p></p>\",\"switch\":false,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1599",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": true,
+          "desc": "",
+          "repeated": true,
+          "is_submodule": false,
+          "origin_module_id": "1373",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "委托人玛格丽特的思念",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "base_info",
+              "layout": "",
+              "data": "{\"list\":[{\"key\":\"触发条件\",\"value\":[\"与玛格丽特对话\"]},{\"key\":\"等级限制\",\"value\":[\"冒险等阶达到34级\"]},{\"key\":\"特殊限制\",\"value\":[\"完成西风吹拂的日常\"]}]}",
+              "style": ""
+            }
+          ],
+          "id": "1614",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1367",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "任务奖励",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2023/12/24/81460104/6ee632dc08f8146408597e4b9001fa98_2924270193530946768.png\\\" data-entry-name=\\\"冒险阅历\\\" data-entry-amount=\\\"375\\\" data-entry-link=\\\"无\\\"><a href=\\\"%E6%97%A0\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2023/12/24/81460104/6ee632dc08f8146408597e4b9001fa98_2924270193530946768.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">冒险阅历</span></span><span class=\\\"amount\\\">*375</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"5565\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/12/08/160182379/605f7e564ce17decc9e09508567776ce_5737054899684571258.jpg\\\" data-entry-name=\\\"摩拉\\\" data-entry-amount=\\\"22775\\\" data-entry-link=\\\"/ys/obc/content/5565/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\" data-updated=\\\"1\\\"><a href=\\\"/ys/obc/content/5565/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/12/08/160182379/605f7e564ce17decc9e09508567776ce_5737054899684571258.jpg\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">摩拉</span></span><span class=\\\"amount\\\">*22775</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1025\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/20/15568211/d50fb37e3954b2b7105c61cf8f442c6e_7679619291811796065.png\\\" data-entry-name=\\\"大英雄的经验\\\" data-entry-amount=\\\"3\\\" data-entry-link=\\\"/ys/obc/content/1025/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1025/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/20/15568211/d50fb37e3954b2b7105c61cf8f442c6e_7679619291811796065.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">大英雄的经验</span></span><span class=\\\"amount\\\">*3</span></a></span><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1030\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/21/15568211/2e39a9f5b912ec7717a4f77182e8605b_4227205780581648845.png\\\" data-entry-name=\\\"精锻用魔矿\\\" data-entry-amount=\\\"5\\\" data-entry-link=\\\"/ys/obc/content/1030/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1030/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/21/15568211/2e39a9f5b912ec7717a4f77182e8605b_4227205780581648845.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">精锻用魔矿</span></span><span class=\\\"amount\\\">*5</span></a></span></p>\",\"switch\":false,\"is_show_switch\":false,\"without_border\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1610",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1370",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "骑士团长的一日假期",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "base_info",
+              "layout": "",
+              "data": "{\"list\":[{\"key\":\"触发条件\",\"value\":[\"在教堂与芭芭拉对话\"]},{\"key\":\"等级限制\",\"value\":[\"冒险等阶达到34级\"]},{\"key\":\"特殊限制\",\"value\":[\"完成上述委托\"]}]}",
+              "style": ""
+            }
+          ],
+          "id": "1593",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1367",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "地图说明",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "map_desc",
+              "layout": "",
+              "data": "{\"list\":[{\"tab_name\":\"任务开始位置\",\"image\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/12/16/76078930/773b59908139bb9d18ac54c4f8718a3a_881897080263895465.png\"},{\"tab_name\":\"任务结束位置\",\"image\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/12/16/76078930/f9b9de0488bb643fc979940e852593c1_7308792880177862224.png\"}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1597",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1371",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "剧情对话",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p>派蒙：“丽莎小姐，难道是来送税收报表的吗？”</p><p>丽莎：“哦呀，小可爱。你说的没错，我听说了琴病倒的事，文书类的工作我就先代劳了。”</p><p>派蒙：“这样呀，那看来这边已经没我们什么事了，那我们就先走啦。”</p><p>丽莎：“啊，稍等一下，其实查尔斯先生这边…”</p><p>查尔斯：“让我来说吧，丽莎小姐。就在刚才，我接到了一批订单，可店里的库存不够了，酒庄的进货又迟迟未到。方便的话想麻烦你们去查看一下货物情况。”</p><p>派蒙：“欸，是这么紧急的订单吗。”</p><p>查尔斯：“没办法，毕竟是临时接到的，强人所难的订单——就，在，刚，才。”</p><p>丽莎：“嗯~嗯~就是这样，如查尔斯先生所说。”</p><p>旅行者：“好吧，我去看看。”＆“可以，但下次要记得请客。”</p><p>（可以，但下次要记得请客。）</p><p>查尔斯：“呵呵，下次等迪卢克老板在的时候，他肯定会请你喝的。”</p><p>派蒙：“嗯，这还差不多！”</p><p>派蒙：“原来货物在这里。”</p><p>恩内斯特：“是来帮忙的吗？可算等到你们了。我在这酒庄干了这么久，头一次被丘丘人打劫…哎哟。你们再来晚些，我可真不知道该怎么办了。”</p><p>派蒙：“放心吧，丘丘人而已，旅行者很能打的。”</p><p>恩内斯特：“能打就好，那这个货运热气球就交给你们了。可别光顾着收拾那些丘丘人，一定记得优先确保货物安全，不然你我可都赔不起。那就先这样了，我到前面等你。”</p><p>恩内斯特：“谢谢你了朋友，我还以为这次麻烦大了，好在有你。我会记得跟酒庄的老爷们美言你几句的，拜拜。”</p>\",\"switch\":false,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1612",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1372",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "委托人莎拉的忧愁",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "base_info",
+              "layout": "",
+              "data": "{\"list\":[{\"key\":\"触发条件\",\"value\":[\"与莎拉对话\"]},{\"key\":\"等级限制\",\"value\":[\"冒险等阶达到34级\"]},{\"key\":\"特殊限制\",\"value\":[\"完成西风吹拂的日常\"]}]}",
+              "style": ""
+            }
+          ],
+          "id": "1600",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1367",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "任务概述",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "rich_base_info",
+              "layout": "",
+              "data": "{\"list\":[{\"key\":\"前置任务\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1323\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\" data-entry-name=\\\"幼狮之章 第一幕「骑士团长的一日假期」\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1323/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/03/25/80663279/23ed52a48aeb06efd17ec0c6bf73c6e0_5847477604403210080.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">幼狮之章 第一幕「骑士团长的一日假期」</span></span></a></span></p>\"]},{\"key\":\"起始NPC\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"61\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2021/08/23/75276545/7f1ac500bafa0526438e4e5b95165991_9116453886373904076.png\\\" data-entry-name=\\\"芭芭拉\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/61/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/61/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2021/08/23/75276545/7f1ac500bafa0526438e4e5b95165991_9116453886373904076.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">芭芭拉</span></span></a></span></p><p>蒙德大教堂内</p>\"]},{\"key\":\"结束NPC\",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"59\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/02/16/6276411/a7608c6a588467440f7685a22ab6547c_3946325001679449884.png\\\" data-entry-name=\\\"琴\\\" data-entry-amount=\\\"\\\" data-entry-link=\\\"/ys/obc/content/59/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/59/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/02/16/6276411/a7608c6a588467440f7685a22ab6547c_3946325001679449884.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">琴</span></span></a></span></p><p>酒馆二楼阳台</p>\"]},{\"key\":\"后续任务\",\"value\":[\"<p>无</p>\"]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1594",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1368",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "剧情对话",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p>派蒙：“所有的委托看起来都已经完成了呢，琴每天的工作果然很辛苦。也不知道她身体现在恢复得怎么样了，不如去教堂再看看她吧！”</p><p>派蒙：“芭芭拉小姐，我们回来了。”</p><p>芭芭拉：“欢迎回来，辛苦了。”</p><p>旅行者：“琴好些了吗？”＆“芭芭拉小姐也辛苦了。”</p><p>芭芭拉：“没关系，照看病患本来就是我的日常工作之一。琴已经恢复意识了哦，只是身体还稍微有些虚弱。”</p><p>派蒙：“真的吗！那可真是好消息，让我们去看看她吧。”</p><p>芭芭拉：“不过她刚刚已经离开教堂了呢，明明都说了还要在休息一段时间…可琴还是硬撑起一副没关系的样子，执意要出去走走。估计又去温妮莎大人那里了吧。”</p><p>派蒙：“「温妮莎大人那里」？”</p><p>芭芭拉：“啊，我是说大英雄温妮莎的象征，风起地的那棵大树…每当琴感觉迷茫的时候，都会去那里…”</p><p>派蒙：“芭芭拉小姐对琴团长的事真是了解，连这样的事都能猜到？”</p><p>芭芭拉：“…只是，只是琴离开前自己说的而已啦。”</p><p>旅行者：“琴的身体还很虚弱吧？”＆“她自己这样出城去没关系吗？”</p><p>（她自己这样出城去没关系吗？）</p><p>芭芭拉：“我也很担心她。可我这边还有工作要做…”</p><p>派蒙：“明白啦，就由我们两个去护卫病患的安全吧！”</p><p>芭芭拉：“嗯！那样我也就放心了，愿风神护佑你们…和琴。”</p><p> </p><p>派蒙：“琴小姐，你的身体没关系吗？”</p><p>琴：“嗯，我已经没事了。真没想到你们会到这里来，谢谢你们的关心。”</p><p>派蒙：“真的吗？可是刚才看见琴的背影…感觉还是很疲惫的样子。是不是有些太过勉强自己了？”</p><p>旅行者：“可以多依靠一下骑士团的大家。”＆“可以多依靠一下我们。”</p><p>（可以多依靠一下骑士团的大家。）</p><p>琴：“啊…你们的这份心意，就足够让我恢复精神了，非常感谢。可是如果连这点程度都无法独自应付的话，又怎么能像温妮莎大人那样守护整个梦的呢。”</p><p>派蒙：“琴真的很憧憬温妮莎呢。”</p><p>琴：“嗯，最初的骑士团长，温妮莎大人，是位温柔而又坚强的人，我一直在追寻着她的脚步。以「狮牙骑士」的勇武推翻旧贵族，又做为「蒲公英骑士」建立西风骑士团，将恩泽遍及蒙德。”</p><p>派蒙：“「蒲公英骑士」…那不是说琴的吗？”</p><p>琴：“不论「蒲公英骑士」还是「狮牙骑士」，都是历代骑士团长沿袭下来的称谓。”</p><p>派蒙：“原来是这样…那么现在的琴是听起来很温柔的「蒲公英骑士」，又是听起来很威风的「狮牙骑士」咯？”</p><p>琴：“是的，继承温妮莎大人的名号虽然十分荣幸…但对我来说，可能更多是意味着责任吧。毕竟，要有配得上他们的「坚强」才行呀。”</p><p>旅行者：“「狮牙骑士」也很适合琴呢。”＆“还是「蒲公英骑士」更适合琴一些。”</p><p>（还是「蒲公英骑士」更适合琴一些。）</p><p>派蒙：“说的没错！”</p><p>琴“……”</p><p>派蒙：“琴？”</p><p>琴：“谁在那里！”</p><p>深渊法师：“哼哼哼…还是被发现了呀。好不容易抓到这样的好机会，可以解决掉不在状态的骑士团长，没想到中途蹦出两个碍事的人。”</p><p>派蒙：“…琴的虚弱被这些家伙看出来了吗？专挑这种时候下手，真是群坏心眼的家伙！”</p><p>琴：“以「蒲公英骑士」之名，我可不会败在这种卑劣的偷袭之下。”</p><p>深渊法师：“机会既然已经溜走，那我也是时候开溜了…”</p><p>琴：“慢着！唔…我们追…咳咳…”</p><p>派蒙：“琴，你的身体果然还是…”</p><p>旅行者：“琴先回蒙德休息吧。”＆“可能是针对琴的险境…”</p><p>（可能是针对琴的险境…）</p><p>琴：“不行，我必须要去…”</p><p>派蒙：“唉，琴又在勉强自己了，就不能放心交给我们嘛。”</p><p>琴：“啊，并不是不放心…只是，从眼前放走敌人，是莫大的失职…”</p><p>派蒙：“好吧，那至少让我们陪你一起去！”</p><p>琴：“谢谢你们能理解我，那就有劳了。”</p><p>斯万：“团长，你终于回来了，风神护佑你。”</p><p>琴：“斯万先生？你在等我吗，难道城里出了什么事？”</p><p>斯万：“嗯…「天使的馈赠」酒馆那边…也不算什么大事…”</p><p>旅行者：“是醉汉打架斗殴吗？”＆“我们去就好，让琴休息吧。”</p><p>（我们去就好，让琴休息吧。）</p><p>斯万：“啊、啊…是大事，是大事！唉，怎么说呢…总之，还是要团长亲自去一下。”</p><p>派蒙：“嗯…？”</p><p>琴：“既然斯万先生这么说，我就更不能让骑士同僚失望了。没关系，前面舒展过身体，感觉已经好了很多。”</p><p>斯万：“太好了，呼…多谢琴团长这么说，不然我可就为难了…”</p><p>派蒙：“呜呜…完了！世道变了！居然连斯万先生这样的老实人，也把工作推给琴了！”</p><p>琴：“好了好了，听斯万先生很着急的样子，可能是紧急事态。还是先过去看看吧。”</p><p>琴：“啊，这是…？”</p><p>安柏：“是大家给琴准备的「慰劳派对」哦！”</p><p>琴：“慰劳…派对？”</p><p>芭芭拉：“听说琴病倒的消息，大家很担心你呀。”</p><p>安柏：“琴团长平时实在太辛苦了，独自一人承担了那么多工作。”</p><p>凯亚：“既然难得有一天休息时间，不如就来场派对，玩个尽兴吧。平日忙于工作的代理团长，可不会给我们这种机会啊，哈哈哈。”</p><p>琴：“唔…”</p><p>安柏：“琴？”</p><p>琴：“大家…”</p><p>安柏：“欸！琴…难道害羞了吗！我还是头一次见到呢！”</p><p>丽莎：“在工作以外的时候，琴毕竟也还是一位普通的少女呀。”</p><p>琴：“我、我只是很感动而已…真的，谢谢大家的心意。”</p><p>安柏：“欸嘿嘿，比起琴平时为大家做的，这算不了什么啦。”</p><p>琴：“可是…还有很多工作等着做…”</p><p>众人：“唉——”</p><p>凯亚：“放心，为了保证你可以安安心心放松自己…趁你不在的时候，那些委托已经被我们处理掉了，一个不漏。”</p><p>琴：“啊，真的吗？包括食材运输的事？”</p><p>安柏：“和平时巡逻遇上的状况差不多啦，丘丘人而已，三下两下就搞定啦。”</p><p>琴：“也包括整理税单的事？”</p><p>丽莎：“每天跑在图书馆的我，对这类文书工作的处理还是很在行的。”</p><p>琴：“那…玛格丽特小姐的猫呢…”</p><p>派蒙：“你还真惦记着找猫呀！”</p><p>温迪：“「小王子」已经被旅行者缉拿了，顺便还带回了我的宝贝星铁弦。”</p><p>丽莎：“好啦，所以说今天就不要想工作的事了，机会难得，好好享受吧。”</p><p>琴：“嗯，能和大家一起共事是我最大的荣幸…感谢风神的指引。说起来…准备派对也很辛苦的吧，大家怎么有时间准备的呢…”</p><p>凯亚：“哈哈，最主要的筹办人，其实是旅行者啊。”</p><p>旅行者：“我？”＆“主要筹办人？”</p><p>（主要筹办人？）</p><p>凯亚：“不论酒水还时食材，都是旅行者一手包办的哦。桌上的这些美餐，更是由她亲自下厨。所以就不要摆出一副奇怪的表情，故作谦虚啦。”</p><p>旅行者：“呃…嗯？原来如此。”＆“那些紧急订单…是你们下的啊…”</p><p>（那些紧急订单…是你们下的啊…）</p><p>凯亚：“当然，还有迪卢克老爷的功劳，不然包场的费用可就要我们大出血了。”</p><p>迪卢克：“…虽然根本不想参与你们骑士团的活动。不过，作为蒙德城的一般民众，也还是需要感谢琴的辛劳…”</p><p>琴：“迪卢克前辈…”</p><p>芭芭拉：“好啦好啦，不是说要琴好好放松的吗，不要都这么围着琴讲话啦。”</p><p>安柏：“是呀。那么——派对开始吧——！”</p><p>派蒙：“大家都玩的很尽兴的样子，我们也好好享受派对，和大家聊聊天吧~！话说刚才好像看到琴一个人去了二楼…也别把今天的主角给忘了哦！”</p><p>凯亚：“哟，玩的开心吗？”</p><p>旅行者：“刚才为什么说我是筹办人？”</p><p>凯亚：“你说这个啊，毕竟我们已经和琴那么熟了…这种事，越是彼此熟悉的人，背地里准备惊喜派对什么的，越会觉得害羞吧？所以就把功劳全推给你了，毕竟你也很辛苦嘛。”</p><p>旅行者：“是凯亚会觉得害羞吧？”</p><p>派蒙：“对呀！这个排队一看就知道是凯亚的主意了，是你自己会觉得害羞吧？”</p><p>凯亚：“哈哈哈…原来你们会这样想，好吧好吧。”</p><p>派蒙：“那么你是承认咯！”</p><p>凯亚：“呵呵，难得今天这么好的日子，就让你们训一次开心吧。”</p><p>迪卢克：“第三十七杯了。”</p><p>派蒙：“迪卢克老爷在做什么？”</p><p>迪卢克：“我在数这个吟游诗人到底喝了多少杯。他应该还不知道，今晚酒水只对骑士团的人免费。等他清醒了，我会把账单给他的。”</p><p>派蒙：“迪卢克老爷…太残酷了！”</p><p>迪卢克：“…开玩笑的，反正那账单他也不可能还得起，还是算了。我只是觉得，这果然不是一个凡人会有的酒量。</p><p>温迪：“呼哈…晨曦酒庄的酒果然和传闻里的一样，值得夸奖。这酒平日里我可一杯都买不起呀，赶紧趁这次机会…再来一杯，嗯，再来一杯。”</p><p>派蒙：“温迪的酒量…真是太吓人了。”</p><p>温迪：“欸，是你们呀，我刚才都没注意。都怪这酒太让人陶醉了，像我的诗歌一样，值得流传千年。这种飘飘然的感觉…难道就是风之元素的真谛？”</p><p>派蒙：“已经开始说胡话了…”</p><p>温迪：“嗯嗯…应该让每一个风的子民都好好尝尝这酒，为了美酒，干杯！”</p><p>安柏：“旅行者…”</p><p>派蒙：“安柏！你怎么一副要哭出来的样子！”</p><p>安柏：“这个——甜甜花酿鸡！还有！蜜酱胡萝卜煎肉！都是你做的吗？”</p><p>旅行者：“是没错啦…”</p><p>安柏：“呜哇哇哇…我好不服气呀，为什么你可以做出这么棒的料理…等我再吃完这一份！一定要你把全部手艺都教给我，可别想着逃走！嘎吱…嘎吱…”</p><p>派蒙：“安柏…她刚才好像没有喝酒呀…”</p><p>芭芭拉：“呼…闹得这么厉害，好像已经忘记了要「好好放松」的初衷了吧…”</p><p>派蒙：“累了的话，芭芭拉不喝点什么吗？”</p><p>芭芭拉：“欸，这里主要都还是酒吧？我还不太习惯…”</p><p>派蒙：“那芭芭拉平时喜欢喝什么呢？”</p><p>芭芭拉：“我一般会自己调饮料喝的，那种，红红的…”</p><p>派蒙：“红红的？是加了番茄还是西瓜？”</p><p>芭芭拉；“是加辣椒，辣辣的那种。”</p><p>派蒙：“辣椒！？”</p><p>丽莎：“「将喧闹的宴会抛在身后，享受二人独处的静谧时光，世界仿佛仅剩两人」…是书本里常出现的浪漫桥段吧？我并不是在邀请你去陪我说什么悄悄话哦。我是说，刚才琴她单独去了楼上的阳台…你会抓住机会的吧？呵呵…”</p><p>琴：“啊，是你们。”</p><p>旅行者：“原来你在这里。”＆“玩的开心吗？”</p><p>（玩的开心吗？）</p><p>琴：“嗯，我只是…出来透透气。”</p><p>派蒙：“琴好像有什么心事？”</p><p>琴：“旅行者，容我再次感谢…”</p><p>旅行者：“其实我也一直被蒙在鼓里。”＆“琴看起来好像恢复精神了呢。”</p><p>（琴看起来好像恢复精神了呢。）</p><p>琴：“嗯，能这样和大家在一起，不知不觉就打起了精神。而且我也认识到了一件事。”</p><p>派蒙：“什么事？”</p><p>琴：“比起「狮牙骑士」，果然还是「蒲公英骑士」更适合我。「狮牙骑士」，代表温妮莎为蒙德而斗争的过去…而建立西风骑士团之后的「蒲公英骑士」，代表她所期望的，骑士团的未来…”</p><p>旅行者：“温妮莎也一定会为现在的琴加油的！”</p><p>琴：“嗯，不论在高天之上，还是身旁的柔风里，温妮莎大人一定都还在注视着我们的。”</p><p>旅行者：“听凭风引。”</p><p>琴：“听凭风引。自由之风会指引前进的路，今后也请与我们同行吧，旅行者。”</p>\",\"switch\":false,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1598",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "1372",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        }
+      ],
+      "filter_values": {},
+      "menu_id": "0",
+      "menu_name": "",
+      "version": "1751245327",
+      "langs": [],
+      "template_layout": {
+        "tab": [
+          {
+            "tab_id": "95",
+            "tab_name": "页签1",
+            "module_group": [
+              {
+                "module_group_id": "771",
+                "layout": "l2r1",
+                "module": [
+                  {
+                    "id": "1367",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1368",
+                    "pos": "right"
+                  },
+                  {
+                    "id": "1369",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1370",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1371",
+                    "pos": "right"
+                  },
+                  {
+                    "id": "1372",
+                    "pos": "banner"
+                  },
+                  {
+                    "id": "1373",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "",
+                "repeated": true,
+                "parent_group_id": "0"
+              },
+              {
+                "module_group_id": "846",
+                "layout": "l2r1",
+                "module": [
+                  {
+                    "id": "1614",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1615",
+                    "pos": "right"
+                  },
+                  {
+                    "id": "1616",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1617",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1618",
+                    "pos": "right"
+                  },
+                  {
+                    "id": "1619",
+                    "pos": "banner"
+                  },
+                  {
+                    "id": "1620",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "",
+                "repeated": true,
+                "parent_group_id": "771"
+              },
+              {
+                "module_group_id": "845",
+                "layout": "l2r1",
+                "module": [
+                  {
+                    "id": "1607",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1608",
+                    "pos": "right"
+                  },
+                  {
+                    "id": "1609",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1610",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1611",
+                    "pos": "right"
+                  },
+                  {
+                    "id": "1612",
+                    "pos": "banner"
+                  },
+                  {
+                    "id": "1613",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "",
+                "repeated": true,
+                "parent_group_id": "771"
+              },
+              {
+                "module_group_id": "844",
+                "layout": "l2r1",
+                "module": [
+                  {
+                    "id": "1600",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1601",
+                    "pos": "right"
+                  },
+                  {
+                    "id": "1602",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1603",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1604",
+                    "pos": "right"
+                  },
+                  {
+                    "id": "1605",
+                    "pos": "banner"
+                  },
+                  {
+                    "id": "1606",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "",
+                "repeated": true,
+                "parent_group_id": "771"
+              },
+              {
+                "module_group_id": "843",
+                "layout": "l2r1",
+                "module": [
+                  {
+                    "id": "1593",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1594",
+                    "pos": "right"
+                  },
+                  {
+                    "id": "1595",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1596",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1597",
+                    "pos": "right"
+                  },
+                  {
+                    "id": "1598",
+                    "pos": "banner"
+                  },
+                  {
+                    "id": "1599",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "",
+                "repeated": true,
+                "parent_group_id": "771"
+              }
+            ]
+          }
+        ]
+      },
+      "edit_lock_status": "Unlock",
+      "correct_lock_status": "Unlock",
+      "menus": [
+        {
+          "id": "43",
+          "name": "任务",
+          "has_page": false,
+          "style": "",
+          "sub_menus": [],
+          "icon": "",
+          "mi18n_key": "任务",
+          "is_hidden": false,
+          "parent_id": "189",
+          "template_id": "",
+          "bg_img": "",
+          "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"default\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"任务类型\\\",\\\"children\\\":[{\\\"label\\\":\\\"魔神任务\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"传说任务\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"世界任务\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"限时任务\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"其他任务\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"任务区域\\\",\\\"children\\\":[{\\\"label\\\":\\\"蒙德\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"璃月\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"层岩巨渊\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"稻妻\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"渊下宫\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"须弥\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"枫丹\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"纳塔\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"挪德卡莱\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"至冬\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"版本号\\\",\\\"children\\\":[{\\\"label\\\":\\\"1.0\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"1.1\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"1.2\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"1.3\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"1.4\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"1.5\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"1.6\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"2.0\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"2.1\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"2.2\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"2.3\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"2.4\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"2.5\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"2.6\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"2.7\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"2.8\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"3.0\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"3.1\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"3.2\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"3.3\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"3.4\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"3.5\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"3.6\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"3.7\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"3.8\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"4.0\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"4.1\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"4.2\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"4.3\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"4.4\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"4.5\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"4.6\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"4.7\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"4.8\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"5.0\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"5.1\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"5.2\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"5.3\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"5.4\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"5.5\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"5.6\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"5.7\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"5.8\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"月之一\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"月之二\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"月之三\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"月之四\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"月之五\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"月之六\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"月之七\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"月之八\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"7.0\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"7.1\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/189/43?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"0\"}]",
+          "updated_at": "-62135596800"
+        }
+      ],
+      "template_id": "6579ac2b66d84d942840e5be",
+      "ext": {
+        "fe_ext": "{\"c_43\":{\"filter\":{\"text\":\"[\\\"任务类型/传说任务\\\",\\\"任务区域/蒙德\\\",\\\"版本号/1.0\\\"]\"}}}",
+        "post_ext": {
+          "post_id": "",
+          "post_user_name": "",
+          "post_time": "0",
+          "post_avatar_url": "",
+          "url": ""
+        },
+        "server_ext": "",
+        "personalized_color": "",
+        "scrolling_text": "",
+        "corner_mark": "None"
+      },
+      "alias_name": "",
+      "lang": "",
+      "beta": false,
+      "page_type": "Default",
+      "menu_style": "",
+      "status": "Online"
+    }
+  }
+}

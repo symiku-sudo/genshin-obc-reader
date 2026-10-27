@@ -1,0 +1,136 @@
+{
+  "retcode": 0,
+  "data": {
+    "page": {
+      "id": "968",
+      "name": "猫尾酒馆留言板",
+      "desc": "猫尾酒馆留言板",
+      "icon_url": "https://uploadstatic.mihoyo.com/ys-obc/2020/07/13/21665168/e68cda2693a37a1335301d1daeeb3060_6578673063214402690.png",
+      "header_img_url": "",
+      "modules": [
+        {
+          "name": "猫尾酒馆留言板",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "map_desc",
+              "layout": "",
+              "data": "{\"list\":[{\"tab_name\":\"截图\",\"image\":\"https://act-upload.mihoyo.com/wiki-user-upload/2024/08/13/317305234/40d99057e1e9aa791f13e3f5eae6a2ba_3943212662695490686.png\"},{\"tab_name\":\"位置\",\"image\":\"https://act-upload.mihoyo.com/wiki-user-upload/2024/08/13/317305234/190c5da05115681cb899d234646b93de_7084146161975099843.png\"}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "5712",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "公告板内容",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "interactive_dialogue",
+              "layout": "",
+              "data": "{\"root_id\":\"\",\"child_ids\":null,\"contents\":null,\"list\":[{\"root_id\":\"wm6oxi4cuoT1723503964047\",\"child_ids\":{\"0sl7pxfpjrkT1723504063054\":[\"cfc251ng4l6T1723504063748\"],\"391qippky4pT1723504128748\":[],\"5r6b096ogmaT1723504066340\":[\"ty7y1b5rozgT1723504066980\"],\"7fa42dc6zybT1723504127924\":[\"391qippky4pT1723504128748\"],\"95eeqs9r0sqT1723504060136\":[\"mcfnw7n0r6T1723504061044\"],\"c8fa0dmju9eT1723504058444\":[\"rixxpvdssaT1723504059428\"],\"cfc251ng4l6T1723504063748\":[\"p2ml3oxn0vT1723504065708\"],\"de87jvdn64oT1723504062372\":[\"0sl7pxfpjrkT1723504063054\"],\"fmdxu8g2whwT1723504057676\":[\"c8fa0dmju9eT1723504058444\"],\"junzcf3f51eT1723504067700\":[\"7fa42dc6zybT1723504127924\"],\"kw76d1yxfeT1723504056828\":[\"fmdxu8g2whwT1723504057676\"],\"lxik7hrl6n8T1723504061716\":[\"de87jvdn64oT1723504062372\"],\"mcfnw7n0r6T1723504061044\":[\"lxik7hrl6n8T1723504061716\"],\"p2ml3oxn0vT1723504065708\":[\"5r6b096ogmaT1723504066340\"],\"rixxpvdssaT1723504059428\":[\"95eeqs9r0sqT1723504060136\"],\"ty7y1b5rozgT1723504066980\":[\"junzcf3f51eT1723504067700\"],\"wm6oxi4cuoT1723503964047\":[\"kw76d1yxfeT1723504056828\"]},\"contents\":{\"0sl7pxfpjrkT1723504063054\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【九】</h2><p>【留言】</p><ul><li><p>「在这里读着这条留言的你，知道吗？」</p></li></ul><ul><li><p>「在任何陈述句后面加上『爱情也一样』，听起来就会显得很有道理。」</p></li></ul><ul><li><p>「比方说⋯对了，就用老头子最爱说的那句话吧。」</p></li></ul><ul><li><p>「打铁的诀窍，只有汗水！爱情也一样。」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>无论何时，猫尾的大门都会为您敞开！爱情也一样。</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"391qippky4pT1723504128748\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【十六】</h2><p>【留言】</p><ul><li><p>「某个红色的家伙给我听好了！别的人也一样！」</p></li></ul><ul><li><p>「这就是我的挑战状！下回羽球节，飞行冠军的桂冠就由我摘下！一切妄图阻挡我的人，我都会堂堂正正地在赛场上碾碎！好好等着吧！」</p></li></ul><p>【谁人的回应】</p><ul><li><p>「你是谁啊？」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>猫尾酒馆祝您下回飞行大赛顺利夺冠，将羽球献给心仪的女子。我们一如既往地期待着您的活跃与光顾。</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"5r6b096ogmaT1723504066340\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【十二】</h2><p>【留言】</p><ul><li><p>「猫尾什么时候弄来了这样的天才酒保？真是不得了。明明是个可爱的小姑娘，调酒的手艺还这么厉害⋯」</p></li></ul><ul><li><p>「只是，为什么称赞她，反而会让她生气呢？这点无论如何都想不通⋯」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>个中缘由，还请不要深究过多呢⋯无论如何，光顾我们，就是对她最好的支持！</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"7fa42dc6zybT1723504127924\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【十五】</h2><p>【留言】</p><ul><li><p>「我是冒险家协会的正式会员喔！ Ad astra abyssosque，向着星辰与深渊！很棒的座右铭吧！」</p></li></ul><ul><li><p>「但是，不知道是为什么，从小就很倒霉。不像别人是去寻找冒险，我就算坐着不动，也会有险情找上门来。哈哈。」</p></li></ul><ul><li><p>「也有些困扰。同辈的冒险家说着『和你一起太刺激了。看来冒险对我来说还太早了』，一个一个地退会了。」</p></li></ul><ul><li><p>「结果，现在照顾老爹他们的只有我了。不是不愿意，只是一个人始终还是有些辛苦呢⋯」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>如果常常感到辛苦的话，偶然光顾猫尾喝一杯如何？在酒馆，冒险故事总是很受欢迎的喔。说不定，也能找到志同道合的伙伴呢。</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"95eeqs9r0sqT1723504060136\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【五】</h2><p>【留言】</p><ul><li><p>「第一次到蒙德，感觉真是个有趣的地方。和以前去过的须弥、璃月都不同⋯怎么说呢，感觉这里的气氛又平静又轻松，慢悠悠的，很舒适。」</p></li></ul><ul><li><p>「前段时间去了东边的千风神殿，听说这是很久很久以前祭拜风的场所，非常气派。很难想象古代人是怎么造出这么宏伟的建筑的。」</p></li></ul><ul><li><p>「但是，其中有一个巨大的遗迹守卫，真的很可怕。起初我以为是废弃的古代机关，靠近后竟然站起来要攻击我。我赶紧逃了。」</p></li></ul><ul><li><p>「会伤人且不论，在珍贵遗迹中，有这样一个发射导弹的怪物，对古迹也不好吧？无论如何，要去千风神殿观光的话，千万要小心。」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>能够喜欢我们的城市，真是太好了。如果肯抽空莅临的话，猫尾一定会调制上好的饮料，为您扫清在遇到险情的晦气。</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"c8fa0dmju9eT1723504058444\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【三】</h2><p>【留言】</p><ul><li><p>「之前在羽球节上看见的，很奇怪的少女。全身缠着绷带，是生病了吗？」</p></li></ul><ul><li><p>「感觉不像本地人，看起来有点阴沉。但我打心底希望她能像别的孩子那样快乐地奔跑欢笑呢。已经很久没看见她了。」</p></li></ul><ul><li><p>「不知为何，看着留言板上乱糟糟的留言，突然想到了她。希望她的病能治好，脱下绷带，过上健康快乐的生活。」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>那位绷带少女我也见过哦。总感觉有什么没办法说出来的苦衷，肯定背负了很多吧。</p></li></ul><ul><li><p>虽然谁也无法帮忙承担他人肩上的重负，但偶然光顾猫尾喝上一杯消解压力的灵药，也是好事呢！</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"cfc251ng4l6T1723504063748\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【十】</h2><p>【留言】</p><ul><li><p>「本人是《少女薇拉的忧郁》的忠实读者。起初是为了消遣勤务之余的时间，受友人推荐而读并没有抱太高的期待。」</p></li></ul><ul><li><p>「但从第二卷开始，故事牢牢地抓住了我的心。疾风怒涛般的情节展开，无比现实的角色塑造,不得不说是极其优秀的文学作品。不，说是当代艺术品也不为过。」</p></li></ul><ul><li><p>「但也是因为它，我与友人的情谊之中，出现了裂缝。想必《薇拉》的读者都会明白，其中微妙的人物感情。我支持的情侣组合与她所支持的相左⋯」</p></li></ul><ul><li><p>「我和友人因此发生了争吵，在那之后至今没有说话。这件事一直让我很后悔。如果读到这则留言的你正是那位友人的话⋯」</p></li></ul><ul><li><p>「对不起，我们和好吧。好吗?」</p></li></ul><p>【谁人的回应】</p><ul><li><p>「我永远支持艾x萨！」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>如果那位友人有幸读到这则真挚的留言的话，希望你能原谅写下留言的他或她，一起光顾我们猫尾吧。另外，请不要在本留言板上过度讨论《薇拉》。</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"de87jvdn64oT1723504062372\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【八】</h2><p>【留言】</p><ul><li><p>「也不是我一个人这么觉得吧？愚人众那些人真是太讨厌了。代理团长他们要应付这些人，真的很辛苦⋯」</p></li></ul><ul><li><p>「跑到我们蒙德来，还这么飞扬跋扈。之前还听说，他们想要骑士团接受他们的管辖，真是无耻之尤！如果北风大人在，看他们有没有胆量说这种话⋯」</p></li></ul><ul><li><p>「为了蒙德自由，为了自由蒙德——我也会努力的！虽然现在只是一个卫兵，但我也有蒙德人的骄傲！」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>为了蒙德自由，为了自由蒙德，加油！干杯！</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"fmdxu8g2whwT1723504057676\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【二】</h2><p>【留言】</p><ul><li><p>「即使是我，也会偶尔想起以前悠闲的生活。骑士团的温暖也好，友谊也好，父亲大人也好，当时的一切都是那么美好。但是已经无法回到过去了。」</p></li></ul><ul><li><p>「为了未来，不能沉湎在美梦当中。又或者说，为了让人们有沉湎在美梦当中的余裕，必须有人醒过来，面对黎明前的黑暗。」</p></li></ul><ul><li><p>「有些事情，理智上虽然明白，是必须割舍的，但情感上还是会有些怀念。真是让人烦恼。」</p></li></ul><ul><li><p>「祝贵店生意兴隆。酒业的竞争可是很激烈的。」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>人生就像酒，需要经过提炼和变质才会成熟呢。</p></li></ul><ul><li><p>但猫尾的大门总是会向所有人敞开，即使对竞争对手也一样。谁都无法回到过去， 但谁都能回到猫尾，暂时放下烦恼和忧愁喔。</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"junzcf3f51eT1723504067700\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【十四】</h2><p>【留言】</p><ul><li><p>「大概从几个月前开始，脱发变得很严重。因为家里没有镜子，所以一直没有察觉到。」</p></li></ul><ul><li><p>「因为家里有养猫狗，一直以为是动物掉毛。直到⋯」</p></li></ul><ul><li><p>「风魔龙来袭的时候，感觉头顶凉凉的。这时我才发觉。后辈跟我说话时，不愿意直视我，原来是因为这个吗？ 」</p></li></ul><ul><li><p>「我早就过了在乎外形的年纪。只是，究竟为什么，会让我如此烦恼呢⋯如果有治脱发的方法就好了。」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>真是让人遗憾，我们没有治疗脱发的药。但是，让人暂时忘记烦恼的药，可是有很多喔！</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"kw76d1yxfeT1723504056828\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【一】</h2><p>【留言】</p><ul><li><p>「我好像是第一个用猫尾留言板的人？总感觉很荣幸呢。既然不用署名，那就说说觉得难以启齿的事情吧。」</p></li></ul><ul><li><p>「一直以来，我都觉得史莱姆看起来很好吃的样子。火元素的史莱姆看起来烫烫的、甜甜的，草元素的总觉得像是有甘草的奇妙甜味。」</p></li></ul><ul><li><p>「在热天如果吃史莱姆冰沙，感觉会很棒吧！ 我啊，经常不由自主地这样想，反而变得不怕魔物。」</p></li></ul><ul><li><p>「但因为没有人吃魔物，所以也不好意思说出我的想象。有这个机会对留言板倾诉一下，真是太好了。」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>确实是有些难以与人分享的爱好呢。但无论是什么样的爱好，都没有错。如果光顾猫尾的话，就算是想喝魔物口味的饮料，我们也能调制喔。</p></li></ul><p>【派蒙】</p><ul><li><p>史莱姆的滋味呀⋯</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"lxik7hrl6n8T1723504061716\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【七】</h2><p>【留言】</p><ul><li><p>「啊~！真是受不了了！那个大笨蛋！这么多年来，我每天到他的店找他，为什么他就是不明白我的心情！」</p></li></ul><ul><li><p>「明明很温柔，做事情也很可靠，是很小就开始顾店的聪明人，为什么在这点上会这么笨！我啊，可是一直都在等着⋯」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>爱情的事⋯只能听凭风引。</p></li></ul><ul><li><p>若两位不吝光顾的话，或许我们的饮料中也有能让笨蛋也能明白少女心意的魔药喔。</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"mcfnw7n0r6T1723504061044\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【六】</h2><p>【留言】</p><ul><li><p>「事先声明，我不喜欢看书。只是因为很想认识图书馆的大姐姐，所以才去借了这本《与神性同行》。」</p></li></ul><ul><li><p>「真的好难懂。本来只是想借看起来很高深的书，好让自己显得很有智慧，但是⋯」</p></li></ul><ul><li><p>「因为一直看不下去，就扔一边了。后来因为忙，忘了这茬，没有再去图书馆，连归还时间也忘了。」</p></li></ul><ul><li><p>「昨天想起来，才发现已经逾期一个星期了！因为听说过借书不还的人被雷击之类的可怕的传说，现在反而更不敢去图书馆了⋯」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>看样子，事情确实很严重呢。让人充满勇气的饮料，我们猫尾确实有，但总之⋯</p></li></ul><ul><li><p>听凭风引。</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"p2ml3oxn0vT1723504065708\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【十一】</h2><p>【留言】</p><ul><li><p>「啊啊，真倒霉。因为惩罚游戏输了，所以他们逼我向芙萝拉表白。」</p></li></ul><ul><li><p>「但是那些笨蛋没想到的是，既然没有规定表白的形式，那我就在这里表白吧。谁也不会知道是我，我真是天才！哈哈，笨蛋！」</p></li></ul><ul><li><p>「总之⋯我喜欢芙萝拉。事情就这样。」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>终于有人用我们的留言板表白了，总感觉有些感动。无论写下留言的客人是谁，祝您感情顺利。</p></li></ul><ul><li><p>如果不嫌弃的话，还请光顾猫尾，我们能调制让人有勇气当面表白的魔药喔。</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"rixxpvdssaT1723504059428\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【四】</h2><p>【留言】</p><ul><li><p>「我是随商队来的。在来蒙德城的路上，遇到了奇怪的事。」</p></li></ul><ul><li><p>「侦察的时候，看见一个奇怪的少年。开始以为他只是谁家的小孩，但那边应该没有人家才对。」</p></li></ul><ul><li><p>「那是被称作奔狼领的危险地方，据说从很久以前开始，就是狼的领土。当时我出声警告他，他却像野兽一样， 远远地从山上看着我。」</p></li></ul><ul><li><p>「等我回过神来，已经不见了⋯仔细想想，是幻觉也说不定。但如果真是谁家的小孩的话⋯请不要让孩子接近那种危险的地方。」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>类似的传闻我们也听说过呢。不管怎么说，既然是随远方商队来的客人，何不到猫尾来试试蒙德出名的美酒呢？</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"ty7y1b5rozgT1723504066980\":{\"dialogue\":\"<h2 class=\\\"custom-heading-cls\\\">【十三】</h2><p>【留言】</p><ul><li><p>「因为很努力的缘故，我被须弥的贤者选上了。明天天一亮，我就要离开蒙德，随着贤者去那边进修了。」</p></li></ul><ul><li><p>「听说是很远的路途。我从没离开过蒙德，感觉又兴奋又害怕。不知道璃月和须弥的风景是怎样的呢？」</p></li></ul><ul><li><p>「听说要学很多年。我从没离开过父母，很担心。等我回来，他们已经很老了吧? 一想到这点心里就很难过。」</p></li></ul><ul><li><p>「虽然如此，但又隐隐有些雀跃的心情。好像，自己突然变成了独当一面的大人似的。这种心情让我觉得很愧疚。」</p></li></ul><ul><li><p>「希望我不在的时候，父母身体健康，一切平安。蒙德的大家也一样。」</p></li></ul><p>【猫尾的回应】</p><ul><li><p>不必感到愧疚，这就是所谓的成人啊。爸爸妈妈一定也会感到欣慰的吧？</p></li></ul><ul><li><p>话说回来，既然成人了，那也能喝大人的饮料了。来我们猫尾喝上一杯，作为践行如何？</p></li></ul>\",\"icon\":\"\",\"option\":\"\"},\"wm6oxi4cuoT1723503964047\":{\"dialogue\":\"<p>【开场白】</p><ul><li><p>如果有烦恼的事，有趣的事，高兴的事，不开心的事，都写上来吧！猫尾酒馆会好好倾听大家的心声的！</p></li></ul>\",\"icon\":\"\",\"option\":\"\"}}}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "5713",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": true,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        }
+      ],
+      "filter_values": {},
+      "menu_id": "0",
+      "menu_name": "",
+      "version": "1723515711",
+      "langs": [],
+      "template_layout": {
+        "tab": [
+          {
+            "tab_id": "425",
+            "tab_name": "页签1",
+            "module_group": [
+              {
+                "module_group_id": "1954",
+                "layout": "l2r1",
+                "module": [
+                  {
+                    "id": "5712",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "5713",
+                    "pos": "right"
+                  }
+                ],
+                "name": "地图文本",
+                "repeated": false,
+                "parent_group_id": "0"
+              }
+            ]
+          }
+        ]
+      },
+      "edit_lock_status": "Unlock",
+      "correct_lock_status": "Unlock",
+      "menus": [
+        {
+          "id": "251",
+          "name": "地图文本",
+          "has_page": false,
+          "style": "",
+          "sub_menus": [],
+          "icon": "",
+          "mi18n_key": "地图文本",
+          "is_hidden": false,
+          "parent_id": "189",
+          "template_id": "",
+          "bg_img": "",
+          "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"default\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"地区\\\",\\\"children\\\":[{\\\"label\\\":\\\"蒙德\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"璃月\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"稻妻\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"须弥\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"枫丹\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"纳塔\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"挪德卡莱\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"至冬\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"活动区域\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"分类\\\",\\\"children\\\":[{\\\"label\\\":\\\"对话项\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"闪光点\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"活动限定\\\",\\\"children\\\":[{\\\"label\\\":\\\"是\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"否\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/189/251?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"0\"}]",
+          "updated_at": "-62135596800"
+        }
+      ],
+      "template_id": "66b2fb612644d74791013636",
+      "ext": {
+        "fe_ext": "{\"c_251\":{\"filter\":{\"text\":\"[\\\"地区/蒙德\\\",\\\"分类/对话项\\\"]\"}}}",
+        "post_ext": {
+          "post_id": "",
+          "post_user_name": "",
+          "post_time": "0",
+          "post_avatar_url": "",
+          "url": ""
+        },
+        "server_ext": "",
+        "personalized_color": "",
+        "scrolling_text": "",
+        "corner_mark": "None"
+      },
+      "alias_name": "",
+      "lang": "",
+      "beta": false,
+      "page_type": "Default",
+      "menu_style": "",
+      "status": "Online"
+    }
+  }
+}

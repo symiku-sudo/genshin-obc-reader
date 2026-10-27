@@ -1,0 +1,159 @@
+{
+  "retcode": 0,
+  "message": "OK",
+  "data": {
+    "list": [
+      {
+        "entry_page_id": "103",
+        "name": "<em>甜</em><em>甜</em><em>花</em><em>酿</em><em>鸡</em>",
+        "icon_url": "https://act-upload.mihoyo.com/wiki-user-upload/2023/09/26/24077343/5a839a66fdddb522d9612386b75255cb_368187993595514715.png",
+        "menu": null,
+        "hit": null,
+        "menus": [
+          {
+            "id": "21",
+            "name": "食物",
+            "has_page": false,
+            "style": "",
+            "sub_menus": [],
+            "icon": "",
+            "mi18n_key": "食物",
+            "is_hidden": false,
+            "parent_id": "189",
+            "template_id": "",
+            "bg_img": "",
+            "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"monsterImage\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"食物类型\\\",\\\"children\\\":[{\\\"label\\\":\\\"回复类\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"复活类\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"体力类\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"攻击类\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"防御类\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"暴击类\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"生命上限\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"治疗加成\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"合成药剂\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"特殊食物\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"食物星级\\\",\\\"children\\\":[{\\\"label\\\":\\\"其他\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"一星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"二星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"三星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"四星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"五星\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"食物获取方式\\\",\\\"children\\\":[{\\\"label\\\":\\\"NPC购买\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"任务获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"宝箱获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"其他\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"是否产出特殊料理\\\",\\\"children\\\":[{\\\"label\\\":\\\"是\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"否\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/189/21?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"0\"}]",
+            "updated_at": "-62135596800"
+          }
+        ],
+        "desc": "",
+        "body": "奇怪的<em>甜甜花酿鸡</em> 加工材料 禽肉 *2 <em>甜甜花</em> *2 描述 蜜酿后烤熟的禽肉。<em>甜甜花</em>在过度的烤制下凋谢了，只留下了禽肉柴苦的口感。",
+        "menu_enum": "Default",
+        "ext": "",
+        "bbs_url": "",
+        "alias_name": ""
+      },
+      {
+        "entry_page_id": "5475",
+        "name": "<em>甜</em><em>甜</em><em>花</em><em>酿</em><em>鸡</em>",
+        "icon_url": "https://uploadstatic.mihoyo.com/ys-obc/2022/12/06/79683714/bb5528c89decc6e54ade58e1c672cbfa_4113972688843190708.png",
+        "menu": null,
+        "hit": null,
+        "menus": [
+          {
+            "id": "234",
+            "name": "行动牌",
+            "has_page": false,
+            "style": "",
+            "sub_menus": [],
+            "icon": "",
+            "mi18n_key": "行动牌",
+            "is_hidden": false,
+            "parent_id": "231",
+            "template_id": "",
+            "bg_img": "",
+            "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"cardFilter\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"类型\\\",\\\"children\\\":[{\\\"label\\\":\\\"装备牌\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"事件牌\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"支援牌\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"标签\\\",\\\"children\\\":[{\\\"label\\\":\\\"武器\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"圣遗物\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"天赋\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"料理\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"道具\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"伙伴\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"场地\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素共鸣\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素幻变\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"秘传\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"特技\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"其他标签\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"花费\\\",\\\"children\\\":[{\\\"label\\\":\\\"花费0\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"花费1\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"花费2\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"花费3\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"花费4\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"花费5\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"花费6\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"其他花费\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"特殊模式\\\",\\\"children\\\":[{\\\"label\\\":\\\"自行巧局\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/231/234?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"0\"}]",
+            "updated_at": "-62135596800"
+          }
+        ],
+        "desc": "",
+        "body": "<em>甜甜花酿鸡</em> 类型 ：事件牌 获取 ：卡牌商店购买 标签 ：料理 花费 ：0 治疗目标角色1点。",
+        "menu_enum": "Default",
+        "ext": "",
+        "bbs_url": "",
+        "alias_name": ""
+      },
+      {
+        "entry_page_id": "763",
+        "name": "<em>甜</em><em>甜</em><em>花</em>",
+        "icon_url": "https://act-upload.mihoyo.com/ys-obc/2023/12/13/24077343/965ee7b15bbc31e1a8223d522e57b546_2973791949815065954.png",
+        "menu": null,
+        "hit": null,
+        "menus": [
+          {
+            "id": "13",
+            "name": "背包",
+            "has_page": false,
+            "style": "",
+            "sub_menus": [],
+            "icon": "",
+            "mi18n_key": "背包",
+            "is_hidden": false,
+            "parent_id": "189",
+            "template_id": "",
+            "bg_img": "",
+            "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"default\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"道具类型\\\",\\\"children\\\":[{\\\"label\\\":\\\"角色经验素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"角色与武器培养素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"角色培养素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"角色突破素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"角色天赋素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"武器突破素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"武器强化材料\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"武器精炼材料\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"圣遗物强化素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"蒙德地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"璃月地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"稻妻地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"须弥地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"枫丹地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"纳塔地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"挪德卡莱地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"至冬地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"食材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"炼金素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"武器制作素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"道具锻造素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"家园摆设制作素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"锻造用矿石\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"鱼饵\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"小道具\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"消耗品\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"任务道具\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"贵重道具\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"获取方式\\\",\\\"children\\\":[{\\\"label\\\":\\\"普通敌人掉落\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"精英敌人掉落\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"首领敌人掉落\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"征讨领域掉落\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"秘境掉落\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"合成台合成\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"合成台转化\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"铁匠处制作获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"食材加工\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"地图探索\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"杂货店/NPC购买或兑换\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"纪念商店购买或兑换\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"地区供奉奖励获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"活动获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"游戏商城获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"游戏祈愿获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"系统邮件获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"任务获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"声望奖励获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"角色好感度获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"聚所共建奖励\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"星级\\\",\\\"children\\\":[{\\\"label\\\":\\\"无\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"一星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"二星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"三星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"四星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"五星\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/189/13?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"0\"}]",
+            "updated_at": "-62135596800"
+          }
+        ],
+        "desc": "",
+        "body": "<em>甜甜花</em> 获得方式 野外采集； 探索派遣获得； 蒙德 芙萝拉【花店】 、挪德卡莱 丽切娅【「春景花房」店员】 处购买； 尘歌壶通过 贵本之道-「玄此玉田」 种植收获 描述 香气浓郁的植株。",
+        "menu_enum": "Default",
+        "ext": "",
+        "bbs_url": "",
+        "alias_name": ""
+      },
+      {
+        "entry_page_id": "2673",
+        "name": "<em>甜</em><em>甜</em><em>花</em>鳉",
+        "icon_url": "https://uploadstatic.mihoyo.com/ys-obc/2021/08/20/6800286/577293faefad06f528e5f5f824bfbd61_7555961403824759402.png",
+        "menu": null,
+        "hit": null,
+        "menus": [
+          {
+            "id": "49",
+            "name": "动物",
+            "has_page": false,
+            "style": "",
+            "sub_menus": [],
+            "icon": "",
+            "mi18n_key": "动物",
+            "is_hidden": false,
+            "parent_id": "189",
+            "template_id": "",
+            "bg_img": "",
+            "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"default\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"动物类型\\\",\\\"children\\\":[{\\\"label\\\":\\\"禽鸟\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"走兽\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"游鱼\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"其他\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"是否可捕获\\\",\\\"children\\\":[{\\\"label\\\":\\\"是\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"否\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/189/49?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"\"}]",
+            "updated_at": "-62135596800"
+          }
+        ],
+        "desc": "",
+        "body": "获得方式 垂钓 <em>甜甜花</em>鳉 <em>甜甜花</em>鳉 活泼好动的小型鳉鱼，以优美的花瓣型鱼尾闻名。",
+        "menu_enum": "Default",
+        "ext": "",
+        "bbs_url": "",
+        "alias_name": ""
+      },
+      {
+        "entry_page_id": "4474",
+        "name": "旅行者手制便当",
+        "icon_url": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/26/183046623/79ffef846a66ab6ee6cbb29e4eeb18ff_5684960179030186533.PNG",
+        "menu": null,
+        "hit": null,
+        "menus": [
+          {
+            "id": "13",
+            "name": "背包",
+            "has_page": false,
+            "style": "",
+            "sub_menus": [],
+            "icon": "",
+            "mi18n_key": "背包",
+            "is_hidden": false,
+            "parent_id": "189",
+            "template_id": "",
+            "bg_img": "",
+            "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"default\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"道具类型\\\",\\\"children\\\":[{\\\"label\\\":\\\"角色经验素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"角色与武器培养素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"角色培养素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"角色突破素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"角色天赋素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"武器突破素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"武器强化材料\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"武器精炼材料\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"圣遗物强化素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"蒙德地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"璃月地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"稻妻地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"须弥地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"枫丹地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"纳塔地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"挪德卡莱地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"至冬地区特产\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"食材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"炼金素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"武器制作素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"道具锻造素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"家园摆设制作素材\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"锻造用矿石\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"鱼饵\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"小道具\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"消耗品\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"任务道具\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"贵重道具\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"获取方式\\\",\\\"children\\\":[{\\\"label\\\":\\\"普通敌人掉落\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"精英敌人掉落\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"首领敌人掉落\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"征讨领域掉落\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"秘境掉落\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"合成台合成\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"合成台转化\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"铁匠处制作获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"食材加工\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"地图探索\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"杂货店/NPC购买或兑换\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"纪念商店购买或兑换\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"地区供奉奖励获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"活动获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"游戏商城获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"游戏祈愿获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"系统邮件获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"任务获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"声望奖励获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"角色好感度获取\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"聚所共建奖励\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"星级\\\",\\\"children\\\":[{\\\"label\\\":\\\"无\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"一星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"二星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"三星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"四星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"五星\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/189/13?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"0\"}]",
+            "updated_at": "-62135596800"
+          }
+        ],
+        "desc": "",
+        "body": "旅行者手制便当 获得方式 魔神任务第三章第一幕获取 描述 旅行者亲手制作的便当，里面放入了拿手的<em>甜甜花酿鸡</em>和萝卜时蔬汤，希望海芭夏能够喜欢。",
+        "menu_enum": "Default",
+        "ext": "",
+        "bbs_url": "",
+        "alias_name": ""
+      }
+    ],
+    "total": 0
+  }
+}

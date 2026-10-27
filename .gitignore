@@ -1,0 +1,12 @@
+# Local database, cached text, backups, and service artifacts
+data/*.sqlite3*
+data/*.sock
+*.log
+*.pid
+__pycache__/
+*.py[cod]
+.qa/
+
+# Downloaded upstream bundles and raw page shell used for reverse engineering
+research/*.js
+research/home.html

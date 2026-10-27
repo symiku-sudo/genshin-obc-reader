@@ -1,0 +1,44 @@
+# 观测观测枢
+
+原神中文文本的本地浏览与搜索网页。使用 Python 标准库和 SQLite，不需要账号或 npm 运行依赖。
+
+首页提供自由浏览、全文搜索和“全部／未读／已读”筛选。可在列表或正文页手动标记词条已读；标记保存在 SQLite。收藏、阅读位置和字号保存在当前浏览器。管理区收纳目录导入、更新、在线查找及阅读记录备份。备份文件包含已读标记、收藏、位置和字号，不含正文；恢复会合并阅读标记与收藏，并保留当前已有的位置和字号。
+
+当前已接入书籍、武器、圣遗物、地图文本、角色、食物、背包 7 个观测枢公开目录。实际覆盖取决于原站公开正文及当前提取规则；目录不代表游戏内全部文本。保存中文故事、设定、书籍、交互对白、物品描述及角色中文语音文案。属性、成长与突破材料表、配装攻略、图片、视频、音频和玩法数值不进入正文。对白结构异常或未知模块会标为待核对，避免猜测拼接。
+
+## 在 Termux 中运行
+
+```sh
+cd obc-reader
+sh control.sh start
+```
+
+在同一台设备的浏览器打开 <http://127.0.0.1:8766/>。该地址只供本机访问。使用 `sh control.sh status` 检查服务，`sh control.sh stop` 停止。Android 结束 Termux 后需重新启动服务；导入任务会保存进度并可继续。
+
+前台运行方式：
+
+```sh
+sh start.sh
+```
+
+## 测试
+
+```sh
+python -m unittest -q
+node --check static/app.js
+node --check static/library.js
+node --check static/backup.js
+```
+
+可选 DOM 交互检查（需要 Node.js 和联网安装测试依赖）：
+
+```sh
+npm install --prefix .qa --no-save --no-package-lock jsdom@26.1.0
+node test_ui.cjs
+```
+
+## 缓存和隐私
+
+所有下载的正文、搜索索引、阅读标记和数据库备份保存在 `data/`；该目录被 Git 忽略。不要提交个人的 SQLite 数据库或阅读记录备份。样本响应和目录清单位于 `research/`，用于测试与离线解析；它们包含观测枢文本，当前 GitHub 仓库设为私有。
+
+`python audit_imports.py` 和 `python audit_map_cache.py` 可从本地缓存生成覆盖报告；`python recheck_saved_reviews.py JOB_ID [...]` 只用数据库已保存的原始响应重查待适配项，不联网。

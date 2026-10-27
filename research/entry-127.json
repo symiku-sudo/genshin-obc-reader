@@ -1,0 +1,262 @@
+{
+  "retcode": 0,
+  "message": "OK",
+  "data": {
+    "page": {
+      "id": "127",
+      "name": "无锋剑",
+      "desc": "无锋剑",
+      "icon_url": "https://act-upload.mihoyo.com/wiki-user-upload/2024/02/21/82503813/324f8876dccb8fc6214d9b8b08c664b5_1958739235608357610.png",
+      "header_img_url": "",
+      "modules": [
+        {
+          "name": "",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "equipment_base_info",
+              "layout": "",
+              "data": "{\"category\":\"单手剑\",\"image\":\"https://act-upload.mihoyo.com/wiki-user-upload/2024/02/21/82503813/324f8876dccb8fc6214d9b8b08c664b5_6035178375789397799.png\",\"name\":\"无锋剑\",\"star\":1}\n",
+              "style": ""
+            }
+          ],
+          "id": "1187",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "装备描述",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "good_desc",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p><span style=\\\"color: rgb(0, 0, 0)\\\">少年人的梦想，踏上旅途的兴奋——如果这两种珍贵的品质还不够锋利，那就用勇气补足吧。</span></p><p></p>\",\"attr\":[{\"key\":\"冒险等阶限制：\",\"value\":[\"<p>无</p>\"]},{\"key\":\"获取途径：\",\"value\":[\"<p>单手剑初始武器</p>\"]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1188",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "成长数值",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "equipment_growth_info",
+              "layout": "",
+              "data": "{\"list\":[{\"attr\":[{\"key\":\"初始基础数值：\",\"value\":[\"<p>基础攻击力: 23</p>\"]},{\"key\":\"平均每级提升：\",\"value\":[\"<p>基础攻击力: +1.74</p>\"]}],\"materials\":[{\"amount\":1,\"ep_id\":803,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/16/76373921/d07c65415ee1093e8c81fe9da46d54ba_2514623631477366923.png\",\"link\":\"/ys/obc/content/803/detail\",\"nickname\":\"高塔孤王的破瓦\"},{\"amount\":3,\"ep_id\":804,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/21/76373921/fa5a4935936b699383d5bdb8076ca73f_327200983671152124.png\",\"link\":\"/ys/obc/content/804/detail\",\"nickname\":\"高塔孤王的残垣\"},{\"amount\":1,\"ep_id\":805,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/20/75833613/fa98428da5d534c1730fba373b962020_8517048040146582819.png\",\"link\":\"/ys/obc/content/805/detail\",\"nickname\":\"高塔孤王的断片\"},{\"amount\":5,\"ep_id\":901,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/16/76373921/c7fedf6aa4861e652582874e1edef799_2666466086660306881.png\",\"link\":\"/ys/obc/content/901/detail\",\"nickname\":\"沉重号角\"},{\"amount\":6,\"ep_id\":902,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/21/76373921/dc12a92a6756ca3d555c39622900c90a_3805965970622910638.png\",\"link\":\"/ys/obc/content/902/detail\",\"nickname\":\"黑铜号角\"},{\"amount\":3,\"ep_id\":892,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2021/08/31/75833613/17cecc858a1987f46221f93c7e90b80d_8923398668492971176.png\",\"link\":\"/ys/obc/content/892/detail\",\"nickname\":\"牢固的箭簇\"},{\"amount\":5,\"ep_id\":893,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2021/08/31/75833613/1e41c7f972a4829cd2aa316df8916a70_489072550626147790.png\",\"link\":\"/ys/obc/content/893/detail\",\"nickname\":\"锐利的箭簇\"},{\"amount\":72,\"ep_id\":1030,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/07/21/15568211/2e39a9f5b912ec7717a4f77182e8605b_4227205780581648845.png\",\"link\":\"/ys/obc/content/1030/detail\",\"nickname\":\"精锻用魔矿\"},{\"amount\":91987,\"ep_id\":0,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2022/01/26/183046623/ba976c9d2e725a18873d91a2614558a4_853547209390897208.jpg\",\"link\":\"/ys/obc/content/5565/detail?bbs_presentation_style=no_header\",\"nickname\":\"摩拉\"}],\"tab_name\":\"1级\"},{\"attr\":[{\"key\":\"初始基础数值：\",\"value\":[\"<p>基础攻击力（未突破）: 56</p><p>基础攻击力（突破后）: 68</p>\"]},{\"key\":\"平均每级提升：\",\"value\":[\"<p>基础攻击力: +1.70</p>\"]}],\"materials\":[{\"amount\":1,\"ep_id\":803,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/16/76373921/d07c65415ee1093e8c81fe9da46d54ba_2514623631477366923.png\",\"link\":\"/ys/obc/content/803/detail\",\"nickname\":\"高塔孤王的破瓦\"},{\"amount\":1,\"ep_id\":901,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/16/76373921/c7fedf6aa4861e652582874e1edef799_2666466086660306881.png\",\"link\":\"/ys/obc/content/901/detail\",\"nickname\":\"沉重号角\"},{\"amount\":1,\"ep_id\":892,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2021/08/31/75833613/17cecc858a1987f46221f93c7e90b80d_8923398668492971176.png\",\"link\":\"/ys/obc/content/892/detail\",\"nickname\":\"牢固的箭簇\"}],\"tab_name\":\"20级\"},{\"attr\":[{\"key\":\"初始基础数值：\",\"value\":[\"<p>基础攻击力（未突破）: 102</p><p>基础攻击力（突破后）: 113</p>\"]},{\"key\":\"平均每级提升：\",\"value\":[\"<p>基础攻击力: +1.70</p>\"]}],\"materials\":[{\"amount\":1,\"ep_id\":804,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/21/76373921/fa5a4935936b699383d5bdb8076ca73f_327200983671152124.png\",\"link\":\"/ys/obc/content/804/detail\",\"nickname\":\"高塔孤王的残垣\"},{\"amount\":4,\"ep_id\":901,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/21/76373921/c7fedf6aa4861e652582874e1edef799_4565072511224933140.png\",\"link\":\"/ys/obc/content/901/detail\",\"nickname\":\"沉重号角\"},{\"amount\":2,\"ep_id\":892,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2021/08/31/75833613/17cecc858a1987f46221f93c7e90b80d_2933760976896700847.png\",\"link\":\"/ys/obc/content/892/detail\",\"nickname\":\"牢固的箭簇\"}],\"tab_name\":\"40级\"},{\"attr\":[{\"key\":\"初始基础数值：\",\"value\":[\"<p>基础攻击力（未突破）: 130</p><p>基础攻击力（突破后）: 141</p>\"]},{\"key\":\"平均每级提升：\",\"value\":[\"<p>基础攻击力: +1.70</p>\"]}],\"materials\":[{\"amount\":2,\"ep_id\":804,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/21/76373921/fa5a4935936b699383d5bdb8076ca73f_2769345974318727582.png\",\"link\":\"/ys/obc/content/804/detail\",\"nickname\":\"高塔孤王的残垣\"},{\"amount\":2,\"ep_id\":902,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/06/21/76373921/dc12a92a6756ca3d555c39622900c90a_3805965970622910638.png\",\"link\":\"/ys/obc/content/902/detail\",\"nickname\":\"黑铜号角\"},{\"amount\":2,\"ep_id\":893,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2021/08/31/75833613/1e41c7f972a4829cd2aa316df8916a70_489072550626147790.png\",\"link\":\"/ys/obc/content/893/detail\",\"nickname\":\"锐利的箭簇\"}],\"tab_name\":\"50级\"},{\"attr\":[{\"key\":\"初始基础数值：\",\"value\":[\"<p>基础攻击力（未突破）: 158</p><p>基础攻击力（突破后）: 169</p>\"]},{\"key\":\"平均每级提升：\",\"value\":[\"<p>基础攻击力: +1.60</p>\"]}],\"materials\":[{\"amount\":1,\"ep_id\":805,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/20/75833613/fa98428da5d534c1730fba373b962020_8517048040146582819.png\",\"link\":\"/ys/obc/content/805/detail\",\"nickname\":\"高塔孤王的断片\"},{\"amount\":4,\"ep_id\":902,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/20/75833613/dc12a92a6756ca3d555c39622900c90a_3144333347242600588.png\",\"link\":\"/ys/obc/content/902/detail\",\"nickname\":\"黑铜号角\"},{\"amount\":3,\"ep_id\":893,\"img\":\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/20/75833613/1e41c7f972a4829cd2aa316df8916a70_8985182173079180825.png\",\"link\":\"/ys/obc/content/893/detail\",\"nickname\":\"锐利的箭簇\"}],\"tab_name\":\"60级\"},{\"attr\":[{\"key\":\"初始基础数值：\",\"value\":[\"<p>基础攻击力: 185</p>\"]},{\"key\":\"平均每级提升：\",\"value\":[\"<p></p>\"]}],\"materials\":[],\"tab_name\":\"70级\"}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1189",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "相关故事",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p>旅途中总是充满了相遇与别离。</p><p>始终不会抛弃旅人的忠实旅伴,</p><p>恐怕只有长剑与远行的梦想了。</p>\",\"switch\":false,\"is_show_switch\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "1190",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "推荐角色",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "multi_table",
+              "layout": "",
+              "data": "{\"tables\":[{\"tab_name\":\"默认标题\",\"header\":[\"\",\"\"],\"row\":[[\"<p></p>\",\"<p></p>\"],[\"<p></p>\",\"<p></p>\"]]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "1191",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "装备展示",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "map_desc",
+              "layout": "",
+              "data": "{\"list\":[{\"tab_name\":\"突破前\",\"image\":\"https://act-upload.mihoyo.com/wiki-user-upload/2024/09/04/75833613/55ed5668cb90d711f3fb6545d856e8a7_5703150685247130458.gif\"},{\"tab_name\":\"突破后\",\"image\":\"https://act-upload.mihoyo.com/wiki-user-upload/2024/09/04/75833613/c19dc6a8009cc80eabb90e2a6b5b7db8_8522737723274422080.gif\"}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "6013",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        }
+      ],
+      "filter_values": {},
+      "menu_id": "0",
+      "menu_name": "",
+      "version": "1725847973",
+      "langs": [],
+      "template_layout": {
+        "tab": [
+          {
+            "tab_id": "65",
+            "tab_name": "页签1",
+            "module_group": [
+              {
+                "module_group_id": "680",
+                "layout": "l1r2",
+                "module": [
+                  {
+                    "id": "1187",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1188",
+                    "pos": "right"
+                  },
+                  {
+                    "id": "1189",
+                    "pos": "right"
+                  },
+                  {
+                    "id": "6013",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "1190",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "",
+                "repeated": false,
+                "parent_group_id": "0"
+              },
+              {
+                "module_group_id": "681",
+                "layout": "l1r1",
+                "module": [
+                  {
+                    "id": "1191",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "",
+                "repeated": false,
+                "parent_group_id": "0"
+              }
+            ]
+          }
+        ]
+      },
+      "edit_lock_status": "Unlock",
+      "correct_lock_status": "Unlock",
+      "menus": [
+        {
+          "id": "5",
+          "name": "武器",
+          "has_page": false,
+          "style": "",
+          "sub_menus": [],
+          "icon": "",
+          "mi18n_key": "武器",
+          "is_hidden": false,
+          "parent_id": "189",
+          "template_id": "",
+          "bg_img": "",
+          "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"collectionAvatar\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"武器星级\\\",\\\"children\\\":[{\\\"label\\\":\\\"五星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"四星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"三星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"二星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"一星\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"武器类型\\\",\\\"children\\\":[{\\\"label\\\":\\\"单手剑\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"双手剑\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"弓\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"长柄武器\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"法器\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"属性加成\\\",\\\"children\\\":[{\\\"label\\\":\\\"攻击力\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"物理伤害加成\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"防御力\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"暴击率\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"暴击伤害\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素精通\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素充能效率\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"生命值\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"移动速度\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"攻击速度\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"护盾强效\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素伤害\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"获取途径\\\",\\\"children\\\":[{\\\"label\\\":\\\"祈愿\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"宝箱\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"初始武器\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"商城兑换\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"商店\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"锻造\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"珍珠纪行\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"活动\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"其他\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/189/5?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"\"}]",
+          "updated_at": "-62135596800"
+        }
+      ],
+      "template_id": "66d8899ceb210fc7db310610",
+      "ext": {
+        "fe_ext": "{\"c_5\":{\"filter\":{\"text\":\"[\\\"武器类型/单手剑\\\",\\\"武器星级/一星\\\",\\\"获取途径/宝箱\\\",\\\"获取途径/初始武器\\\",\\\"获取途径/商店\\\"]\"}}}",
+        "post_ext": {
+          "post_id": "",
+          "post_user_name": "",
+          "post_time": "0",
+          "post_avatar_url": "",
+          "url": ""
+        },
+        "server_ext": "",
+        "personalized_color": "",
+        "scrolling_text": "",
+        "corner_mark": "None"
+      },
+      "alias_name": "",
+      "lang": "",
+      "beta": false,
+      "page_type": "Default",
+      "menu_style": "",
+      "status": "Online"
+    }
+  }
+}

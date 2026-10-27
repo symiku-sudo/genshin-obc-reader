@@ -1,0 +1,299 @@
+{
+  "retcode": 0,
+  "data": {
+    "page": {
+      "id": "1600",
+      "name": "悠古的磐岩",
+      "desc": "悠古的磐岩",
+      "icon_url": "https://uploadstatic.mihoyo.com/ys-obc/2021/02/16/20738632/ed34a7c93f17c00551bce08c244e15cc_3795918138643596581.png",
+      "header_img_url": "",
+      "modules": [
+        {
+          "name": "基础信息",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "rich_base_info",
+              "layout": "",
+              "data": "{\"list\":[{\"key\":\" 稀有度 \",\"value\":[\"<p>4星/5星</p>\"]},{\"key\":\" 获取途径 \",\"value\":[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"375\\\" data-entry-ratio=\\\"text\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/03/30/4328207/65da75cf98aab0039fdec178a8d7890f_3912101975412580177.png\\\" data-entry-name=\\\"孤云凌霄之处\\\" data-entry-link=\\\"/ys/obc/content/375/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/375/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-text\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">孤云凌霄之处</span></span></a></span>：惊蛰Ⅲ～Ⅴ概率掉落（4星）；惊蛰Ⅴ～Ⅵ概率掉落（5星）；</p><p>合成台「还圣奥迹」获取；</p><p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"502145\\\" data-entry-ratio=\\\"text\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/08/28/50494840/d29726b96c9ee790cae261ddbc5f9989_3936286629804858604.png\\\" data-entry-name=\\\"圣言自明机\\\" data-entry-link=\\\"/ys/obc/content/502145/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/502145/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-text\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">圣言自明机</span></span></a></span>定义获取。</p>\"]},{\"key\":\"2件套效果 \",\"value\":[\"<p>获得15%岩元素伤害加成。</p>\"]},{\"key\":\"4件套效果 \",\"value\":[\"<p>获得结晶反应形成的晶片或触发月结晶反应时，队伍中所有角色获得35%对应元素伤害加成，持续10秒。同时只能通过该效果获得一种元素伤害加成。</p>\"]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "4",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "生之花",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "artifact_list_v2",
+              "layout": "",
+              "data": "{\"title\":\"生之花：\",\"name\":{\"key\":\"生之花：\",\"value\":[\"磐陀裂生之花\"]},\"icon_url\":\"https://uploadstatic.mihoyo.com/ys-obc/2022/10/12/4521515/ed34a7c93f17c00551bce08c244e15cc_7313849271191383573.png\",\"desc\":{\"key\":\"描述：\",\"value\":[\"<p>盛开于磐陀巨岩的金石之花。花瓣随风轻摇，似有生机。</p>\"]},\"story\":{\"key\":\"故事\",\"value\":[\"<p>自永固峭岩的裂隙之中盛开的花朵，</p><p>是以岩石精华雕琢而成的美好生命。</p><p> </p><p>坊间曾有民话：</p><p>古时有人对岩之君说，枯石之中绝无生命可言。</p><p>岩君于是令纯金之花，从磐陀巨石中破壳而出。</p><p> </p><p>或许岩之神确实曾行使过此等伟业，</p><p>又或许这也不过是悠古大地上的无数传说之一。</p><p>但勇敢地面朝云来之海的不绝怒涛，</p><p>生长在巍峨磐石山峰上的繁荣海港，</p><p>就是这样的耀眼花朵吧。</p>\"]}}\n",
+              "style": ""
+            }
+          ],
+          "id": "5",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "死之羽",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "artifact_list_v2",
+              "layout": "",
+              "data": "{\"title\":\"死之羽：\",\"name\":{\"key\":\"死之羽：\",\"value\":[\"嵯峨群峰之翼\"]},\"icon_url\":\"https://uploadstatic.mihoyo.com/ys-obc/2022/10/12/4521515/abfb9a67b8368e7a953f16b7a91342bd_4191601785078510662.png\",\"desc\":{\"key\":\"描述：\",\"value\":[\"<p>来自矶岩巨鸢的刚羽，玄石的羽尖有时会凝结有清冷的露珠。</p>\"]},\"story\":{\"key\":\"故事\",\"value\":[\"<p>削平嵯峨群峰的巨翼上遗落的片羽，</p><p>如今玄青色的尖端依旧锋利如明刃。</p><p> </p><p>传说在天地不平的古时，岩君曾拔山而造巨鸢。</p><p>鸢鸟由玉石与矶岩塑成，甫一成形便飞离大地，</p><p>圜旋直冲九天云霄之上,亦削平诸多凌云巨峰。</p><p> </p><p>据说，岩之鸢禽振翅直往大海，</p><p>恍若落自神霄的锋利欃枪一般，</p><p>坠向庞大的海中魔兽<span style=\\\"color: rgb(0, 0, 0)\\\">⋯</span></p><p> </p><p>据说，海上的嵯峨岩柱，如今仍然吸引着飞鸢。</p><p></p>\"]}}\n",
+              "style": ""
+            }
+          ],
+          "id": "6",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "时之沙",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "artifact_list_v2",
+              "layout": "",
+              "data": "{\"title\":\"时之沙：\",\"name\":{\"key\":\"时之沙：\",\"value\":[\"星罗圭璧之晷\"]},\"icon_url\":\"https://uploadstatic.mihoyo.com/ys-obc/2022/10/12/4521515/dd4f434e9ae606f34fa3309854f36cdc_6817681394658994087.png\",\"desc\":{\"key\":\"描述：\",\"value\":[\"<p>以整块圭璧雕琢而成的日居，纹路层叠星罗，沉默地记录着失去的时间。</p>\"]},\"story\":{\"key\":\"故事\",\"value\":[\"<p>以圭璋之璧塑成的日晷，</p><p>沉默地追随日光与时间。</p><p> </p><p>即使悠古永固的群岩，也会在漫长的时光中崩解，化为沙砾尘埃。</p><p> </p><p>据说岩之君曾将地中明星琢成计时之物，教导先民光阴之贵。</p><p>传说许久之后日晷流落民间，为年轻时仍是书生的昆吾所得。</p><p> </p><p>「少时本潜心研读经籍，意在往渡须弥，修行至大之智慧」</p><p>「但偶获此晷，复日把玩，迁延时久，竟未曾见一毫瑕疵」</p><p>「便决定别高师，改而以匠为业，挑战这天工之器的主人」</p>\"]}}\n",
+              "style": ""
+            }
+          ],
+          "id": "7",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "空之杯",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "artifact_list_v2",
+              "layout": "",
+              "data": "{\"title\":\"空之杯：\",\"name\":{\"key\":\"空之杯：\",\"value\":[\"巉岩琢塑之樽\"]},\"icon_url\":\"https://uploadstatic.mihoyo.com/ys-obc/2022/10/12/4521515/1b0eec44a8d441397e209fcbd10111f3_7815709582660366711.png\",\"desc\":{\"key\":\"描述：\",\"value\":[\"<p>华丽而不失庄重的酒樽，千年前曾满盛玉露。</p>\"]},\"story\":{\"key\":\"故事\",\"value\":[\"<p>取不移的山岩雕塑而成的酒樽，</p><p>其中盛装的是至尊享用的琼浆。</p><p> </p><p>玄岩理应坚不可摧，水晶必须剔透玲珑，</p><p>正如行走凡间，品尝乐趣亦须讲求极致。</p><p> </p><p>坊间曾有民话，称岩王爷为饮酒，</p><p>取来千丈岭嶂巉岩，以玉碣为骨，</p><p>以瑶岫为胆，雕琢乃成一方酒樽。</p><p> </p><p>亦有识古籍者称酒盏本应有七樽。</p>\"]}}\n",
+              "style": ""
+            }
+          ],
+          "id": "8",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "理之冠",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "artifact_list_v2",
+              "layout": "",
+              "data": "{\"title\":\"理之冠：\",\"name\":{\"key\":\"理之冠：\",\"value\":[\"不动玄石之相\"]},\"icon_url\":\"https://uploadstatic.mihoyo.com/ys-obc/2022/10/12/4521515/706b84d66f746758e92b66764532b47b_6394238949544730934.png\",\"desc\":{\"key\":\"描述：\",\"value\":[\"<p>玄岩精雕而成的庄严面具，空洞的双眼永远冰冷地凝视着前方。</p>\"]},\"story\":{\"key\":\"故事\",\"value\":[\"<p>传说在神魔混战的年代里，岩神曾显露出无边杀伐之相。</p><p>在诸神之间的厮杀死战中，温柔从来不属于岩峦的神主。</p><p></p><p>臧否分明，从无失准；在颠覆天地的混战中，即使故友反目也不会留情。</p><p>那个传说时代的岩王帝君，碣岩般冰冷的面目之上未曾浮现过任何波澜。</p><p> </p><p>据说待尘埃落定，才卸下不动如玄石的神情。</p><p>这种面相，也是为了贯彻「契约」所必须的。</p>\"]}}\n",
+              "style": ""
+            }
+          ],
+          "id": "9",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "搭配推荐",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "multi_table",
+              "layout": "",
+              "data": "{\"tables\":[{\"tab_name\":\"角色推荐\",\"header\":[\"角色名称\",\"推荐原因\",\"词缀搭配\"],\"row\":[[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"502306\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/10/04/4328207/ff1745c76b33c041c26e64e137dae368_8553993354333645956.png\\\" data-entry-name=\\\"希诺宁\\\" data-entry-link=\\\"/ys/obc/content/502306/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/502306/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/10/04/4328207/ff1745c76b33c041c26e64e137dae368_8553993354333645956.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">希诺宁</span></span></a></span></p>\",\"<p>悠古的磐岩四件套可在装备者拾取晶片时为队友提供对应元素伤害加成，可提升角色辅助能力。</p><p>由于需要专门走位捡晶片，一般仅在其他队友携带了<span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"502057\\\" data-entry-ratio=\\\"text\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2024/08/26/4521515/326692dcbc3de80cffca233f714f7593_4868244897715801683.png\\\" data-entry-name=\\\"烬城勇者绘卷\\\" data-entry-link=\\\"/ys/obc/content/502057/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/502057/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-text\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">烬城勇者绘卷</span></span></a></span>四件套时再考虑使用。</p>\",\"<p><strong>时之沙：</strong>元素充能效率/防御力</p><p><strong>空之杯：</strong>防御力</p><p><strong>理之冠：</strong>暴击率/防御力</p>\"],[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1290\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2021/08/23/75276545/6682780141a9e7788da99c71b1cfd5c3_6751062493374563471.png\\\" data-entry-name=\\\"钟离\\\" data-entry-link=\\\"/ys/obc/content/1290/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1290/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2021/08/23/75276545/6682780141a9e7788da99c71b1cfd5c3_6751062493374563471.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">钟离</span></span></a></span></p>\",\"<p>悠古的磐岩四件套可在装备者拾取晶片时为队友提供对应元素伤害加成，可提升角色辅助能力。</p><p>使用时需要注意敌人元素附着并练习捡晶片走位手法。</p>\",\"<p><strong>时之沙：</strong>生命值/元素充能效率</p><p><strong>空之杯：</strong>生命值/岩元素伤害加成</p><p><strong>理之冠：</strong>生命值/暴击率/暴击伤害</p>\"],[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"3387\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/01/05/16314655/6f4bbe7d060f72a0c84e868887ac7a32_4711867403945994990.png\\\" data-entry-name=\\\"云堇\\\" data-entry-link=\\\"/ys/obc/content/3387/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/3387/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2022/01/05/16314655/6f4bbe7d060f72a0c84e868887ac7a32_4711867403945994990.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">云堇</span></span></a></span></p>\",\"<p>悠古的磐岩四件套可在装备者拾取晶片时为队友提供对应元素伤害加成，可提升角色辅助能力。</p><p>使用时需要注意敌人元素附着并练习捡晶片走位手法。</p>\",\"<p><strong>时之沙：</strong>元素充能效率/防御力</p><p><strong>空之杯：</strong>防御力</p><p><strong>理之冠：</strong>防御力/暴击率/暴击伤害</p>\"],[\"<p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1360\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2021/08/23/75276545/01009cc20f9a4ebf4ece5e96fdecad1a_3067405046796818316.png\\\" data-entry-name=\\\"阿贝多\\\" data-entry-link=\\\"/ys/obc/content/1360/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1360/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2021/08/23/75276545/01009cc20f9a4ebf4ece5e96fdecad1a_3067405046796818316.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">阿贝多</span></span></a></span></p>\",\"<p>悠古的磐岩四件套可在装备者拾取晶片时为队友提供对应元素伤害加成，可提升角色辅助能力</p><p>使用时需要注意敌人元素附着并练习捡晶片走位手法。</p>\",\"<p><strong>时之沙：</strong>防御力</p><p><strong>空之杯：</strong>岩元素伤害加成</p><p><strong>理之冠：</strong>暴击率/暴击伤害</p>\"]]},{\"tab_name\":\"圣遗物成长数据\",\"header\":[\"\"],\"row\":[[\"<p style=\\\"text-align: center\\\"><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"1279\\\" data-entry-ratio=\\\"small\\\" data-entry-img=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/29/76373921/d8aa4bdb17f0e16298b05c10bc149846_1243318391411958522.png\\\" data-entry-name=\\\"圣遗物成长数据\\\" data-entry-link=\\\"/ys/obc/content/1279/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/1279/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-small\\\"><img class=\\\"image\\\" src=\\\"https://uploadstatic.mihoyo.com/ys-obc/2020/11/29/76373921/d8aa4bdb17f0e16298b05c10bc149846_1243318391411958522.png\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">圣遗物成长数据</span></span></a></span></p>\"]]}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "10",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        }
+      ],
+      "filter_values": {},
+      "menu_id": "0",
+      "menu_name": "",
+      "version": "1787496707",
+      "langs": [],
+      "template_layout": {
+        "tab": [
+          {
+            "tab_id": "2",
+            "tab_name": "页签1",
+            "module_group": [
+              {
+                "module_group_id": "2",
+                "layout": "l1r1",
+                "module": [
+                  {
+                    "id": "4",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "",
+                "repeated": false,
+                "parent_group_id": "0"
+              },
+              {
+                "module_group_id": "3",
+                "layout": "l1r1",
+                "module": [
+                  {
+                    "id": "5",
+                    "pos": "banner"
+                  },
+                  {
+                    "id": "6",
+                    "pos": "banner"
+                  },
+                  {
+                    "id": "7",
+                    "pos": "banner"
+                  },
+                  {
+                    "id": "8",
+                    "pos": "banner"
+                  },
+                  {
+                    "id": "9",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "套装",
+                "repeated": false,
+                "parent_group_id": "0"
+              },
+              {
+                "module_group_id": "4",
+                "layout": "l1r1",
+                "module": [
+                  {
+                    "id": "10",
+                    "pos": "banner"
+                  }
+                ],
+                "name": "",
+                "repeated": false,
+                "parent_group_id": "0"
+              }
+            ]
+          }
+        ]
+      },
+      "edit_lock_status": "Unlock",
+      "correct_lock_status": "Unlock",
+      "menus": [
+        {
+          "id": "218",
+          "name": "圣遗物",
+          "has_page": false,
+          "style": "",
+          "sub_menus": [],
+          "icon": "",
+          "mi18n_key": "圣遗物",
+          "is_hidden": false,
+          "parent_id": "189",
+          "template_id": "",
+          "bg_img": "",
+          "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"relicDescribe\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"星级\\\",\\\"children\\\":[{\\\"label\\\":\\\"五星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"四星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"三星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"二星\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"一星\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"套装效果\\\",\\\"children\\\":[{\\\"label\\\":\\\"攻击力\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"暴击率\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"伤害加成\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"防御力\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"生命值\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"生命回复\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"治疗加成\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素精通\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素抗性\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素充能效率\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素能量回复\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"冷却时间\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"护盾强效\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"元素附着\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"反应系数加成\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"额外伤害\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"获取方式\\\",\\\"children\\\":[{\\\"label\\\":\\\"宝箱\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"野外怪物\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"任务\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"秘境\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"征讨领域\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"深境螺旋\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"冒险等阶奖励\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"BOSS\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"见闻\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"备战\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/189/218?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"0\"}]",
+          "updated_at": "-62135596800"
+        }
+      ],
+      "template_id": "65b06418ec8e1f29a9ee6775",
+      "ext": {
+        "fe_ext": "{\"c_218\":{\"filter\":{\"text\":\"[\\\"星级/五星\\\",\\\"套装效果/伤害加成\\\",\\\"获取方式/秘境\\\",\\\"星级/四星\\\",\\\"获取方式/备战\\\"]\"},\"table\":{\"list\":[{\"key\":\"2件套：\",\"value\":\"获得15%岩元素伤害加成。\"},{\"key\":\"4件套：\",\"value\":\"获得结晶反应形成的晶片或触发月结晶反应时，队伍中所有角色获得35%对应元素伤害加成，持续10秒。同时只能通过该效果获得一种元素伤害加成。\"}]}}}",
+        "post_ext": {
+          "post_id": "",
+          "post_user_name": "",
+          "post_time": "0",
+          "post_avatar_url": "",
+          "url": ""
+        },
+        "server_ext": "",
+        "personalized_color": "",
+        "scrolling_text": "",
+        "corner_mark": "None"
+      },
+      "alias_name": "",
+      "lang": "",
+      "beta": false,
+      "page_type": "Default",
+      "menu_style": "",
+      "status": "Online"
+    }
+  }
+}

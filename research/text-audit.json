@@ -1,0 +1,1404 @@
+{
+  "generated_at": "2026-10-27T07:32:12.348035+00:00",
+  "mode": "zh-prose",
+  "parser_version": 3,
+  "samples": 13,
+  "sections": 158,
+  "characters": 22696,
+  "review_components": 0,
+  "scope": "Selected prose fields from these snapshots; not a claim of full-site coverage.",
+  "entries": [
+    {
+      "id": "763",
+      "category": "背包",
+      "source": "https://baike.mihoyo.com/ys/obc/content/763/detail",
+      "source_version": "1774930113",
+      "snapshot_at": "2026-10-27T02:33:55.940500+00:00",
+      "source_sha256": "70c5aaeac661f15fd07e665c248e645f0713b7a352a0be5b6691f8a64be6f4c8",
+      "sections": 1,
+      "characters": 47,
+      "types": {
+        "描述": 1
+      },
+      "components": [
+        {
+          "module_id": "1346",
+          "component": "material_base_info",
+          "path": "modules[0].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-0-0-0"
+          ]
+        },
+        {
+          "module_id": "1347",
+          "component": "multi_table",
+          "path": "modules[1].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1348",
+          "component": "collapse_panel",
+          "path": "modules[2].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "103",
+      "category": "食物",
+      "source": "https://baike.mihoyo.com/ys/obc/content/103/detail",
+      "source_version": "1772176256",
+      "snapshot_at": "2026-10-27T02:33:56.412500+00:00",
+      "source_sha256": "2d2968f9521db779a3d5e07764bbbead95804f31227a071cd1f6ce3b5b65cb10",
+      "sections": 4,
+      "characters": 192,
+      "types": {
+        "描述": 4
+      },
+      "components": [
+        {
+          "module_id": "128",
+          "component": "material_base_info",
+          "path": "modules[0].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-0-0-0"
+          ]
+        },
+        {
+          "module_id": "155",
+          "component": "material_base_info",
+          "path": "modules[1].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-1-0-0"
+          ]
+        },
+        {
+          "module_id": "156",
+          "component": "material_base_info",
+          "path": "modules[2].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-2-0-0"
+          ]
+        },
+        {
+          "module_id": "157",
+          "component": "material_base_info",
+          "path": "modules[3].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-3-0-0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "784",
+      "category": "背包",
+      "source": "https://baike.mihoyo.com/ys/obc/content/784/detail",
+      "source_version": "1772176453",
+      "snapshot_at": "2026-10-27T02:34:32.204500+00:00",
+      "source_sha256": "1b8ce893e1dee9c4cef1a15c49032372922e0f77c620c6c6e98d001c714cc6c9",
+      "sections": 1,
+      "characters": 28,
+      "types": {
+        "描述": 1
+      },
+      "components": [
+        {
+          "module_id": "1346",
+          "component": "material_base_info",
+          "path": "modules[0].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-0-0-0"
+          ]
+        },
+        {
+          "module_id": "1347",
+          "component": "multi_table",
+          "path": "modules[1].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1348",
+          "component": "collapse_panel",
+          "path": "modules[2].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "777",
+      "category": "背包",
+      "source": "https://baike.mihoyo.com/ys/obc/content/777/detail",
+      "source_version": "1788173557",
+      "snapshot_at": "2026-10-27T02:34:32.760500+00:00",
+      "source_sha256": "e6b6a48fee096eb79611a2dbae5022c519ac79bc3264531536b4260a9bf59374",
+      "sections": 1,
+      "characters": 66,
+      "types": {
+        "描述": 1
+      },
+      "components": [
+        {
+          "module_id": "1346",
+          "component": "material_base_info",
+          "path": "modules[0].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-0-0-0"
+          ]
+        },
+        {
+          "module_id": "1347",
+          "component": "multi_table",
+          "path": "modules[1].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1348",
+          "component": "collapse_panel",
+          "path": "modules[2].components[0]",
+          "status": "excluded",
+          "reason": "no_requested_text_fields",
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "127",
+      "category": "武器",
+      "source": "https://baike.mihoyo.com/ys/obc/content/127/detail",
+      "source_version": "1725847973",
+      "snapshot_at": "2026-10-27T02:34:31.212500+00:00",
+      "source_sha256": "945d8dbe90f3d30073a526a4cc4e425f4928e6fe1dcb83b481cc083ce1fdca24",
+      "sections": 2,
+      "characters": 85,
+      "types": {
+        "描述": 1,
+        "故事": 1
+      },
+      "components": [
+        {
+          "module_id": "1187",
+          "component": "equipment_base_info",
+          "path": "modules[0].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1188",
+          "component": "good_desc",
+          "path": "modules[1].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-1-0-0"
+          ]
+        },
+        {
+          "module_id": "1189",
+          "component": "equipment_growth_info",
+          "path": "modules[2].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "6013",
+          "component": "map_desc",
+          "path": "modules[5].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1190",
+          "component": "collapse_panel",
+          "path": "modules[3].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-3-0-0"
+          ]
+        },
+        {
+          "module_id": "1191",
+          "component": "multi_table",
+          "path": "modules[4].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "1030",
+      "category": "背包",
+      "source": "https://baike.mihoyo.com/ys/obc/content/1030/detail",
+      "source_version": "1740708292",
+      "snapshot_at": "2026-10-27T02:34:31.688500+00:00",
+      "source_sha256": "d7f5a0571cece30483f63f565975af59639eeec619f23d43e9ceabceb415274a",
+      "sections": 1,
+      "characters": 63,
+      "types": {
+        "描述": 1
+      },
+      "components": [
+        {
+          "module_id": "1349",
+          "component": "material_base_info",
+          "path": "modules[0].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-0-0-0"
+          ]
+        },
+        {
+          "module_id": "1350",
+          "component": "collapse_panel",
+          "path": "modules[1].components[0]",
+          "status": "excluded",
+          "reason": "no_requested_text_fields",
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "174",
+      "category": "武器",
+      "source": "https://baike.mihoyo.com/ys/obc/content/174/detail",
+      "source_version": "1758162561",
+      "snapshot_at": "2026-10-27T05:23:13.544597+00:00",
+      "source_sha256": "142d4e1ed69a852eb41510a0ee9e7e20a46c38604a2bed0dd488ea6a67ff9df2",
+      "sections": 2,
+      "characters": 456,
+      "types": {
+        "描述": 1,
+        "故事": 1
+      },
+      "components": [
+        {
+          "module_id": "1187",
+          "component": "equipment_base_info",
+          "path": "modules[0].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1188",
+          "component": "good_desc",
+          "path": "modules[1].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-1-0-0"
+          ]
+        },
+        {
+          "module_id": "1189",
+          "component": "equipment_growth_info",
+          "path": "modules[2].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "6013",
+          "component": "map_desc",
+          "path": "modules[5].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1190",
+          "component": "collapse_panel",
+          "path": "modules[3].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-3-0-0"
+          ]
+        },
+        {
+          "module_id": "1191",
+          "component": "multi_table",
+          "path": "modules[4].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "503",
+      "category": "书籍",
+      "source": "https://baike.mihoyo.com/ys/obc/content/503/detail",
+      "source_version": "1731890301",
+      "snapshot_at": "2026-10-27T05:19:51.192597+00:00",
+      "source_sha256": "cac8083c9a27d8a203596592b1e066532677f0b0a7235494606b62ffd6d33253",
+      "sections": 2,
+      "characters": 1165,
+      "types": {
+        "描述": 1,
+        "故事": 1
+      },
+      "components": [
+        {
+          "module_id": "129",
+          "component": "material_base_info",
+          "path": "modules[0].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-0-0-0"
+          ]
+        },
+        {
+          "module_id": "130",
+          "component": "collapse_panel",
+          "path": "modules[1].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-1-0-0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "625",
+      "category": "书籍",
+      "source": "https://baike.mihoyo.com/ys/obc/content/625/detail",
+      "source_version": "1766455771",
+      "snapshot_at": "2026-10-27T05:20:14.408597+00:00",
+      "source_sha256": "668b067deb3bab856078c0e2739e56d2016d3ec683aca662b3277813fcff105e",
+      "sections": 21,
+      "characters": 3465,
+      "types": {
+        "书籍": 7,
+        "描述": 14
+      },
+      "components": [
+        {
+          "module_id": "129",
+          "component": "material_base_info",
+          "path": "modules[0].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-0-0-0",
+            "section-0-0-1"
+          ]
+        },
+        {
+          "module_id": "130",
+          "component": "collapse_panel",
+          "path": "modules[1].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-1-0-0"
+          ]
+        },
+        {
+          "module_id": "165",
+          "component": "material_base_info",
+          "path": "modules[7].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-7-0-0",
+            "section-7-0-1"
+          ]
+        },
+        {
+          "module_id": "175",
+          "component": "collapse_panel",
+          "path": "modules[2].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-2-0-0"
+          ]
+        },
+        {
+          "module_id": "166",
+          "component": "material_base_info",
+          "path": "modules[8].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-8-0-0",
+            "section-8-0-1"
+          ]
+        },
+        {
+          "module_id": "176",
+          "component": "collapse_panel",
+          "path": "modules[9].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-9-0-0"
+          ]
+        },
+        {
+          "module_id": "167",
+          "component": "material_base_info",
+          "path": "modules[10].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-10-0-0",
+            "section-10-0-1"
+          ]
+        },
+        {
+          "module_id": "177",
+          "component": "collapse_panel",
+          "path": "modules[11].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-11-0-0"
+          ]
+        },
+        {
+          "module_id": "168",
+          "component": "material_base_info",
+          "path": "modules[12].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-12-0-0",
+            "section-12-0-1"
+          ]
+        },
+        {
+          "module_id": "178",
+          "component": "collapse_panel",
+          "path": "modules[3].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-3-0-0"
+          ]
+        },
+        {
+          "module_id": "169",
+          "component": "material_base_info",
+          "path": "modules[4].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-4-0-0",
+            "section-4-0-1"
+          ]
+        },
+        {
+          "module_id": "179",
+          "component": "collapse_panel",
+          "path": "modules[13].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-13-0-0"
+          ]
+        },
+        {
+          "module_id": "170",
+          "component": "material_base_info",
+          "path": "modules[5].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-5-0-0",
+            "section-5-0-1"
+          ]
+        },
+        {
+          "module_id": "180",
+          "component": "collapse_panel",
+          "path": "modules[6].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-6-0-0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "54",
+      "category": "角色",
+      "source": "https://baike.mihoyo.com/ys/obc/content/54/detail",
+      "source_version": "1786360933",
+      "snapshot_at": "2026-10-27T05:19:50.820597+00:00",
+      "source_sha256": "0b9afcd04008cf98a8a9cf5eb62967660a2344582afd5ef47327c713a74df5f5",
+      "sections": 93,
+      "characters": 5494,
+      "types": {
+        "描述": 3,
+        "故事": 6,
+        "语音": 79,
+        "资料": 4,
+        "邮件": 1
+      },
+      "components": [
+        {
+          "module_id": "138",
+          "component": "role_base_info",
+          "path": "modules[0].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-0-0-0",
+            "section-0-0-1",
+            "section-0-0-2",
+            "section-0-0-3"
+          ]
+        },
+        {
+          "module_id": "139",
+          "component": "role_ascension",
+          "path": "modules[1].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "140",
+          "component": "recommend",
+          "path": "modules[2].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "142",
+          "component": "strategy",
+          "path": "modules[3].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "143",
+          "component": "role_talent",
+          "path": "modules[4].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "8010",
+          "component": "multi_table",
+          "path": "modules[26].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "144",
+          "component": "multi_table",
+          "path": "modules[5].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "145",
+          "component": "map_desc",
+          "path": "modules[6].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "146",
+          "component": "map_desc",
+          "path": "modules[7].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "147",
+          "component": "map_desc",
+          "path": "modules[8].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "148",
+          "component": "business_card",
+          "path": "modules[9].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "149",
+          "component": "collapse_panel",
+          "path": "modules[10].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "150",
+          "component": "collapse_panel",
+          "path": "modules[11].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "151",
+          "component": "collapse_panel",
+          "path": "modules[12].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-12-0-0"
+          ]
+        },
+        {
+          "module_id": "152",
+          "component": "collapse_panel",
+          "path": "modules[13].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-13-0-0"
+          ]
+        },
+        {
+          "module_id": "431",
+          "component": "collapse_panel",
+          "path": "modules[15].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-15-0-0"
+          ]
+        },
+        {
+          "module_id": "432",
+          "component": "collapse_panel",
+          "path": "modules[16].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-16-0-0"
+          ]
+        },
+        {
+          "module_id": "433",
+          "component": "collapse_panel",
+          "path": "modules[17].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-17-0-0"
+          ]
+        },
+        {
+          "module_id": "434",
+          "component": "collapse_panel",
+          "path": "modules[18].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-18-0-0"
+          ]
+        },
+        {
+          "module_id": "435",
+          "component": "collapse_panel",
+          "path": "modules[19].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-19-0-0"
+          ]
+        },
+        {
+          "module_id": "436",
+          "component": "collapse_panel",
+          "path": "modules[20].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-20-0-0"
+          ]
+        },
+        {
+          "module_id": "437",
+          "component": "collapse_panel",
+          "path": "modules[21].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-21-0-0"
+          ]
+        },
+        {
+          "module_id": "7661",
+          "component": "collapse_panel",
+          "path": "modules[28].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-28-0-0"
+          ]
+        },
+        {
+          "module_id": "153",
+          "component": "role_voice",
+          "path": "modules[14].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-14-0-0",
+            "section-14-0-1",
+            "section-14-0-2",
+            "section-14-0-3",
+            "section-14-0-4",
+            "section-14-0-5",
+            "section-14-0-6",
+            "section-14-0-7",
+            "section-14-0-8",
+            "section-14-0-9",
+            "section-14-0-10",
+            "section-14-0-11",
+            "section-14-0-12",
+            "section-14-0-13",
+            "section-14-0-14",
+            "section-14-0-15",
+            "section-14-0-16",
+            "section-14-0-17",
+            "section-14-0-18",
+            "section-14-0-19",
+            "section-14-0-20",
+            "section-14-0-21",
+            "section-14-0-22",
+            "section-14-0-23",
+            "section-14-0-24",
+            "section-14-0-25",
+            "section-14-0-26",
+            "section-14-0-27",
+            "section-14-0-28",
+            "section-14-0-29",
+            "section-14-0-30",
+            "section-14-0-31",
+            "section-14-0-32",
+            "section-14-0-33",
+            "section-14-0-34",
+            "section-14-0-35",
+            "section-14-0-36",
+            "section-14-0-37",
+            "section-14-0-38",
+            "section-14-0-39",
+            "section-14-0-40",
+            "section-14-0-41",
+            "section-14-0-42",
+            "section-14-0-43",
+            "section-14-0-44",
+            "section-14-0-45",
+            "section-14-0-46",
+            "section-14-0-47",
+            "section-14-0-48",
+            "section-14-0-49",
+            "section-14-0-50",
+            "section-14-0-51",
+            "section-14-0-52",
+            "section-14-0-53",
+            "section-14-0-54",
+            "section-14-0-55",
+            "section-14-0-56",
+            "section-14-0-57",
+            "section-14-0-58",
+            "section-14-0-59",
+            "section-14-0-60",
+            "section-14-0-61",
+            "section-14-0-62",
+            "section-14-0-63",
+            "section-14-0-64",
+            "section-14-0-65",
+            "section-14-0-66",
+            "section-14-0-67",
+            "section-14-0-68",
+            "section-14-0-69",
+            "section-14-0-70",
+            "section-14-0-71",
+            "section-14-0-72",
+            "section-14-0-73",
+            "section-14-0-74",
+            "section-14-0-75",
+            "section-14-0-76",
+            "section-14-0-77",
+            "section-14-0-78"
+          ]
+        },
+        {
+          "module_id": "2861",
+          "component": "collapse_panel",
+          "path": "modules[22].components[0]",
+          "status": "excluded",
+          "reason": "no_requested_text_fields",
+          "sections": []
+        },
+        {
+          "module_id": "9058",
+          "component": "role_relation",
+          "path": "modules[27].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "2862",
+          "component": "timeline_base_info",
+          "path": "modules[23].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "2863",
+          "component": "strategy",
+          "path": "modules[24].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "3165",
+          "component": "collapse_panel",
+          "path": "modules[25].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "1323",
+      "category": "任务",
+      "source": "https://baike.mihoyo.com/ys/obc/content/1323/detail",
+      "source_version": "1751245327",
+      "snapshot_at": "2026-10-27T05:19:51.772597+00:00",
+      "source_sha256": "cd22f96294d44f829c2f9eac764ab6618e04fc731d8cf1898788545c4a48ea39",
+      "sections": 10,
+      "characters": 10047,
+      "types": {
+        "对白": 5,
+        "描述": 5
+      },
+      "components": [
+        {
+          "module_id": "1367",
+          "component": "base_info",
+          "path": "modules[0].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1368",
+          "component": "rich_base_info",
+          "path": "modules[1].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1369",
+          "component": "collapse_panel",
+          "path": "modules[2].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-2-0-0"
+          ]
+        },
+        {
+          "module_id": "1370",
+          "component": "collapse_panel",
+          "path": "modules[3].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1371",
+          "component": "map_desc",
+          "path": "modules[4].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1372",
+          "component": "collapse_panel",
+          "path": "modules[5].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-5-0-0"
+          ]
+        },
+        {
+          "module_id": "1373",
+          "component": "collapse_panel",
+          "path": "modules[6].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1614",
+          "component": "base_info",
+          "path": "modules[27].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1615",
+          "component": "rich_base_info",
+          "path": "modules[25].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1616",
+          "component": "collapse_panel",
+          "path": "modules[7].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-7-0-0"
+          ]
+        },
+        {
+          "module_id": "1617",
+          "component": "collapse_panel",
+          "path": "modules[8].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1618",
+          "component": "map_desc",
+          "path": "modules[16].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1619",
+          "component": "collapse_panel",
+          "path": "modules[17].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-17-0-0"
+          ]
+        },
+        {
+          "module_id": "1620",
+          "component": "collapse_panel",
+          "path": "modules[12].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1607",
+          "component": "base_info",
+          "path": "modules[21].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1608",
+          "component": "rich_base_info",
+          "path": "modules[22].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1609",
+          "component": "collapse_panel",
+          "path": "modules[13].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-13-0-0"
+          ]
+        },
+        {
+          "module_id": "1610",
+          "component": "collapse_panel",
+          "path": "modules[28].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1611",
+          "component": "map_desc",
+          "path": "modules[23].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1612",
+          "component": "collapse_panel",
+          "path": "modules[31].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-31-0-0"
+          ]
+        },
+        {
+          "module_id": "1613",
+          "component": "collapse_panel",
+          "path": "modules[14].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1600",
+          "component": "base_info",
+          "path": "modules[32].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1601",
+          "component": "rich_base_info",
+          "path": "modules[18].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1602",
+          "component": "collapse_panel",
+          "path": "modules[15].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-15-0-0"
+          ]
+        },
+        {
+          "module_id": "1603",
+          "component": "collapse_panel",
+          "path": "modules[19].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1604",
+          "component": "map_desc",
+          "path": "modules[10].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1605",
+          "component": "collapse_panel",
+          "path": "modules[20].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-20-0-0"
+          ]
+        },
+        {
+          "module_id": "1606",
+          "component": "collapse_panel",
+          "path": "modules[24].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1593",
+          "component": "base_info",
+          "path": "modules[29].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1594",
+          "component": "rich_base_info",
+          "path": "modules[33].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1595",
+          "component": "collapse_panel",
+          "path": "modules[11].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-11-0-0"
+          ]
+        },
+        {
+          "module_id": "1596",
+          "component": "collapse_panel",
+          "path": "modules[9].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1597",
+          "component": "map_desc",
+          "path": "modules[30].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "1598",
+          "component": "collapse_panel",
+          "path": "modules[34].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-34-0-0"
+          ]
+        },
+        {
+          "module_id": "1599",
+          "component": "collapse_panel",
+          "path": "modules[26].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "1644",
+      "category": "圣遗物",
+      "source": "https://baike.mihoyo.com/ys/obc/content/1644/detail",
+      "source_version": "1787501862",
+      "snapshot_at": "2026-10-27T05:22:41.300597+00:00",
+      "source_sha256": "dc2f9dceb584c0f66ad140fb943ab156288515ccca5ae72b82e6cb02041e7606",
+      "sections": 10,
+      "characters": 644,
+      "types": {
+        "描述": 5,
+        "故事": 5
+      },
+      "components": [
+        {
+          "module_id": "4",
+          "component": "rich_base_info",
+          "path": "modules[0].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "5",
+          "component": "artifact_list_v2",
+          "path": "modules[1].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-1-0-0",
+            "section-1-0-1"
+          ]
+        },
+        {
+          "module_id": "6",
+          "component": "artifact_list_v2",
+          "path": "modules[2].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-2-0-0",
+            "section-2-0-1"
+          ]
+        },
+        {
+          "module_id": "7",
+          "component": "artifact_list_v2",
+          "path": "modules[3].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-3-0-0",
+            "section-3-0-1"
+          ]
+        },
+        {
+          "module_id": "8",
+          "component": "artifact_list_v2",
+          "path": "modules[4].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-4-0-0",
+            "section-4-0-1"
+          ]
+        },
+        {
+          "module_id": "9",
+          "component": "artifact_list_v2",
+          "path": "modules[5].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-5-0-0",
+            "section-5-0-1"
+          ]
+        },
+        {
+          "module_id": "10",
+          "component": "multi_table",
+          "path": "modules[6].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "1600",
+      "category": "圣遗物",
+      "source": "https://baike.mihoyo.com/ys/obc/content/1600/detail",
+      "source_version": "1787496707",
+      "snapshot_at": "2026-10-27T05:22:42.196597+00:00",
+      "source_sha256": "3967fabadb3348ec180ebca5fb04ddc62f8f6561d90cd6257aa0f234fc52545f",
+      "sections": 10,
+      "characters": 944,
+      "types": {
+        "描述": 5,
+        "故事": 5
+      },
+      "components": [
+        {
+          "module_id": "4",
+          "component": "rich_base_info",
+          "path": "modules[0].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        },
+        {
+          "module_id": "5",
+          "component": "artifact_list_v2",
+          "path": "modules[1].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-1-0-0",
+            "section-1-0-1"
+          ]
+        },
+        {
+          "module_id": "6",
+          "component": "artifact_list_v2",
+          "path": "modules[2].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-2-0-0",
+            "section-2-0-1"
+          ]
+        },
+        {
+          "module_id": "7",
+          "component": "artifact_list_v2",
+          "path": "modules[3].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-3-0-0",
+            "section-3-0-1"
+          ]
+        },
+        {
+          "module_id": "8",
+          "component": "artifact_list_v2",
+          "path": "modules[4].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-4-0-0",
+            "section-4-0-1"
+          ]
+        },
+        {
+          "module_id": "9",
+          "component": "artifact_list_v2",
+          "path": "modules[5].components[0]",
+          "status": "included",
+          "reason": "",
+          "sections": [
+            "section-5-0-0",
+            "section-5-0-1"
+          ]
+        },
+        {
+          "module_id": "10",
+          "component": "multi_table",
+          "path": "modules[6].components[0]",
+          "status": "excluded",
+          "reason": "not_narrative_text",
+          "sections": []
+        }
+      ]
+    }
+  ]
+}

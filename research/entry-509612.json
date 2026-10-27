@@ -1,0 +1,165 @@
+{
+  "retcode": 0,
+  "data": {
+    "page": {
+      "id": "509612",
+      "name": "留言条【白冕宫】",
+      "desc": "留言条【白冕宫】",
+      "icon_url": "https://act-upload.mihoyo.com/wiki-user-upload/2026/08/18/317305234/f1356e2dd4493ceb020ab4d6da0c46ed_5458882395646418976.jpg",
+      "header_img_url": "",
+      "modules": [
+        {
+          "name": "留言条【白冕宫】",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "map_desc",
+              "layout": "",
+              "data": "{\"list\":[{\"tab_name\":\"截图\",\"image\":\"https://act-upload.mihoyo.com/wiki-user-upload/2026/08/18/317305234/48cf7ea1c8e171e216c34b0309370c2f_8083479147312821798.jpg\"},{\"tab_name\":\"位置\",\"image\":\"https://act-upload.mihoyo.com/wiki-user-upload/2026/08/18/317305234/ec98f8af59b1ea0f17415617a15329e3_2699514341814824753.jpg\"}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "5712",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": false,
+          "switch": false,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "交互文本",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "interactive_dialogue",
+              "layout": "",
+              "data": "{\"root_id\":\"\",\"child_ids\":null,\"contents\":null,\"list\":[{\"child_ids\":{\"auldi0j3stoT1786988396892\":[]},\"contents\":{\"auldi0j3stoT1786988396892\":{\"option\":\"\",\"dialogue\":\"<p><span style=\\\"color: rgb(245, 34, 45)\\\">（仅在剧情中可阅读）</span></p><p>【留言条】</p><ul><li><p>（一张留言条，上面用优雅的笔迹如此书写…）</p></li><li><p>「这几日我将返回赫斯珀利德斯之馆，所以猫就托您照顾了，交给其他对实验废寝忘食的人实在让人无法放心。」</p></li><li><p>「我的同僚，卡谢伊，想必同样出于生命的热爱，不会忘记喂我的『拉拉』…钥匙和特制的猫粮已放在你的架子上。」</p></li><li><p>「…记得，我的『拉拉』只会吃食盆里的食物，别随便撒在地上，她从不吃地板上的东西。」</p></li><li><p>「注：要是我发现猫没得到妥善喂食，或者身上长出了什么其他动物的组件，我都会追溯相应的责任。帕芙琳娜留。」</p></li></ul>\",\"icon\":\"\"}},\"root_id\":\"auldi0j3stoT1786988396892\"}]}\n",
+              "style": ""
+            }
+          ],
+          "id": "5713",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": true,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        },
+        {
+          "name": "相关任务",
+          "is_poped": false,
+          "components": [
+            {
+              "component_id": "collapse_panel",
+              "layout": "",
+              "data": "{\"rich_text\":\"<p><strong>世界任务：</strong></p><ul><li><p><span class=\\\"custom-entry-wrapper\\\" data-entry-id=\\\"509592\\\" data-entry-ratio=\\\"text\\\" data-entry-img=\\\"https://act-upload.mihoyo.com/wiki-user-upload/2026/08/17/83684823/9a1d89524fe0d7ee320440aa8b30710e_8617760985282036344.png\\\" data-entry-name=\\\"至冬 一边是宫殿一边是陵阙\\\" data-entry-link=\\\"/ys/obc/content/509592/detail?bbs_presentation_style=no_header\\\" data-entry-status=\\\"Online\\\"><a href=\\\"/ys/obc/content/509592/detail?bbs_presentation_style=no_header\\\" target=\\\"_blank\\\" class=\\\"entry-material-box entry-material-text\\\"><span class=\\\"entry-material-wrap\\\"><span class=\\\"name\\\">至冬 一边是宫殿一边是陵阙</span></span></a></span></p></li></ul>\",\"switch\":true,\"is_show_switch\":true,\"without_border\":false}\n",
+              "style": ""
+            }
+          ],
+          "id": "5738",
+          "is_customize_name": true,
+          "is_abstract": false,
+          "is_show_switch": true,
+          "switch": true,
+          "desc": "",
+          "repeated": false,
+          "is_submodule": false,
+          "origin_module_id": "0",
+          "without_border": false,
+          "can_delete": false,
+          "is_hidden": false,
+          "rich_text_editing": false
+        }
+      ],
+      "filter_values": {},
+      "menu_id": "0",
+      "menu_name": "",
+      "version": "1787019075",
+      "langs": [],
+      "template_layout": {
+        "tab": [
+          {
+            "tab_id": "425",
+            "tab_name": "页签1",
+            "module_group": [
+              {
+                "module_group_id": "1954",
+                "layout": "l2r1",
+                "module": [
+                  {
+                    "id": "5712",
+                    "pos": "left"
+                  },
+                  {
+                    "id": "5738",
+                    "pos": "right"
+                  },
+                  {
+                    "id": "5713",
+                    "pos": "right"
+                  }
+                ],
+                "name": "地图文本",
+                "repeated": false,
+                "parent_group_id": "0"
+              }
+            ]
+          }
+        ]
+      },
+      "edit_lock_status": "Unlock",
+      "correct_lock_status": "Unlock",
+      "menus": [
+        {
+          "id": "251",
+          "name": "地图文本",
+          "has_page": false,
+          "style": "",
+          "sub_menus": [],
+          "icon": "",
+          "mi18n_key": "地图文本",
+          "is_hidden": false,
+          "parent_id": "189",
+          "template_id": "",
+          "bg_img": "",
+          "ch_ext": "[{\"type\":\"text\",\"attribute_name\":\"每行个数\",\"attribute_key\":\"col_per_row\",\"value\":\"2\"},{\"type\":\"text\",\"attribute_name\":\"展示样式\",\"attribute_key\":\"display_type\",\"value\":\"default\"},{\"type\":\"text\",\"attribute_name\":\"频道icon\",\"attribute_key\":\"icon_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"跳转链接\",\"attribute_key\":\"jump_url\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc\",\"attribute_key\":\"icon_url_pc\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"频道icon-pc-hover\",\"attribute_key\":\"icon_url_pc_hover\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"筛选器\",\"attribute_key\":\"filter\",\"value\":\"[{\\\"label\\\":\\\"地区\\\",\\\"children\\\":[{\\\"label\\\":\\\"蒙德\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"璃月\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"稻妻\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"须弥\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"枫丹\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"纳塔\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"挪德卡莱\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"至冬\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"活动区域\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"分类\\\",\\\"children\\\":[{\\\"label\\\":\\\"对话项\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"闪光点\\\",\\\"children\\\":[]}]},{\\\"label\\\":\\\"活动限定\\\",\\\"children\\\":[{\\\"label\\\":\\\"是\\\",\\\"children\\\":[]},{\\\"label\\\":\\\"否\\\",\\\"children\\\":[]}]}]\"},{\"type\":\"text\",\"attribute_name\":\"首页更多\",\"attribute_key\":\"home_more\",\"value\":\"https://baike.mihoyo.com/ys/obc/channel/map/189/251?bbs_presentation_style=no_header\"},{\"type\":\"text\",\"attribute_name\":\"在目录中展示\",\"attribute_key\":\"show_in_catalog\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"最新词条\",\"attribute_key\":\"is_latest\",\"value\":\"0\"},{\"type\":\"text\",\"attribute_name\":\"更多入口icon\",\"attribute_key\":\"king_kong_icon\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"首页更多文案\",\"attribute_key\":\"home_more_text\",\"value\":\"\"},{\"type\":\"text\",\"attribute_name\":\"开放全量C端玩家可新建词条\",\"attribute_key\":\"open_for_create\",\"value\":\"0\"}]",
+          "updated_at": "-62135596800"
+        }
+      ],
+      "template_id": "66bab8502644d74791013652",
+      "ext": {
+        "fe_ext": "{\"c_251\":{\"filter\":{\"text\":\"[\\\"地区/至冬\\\",\\\"分类/对话项\\\",\\\"活动限定/否\\\"]\"}}}",
+        "post_ext": {
+          "post_id": "",
+          "post_user_name": "",
+          "post_time": "0",
+          "post_avatar_url": "",
+          "url": ""
+        },
+        "server_ext": "",
+        "personalized_color": "",
+        "scrolling_text": "",
+        "corner_mark": "None"
+      },
+      "alias_name": "",
+      "lang": "",
+      "beta": false,
+      "page_type": "Default",
+      "menu_style": "",
+      "status": "Online"
+    }
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "checked_at": "2026-10-27T18:12:49.136522+00:00",
+  "parser_version": 6,
+  "categories": [
+    {
+      "category": "books",
+      "name": "书籍",
+      "channel": "68",
+      "job": {
+        "id": "b0746c33176949a6a77c82e77dc39300",
+        "state": "completed"
+      },
+      "counts": {
+        "success": 92,
+        "unchanged": 1
+      },
+      "listed": 93,
+      "cached": 93,
+      "sections": 698,
+      "review_components": {},
+      "issues": [],
+      "complete_extraction": true
+    },
+    {
+      "category": "weapons",
+      "name": "武器",
+      "channel": "5",
+      "job": {
+        "id": "89c7b3b2e14c4f6ba91c662898e4e0f0",
+        "state": "completed"
+      },
+      "counts": {
+        "success": 250,
+        "unchanged": 2
+      },
+      "listed": 252,
+      "cached": 252,
+      "sections": 504,
+      "review_components": {},
+      "issues": [],
+      "complete_extraction": true
+    },
+    {
+      "category": "artifacts",
+      "name": "圣遗物",
+      "channel": "218",
+      "job": {
+        "id": "9222e4eec87d4dab975928ab8bb62c15",
+        "state": "completed"
+      },
+      "counts": {
+        "success": 62,
+        "unchanged": 1
+      },
+      "listed": 63,
+      "cached": 63,
+      "sections": 598,
+      "review_components": {},
+      "issues": [],
+      "complete_extraction": true
+    },
+    {
+      "category": "map_texts",
+      "name": "地图文本",
+      "channel": "251",
+      "job": {
+        "id": "377860966abd4cdd9aa87b4820b12f39",
+        "state": "completed"
+      },
+      "counts": {
+        "review": 15,
+        "success": 691
+      },
+      "listed": 706,
+      "cached": 695,
+      "sections": 1547,
+      "review_components": {
+        "interactive_dialogue:malformed_component": 4
+      },
+      "issues": [
+        {
+          "entry_id": "6121",
+          "state": "review",
+          "error": "",
+          "details": "{\"sections\": 0, \"review_modules\": 1, \"offline_recheck\": true}"
+        },
+        {
+          "entry_id": "501716",
+          "state": "review",
+          "error": "",
+          "details": "{\"sections\": 0, \"review_modules\": 1, \"offline_recheck\": true}"
+        },
+        {
+          "entry_id": "501740",
+          "state": "review",
+          "error": "",
+          "details": "{\"sections\": 0, \"review_modules\": 1, \"offline_recheck\": true}"
+        },
+        {
+          "entry_id": "504706",
+          "state": "review",
+          "error": "",
+          "details": "{\"sections\": 0, \"review_modules\": 1, \"offline_recheck\": true}"
+        },
+        {
+          "entry_id": "504805",
+          "state": "review",
+          "error": "",
+          "details": "{\"sections\": 0, \"review_modules\": 1, \"offline_recheck\": true}"
+        },
+        {
+          "entry_id": "505662",
+          "state": "review",
+          "error": "",
+          "details": "{\"sections\": 0, \"review_modules\": 1, \"offline_recheck\": true}"
+        },
+        {
+          "entry_id": "506515",
+          "state": "review",
+          "error": "",
+          "details": "{\"sections\": 0, \"review_modules\": 1, \"offline_recheck\": true}"
+        },
+        {
+          "entry_id": "506516",
+          "state": "review",
+          "error": "",
+          "details": "{\"sections\": 1, \"review_modules\": 1, \"offline_recheck\": true}"
+        },
+        {
+          "entry_id": "506520",
+          "state": "review",
+          "error": "",
+          "details": "{\"sections\": 0, \"review_modules\": 1, \"offline_recheck\": true}"
+        },
+        {
+          "entry_id": "506561",
+          "state": "review",
+          "error": "",
+          "details": "{\"sections\": 1, \"review_modules\": 1, \"offline_recheck\": true}"
+        },
+        {
+          "entry_id": "507006",
+          "state": "review",
+          "error": "",
+          "details": "{\"sections\": 1, \"review_modules\": 1, \"offline_recheck\": true}"
+        },
+        {
+          "entry_id": "507018",
+          "state": "review",
+          "error": "",
+          "details": "{\"sections\": 1, \"review_modules\": 1, \"offline_recheck\": true}"
+        },
+        {
+          "entry_id": "507855",
+          "state": "review",
+          "error": "",
+          "details": "{\"sections\": 0, \"review_modules\": 1, \"offline_recheck\": true}"
+        },
+        {
+          "entry_id": "509517",
+          "state": "review",
+          "error": "",
+          "details": "{\"sections\": 0, \"review_modules\": 1, \"offline_recheck\": true}"
+        },
+        {
+          "entry_id": "509593",
+          "state": "review",
+          "error": "",
+          "details": "{\"sections\": 0, \"review_modules\": 1, \"offline_recheck\": true}"
+        }
+      ],
+      "complete_extraction": false
+    },
+    {
+      "category": "characters",
+      "name": "角色",
+      "channel": "25",
+      "job": {
+        "id": "8684e2e543d94bfda54fb2d9c927e479",
+        "state": "completed"
+      },
+      "counts": {
+        "success": 138
+      },
+      "listed": 138,
+      "cached": 138,
+      "sections": 10579,
+      "review_components": {},
+      "issues": [],
+      "complete_extraction": true
+    },
+    {
+      "category": "food",
+      "name": "食物",
+      "channel": "21",
+      "job": {
+        "id": "aac4c44af7c94f69a09a77099efaef10",
+        "state": "completed"
+      },
+      "counts": {
+        "success": 323
+      },
+      "listed": 323,
+      "cached": 323,
+      "sections": 1032,
+      "review_components": {},
+      "issues": [],
+      "complete_extraction": true
+    },
+    {
+      "category": "inventory",
+      "name": "背包",
+      "channel": "13",
+      "job": {
+        "id": "381f6b94874041edbd25ef88a6fdb22c",
+        "state": "completed"
+      },
+      "counts": {
+        "no_text": 1,
+        "success": 48,
+        "unchanged": 2003
+      },
+      "listed": 2052,
+      "cached": 2051,
+      "sections": 2521,
+      "review_components": {},
+      "issues": [
+        {
+          "entry_id": "3603",
+          "state": "no_text",
+          "error": "",
+          "details": "{\"sections\": 0, \"review_modules\": 0, \"retained_old\": false, \"unchanged\": true}"
+        }
+      ],
+      "complete_extraction": true
+    }
+  ],
+  "scope": "原站当前公开分类目录；无所需文本、待适配和失败不算完整提取"
+}

@@ -1,0 +1,152 @@
+{
+  "generated_at": "2026-10-27T07:29:52.086256+00:00",
+  "stats": {
+    "entries": 415,
+    "sections": 1911,
+    "categories": [
+      "书籍",
+      "任务",
+      "圣遗物",
+      "武器",
+      "背包",
+      "角色",
+      "食物"
+    ],
+    "text_types": [
+      "书籍",
+      "对白",
+      "描述",
+      "故事",
+      "语音",
+      "资料",
+      "邮件"
+    ]
+  },
+  "incremental_snapshot_checks": [
+    {
+      "id": "503",
+      "first": "success",
+      "second": "unchanged",
+      "index_preserved": true
+    },
+    {
+      "id": "127",
+      "first": "success",
+      "second": "unchanged",
+      "index_preserved": true
+    },
+    {
+      "id": "1600",
+      "first": "success",
+      "second": "unchanged",
+      "index_preserved": true
+    }
+  ],
+  "incremental_live_check": [
+    {
+      "id": "503",
+      "status": "unchanged",
+      "index_preserved": true
+    },
+    {
+      "id": "127",
+      "status": "unchanged",
+      "index_preserved": true
+    },
+    {
+      "id": "1600",
+      "status": "unchanged",
+      "index_preserved": true
+    }
+  ],
+  "jobs": [
+    {
+      "id": "cd3ee26137a94fb2963f41f3fe9c0930",
+      "category": "artifacts",
+      "state": "completed",
+      "phase": "entries",
+      "created_at": "2026-10-27T07:15:13.376413+00:00",
+      "updated_at": "2026-10-27T07:19:16.402818+00:00",
+      "error": "",
+      "manifest_digest": "8235557f4459a02843ff5882f8d35625ce9987721e8d7b546bdc8987ac66cc6e",
+      "counts": {
+        "pending": 0,
+        "processing": 0,
+        "success": 63,
+        "unchanged": 0,
+        "no_text": 0,
+        "review": 0,
+        "failed": 0
+      },
+      "total": 63,
+      "done": 63,
+      "name": "圣遗物",
+      "item_total": 63,
+      "page": 1
+    },
+    {
+      "id": "210cab5b648b4023a1e44870ff96ad57",
+      "category": "weapons",
+      "state": "completed",
+      "phase": "entries",
+      "created_at": "2026-10-27T07:15:13.376348+00:00",
+      "updated_at": "2026-10-27T07:24:19.625972+00:00",
+      "error": "",
+      "manifest_digest": "aa5052eb5d85c45ce6136f103ab0b66e8b8baf8c430a23c40dcf9bd32daed097",
+      "counts": {
+        "pending": 0,
+        "processing": 0,
+        "success": 252,
+        "unchanged": 0,
+        "no_text": 0,
+        "review": 0,
+        "failed": 0
+      },
+      "total": 252,
+      "done": 252,
+      "name": "武器",
+      "item_total": 252,
+      "page": 1
+    },
+    {
+      "id": "dbf0a24a85554838bb29cc7f8d1332bc",
+      "category": "books",
+      "state": "completed",
+      "phase": "entries",
+      "created_at": "2026-10-27T07:15:13.376011+00:00",
+      "updated_at": "2026-10-27T07:16:17.159274+00:00",
+      "error": "",
+      "manifest_digest": "c5473aadf3ffb7ced1fb6f322ce8d074fc40b0814681e1c95e6a926d7e5a049b",
+      "counts": {
+        "pending": 0,
+        "processing": 0,
+        "success": 93,
+        "unchanged": 0,
+        "no_text": 0,
+        "review": 0,
+        "failed": 0
+      },
+      "total": 93,
+      "done": 93,
+      "name": "书籍",
+      "item_total": 93,
+      "page": 1
+    }
+  ],
+  "database_bytes": 50569216,
+  "scope": "Current public category listings only.",
+  "validation": {
+    "python_tests_passed": 36,
+    "dom_interactions": "passed",
+    "live_http": "passed",
+    "live_incremental_unchanged": "3 entries passed",
+    "browser_visual_qa": "not run",
+    "query_benchmark_ms": [
+      55.9,
+      37.7,
+      6.4,
+      10.4,
+      0.9
+    ]
+  }
+}

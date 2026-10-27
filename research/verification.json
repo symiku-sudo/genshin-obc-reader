@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "/ OK",
+    "/app.js OK",
+    "/style.css OK",
+    "/icon.svg OK",
+    "正文短语搜索 + 模块定位 OK",
+    "读取缓存 OK",
+    "通过本地服务调用真实在线搜索 OK",
+    "真实正文更新 + 重建索引 OK",
+    "跨站请求 / 非法 ID / 文件越界 / 非本机 Host 拒绝 OK"
+  ],
+  "stats": {
+    "entries": 6,
+    "sections": 19,
+    "categories": [
+      "武器",
+      "背包",
+      "食物"
+    ]
+  },
+  "browser_qa": "未运行：本环境没有浏览器自动化工具"
+}
