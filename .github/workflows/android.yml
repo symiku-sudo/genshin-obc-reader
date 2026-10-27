@@ -52,7 +52,13 @@ jobs:
           echo "OBC_SIGNING_PASSWORD=$SIGNING_PASSWORD" >> "$GITHUB_ENV"
       - name: Build APK
         working-directory: android
-        run: gradle :app:assembleRelease --stacktrace
+        run: |
+          gradle :app:assembleRelease --stacktrace
+          python ../tools/verify_android_apk.py app/build/outputs/apk/release/app-release.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose app/build/outputs/apk/release/app-release.apk
+          "$ANDROID_HOME/build-tools/35.0.0/zipalign" -c -P 16 4 app/build/outputs/apk/release/app-release.apk
+          cd app/build/outputs/apk/release
+          sha256sum app-release.apk > app-release.apk.sha256
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
@@ -80,4 +86,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: obc-reader-release
-          path: android/app/build/outputs/apk/release/*.apk
+          path: android/app/build/outputs/apk/release/*.apk*

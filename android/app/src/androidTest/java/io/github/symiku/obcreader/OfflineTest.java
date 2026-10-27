@@ -2,7 +2,6 @@ package io.github.symiku.obcreader;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
-import android.graphics.Bitmap;
 import java.io.File;
 import androidx.test.uiautomator.By;
 import androidx.test.uiautomator.UiDevice;
@@ -94,6 +93,10 @@ public class OfflineTest {
         assertEquals(1, api("GET", "/api/search?read=read", "").getInt("total"));
         js("document.querySelector('#results a').click(); true");
         await("document.querySelector('#article').textContent.length > 0");
+        js("document.getElementById('mark-read').click(); true");
+        await("current && !current.is_read && !document.getElementById('mark-read').disabled");
+        js("document.getElementById('mark-read').click(); true");
+        await("current && current.is_read && !document.getElementById('mark-read').disabled");
         js("document.getElementById('bookmark').click(); true");
         await("JSON.parse(localStorage.getItem('obc-bookmarks')).length === 1");
         js("document.getElementById('open-management').click(); true");
@@ -118,12 +121,17 @@ public class OfflineTest {
         systemText("(?i)save|保存").click();
         await("!document.getElementById('export-reading').disabled");
         check("document.getElementById('backup-status').textContent.includes('已生成')");
+        // Remove the saved flag and favorite, so restore must actually recover them.
+        api("POST", "/api/read", "{\"id\":\"" + id + "\",\"is_read\":false}");
+        js("bookmarks=[];store.set('bookmarks',bookmarks);true");
         // Open the same exported file using Android's actual file picker.
         js("document.getElementById('backup-file').click(); true");
         systemText("obc-offline-test.json").click();
         await("!document.getElementById('restore-reading').hidden");
         js("document.getElementById('restore-reading').click(); true");
         await("document.getElementById('backup-status').textContent.includes('已合并恢复')");
+        assertTrue(api("GET", "/api/entry/" + id, "").getBoolean("is_read"));
+        check("bookmarks.length===1");
         // Native Back, rather than a page-only simulation.
         device.pressBack();
         await("!document.getElementById('management').open");
