@@ -1,5 +1,6 @@
 """Transport-independent API shared by the website and the Android runtime."""
 import json
+import logging
 import re
 import urllib.parse
 import core
@@ -51,6 +52,7 @@ class API:
         except ValueError as exc:
             return self.send(400, {'error': str(exc)})
         except Exception:
+            logging.exception('Local reader GET API failed')
             return self.send(502, {'error': '暂时无法读取上游，请稍后重试；本地缓存仍可使用'})
 
     def post(self):
@@ -82,6 +84,7 @@ class API:
         except (ValueError, AttributeError) as exc:
             return self.send(400, {'error': str(exc)})
         except Exception:
+            logging.exception('Local reader POST API failed')
             return self.send(502, {'error': '导入失败，上游暂时不可用；已有缓存未删除'})
 
 

@@ -12,17 +12,27 @@ import static org.junit.Assert.*;
 
 @RunWith(AndroidJUnit4.class)
 public class OnlineImportTest extends DeviceTestBase {
-    @Test public void onlineSearchAndRefreshPreserveReadingState() throws Exception {
+    private void launchOnline() throws Exception {
         Context context = ApplicationProvider.getApplicationContext();
+        device.executeShellCommand("cmd connectivity airplane-mode disable");
+        device.executeShellCommand("svc wifi enable");
         ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         long deadline = System.currentTimeMillis() + 60000;
         while (connectivity.getActiveNetwork() == null && System.currentTimeMillis() < deadline) Thread.sleep(500);
         assertNotNull("Online test requires emulator network", connectivity.getActiveNetwork());
+        android.util.Log.i("OBCStartup", "Online test network: " + connectivity.getNetworkCapabilities(connectivity.getActiveNetwork()));
         activity.launchActivity(new Intent(context, MainActivity.class));
         await("document.querySelectorAll('#results .card').length > 0");
-        JSONObject before = api("GET", "/api/entry/763", "");
-        String title = before.getString("title");
+    }
+
+    @Test public void onlineTitleSearch() throws Exception {
+        launchOnline();
+        String title = api("GET", "/api/entry/763", "").getString("title");
         assertTrue(api("GET", "/api/remote?q=" + java.net.URLEncoder.encode(title, "UTF-8"), "").getJSONArray("items").length() > 0);
+    }
+
+    @Test public void onlineRefreshPreservesReadingStateAndWorksOffline() throws Exception {
+        launchOnline();
         api("POST", "/api/read", "{\"id\":\"763\",\"is_read\":true}");
         JSONObject updated = api("POST", "/api/import", "{\"id\":\"763\",\"refresh\":true}");
         assertEquals("763", updated.getString("id"));

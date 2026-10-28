@@ -3,7 +3,7 @@ set -euo pipefail
 collect() {
   timeout 30 adb wait-for-device || true
   adb pull /sdcard/Android/data/io.github.symiku.obcreader/files device-evidence || true
-  adb logcat -d -s OBCStartup:I chromium:I TestRunner:I AndroidRuntime:E > device-runtime.log || true
+  adb logcat -d -s OBCStartup:I chromium:I TestRunner:I AndroidRuntime:E python.stderr:V > device-runtime.log || true
 }
 trap collect EXIT
 adb shell svc wifi disable
