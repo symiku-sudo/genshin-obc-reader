@@ -109,6 +109,19 @@ public class OfflineTest extends DeviceTestBase {
         check("JSON.parse(localStorage.getItem('obc-bookmarks')).length===1");
         asyncJs("document.getElementById('read-filter').value='read';await localSearch(); if(localTotal!==1)throw Error('read filter'); document.getElementById('read-filter').value='unread';await localSearch();if(localTotal!==3615)throw Error('unread filter'); document.getElementById('read-filter').value='all';document.getElementById('favorites').checked=true;await localSearch();if(localTotal!==1)throw Error('favorite filter'); document.getElementById('favorites').checked=false;await localSearch();");
 
+        // Management is also local: manifests, import history, and sample fixtures.
+        js("document.getElementById('open-management').click(); true");
+        await("document.querySelectorAll('#collection-options input').length===7 && document.querySelectorAll('#unsupported-categories li').length>0");
+        check("document.getElementById('coverage-status').textContent===''");
+        js("document.getElementById('job-history').open=true;document.querySelector('#import-jobs [data-view]').click();true");
+        await("!document.getElementById('job-results').hidden && document.querySelectorAll('#job-items .job-item').length>0");
+        asyncJs("document.getElementById('job-filter').value='review';await loadJobDetails();const detail=await api('/api/job?id='+jobId+'&state=review');if(document.querySelectorAll('#job-items .job-item').length!==detail.items.length)throw Error('job filter');");
+        js("document.getElementById('samples').open=true;true");
+        await("document.querySelectorAll('#sample-list button').length===5");
+        js("document.querySelector('#sample-list button').click();true");
+        await("!document.getElementById('management').open && current && document.getElementById('article').textContent.length>0");
+        device.pressBack();
+        await("!document.getElementById('library').hidden");
         JSONObject expected = new JSONObject();
         for (String key : new String[]{"font", "positions", "bookmarks"}) {
             expected.put(key, js("localStorage.getItem('obc-"+key+"')"));
