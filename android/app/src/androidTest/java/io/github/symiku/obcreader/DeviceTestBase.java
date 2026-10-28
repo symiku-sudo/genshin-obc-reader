@@ -68,7 +68,12 @@ public abstract class DeviceTestBase {
         if (roots == null) roots = device.findObject(By.desc("Open navigation drawer"));
         if (roots != null) {
             roots.click();
-            systemText("Downloads|下载").click();
+            device.waitForIdle();
+            // The toolbar and breadcrumb also say Downloads. Select the drawer row.
+            UiObject2 downloads = device.wait(Until.findObject(By.res("android:id/title").text(java.util.regex.Pattern.compile("Downloads|下载"))), 15000);
+            assertNotNull("Downloads row in document roots", downloads);
+            downloads.click();
+            device.waitForIdle();
         }
     }
     protected void touchBackupChooser() throws Exception {
