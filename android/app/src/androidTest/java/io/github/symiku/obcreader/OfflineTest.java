@@ -129,7 +129,7 @@ public class OfflineTest extends DeviceTestBase {
         String job = api("GET", "/api/library", "").getJSONArray("jobs").getJSONObject(0).getString("id");
         expected.put("interrupted_job", job);
         // Simulate a killed import process in this test-only database, without network.
-        Python.getInstance().getModule("builtins").callAttr("exec", "import core\nwith core.connect() as db:\n db.execute(\"UPDATE jobs SET state='running' WHERE id=?\", ("+JSONObject.quote(job)+",))");
+        Python.getInstance().getModule("builtins").callAttr("exec", "import core\nwith core.connect() as db:\n db.execute(\"UPDATE jobs SET state='running' WHERE id=?\", ("+JSONObject.quote(job)+",))", Python.getInstance().getModule("builtins").callAttr("dict"));
         try (FileOutputStream out = new FileOutputStream(new File(context.getFilesDir(), "test-expected.json"))) {
             out.write(expected.toString().getBytes(StandardCharsets.UTF_8));
         }
