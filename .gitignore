@@ -18,3 +18,4 @@ android/local.properties
 data/android/
 *.jks
 *.keystore
+*.p12

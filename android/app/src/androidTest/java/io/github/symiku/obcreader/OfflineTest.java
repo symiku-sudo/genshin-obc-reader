@@ -65,6 +65,7 @@ public class OfflineTest extends DeviceTestBase {
         String positions = js("localStorage.getItem('obc-positions')");
         // Real native save chooser: export a validated backup to device documents.
         js("document.getElementById('open-management').click(); document.getElementById('reading-backup').open=true; document.getElementById('export-reading').click(); true");
+        openDownloads();
         UiObject2 filename = device.wait(Until.findObject(By.clazz("android.widget.EditText")),15000);
         assertNotNull("Document filename field",filename);
         filename.setText("obc-offline-test.json");
@@ -75,7 +76,8 @@ public class OfflineTest extends DeviceTestBase {
         api("POST", "/api/read", "{\"id\":\"" + id + "\",\"is_read\":false}");
         js("bookmarks=[];store.set('bookmarks',bookmarks);true");
         // Open the same exported file using Android's actual file picker.
-        js("document.getElementById('backup-file').click(); true");
+        touchBackupChooser();
+        openDownloads();
         systemText("obc-offline-test.json").click();
         await("!document.getElementById('restore-reading').hidden");
         js("document.getElementById('restore-reading').click(); true");

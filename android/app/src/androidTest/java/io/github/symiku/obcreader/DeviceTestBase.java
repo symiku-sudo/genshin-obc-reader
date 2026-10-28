@@ -63,10 +63,29 @@ public abstract class DeviceTestBase {
         assertNotNull("System document control: " + expression, object);
         return object;
     }
+    protected void openDownloads() throws Exception {
+        UiObject2 roots = device.wait(Until.findObject(By.desc("Show roots")), 5000);
+        if (roots == null) roots = device.findObject(By.desc("Open navigation drawer"));
+        if (roots != null) {
+            roots.click();
+            systemText("Downloads|下载").click();
+        }
+    }
+    protected void touchBackupChooser() throws Exception {
+        js("document.getElementById('backup-file').scrollIntoView({block:'center'});true");
+        UiObject2 label = device.wait(Until.findObject(By.textContains("选择备份文件")), 5000);
+        if (label == null) label = device.wait(Until.findObject(By.descContains("选择备份文件")), 5000);
+        assertNotNull("Visible backup file label", label);
+        label.click();
+    }
     @After public void captureScreen() throws Exception {
         File directory = ApplicationProvider.getApplicationContext().getExternalFilesDir(null);
         device.takeScreenshot(new File(directory, getClass().getSimpleName()+"-screen.png"));
-        device.dumpWindowHierarchy(new File(directory, getClass().getSimpleName()+"-window.xml"));
+        File hierarchy = new File(directory, getClass().getSimpleName()+"-window.xml");
+        device.dumpWindowHierarchy(hierarchy);
+        android.os.Bundle evidence = new android.os.Bundle();
+        evidence.putString("stream", "\nDEVICE_UI:\n" + new String(java.nio.file.Files.readAllBytes(hierarchy.toPath()), java.nio.charset.StandardCharsets.UTF_8) + "\n");
+        InstrumentationRegistry.getInstrumentation().sendStatus(2, evidence);
     }
 
 }

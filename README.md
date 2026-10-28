@@ -53,7 +53,7 @@ node test_ui.cjs
 
 构建需要 JDK 17、Python 3.13、Gradle 8.11.1、Android SDK 35。GitHub Actions
 工作流下载私有 Release 中的文本包，并运行后端测试及模拟器断网验收。
-签名密钥保存在 Actions Secrets，构建日志与 Git 不包含密钥。后续版本必须沿用
+签名密钥保存在 Actions Secrets，本地副本位于忽略目录 `data/android/signing/`；构建日志与 Git 不包含密钥。后续版本必须沿用
 同一签名密钥及 applicationId，才能保留数据覆盖安装。
 
 本地准备资产与构建调试包：
