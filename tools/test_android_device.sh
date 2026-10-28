@@ -13,6 +13,7 @@ adb logcat -c
 gradle :app:assembleReleaseAndroidTest --stacktrace
 adb install -r app/build/outputs/apk/release/app-release.apk
 adb install -r app/build/outputs/apk/androidTest/release/app-release-androidTest.apk
+adb shell 'mkdir -p /sdcard/Download; printf "[]" > /sdcard/Download/obc-invalid.json'
 # Keep the app installed so its screenshots and state survive the test run.
 adb shell am instrument -w -r -e class io.github.symiku.obcreader.OfflineTest \
   io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-tests.log
@@ -22,3 +23,9 @@ adb install -r app/build/outputs/apk/release/app-release.apk
 adb shell am instrument -w -r -e class io.github.symiku.obcreader.PersistenceTest \
   io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-persistence.log
 grep -Eq '^OK \([1-9][0-9]* tests?\)' device-persistence.log
+
+adb shell cmd connectivity airplane-mode disable
+adb shell svc wifi enable
+adb shell am instrument -w -r -e class io.github.symiku.obcreader.OnlineImportTest \
+  io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-online.log
+grep -Eq '^OK \([1-9][0-9]* tests?\)' device-online.log

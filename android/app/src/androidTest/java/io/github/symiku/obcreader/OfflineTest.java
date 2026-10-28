@@ -84,6 +84,19 @@ public class OfflineTest extends DeviceTestBase {
         await("document.getElementById('backup-status').textContent.includes('已合并恢复')");
         assertTrue(api("GET", "/api/entry/" + id, "").getBoolean("is_read"));
         check("bookmarks.length===1");
+        // Invalid files and cancelled saves must leave existing reading data intact.
+        touchBackupChooser();
+        openDownloads();
+        systemText("obc-invalid.json").click();
+        await("document.getElementById('backup-status').textContent.includes('无法读取备份')");
+        check("document.getElementById('restore-reading').hidden && bookmarks.length===1");
+        assertTrue(api("GET", "/api/entry/" + id, "").getBoolean("is_read"));
+        js("document.getElementById('export-reading').click(); true");
+        assertNotNull(device.wait(Until.findObject(By.clazz("android.widget.EditText")),15000));
+        device.pressBack();
+        device.waitForIdle();
+        if (!"io.github.symiku.obcreader".equals(device.getCurrentPackageName())) device.pressBack();
+        await("!document.getElementById('export-reading').disabled && document.getElementById('backup-status').textContent.includes('取消')");
         // Native Back, rather than a page-only simulation.
         device.pressBack();
         await("!document.getElementById('management').open");
