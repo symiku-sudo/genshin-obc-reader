@@ -1,75 +1,24 @@
 package io.github.symiku.obcreader;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import java.io.File;
-import androidx.test.uiautomator.By;
-import androidx.test.uiautomator.UiDevice;
-import androidx.test.uiautomator.UiObject2;
-import androidx.test.uiautomator.Until;
-import org.junit.After;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.rule.ActivityTestRule;
+import androidx.test.uiautomator.By;
+import androidx.test.uiautomator.UiObject2;
+import androidx.test.uiautomator.Until;
 import com.chaquo.python.Python;
 import org.json.JSONObject;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicReference;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.charset.StandardCharsets;
 import static org.junit.Assert.*;
 
 @RunWith(AndroidJUnit4.class)
-public class OfflineTest {
-    @Rule public ActivityTestRule<MainActivity> activity = new ActivityTestRule<>(MainActivity.class, false, false);
-
-    private String js(String expression) throws Exception {
-        CountDownLatch done = new CountDownLatch(1);
-        AtomicReference<String> value = new AtomicReference<>();
-        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
-            if (activity.getActivity().web == null) { value.set("null"); done.countDown(); return; }
-            activity.getActivity().web.evaluateJavascript(expression, result -> { value.set(result); done.countDown(); });
-        });
-        assertTrue(done.await(10, TimeUnit.SECONDS));
-        return value.get();
-    }
-    private void await(String expression) throws Exception {
-        long deadline = System.currentTimeMillis() + 180000;
-        while (System.currentTimeMillis() < deadline) {
-            assertNull("Native startup failure", activity.getActivity().startupError);
-            if ("true".equals(js(expression))) return;
-            Thread.sleep(300);
-        }
-        fail("WebView condition timed out: " + expression);
-    }
-    private JSONObject api(String method, String path, String body) throws Exception {
-        JSONObject result = new JSONObject(Python.getInstance().getModule("android_runtime").callAttr("request", method, path, body).toString());
-        assertEquals(result.toString(), 200, result.getInt("status"));
-        return result.getJSONObject("data");
-    }
-
-    private void asyncJs(String expression) throws Exception {
-        js("window.testDone=false; window.testError=null; Promise.resolve().then(async()=>{" + expression + "}).then(()=>window.testDone=true,e=>{window.testError=String(e);window.testDone=true}); true");
-        await("window.testDone === true");
-        assertEquals("null", js("window.testError"));
-    }
-    private void check(String expression) throws Exception { assertEquals(expression, "true", js(expression)); }
-    private final UiDevice device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
-    private UiObject2 systemText(String expression) {
-        UiObject2 object = device.wait(Until.findObject(By.text(java.util.regex.Pattern.compile(expression))), 15000);
-        assertNotNull("System document control: " + expression, object);
-        return object;
-    }
-    @After public void captureScreen() throws Exception {
-        File directory = ApplicationProvider.getApplicationContext().getExternalFilesDir(null);
-        device.takeScreenshot(new File(directory, "android-screen.png"));
-        device.dumpWindowHierarchy(new File(directory, "android-window.xml"));
-    }
-
+public class OfflineTest extends DeviceTestBase {
     @Test public void completeCorpusAndReadingWorkWithoutNetwork() throws Exception {
         // Assert actual Android connectivity, not merely that a shell command ran.
         Context context = ApplicationProvider.getApplicationContext();
@@ -144,6 +93,19 @@ public class OfflineTest {
         assertTrue(api("GET", "/api/entry/" + id, "").getBoolean("is_read"));
         check("JSON.parse(localStorage.getItem('obc-bookmarks')).length===1");
         asyncJs("document.getElementById('read-filter').value='read';await localSearch(); if(localTotal!==1)throw Error('read filter'); document.getElementById('read-filter').value='unread';await localSearch();if(localTotal!==3615)throw Error('unread filter'); document.getElementById('read-filter').value='all';document.getElementById('favorites').checked=true;await localSearch();if(localTotal!==1)throw Error('favorite filter'); document.getElementById('favorites').checked=false;await localSearch();");
+
+        JSONObject expected = new JSONObject();
+        for (String key : new String[]{"font", "positions", "bookmarks"}) {
+            expected.put(key, js("localStorage.getItem('obc-"+key+"')"));
+        }
+        expected.put("reading", api("GET", "/api/reading-backup", "").getJSONArray("read_entries").toString());
+        String job = api("GET", "/api/library", "").getJSONArray("jobs").getJSONObject(0).getString("id");
+        expected.put("interrupted_job", job);
+        // Simulate a killed import process in this test-only database, without network.
+        Python.getInstance().getModule("builtins").callAttr("exec", "import core\nwith core.connect() as db:\n db.execute(\"UPDATE jobs SET state='running' WHERE id=?\", ("+JSONObject.quote(job)+",))");
+        try (FileOutputStream out = new FileOutputStream(new File(context.getFilesDir(), "test-expected.json"))) {
+            out.write(expected.toString().getBytes(StandardCharsets.UTF_8));
+        }
 
     }
 }
