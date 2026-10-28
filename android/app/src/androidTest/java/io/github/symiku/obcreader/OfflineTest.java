@@ -22,8 +22,7 @@ public class OfflineTest extends DeviceTestBase {
     @Test public void completeCorpusAndReadingWorkWithoutNetwork() throws Exception {
         // Assert actual Android connectivity, not merely that a shell command ran.
         Context context = ApplicationProvider.getApplicationContext();
-        ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        assertNull("Offline test requires no active Android network", connectivity.getActiveNetwork());
+        ensureOffline();
         activity.launchActivity(new Intent(ApplicationProvider.getApplicationContext(), MainActivity.class));
         await("document.querySelectorAll('#results .card').length > 0");
         JSONObject stats = api("GET", "/api/stats", "");

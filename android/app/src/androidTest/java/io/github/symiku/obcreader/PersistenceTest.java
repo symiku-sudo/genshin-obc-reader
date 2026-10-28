@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 public class PersistenceTest extends DeviceTestBase {
     @Test public void recordsSurviveProcessDeathAndReplacementInstall() throws Exception {
         Context context = ApplicationProvider.getApplicationContext();
-        assertNull(((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetwork());
+        ensureOffline();
         JSONObject expected = new JSONObject(new String(Files.readAllBytes(new File(context.getFilesDir(), "test-expected.json").toPath()), StandardCharsets.UTF_8));
         activity.launchActivity(new Intent(context, MainActivity.class));
         await("document.querySelectorAll('#results .card').length > 0");

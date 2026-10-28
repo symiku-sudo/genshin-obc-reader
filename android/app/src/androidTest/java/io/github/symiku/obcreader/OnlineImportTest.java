@@ -29,12 +29,7 @@ public class OnlineImportTest extends DeviceTestBase {
         assertTrue(updated.getJSONArray("sections").length() > 0);
         assertTrue(updated.getBoolean("is_read"));
         // Verify the newly downloaded text immediately remains usable without network.
-        device.executeShellCommand("svc wifi disable");
-        device.executeShellCommand("svc data disable");
-        device.executeShellCommand("cmd connectivity airplane-mode enable");
-        deadline = System.currentTimeMillis() + 10000;
-        while (connectivity.getActiveNetwork() != null && System.currentTimeMillis() < deadline) Thread.sleep(200);
-        assertNull(connectivity.getActiveNetwork());
+        ensureOffline();
         assertEquals(updated.getJSONArray("sections").toString(), api("GET", "/api/entry/763", "").getJSONArray("sections").toString());
         asyncJs("navigate('#entry/763');");
         await("current && current.id === '763' && document.getElementById('article').textContent.length > 0");

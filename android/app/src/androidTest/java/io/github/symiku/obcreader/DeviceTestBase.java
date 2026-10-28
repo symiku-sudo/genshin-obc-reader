@@ -63,6 +63,15 @@ public abstract class DeviceTestBase {
         assertNotNull("System document control: " + expression, object);
         return object;
     }
+    protected void ensureOffline() throws Exception {
+        device.executeShellCommand("cmd connectivity airplane-mode enable");
+        device.executeShellCommand("svc wifi disable");
+        device.executeShellCommand("svc data disable");
+        android.net.ConnectivityManager manager = (android.net.ConnectivityManager) ApplicationProvider.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        long deadline = System.currentTimeMillis() + 30000;
+        while (manager.getActiveNetwork() != null && System.currentTimeMillis() < deadline) Thread.sleep(250);
+        assertNull("Offline test network: " + manager.getNetworkCapabilities(manager.getActiveNetwork()), manager.getActiveNetwork());
+    }
     protected void clickStable(androidx.test.uiautomator.BySelector selector) throws Exception {
         for (int attempt = 0; attempt < 5; attempt++) {
             try {
