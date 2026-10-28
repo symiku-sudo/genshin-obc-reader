@@ -43,7 +43,17 @@ node test_ui.cjs
 
 `python audit_imports.py` 和 `python audit_map_cache.py` 可从本地缓存生成覆盖报告；`python recheck_saved_reviews.py JOB_ID [...]` 只用数据库已保存的原始响应重查待适配项，不联网。
 
-## 独立安卓 App（开发中）
+## 独立安卓 App
+
+[下载 v1.0.0 安装包](https://github.com/symiku-sudo/genshin-obc-reader/releases/tag/v1.0.0)
+（私有仓库，需要登录有权限的 GitHub 账号）。下载 `obc-reader-1.0.0.apk` 后安装，
+按系统提示允许当前下载工具安装应用。支持 Android 7.0 及以上的 arm64 / x86_64 设备。
+首次启动会解压内置文本库，请稍等；无需联网下载。建议预留 1 GB 空间供安装和首次解压使用。
+
+内置 3616 个词条、17489 个文本段落。浏览、全文搜索、筛选、已读、收藏、字号、
+阅读位置和阅读记录备份恢复均可离线使用；获取或更新观测枢文本需要联网。
+从网页版迁移记录：网页「管理」导出 JSON 备份，再在 App「管理」选择备份并合并恢复。
+备份包含阅读记录和偏好，不包含正文数据库。更新请直接覆盖安装，勿先卸载。
 
 安卓版本复用同一套页面、提取器与搜索接口，Python 通过 Chaquopy 运行在 App
 进程内。没有监听端口，不依赖 Termux 或网页服务。内置当前完整中文文本库，
@@ -69,4 +79,4 @@ gradle :app:assembleDebug
 发布构建使用 `OBC_SIGNING_FILE` 指向 PKCS12 文件，`OBC_SIGNING_PASSWORD`
 通过环境变量提供，别名为 `reader`。不配置签名时只能直接安装调试构建。
 
-验收范围和待验证事项见 [Android 验收清单](docs/android-parity.md)。
+验收结果与测试范围见 [Android 验收清单](docs/android-parity.md)。
