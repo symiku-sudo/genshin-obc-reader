@@ -67,7 +67,7 @@ public class MainActivity extends Activity {
         File staging = new File(getFilesDir(), "library.installing");
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         long count = 0;
-        try (InputStream in = new GZIPInputStream(getAssets().open("library.sqlite3.gz")); OutputStream out = new FileOutputStream(staging)) {
+        try (InputStream in = new GZIPInputStream(getAssets().open("library.obc")); OutputStream out = new FileOutputStream(staging)) {
             byte[] block = new byte[65536]; int size;
             while ((size = in.read(block)) != -1) { out.write(block, 0, size); digest.update(block, 0, size); count += size; }
         }

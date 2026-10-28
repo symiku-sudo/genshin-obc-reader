@@ -14,7 +14,7 @@ def verify(path):
         for name in ('assets/web/index.html', 'assets/web/app.js', 'assets/web/runtime.js',
                      'assets/web/library.js', 'assets/web/backup.js', 'assets/web/catalog-channels.json',
                      'assets/resources/research/entry-1600.json', 'assets/corpus.json',
-                     'assets/library.sqlite3.gz', 'classes.dex', 'AndroidManifest.xml'):
+                     'assets/library.obc', 'classes.dex', 'AndroidManifest.xml'):
             if name not in names:
                 raise ValueError('Missing offline component: ' + name)
         for abi in ('arm64-v8a', 'x86_64'):
@@ -23,7 +23,7 @@ def verify(path):
         manifest = json.loads(apk.read('assets/corpus.json'))
         digest = hashlib.sha256()
         size = 0
-        with apk.open('assets/library.sqlite3.gz') as packed, gzip.GzipFile(fileobj=packed) as raw:
+        with apk.open('assets/library.obc') as packed, gzip.GzipFile(fileobj=packed) as raw:
             while block := raw.read(1024 * 1024):
                 size += len(block)
                 digest.update(block)

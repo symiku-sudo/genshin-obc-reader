@@ -5,6 +5,7 @@ plugins {
 android {
     namespace 'io.github.symiku.obcreader'
     compileSdk 35
+    androidResources { noCompress += ['obc'] }
     defaultConfig {
         applicationId 'io.github.symiku.obcreader'
         minSdk 24
