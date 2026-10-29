@@ -9,6 +9,8 @@ let searches=0;
 w.fetch=async(url,options)=>{let data;
  if(url==='/api/stats')data={entries:1,sections:1,categories:['书籍'],text_types:['故事']};
  else if(url.startsWith('/api/search')){searches++;const read=new URL(url,w.location).searchParams.get('read');const items=(read==='read'&&!entry.is_read||read==='unread'&&entry.is_read)?[]:[structuredClone(entry)];data={items,total:items.length,page_size:20};}
+ else if(url==='/api/reading-backup')data={read_entries:entry.is_read?['1600']:[]};
+ else if(url==='/api/reading-restore')data={};
  else if(url==='/api/read'){entry.is_read=JSON.parse(options.body).is_read;data={is_read:entry.is_read};}
  else if(url.startsWith('/api/entry/'))data=structuredClone(entry);
  else throw Error(url);
@@ -44,7 +46,14 @@ const wait=async fn=>{for(let i=0;i<100;i++){if(fn())return;await new Promise(r=
  const backup={format:'obc-reading-backup',version:1,read_entries:[],bookmarks:[],positions:{},font:18};
  w.qa.validateBackup(backup);w.qa.validateBackup({...backup,highlights:w.qa.getNotes()});
  assert.throws(()=>w.qa.validateBackup({...backup,highlights:[{...w.qa.getNotes()[0],parts:[{section:'section-1',paragraph:0,start:0,end:999,quote:'wrong'}]}]}));
+ let exported;w.saveReadingFile=async(name,text)=>{exported=JSON.parse(text);return {saved:true};};
+ $('export-reading').click();await wait(()=>!!exported && !$('export-reading').disabled);
+ assert.equal(exported.highlights.length,2);
  $('open-highlights').click();[...$('highlights-list').querySelectorAll('button')].find(b=>b.textContent==='删除').click();assert.equal(w.qa.getNotes().length,1);[...$('highlights-list').querySelectorAll('button')].find(b=>b.textContent==='删除').click();assert.equal(w.qa.getNotes().length,0);
+ Object.defineProperty($('backup-file'),'files',{configurable:true,value:[{size:JSON.stringify(exported).length,text:async()=>JSON.stringify(exported)}]});
+ $('backup-file').dispatchEvent(new w.Event('change'));await wait(()=>!$('restore-reading').hidden);$('restore-reading').click();await wait(()=>$('backup-status').textContent.includes('已合并恢复'));
+ assert.equal(w.qa.getNotes().length,2,'backup restore recovers deleted highlights');
+ assert.equal(JSON.parse(w.localStorage.getItem('obc-highlights')).length,2);
  console.log('Reading QA passed: stable filtered cards and undo, explicit refilter, footer action, cross-paragraph highlights, persistence, resume, deletion, backup compatibility and validation.');
  dom.window.close();
 })().catch(e=>{console.error(e);dom.window.close();process.exitCode=1;});

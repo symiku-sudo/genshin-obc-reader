@@ -89,6 +89,20 @@ public abstract class DeviceTestBase {
         }
     }
     protected void openDownloads() throws Exception {
+        // A fresh CI emulator may surface an unrelated launcher ANR over DocumentsUI.
+        // Never dismiss an ANR belonging to the reader or the document provider.
+        long pickerDeadline = System.currentTimeMillis() + 15000;
+        while (System.currentTimeMillis() < pickerDeadline) {
+            UiObject2 launcherAnr = device.findObject(By.res("android:id/alertTitle").text("Pixel Launcher isn't responding"));
+            if (launcherAnr != null) {
+                android.util.Log.i("TestRunner", "Dismissing emulator Pixel Launcher ANR");
+                UiObject2 close = device.findObject(By.res("android:id/aerr_close"));
+                if (close != null) close.click();
+            }
+            String foreground = device.getCurrentPackageName();
+            if (foreground != null && foreground.endsWith(".documentsui")) break;
+            Thread.sleep(200);
+        }
         UiObject2 roots = device.wait(Until.findObject(By.desc("Show roots")), 5000);
         if (roots == null) roots = device.findObject(By.desc("Open navigation drawer"));
         if (roots != null) {
