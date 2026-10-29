@@ -1,6 +1,33 @@
 # Android offline parity acceptance
 
-## Release evidence
+## Version 1.1.0 acceptance
+
+[Successful 1.1.0 build and device acceptance](https://github.com/symiku-sudo/genshin-obc-reader/actions/runs/40820602069)
+uses commit `d60331090f4b728ec663acb9cb6e8e86e21f9006`. It passed 48 shared Python tests,
+reading UI/bridge regression tests, OfflineTest, PersistenceTest, ReadingFeaturesTest,
+and both OnlineImportTest cases on Android 15.
+
+- The actual APK contains the legacy `META-INF` developer certificate. Verification
+  explicitly includes API 23 to exercise v1 even though runtime minimum remains API 24;
+  v1, v2 and v3 all verify. SHA-256 signer fingerprint remains
+  `2d59993be66a227aff2ccb8f5beb094b5766b54d9cc3edf8ad3e65fccaa310a3`.
+  This addresses missing legacy signing; resolution of vivo's reported installer
+  message still requires installation on the affected physical phone.
+- Device test changes display size to 1000x1400 and back, asserting the current entry
+  stays open and the saved character anchor returns within 5 pixels of its target.
+  It then closes/reopens the Activity and exercises the resume button and saved highlights.
+  This emulates size changes; it is not a physical foldable-device test.
+- UI tests cover read/unread changes with stable cards, reversing an accidental tap,
+  applying the new state on explicit refilter, and the read button after the article.
+- Cross-paragraph and overlapping highlights, unchanged source text, deletion,
+  old backup compatibility, invalid backup rejection, and export/delete/restore of
+  highlights are checked. Device tests verify highlights survive Activity restart.
+- App files and preferences remain local. Original offline acceptance gates below still pass.
+
+The test harness only dismisses the specifically identified Pixel Launcher ANR on a fresh
+CI emulator; reader or document-provider ANRs remain failures.
+
+## Version 1.0.0 release evidence
 
 Version 1.0.0 is built from commit `ff25868780a12df8d839191b0eaee9b6b8daaa18`.
 [Successful build and device acceptance](https://github.com/symiku-sudo/genshin-obc-reader/actions/runs/40652630508)
