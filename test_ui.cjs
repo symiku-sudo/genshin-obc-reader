@@ -29,7 +29,7 @@ w.addEventListener('error', e => errors.push(e.message));
 const sleep = ms=>new Promise(r=>setTimeout(r,ms));
 async function until(fn) {for(let i=0;i<100;i++){if(fn())return;await sleep(40);}throw new Error('DOM condition timed out');}
 (async()=>{
-  w.eval(fs.readFileSync(__dirname+'/static/app.js','utf8')+'\n'+fs.readFileSync(__dirname+'/static/library.js','utf8')+'\n'+fs.readFileSync(__dirname+'/static/backup.js','utf8'));
+  w.eval(fs.readFileSync(__dirname+'/static/app.js','utf8')+'\n'+fs.readFileSync(__dirname+'/static/reading.js','utf8')+'\n'+fs.readFileSync(__dirname+'/static/library.js','utf8')+'\n'+fs.readFileSync(__dirname+'/static/backup.js','utf8'));
   await until(()=>$('results').children.length===20);
   assert($('search-form').hidden);assert(!$('management').open);
   assert.equal(reads.filter(x=>x==='/api/library').length,0,'no management polling during browsing');

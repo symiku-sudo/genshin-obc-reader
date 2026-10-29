@@ -26,9 +26,11 @@ public class MainActivity extends Activity {
     volatile String startupError;
     private ValueCallback<Uri[]> fileCallback;
     private String saveId, saveData;
+    private String restoredUrl;
 
     @Override public void onCreate(Bundle saved) {
         super.onCreate(saved);
+        restoredUrl = saved == null ? null : saved.getString("readerUrl");
         TextView loading = new TextView(this);
         loading.setText("正在准备本地文本库…\n首次启动需要解压文本，请稍候。");
         loading.setPadding(32, 80, 32, 32);
@@ -138,7 +140,7 @@ public class MainActivity extends Activity {
             return insets;
         });
         setContentView(web);
-        web.loadUrl(ORIGIN + "/web/index.html");
+        web.loadUrl(restoredUrl != null && restoredUrl.startsWith(ORIGIN + "/web/index.html") ? restoredUrl : ORIGIN + "/web/index.html");
     }
 
     private void reply(String id, String json) {
@@ -189,6 +191,14 @@ public class MainActivity extends Activity {
         web.evaluateJavascript("window.readerBack ? readerBack() : false", value -> {
             if (!"true".equals(value)) MainActivity.super.onBackPressed();
         });
+    }
+    @Override protected void onSaveInstanceState(Bundle state) {
+        if (web != null) {
+            String url = web.getUrl();
+            state.putString("readerUrl", url == null ? null : url.replaceFirst("(#entry/\\d+).*", "$1"));
+            web.evaluateJavascript("if(typeof remember==='function') remember()", null);
+        }
+        super.onSaveInstanceState(state);
     }
     @Override protected void onPause() {
         if (web != null) web.evaluateJavascript("if(typeof remember==='function') remember()", null);

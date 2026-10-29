@@ -105,7 +105,7 @@ async function onlineSearch(next = false) {
   } catch (e) { if (id === requestId) { $('status').textContent = e.message; if(next) remotePage--; } }
 }
 function remember() {
-  if (current) { positions[current.id] = window.scrollY; store.set('positions', positions); }
+  if (current && !window.readingLayoutPending) { positions[current.id] = window.scrollY; store.set('positions', positions); if (typeof rememberAnchor === 'function') rememberAnchor(); }
 }
 function setBookmark() {
   $('bookmark').textContent = current && bookmarks.includes(current.id) ? '已收藏 ★' : '收藏 ☆';
@@ -130,6 +130,7 @@ function paintEntry(entry, target, paragraphIndex, readMs) {
     const body = activeTerms.length ? s.text.split(/\r?\n/).filter(line => line.trim()).map(line => '<p>' + highlighted(line) + '</p>').join('') : s.html;
     return `<section id="${esc(s.id)}"><p class="section-meta">${esc([s.tab, s.context, s.text_type].filter(Boolean).join(' · '))}</p><h2>${highlighted(s.title)}</h2>${body}</section>`;
   }).join('');
+  if (typeof applyHighlights === 'function') applyHighlights();
   setBookmark(); setReadButton(); $('reader-status').textContent = entry.requires_refresh ? '请更新此词条的缓存。' : '已保存中文原文，可断网阅读；不包含图片、音频和属性表。';
   requestAnimationFrame(() => {
     if (current !== entry) return;
@@ -138,7 +139,8 @@ function paintEntry(entry, target, paragraphIndex, readMs) {
       const focus = paragraphIndex !== undefined ? paragraphs[Number(paragraphIndex)] : null;
       (focus || $(target)).scrollIntoView();
     }
-    else window.scrollTo(0, positions[entry.id] || 0);
+    else if (typeof restoreReadingAnchor !== 'function' || !restoreReadingAnchor(entry.id)) window.scrollTo(0, positions[entry.id] || 0);
+    if (typeof rememberAnchor === 'function') rememberAnchor();
     if (readMs !== undefined) $('reader-status').textContent += ` 读取 ${Math.round(readMs)} ms · 正文准备 ${Math.round(performance.now() - renderStart)} ms。`;
   });
 }
@@ -148,7 +150,7 @@ async function route() {
   remember(); current = null;
   if (!match) {
     $('reader').hidden = true; $('library').hidden = false;
-    if (!remoteMode) await localSearch(false); else renderCards(lastItems, lastItems.length);
+    if (!remoteMode && !lastItems.length) await localSearch(false); else renderCards(lastItems, remoteMode ? lastItems.length : localTotal);
     if (ticket === routeId) window.scrollTo(0, listScroll);
     return;
   }
@@ -203,7 +205,14 @@ async function toggleRead(id, value, button) {
     if (entryCache.has(id)) entryCache.get(id).entry.is_read = result.is_read;
     const item = lastItems.find(x => x.id === id); if (item) item.is_read = result.is_read;
     if (current?.id === id) { current.is_read = result.is_read; setReadButton(); }
-    if (!$('library').hidden && !remoteMode) await localSearch(false);
+    // Keep this result snapshot until the user explicitly searches, filters or pages again.
+    for (const control of $('results').querySelectorAll('[data-read-id]')) {
+      if (control.dataset.readId !== id) continue;
+      control.setAttribute('aria-pressed', String(result.is_read));
+      control.textContent = result.is_read ? '标为未读' : '标为已读';
+      control.closest('.card').classList.toggle('is-read', result.is_read);
+      control.previousElementSibling.textContent = result.is_read ? '已读' : '未读';
+    }
   } catch(e) {
     if (current?.id === id) { $('reader-tools').open = true; $('reader-status').textContent = '阅读状态保存失败：' + e.message; }
     else $('read-feedback').textContent = '阅读状态保存失败：' + e.message;
@@ -231,7 +240,7 @@ $('bookmark').onclick = () => {
   bookmarks = bookmarks.includes(current.id) ? bookmarks.filter(x => x !== current.id) : [...bookmarks, current.id];
   store.set('bookmarks', bookmarks); setBookmark();
 };
-function resize(delta) { fontSize = Math.min(24, Math.max(16, fontSize + delta)); store.set('font', fontSize); $('article').className = 'size-' + fontSize; }
+function resize(delta) { remember(); fontSize = Math.min(24, Math.max(16, fontSize + delta)); store.set('font', fontSize); $('article').className = 'size-' + fontSize; if (current && typeof restoreReadingAnchor === 'function') restoreReadingAnchor(current.id); }
 $('smaller').onclick = () => resize(-2); $('larger').onclick = () => resize(2);
 $('refresh').onclick = async () => {
   if (!current) return;

@@ -24,6 +24,10 @@ adb shell am instrument -w -r -e class io.github.symiku.obcreader.PersistenceTes
   io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-persistence.log
 grep -Eq '^OK \([1-9][0-9]* tests?\)' device-persistence.log
 
+adb shell am instrument -w -r -e class io.github.symiku.obcreader.ReadingFeaturesTest \
+  io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-reading.log
+grep -Eq '^OK \([1-9][0-9]* tests?\)' device-reading.log
+
 adb shell cmd connectivity airplane-mode disable
 adb shell svc wifi enable
 adb shell am instrument -w -r -e class io.github.symiku.obcreader.OnlineImportTest \

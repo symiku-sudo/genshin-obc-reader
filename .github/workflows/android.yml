@@ -40,6 +40,14 @@ jobs:
           mkdir -p data/android
           gh release download android-corpus-v1 --dir data/android --pattern 'library.sqlite3.*'
           python tools/prepare_android_assets.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Reading UI regression tests
+        run: |
+          npm install --prefix .qa --no-save --no-package-lock jsdom@26.1.0
+          node test_reading.cjs
+          node test_android_bridge.cjs
       - name: Shared backend tests
         run: python -m unittest discover -v
       - name: Restore private signing key
@@ -56,14 +64,17 @@ jobs:
         run: |
           gradle :app:assembleRelease --stacktrace
           python ../tools/verify_android_apk.py app/build/outputs/apk/release/app-release.apk
-          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose app/build/outputs/apk/release/app-release.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs app/build/outputs/apk/release/app-release.apk | tee app/build/outputs/apk/release/signing-verification.txt
+          grep -q "Verified using v1 scheme (JAR signing): true" app/build/outputs/apk/release/signing-verification.txt
           "$ANDROID_HOME/build-tools/35.0.0/zipalign" -c -P 16 4 app/build/outputs/apk/release/app-release.apk
           cd app/build/outputs/apk/release
           sha256sum app-release.apk > app-release.apk.sha256
       - uses: actions/upload-artifact@v4
         with:
           name: obc-reader-release
-          path: android/app/build/outputs/apk/release/*.apk*
+          path: |
+            android/app/build/outputs/apk/release/*.apk*
+            android/app/build/outputs/apk/release/signing-verification.txt
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules

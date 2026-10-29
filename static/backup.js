@@ -9,6 +9,12 @@ function validateBackup(data) {
       Object.keys(data.positions).length > 20000 ||
       !Object.entries(data.positions).every(([k,v]) => id(k) && Number.isFinite(v) && v >= 0 && v <= 1e9) ||
       ![16,18,20,22,24].includes(data.font)) throw new Error('文件格式或记录内容不正确。');
+  const section = v => typeof v === 'string' && /^section-\d+(?:-\d+){0,2}$/.test(v);
+  const integer = v => Number.isSafeInteger(v) && v >= 0 && v <= 1e7;
+  const part = v => v && section(v.section) && integer(v.paragraph);
+  if (data.anchors !== undefined && (!data.anchors || Array.isArray(data.anchors) || typeof data.anchors !== 'object' || Object.keys(data.anchors).length > 20000 || !Object.entries(data.anchors).every(([k,v])=>id(k)&&part(v)&&integer(v.offset)&&Number.isFinite(v.top)&&Math.abs(v.top)<=1e7&&typeof v.quote==='string'&&v.quote.length<=32))) throw new Error('阅读位置格式不正确。');
+  if (data.last_reading != null && (!id(data.last_reading.id) || typeof data.last_reading.title!=='string' || data.last_reading.title.length>2000)) throw new Error('续读记录格式不正确。');
+  if (data.highlights !== undefined && (!Array.isArray(data.highlights) || data.highlights.length>20000 || !data.highlights.every(h=>h&&typeof h.id==='string'&&h.id.length<=100&&id(h.entry)&&typeof h.title==='string'&&h.title.length<=2000&&Number.isFinite(h.created)&&Array.isArray(h.parts)&&h.parts.length>0&&h.parts.length<=2000&&h.parts.every(v=>part(v)&&integer(v.start)&&integer(v.end)&&v.end>v.start&&typeof v.quote==='string'&&v.quote.length===v.end-v.start)))) throw new Error('划线记录格式不正确。');
   return data;
 }
 $('export-reading').onclick = async () => {
@@ -17,7 +23,8 @@ $('export-reading').onclick = async () => {
     remember();
     const saved = await api('/api/reading-backup');
     const data = validateBackup({format:'obc-reading-backup',version:1,exported_at:new Date().toISOString(),
-      read_entries:saved.read_entries,bookmarks,positions,font:fontSize});
+      read_entries:saved.read_entries,bookmarks,positions,font:fontSize,anchors:readingAnchors,last_reading:lastReading,highlights});
+    if(new Blob([JSON.stringify(data,null,2)]).size>2_000_000)throw new Error('备份超过 2 MB，请减少划线后重试。');
     const filename='观测枢阅读记录-'+new Date().toISOString().slice(0,10)+'.json';
     if (window.saveReadingFile) {
       await window.saveReadingFile(filename, JSON.stringify(data,null,2));
@@ -52,11 +59,18 @@ $('restore-reading').onclick=async()=>{
     await api('/api/reading-restore',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({read_entries:data.read_entries})});
     const mergedBookmarks=[...new Set([...bookmarks,...data.bookmarks])];
     const mergedPositions={...data.positions,...positions};
+    const mergedAnchors={...Object.fromEntries(Object.entries(data.anchors||{}).filter(([id])=>!(id in positions))),...readingAnchors};
+    const mergedHighlights=[...highlights,...(data.highlights||[]).filter(h=>!highlights.some(saved=>saved.id===h.id))];
+    const mergedLast=lastReading||data.last_reading||null;
     const restoredFont=store.get('font',null)===null ? data.font : fontSize;
     // Use direct writes so a storage failure is reported rather than silently ignored.
     localStorage.setItem('obc-bookmarks',JSON.stringify(mergedBookmarks));
     localStorage.setItem('obc-positions',JSON.stringify(mergedPositions));
     localStorage.setItem('obc-font',JSON.stringify(restoredFont));
+    localStorage.setItem('obc-anchors',JSON.stringify(mergedAnchors));
+    localStorage.setItem('obc-highlights',JSON.stringify(mergedHighlights));
+    localStorage.setItem('obc-last-reading',JSON.stringify(mergedLast));
+    readingAnchors=mergedAnchors;highlights=mergedHighlights;lastReading=mergedLast;renderResume();applyHighlights();
     bookmarks=mergedBookmarks;positions=mergedPositions;fontSize=restoredFont;entryCache.clear();
     if(current){current.is_read=(await api('/api/entry/'+current.id)).is_read;setReadButton();setBookmark();$('article').className='size-'+fontSize;}
     else if(!remoteMode)await localSearch();

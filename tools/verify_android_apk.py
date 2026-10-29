@@ -12,7 +12,7 @@ def verify(path):
     with zipfile.ZipFile(path) as apk:
         names = set(apk.namelist())
         for name in ('assets/web/index.html', 'assets/web/app.js', 'assets/web/runtime.js',
-                     'assets/web/library.js', 'assets/web/backup.js', 'assets/web/catalog-channels.json',
+                     'assets/web/reading.js', 'assets/web/library.js', 'assets/web/backup.js', 'assets/web/catalog-channels.json',
                      'assets/resources/research/entry-1600.json', 'assets/corpus.json',
                      'assets/library.obc', 'classes.dex', 'AndroidManifest.xml'):
             if name not in names:
