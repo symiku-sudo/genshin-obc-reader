@@ -18,7 +18,7 @@ function characterRange(p, start, end = start + 1) {
   const range = document.createRange(), a = textPoint(p, start), b = textPoint(p, Math.min(end, p.textContent.length));
   range.setStart(...a); range.setEnd(...b); return range;
 }
-function readingTop() { return Math.ceil(document.querySelector('.reader-nav').getBoundingClientRect().bottom + 12); }
+function readingTop() { return document.querySelector('.reader-nav').offsetHeight + 12; }
 function rememberAnchor() {
   if (!current || window.readingLayoutPending) return;
   const top = readingTop(), paragraphs = prose();
@@ -57,14 +57,15 @@ function renderResume() {
 }
 $('resume-reading').onclick=()=>{if(lastReading){activeTerms=[];navigate('#entry/'+lastReading.id);}};
 renderResume();
-let layoutTimer;
+let layoutTimer, layoutReleaseTimer;
 window.addEventListener('resize',()=>{
   if(!current) return;
   const id=current.id;
-  window.readingLayoutPending=true; clearTimeout(layoutTimer);
+  window.readingLayoutPending=true; clearTimeout(layoutTimer); clearTimeout(layoutReleaseTimer);
   layoutTimer=setTimeout(()=>{
     if(current?.id===id) restoreReadingAnchor(id);
-    window.readingLayoutPending=false;
+    // Ignore the scroll event caused by restoration before accepting user scrolls.
+    layoutReleaseTimer=setTimeout(()=>{window.readingLayoutPending=false;},220);
   },160);
 });
 function selectedParts() {
