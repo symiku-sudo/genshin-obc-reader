@@ -68,6 +68,9 @@ window.addEventListener('resize',()=>{
     layoutReleaseTimer=setTimeout(()=>{window.readingLayoutPending=false;},220);
   },160);
 });
+function clearReadingSelection() {
+  window.getSelection().removeAllRanges();selectionParts=[];$('selection-tools').hidden=true;
+}
 function selectedParts() {
   const selection=window.getSelection();
   if(!current || !selection.rangeCount || selection.isCollapsed) return [];

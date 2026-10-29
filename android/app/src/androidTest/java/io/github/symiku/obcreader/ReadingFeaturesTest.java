@@ -19,7 +19,7 @@ public class ReadingFeaturesTest extends DeviceTestBase {
         js("testCard.click();true");
         await("testCard.getAttribute('aria-pressed')==='false' && !testCard.disabled");
         js("activeTerms=[];navigate('#entry/1600');true");
-        await("current && current.id==='1600' && document.querySelector('#article section > p:not(.section-meta)')");
+        await("current && current.id==='1600' && document.querySelector('#article section > p:not(.section-meta)')!==null");
         check("Boolean(document.getElementById('article').compareDocumentPosition(document.getElementById('mark-read')) & Node.DOCUMENT_POSITION_FOLLOWING)");
         js("window.testNotesBefore=highlights.length;window.testParagraph=prose().find(p=>p.textContent.length>20);const r=characterRange(testParagraph,2,12);window.getSelection().removeAllRanges();window.getSelection().addRange(r);document.dispatchEvent(new Event('selectionchange'));true");
         await("!document.getElementById('selection-tools').hidden");

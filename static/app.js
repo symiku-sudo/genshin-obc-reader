@@ -145,6 +145,7 @@ function paintEntry(entry, target, paragraphIndex, readMs) {
   });
 }
 async function route() {
+  if (current && typeof clearReadingSelection === 'function') clearReadingSelection();
   const ticket = ++routeId;
   const match = location.hash.match(/^#entry\/(\d{1,12})(?:\/(section-\d+(?:-\d+){0,2})(?:\/p(\d+))?)?$/);
   remember(); current = null;
