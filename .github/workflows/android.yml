@@ -64,7 +64,7 @@ jobs:
         run: |
           gradle :app:assembleRelease --stacktrace
           python ../tools/verify_android_apk.py app/build/outputs/apk/release/app-release.apk
-          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs app/build/outputs/apk/release/app-release.apk | tee app/build/outputs/apk/release/signing-verification.txt
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs --min-sdk-version 23 app/build/outputs/apk/release/app-release.apk | tee app/build/outputs/apk/release/signing-verification.txt
           grep -q "Verified using v1 scheme (JAR signing): true" app/build/outputs/apk/release/signing-verification.txt
           "$ANDROID_HOME/build-tools/35.0.0/zipalign" -c -P 16 4 app/build/outputs/apk/release/app-release.apk
           cd app/build/outputs/apk/release

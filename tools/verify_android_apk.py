@@ -17,6 +17,8 @@ def verify(path):
                      'assets/library.obc', 'classes.dex', 'AndroidManifest.xml'):
             if name not in names:
                 raise ValueError('Missing offline component: ' + name)
+        if not any(name.startswith('META-INF/') and name.endswith('.RSA') for name in names):
+            raise ValueError('Missing v1 developer certificate')
         for abi in ('arm64-v8a', 'x86_64'):
             if not any(name.startswith('lib/' + abi + '/') and 'python' in name for name in names):
                 raise ValueError('Missing embedded Python for ' + abi)
