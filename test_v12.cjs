@@ -17,7 +17,7 @@ w.fetch=async(url,options)=>{
  else throw Error(url);
  return {ok:true,json:async()=>data};
 };
-w.eval(['app','reading','search','backup'].map(n=>fs.readFileSync('static/'+n+'.js','utf8')).join('\n')+'\nwindow.qa={navigate,characterRange,getSearchKeywords,getNotes:()=>highlights,getRecent:()=>recentReadings,getHistory:()=>searchHistory};');
+w.eval(['app','reading','search','backup'].map(n=>fs.readFileSync('static/'+n+'.js','utf8')).join('\n')+'\nwindow.qa={remember,navigate,characterRange,getSearchKeywords,getNotes:()=>highlights,getRecent:()=>recentReadings,getHistory:()=>searchHistory};');
 const wait=async fn=>{for(let i=0;i<150;i++){if(fn())return;await new Promise(r=>setTimeout(r,10));}throw Error('timeout');};
 const open=async id=>{w.qa.navigate('#entry/'+id);await wait(()=>$('reader-title').textContent==='测试'+id);await new Promise(r=>setTimeout(r,30));};
 (async()=>{
@@ -25,6 +25,11 @@ const open=async id=>{w.qa.navigate('#entry/'+id);await wait(()=>$('reader-title
  const button=$('results').querySelector('[data-read-id]');button.click();await wait(()=>button.getAttribute('aria-pressed')==='true');
  button.click();await wait(()=>button.getAttribute('aria-pressed')==='false');assert.equal(w.getComputedStyle(button).backgroundColor,'rgb(255, 255, 255)');
  await open('1600');$('mark-read').click();await wait(()=>$('mark-read').getAttribute('aria-pressed')==='true');$('mark-read').click();await wait(()=>$('mark-read').getAttribute('aria-pressed')==='false');assert.equal(w.getComputedStyle($('mark-read')).backgroundColor,'rgb(255, 255, 255)');
+ // Chromium may deliver scroll before resize after Android changes the viewport.
+ const savedPositions=w.localStorage.getItem('obc-positions');
+ const oldWidth=w.innerWidth;w.innerWidth=oldWidth+100;w.scrollY=777;w.qa.remember();
+ assert.equal(w.localStorage.getItem('obc-positions'),savedPositions,'layout scroll must not overwrite the saved position before resize');
+ w.innerWidth=oldWidth;w.scrollY=0;
  const p=$('article').querySelector('section > p:not(.section-meta)');w.getSelection().addRange(w.qa.characterRange(p,0,2));w.document.dispatchEvent(new w.Event('selectionchange'));$('annotate-selection').click();assert($('note-editor').open);$('note-text').value='第一条笔记';$('save-note').click();assert.equal(w.qa.getNotes()[0].note,'第一条笔记');
  $('article').querySelector('.user-highlight').click();assert($('note-editor').open);$('note-text').value='二次编辑';$('save-note').click();assert.equal(w.qa.getNotes()[0].note,'二次编辑');
  await open('1601');assert.deepEqual(JSON.parse(JSON.stringify(w.qa.getRecent())).map(x=>x.id),['1601','1600']);assert(!$('resume-reading-second').hidden);

@@ -81,6 +81,18 @@ jobs:
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
+      - name: Install emulator image with download retries
+        shell: bash
+        run: |
+          for attempt in 1 2 3; do
+            if sdkmanager --install 'system-images;android-35;google_apis;x86_64'; then
+              exit 0
+            fi
+            # Discard incomplete SDK downloads before retrying on this ephemeral runner.
+            rm -rf "$ANDROID_HOME/.temp" "$HOME/.android/cache"
+            sleep 5
+          done
+          exit 1
       - name: Offline Android instrumentation
         uses: reactivecircus/android-emulator-runner@v2
         with:
