@@ -105,7 +105,7 @@ async function onlineSearch(next = false) {
   } catch (e) { if (id === requestId) { $('status').textContent = e.message; if(next) remotePage--; } }
 }
 function remember() {
-  if (current && !window.readingLayoutPending) { positions[current.id] = window.scrollY; store.set('positions', positions); if (typeof rememberAnchor === 'function') rememberAnchor(); }
+  if (current && !window.readingLayoutPending && (typeof readingLayoutChanged !== 'function' || !readingLayoutChanged())) { positions[current.id] = window.scrollY; store.set('positions', positions); if (typeof rememberAnchor === 'function') rememberAnchor(); }
 }
 function setBookmark() {
   $('bookmark').textContent = current && bookmarks.includes(current.id) ? '已收藏 ★' : '收藏 ☆';

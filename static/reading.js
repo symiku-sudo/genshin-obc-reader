@@ -21,8 +21,12 @@ function characterRange(p, start, end = start + 1) {
   range.setStart(...a); range.setEnd(...b); return range;
 }
 function readingTop() { return document.querySelector('.reader-nav').offsetHeight + 12; }
+let readingViewport = {width:window.innerWidth,height:window.innerHeight};
+function readingLayoutChanged() {
+  return window.readingLayoutPending || window.innerWidth!==readingViewport.width || window.innerHeight!==readingViewport.height;
+}
 function rememberAnchor() {
-  if (!current || window.readingLayoutPending) return;
+  if (!current || readingLayoutChanged()) return;
   const top = readingTop(), paragraphs = prose();
   const p = paragraphs.find(p => p.getBoundingClientRect().bottom > top);
   if (p) {
@@ -63,13 +67,13 @@ function renderResume() {
 renderResume();
 let layoutTimer, layoutReleaseTimer;
 window.addEventListener('resize',()=>{
-  if(!current) return;
+  if(!current) {readingViewport={width:window.innerWidth,height:window.innerHeight};return;}
   const id=current.id;
   window.readingLayoutPending=true; clearTimeout(layoutTimer); clearTimeout(layoutReleaseTimer);
   layoutTimer=setTimeout(()=>{
     if(current?.id===id) restoreReadingAnchor(id);
     // Ignore the scroll event caused by restoration before accepting user scrolls.
-    layoutReleaseTimer=setTimeout(()=>{window.readingLayoutPending=false;},220);
+    layoutReleaseTimer=setTimeout(()=>{readingViewport={width:window.innerWidth,height:window.innerHeight};window.readingLayoutPending=false;},220);
   },160);
 });
 function clearReadingSelection() {
