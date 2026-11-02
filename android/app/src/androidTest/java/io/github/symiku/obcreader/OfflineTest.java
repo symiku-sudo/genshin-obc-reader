@@ -26,9 +26,9 @@ public class OfflineTest extends DeviceTestBase {
         activity.launchActivity(new Intent(ApplicationProvider.getApplicationContext(), MainActivity.class));
         await("document.querySelectorAll('#results .card').length > 0");
         JSONObject stats = api("GET", "/api/stats", "");
-        assertEquals(3616, stats.getInt("entries"));
-        assertEquals(17489, stats.getInt("sections"));
-        assertEquals(7, api("GET", "/api/library", "").getJSONArray("categories").length());
+        assertEquals(3638, stats.getInt("entries"));
+        assertEquals(17511, stats.getInt("sections"));
+        assertEquals(8, api("GET", "/api/library", "").getJSONArray("categories").length());
 
         // Exercise pagination and every category through the real WebView bridge.
         asyncJs("const stats=await api('/api/stats'); for(const category of stats.categories){ const result=await api('/api/search?category='+encodeURIComponent(category)); if(!result.total || result.items.some(x=>x.category!==category)) throw Error('category filter'); } for(const type of stats.text_types){const result=await api('/api/search?type='+encodeURIComponent(type));if(!result.total)throw Error('text-type filter');} const first=await api('/api/search'); const second=await api('/api/search?page=2');if(first.items.some(a=>second.items.some(b=>a.id===b.id)))throw Error('pagination overlap');");
@@ -106,11 +106,11 @@ public class OfflineTest extends DeviceTestBase {
         assertEquals(positions,js("localStorage.getItem('obc-positions')"));
         assertTrue(api("GET", "/api/entry/" + id, "").getBoolean("is_read"));
         check("JSON.parse(localStorage.getItem('obc-bookmarks')).length===1");
-        asyncJs("document.getElementById('read-filter').value='read';await localSearch(); if(localTotal!==1)throw Error('read filter'); document.getElementById('read-filter').value='unread';await localSearch();if(localTotal!==3615)throw Error('unread filter'); document.getElementById('read-filter').value='all';document.getElementById('favorites').checked=true;await localSearch();if(localTotal!==1)throw Error('favorite filter'); document.getElementById('favorites').checked=false;await localSearch();");
+        asyncJs("document.getElementById('read-filter').value='read';await localSearch(); if(localTotal!==1)throw Error('read filter'); document.getElementById('read-filter').value='unread';await localSearch();if(localTotal!==3637)throw Error('unread filter'); document.getElementById('read-filter').value='all';document.getElementById('favorites').checked=true;await localSearch();if(localTotal!==1)throw Error('favorite filter'); document.getElementById('favorites').checked=false;await localSearch();");
 
         // Management is also local: manifests, import history, and sample fixtures.
         js("document.getElementById('open-management').click(); true");
-        await("document.querySelectorAll('#collection-options input').length===7 && document.querySelectorAll('#unsupported-categories li').length>0");
+        await("document.querySelectorAll('#collection-options input').length===8 && document.querySelectorAll('#unsupported-categories li').length>0");
         check("document.getElementById('coverage-status').textContent===''");
         js("document.getElementById('job-history').open=true;document.querySelector('#import-jobs [data-view]').click();true");
         await("!document.getElementById('job-results').hidden && document.querySelectorAll('#job-items .job-item').length>0");

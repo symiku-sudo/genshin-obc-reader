@@ -25,9 +25,10 @@
   };
   window.saveReadingFile = (name, data) => call('saveDocument', name, data);
   window.readerBack = () => {
-    const modal = document.querySelector('dialog[open]');
+    const modal = [...document.querySelectorAll('dialog[open]')].at(-1);
     if (modal) { modal.close(); return true; }
     if (location.hash) { document.getElementById('back').click(); return true; }
+    if(typeof returnToSelectedSource==='function' && returnToSelectedSource()) return true;
     return false;
   };
   document.addEventListener('visibilitychange', () => {

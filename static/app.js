@@ -62,14 +62,14 @@ async function localSearch(reset = true) {
   const id = ++requestId;
   if (reset) localPage = 1;
   remoteMode = false; $('more').hidden = true; $('local-pager').hidden = false;
-  listQuery = viewMode === 'search' ? $('query').value.trim() : '';
-  activeTerms = $('match-mode').value === 'phrase' ? (listQuery ? [listQuery] : []) : [...new Set(listQuery.split(/\s+/).filter(Boolean))];
+  activeTerms = viewMode === 'search' ? getSearchKeywords() : [];
+  listQuery = activeTerms.join(' ');
   $('results-title').textContent = listQuery ? '正文搜索结果' : (viewMode === 'browse' ? '自由浏览' : '全部文本');
   $('status').textContent = '正在搜索本地资料…';
   try {
     let url = '/api/search?q=' + encodeURIComponent(listQuery) + '&category=' + encodeURIComponent($('category').value) + '&type=' + encodeURIComponent($('text-type').value) + '&mode=' + $('match-mode').value + '&page=' + localPage + '&read=' + $('read-filter').value;
     if ($('favorites').checked) url += '&favorite_only=1&favorites=' + encodeURIComponent(bookmarks.join(','));
-    const data = await api(url);
+    const data = viewMode === 'search' ? await api('/api/search', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({keywords:activeTerms,mode:$('match-mode').value,category:$('category').value,type:$('text-type').value,page:localPage,read:$('read-filter').value,favorites:$('favorites').checked?bookmarks:null})}) : await api(url);
     if (id !== requestId) return;
     localTotal = data.total;
     const lastPage = Math.max(1, Math.ceil(data.total / data.page_size));
@@ -78,7 +78,7 @@ async function localSearch(reset = true) {
     const pages = Math.max(1, Math.ceil(data.total / data.page_size));
     $('local-page').textContent = `${localPage} / ${pages}`;
     $('local-prev').disabled = localPage <= 1; $('local-next').disabled = localPage >= pages;
-    $('status').textContent = listQuery ? ($('match-mode').value === 'phrase' ? '按完整原文短语匹配；空格也属于短语。' : '范围：已缓存中文文本；多个词需匹配同一段文本。') : '';
+    $('status').textContent = listQuery ? ($('match-mode').value === 'phrase' ? '按完整原文短语匹配；空格也属于短语。' : ($('match-mode').value==='any'?'任一关键词命中即可。':'全部关键词需出现在同一正文分节及其标题中。')) : '';
   } catch (e) { if (id === requestId) $('status').textContent = '搜索失败：' + e.message; }
 }
 async function onlineSearch(next = false) {
@@ -176,13 +176,13 @@ async function route() {
     paintEntry(entry, match[2], match[3], performance.now() - readStart);
   } catch(e) { if (ticket === routeId) { $('reader-tools').open = true; $('reader-title').textContent = '暂时无法读取'; $('reader-status').textContent = e.message; } }
 }
-function switchView(mode) {
+function switchView(mode, search = true) {
   clearTimeout(timer);
   viewMode = mode;
   $('browse-view').setAttribute('aria-pressed', String(mode === 'browse'));
   $('search-view').setAttribute('aria-pressed', String(mode === 'search'));
   $('search-form').hidden = mode !== 'search';
-  localSearch();
+  if (search) localSearch();
   if (mode === 'search') $('query').focus();
 }
 $('browse-view').onclick = () => switchView('browse');
@@ -257,6 +257,7 @@ let scrollTimer;
 window.addEventListener('scroll', () => { clearTimeout(scrollTimer); scrollTimer = setTimeout(remember, 120); }, {passive:true});
 window.addEventListener('pagehide', remember);
 function navigate(hash) {
+  if (viewMode==='search' && !$('library').hidden && hash.startsWith('#entry/') && typeof saveSearchHistory==='function') saveSearchHistory();
   remember();
   history.pushState(null, '', location.pathname + location.search + hash);
   route();

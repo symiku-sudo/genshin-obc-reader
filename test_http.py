@@ -34,7 +34,7 @@ class HTTPTests(unittest.TestCase):
                 self.assertIn(b'text-type',request('/app.js'))
                 self.assertEqual(len(json.loads(request('/api/samples'))['items']),5)
                 self.assertEqual(json.loads(request('/api/stats'))['entries'],0)
-                self.assertEqual(len(json.loads(request('/api/library'))['categories']),7)
+                self.assertEqual(len(json.loads(request('/api/library'))['categories']),8)
                 created=json.loads(request('/api/jobs/start',{'categories':['books']}))
                 job_id=created['ids'][0]
                 self.assertEqual(json.loads(request('/api/job?id='+job_id))['state'],'queued')

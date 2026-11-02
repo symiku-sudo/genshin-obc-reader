@@ -16,7 +16,7 @@ w.fetch=async(url,options)=>{let data;
  else throw Error(url);
  return {ok:true,json:async()=>data};
 };
-const sources=['app','reading','backup'].map(n=>fs.readFileSync('static/'+n+'.js','utf8')).join('\n');
+const sources=['app','reading','search','backup'].map(n=>fs.readFileSync('static/'+n+'.js','utf8')).join('\n');
 w.eval(sources+'\nwindow.qa={selectedParts,applyHighlights,validateBackup,characterRange,restoreReadingAnchor,getNotes:()=>highlights};');
 const wait=async fn=>{for(let i=0;i<100;i++){if(fn())return;await new Promise(r=>setTimeout(r,10));}throw Error('timeout');};
 (async()=>{

@@ -1,0 +1,41 @@
+const {JSDOM}=require('./.qa/node_modules/jsdom');
+const fs=require('node:fs'),assert=require('node:assert/strict');
+const dom=new JSDOM(fs.readFileSync('static/index.html','utf8'),{url:'https://reader.test/',runScripts:'outside-only',pretendToBeVisual:true});
+const w=dom.window,$=id=>w.document.getElementById(id),requests=[];
+const style=w.document.createElement('style');style.textContent=fs.readFileSync('static/style.css','utf8');w.document.head.append(style);
+w.scrollTo=()=>{};w.HTMLElement.prototype.scrollIntoView=()=>{};
+w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};w.HTMLDialogElement.prototype.close=function(){this.open=false;};
+const entries=['1600','1601'].map((id,i)=>({id,title:'测试'+id,category:'书籍',source:'https://example.com',fetched_at:new Date().toISOString(),warnings:[],is_read:false,sections:[{id:'section-0',title:'章节',text:'北风经过高塔，月光照耀。',html:'<p>北风经过高塔，月光照耀。</p>'}]}));
+w.fetch=async(url,options)=>{
+ let data;const payload=options?.body?JSON.parse(options.body):null;requests.push({url,payload});
+ if(url==='/api/stats')data={entries:2,sections:2,categories:['书籍'],text_types:['故事']};
+ else if(url.startsWith('/api/search'))data={items:structuredClone(entries),total:2,page_size:20};
+ else if(url.startsWith('/api/entry/'))data=structuredClone(entries.find(e=>url.endsWith(e.id)));
+ else if(url==='/api/read'){const e=entries.find(e=>e.id===payload.id);e.is_read=payload.is_read;data=payload;}
+ else if(url==='/api/reading-backup')data={read_entries:[]};
+ else if(url==='/api/reading-restore')data={};
+ else throw Error(url);
+ return {ok:true,json:async()=>data};
+};
+w.eval(['app','reading','search','backup'].map(n=>fs.readFileSync('static/'+n+'.js','utf8')).join('\n')+'\nwindow.qa={navigate,characterRange,getSearchKeywords,getNotes:()=>highlights,getRecent:()=>recentReadings,getHistory:()=>searchHistory};');
+const wait=async fn=>{for(let i=0;i<150;i++){if(fn())return;await new Promise(r=>setTimeout(r,10));}throw Error('timeout');};
+const open=async id=>{w.qa.navigate('#entry/'+id);await wait(()=>$('reader-title').textContent==='测试'+id);await new Promise(r=>setTimeout(r,30));};
+(async()=>{
+ await wait(()=>$('results').querySelector('[data-read-id]'));
+ const button=$('results').querySelector('[data-read-id]');button.click();await wait(()=>button.getAttribute('aria-pressed')==='true');
+ button.click();await wait(()=>button.getAttribute('aria-pressed')==='false');assert.equal(w.getComputedStyle(button).backgroundColor,'rgb(255, 255, 255)');
+ await open('1600');$('mark-read').click();await wait(()=>$('mark-read').getAttribute('aria-pressed')==='true');$('mark-read').click();await wait(()=>$('mark-read').getAttribute('aria-pressed')==='false');assert.equal(w.getComputedStyle($('mark-read')).backgroundColor,'rgb(255, 255, 255)');
+ const p=$('article').querySelector('section > p:not(.section-meta)');w.getSelection().addRange(w.qa.characterRange(p,0,2));w.document.dispatchEvent(new w.Event('selectionchange'));$('annotate-selection').click();assert($('note-editor').open);$('note-text').value='第一条笔记';$('save-note').click();assert.equal(w.qa.getNotes()[0].note,'第一条笔记');
+ $('article').querySelector('.user-highlight').click();assert($('note-editor').open);$('note-text').value='二次编辑';$('save-note').click();assert.equal(w.qa.getNotes()[0].note,'二次编辑');
+ await open('1601');assert.deepEqual(JSON.parse(JSON.stringify(w.qa.getRecent())).map(x=>x.id),['1601','1600']);assert(!$('resume-reading-second').hidden);
+ $('back').click();await wait(()=>!$('library').hidden);$('search-view').click();
+ $('query').value='北风 高塔';$('add-keyword').click();assert.equal($('keyword-list').querySelectorAll('.keyword').length,2);
+ $('match-mode').value='all';$('match-mode').dispatchEvent(new w.Event('change'));$('search-form').dispatchEvent(new w.Event('submit',{cancelable:true}));
+ await wait(()=>requests.at(-1).payload?.mode==='all');assert.deepEqual(requests.at(-1).payload.keywords,['北风','高塔']);
+ $('match-mode').value='any';$('match-mode').dispatchEvent(new w.Event('change'));assert.equal(w.qa.getHistory()[0].mode,'any');
+ const allHistory=[...$('search-history-list').querySelectorAll('.history-query')].find(b=>b.textContent==='北风 且 高塔');allHistory.click();assert.equal($('match-mode').value,'all');assert.deepEqual(JSON.parse(JSON.stringify(w.qa.getSearchKeywords())),['北风','高塔']);
+ await open('1600');w.getSelection().removeAllRanges();w.getSelection().addRange(w.qa.characterRange($('article').querySelector('section > p:not(.section-meta)'),0,2));w.document.dispatchEvent(new w.Event('selectionchange'));$('search-selection').click();assert(!$('library').hidden);assert.equal(w.qa.getHistory()[0].keywords[0],'北风');assert(!$('selection-return').hidden);$('selection-return').click();await wait(()=>$('reader-title').textContent==='测试1600');
+ let exported;w.saveReadingFile=async(name,text)=>{exported=JSON.parse(text);};$('export-reading').click();await wait(()=>exported);assert.equal(exported.highlights[0].note,'二次编辑');assert.equal(exported.recent_readings.length,2);assert(exported.search_history.some(x=>x.mode==='all'&&x.keywords.length===2));
+ assert.notEqual(w.getComputedStyle($('resume-reading')).backgroundColor,'rgb(255, 255, 255)');
+ console.log('1.2 UI QA passed: colors, editable notes, two resume entries, AND/OR chips and grouped history, selected-text search and return, backup fields.');dom.window.close();
+})().catch(e=>{console.error(e);dom.window.close();process.exitCode=1;});

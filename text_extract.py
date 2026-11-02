@@ -188,6 +188,8 @@ def extract_tables(data):
 def extract_page(page):
     import json
     category = ' / '.join(m['name'] for m in (page.get('menus') or [])) or page.get('menu_name') or '未分类'
+    moon_card = category == '幻想真境剧诗' and plain(page.get('name','')).startswith('月谕圣牌·')
+    if moon_card: category = '月谕圣牌'
     sections, audit, warnings = [], [], []
     for index, module, tab, context in ordered_modules(page):
         name = plain(module.get('name', ''))
@@ -261,6 +263,11 @@ def extract_page(page):
                                 continue
                             seen.add(key)
                             add(key[0] or '语音文字', voice.get('content'), f'list[{ti}].table[{vi}].content', '语音')
+                elif kind == 'multi_table' and moon_card:
+                    for ti, table in enumerate(data.get('tables', [])):
+                        for ri, row in enumerate([table.get('header', [])] + table.get('row', [])):
+                            for col, cell in enumerate(row):
+                                add('圣牌文本', cell, f'tables[{ti}].rows[{ri}][{col}]', '圣牌文本')
                 elif kind == 'multi_table':
                     table_blocks, unknown = extract_tables(data)
                     for title, value, field in table_blocks:

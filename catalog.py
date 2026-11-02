@@ -5,7 +5,7 @@ import re
 from datetime import datetime, timezone
 import core
 
-CATEGORIES = {'books': ('书籍', '68'), 'weapons': ('武器', '5'), 'artifacts': ('圣遗物', '218'), 'map_texts': ('地图文本', '251'), 'characters': ('角色', '25'), 'food': ('食物', '21'), 'inventory': ('背包', '13')}
+CATEGORIES = {'books': ('书籍', '68'), 'weapons': ('武器', '5'), 'artifacts': ('圣遗物', '218'), 'map_texts': ('地图文本', '251'), 'characters': ('角色', '25'), 'food': ('食物', '21'), 'inventory': ('背包', '13'), 'moon_cards': ('月谕圣牌', '249')}
 
 
 def now():
@@ -18,7 +18,7 @@ def parse_manifest(data, category):
     if not isinstance(roots, list) or len(roots) != 1:
         raise ValueError('目录结构变化，未替换已有目录')
     root = roots[0]
-    if str(root.get('id')) != channel_id or root.get('name') != name:
+    if str(root.get('id')) != channel_id or root.get('name') != ('幻想真境剧诗' if category == 'moon_cards' else name):
         raise ValueError('目录分类不匹配，未替换已有目录')
     if root.get('entry_limit') != 0 or root.get('children') or root.get('hidden'):
         raise ValueError('目录可能截断或出现子分类，需要重新适配')
@@ -28,6 +28,7 @@ def parse_manifest(data, category):
     for item in root['list']:
         entry_id = str(item.get('content_id', ''))
         title = core.clean(item.get('title', ''))[1]
+        if category == 'moon_cards' and not title.startswith('月谕圣牌·'): continue
         if not re.fullmatch(r'\d{1,12}', entry_id) or not title:
             raise ValueError('目录含无效词条，未替换已有目录')
         if entry_id in unique:
@@ -35,6 +36,7 @@ def parse_manifest(data, category):
                 raise ValueError('重复 ID 的名称冲突，需要核对目录')
             duplicates += 1
         unique[entry_id] = {'id': entry_id, 'title': title}
+    if not unique: raise ValueError('目录未找到所需词条，未替换已有目录')
     items = sorted(unique.values(), key=lambda x: int(x['id']))
     return {'category': category, 'name': name, 'channel_id': channel_id,
             'fetched_at': now(), 'raw_count': len(root['list']), 'duplicates': duplicates,

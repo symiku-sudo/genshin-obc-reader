@@ -15,6 +15,10 @@ function validateBackup(data) {
   if (data.anchors !== undefined && (!data.anchors || Array.isArray(data.anchors) || typeof data.anchors !== 'object' || Object.keys(data.anchors).length > 20000 || !Object.entries(data.anchors).every(([k,v])=>id(k)&&part(v)&&integer(v.offset)&&Number.isFinite(v.top)&&Math.abs(v.top)<=1e7&&typeof v.quote==='string'&&v.quote.length<=32))) throw new Error('阅读位置格式不正确。');
   if (data.last_reading != null && (!id(data.last_reading.id) || typeof data.last_reading.title!=='string' || data.last_reading.title.length>2000)) throw new Error('续读记录格式不正确。');
   if (data.highlights !== undefined && (!Array.isArray(data.highlights) || data.highlights.length>20000 || !data.highlights.every(h=>h&&typeof h.id==='string'&&h.id.length<=100&&id(h.entry)&&typeof h.title==='string'&&h.title.length<=2000&&Number.isFinite(h.created)&&Array.isArray(h.parts)&&h.parts.length>0&&h.parts.length<=2000&&h.parts.every(v=>part(v)&&integer(v.start)&&integer(v.end)&&v.end>v.start&&typeof v.quote==='string'&&v.quote.length===v.end-v.start)))) throw new Error('划线记录格式不正确。');
+  const reading = x=>x&&id(x.id)&&typeof x.title==='string'&&x.title.length<=2000;
+  if(data.recent_readings!==undefined&&(!Array.isArray(data.recent_readings)||data.recent_readings.length>2||!data.recent_readings.every(reading)))throw new Error('续读列表格式不正确。');
+  if(data.search_history!==undefined&&(!Array.isArray(data.search_history)||data.search_history.length>30||!data.search_history.every(h=>h&&['any','all','phrase'].includes(h.mode)&&Array.isArray(h.keywords)&&h.keywords.length>0&&h.keywords.every(k=>typeof k==='string'&&k.trim()))))throw new Error('搜索历史格式不正确。');
+  if(data.highlights?.some(h=>(h.note!==undefined&&typeof h.note!=='string')||(h.modified!==undefined&&!Number.isFinite(h.modified))))throw new Error('笔记格式不正确。');
   return data;
 }
 $('export-reading').onclick = async () => {
@@ -23,7 +27,7 @@ $('export-reading').onclick = async () => {
     remember();
     const saved = await api('/api/reading-backup');
     const data = validateBackup({format:'obc-reading-backup',version:1,exported_at:new Date().toISOString(),
-      read_entries:saved.read_entries,bookmarks,positions,font:fontSize,anchors:readingAnchors,last_reading:lastReading,highlights});
+      read_entries:saved.read_entries,bookmarks,positions,font:fontSize,anchors:readingAnchors,last_reading:lastReading,recent_readings:recentReadings,search_history:searchHistory,highlights});
     if(new Blob([JSON.stringify(data,null,2)]).size>2_000_000)throw new Error('备份超过 2 MB，请减少划线后重试。');
     const filename='观测枢阅读记录-'+new Date().toISOString().slice(0,10)+'.json';
     if (window.saveReadingFile) {
@@ -62,6 +66,9 @@ $('restore-reading').onclick=async()=>{
     const mergedAnchors={...Object.fromEntries(Object.entries(data.anchors||{}).filter(([id])=>!(id in positions))),...readingAnchors};
     const mergedHighlights=[...highlights,...(data.highlights||[]).filter(h=>!highlights.some(saved=>saved.id===h.id))];
     const mergedLast=lastReading||data.last_reading||null;
+    const incomingRecent=data.recent_readings||(data.last_reading?[data.last_reading]:[]);
+    const mergedRecent=[...recentReadings,...incomingRecent.filter(x=>!recentReadings.some(y=>y.id===x.id))].slice(0,2);
+    const mergedHistory=[...searchHistory,...(data.search_history||[]).filter(x=>!searchHistory.some(y=>JSON.stringify(y)===JSON.stringify(x)))].slice(0,30);
     const restoredFont=store.get('font',null)===null ? data.font : fontSize;
     // Use direct writes so a storage failure is reported rather than silently ignored.
     localStorage.setItem('obc-bookmarks',JSON.stringify(mergedBookmarks));
@@ -70,6 +77,9 @@ $('restore-reading').onclick=async()=>{
     localStorage.setItem('obc-anchors',JSON.stringify(mergedAnchors));
     localStorage.setItem('obc-highlights',JSON.stringify(mergedHighlights));
     localStorage.setItem('obc-last-reading',JSON.stringify(mergedLast));
+    localStorage.setItem('obc-recent-readings',JSON.stringify(mergedRecent));
+    localStorage.setItem('obc-search-history',JSON.stringify(mergedHistory));
+    recentReadings=mergedRecent;searchHistory=mergedHistory;renderSearchHistory();
     readingAnchors=mergedAnchors;highlights=mergedHighlights;lastReading=mergedLast;renderResume();applyHighlights();
     bookmarks=mergedBookmarks;positions=mergedPositions;fontSize=restoredFont;entryCache.clear();
     if(current){current.is_read=(await api('/api/entry/'+current.id)).is_read;setReadButton();setBookmark();$('article').className='size-'+fontSize;}

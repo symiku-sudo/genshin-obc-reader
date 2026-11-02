@@ -31,6 +31,7 @@ def prepare(corpus):
     research.mkdir(parents=True)
     for path in (ROOT / 'research').glob('entry-*.json'):
         shutil.copy(path, research)
+    shutil.copy(ROOT / 'research/moon-cards.json', research)
     # AAPT treats .gz filenames specially. Keep gzip bytes under an opaque extension.
     shutil.copy(corpus, assets / 'library.obc')
     shutil.copy(corpus.with_suffix('.manifest.json'), assets / 'corpus.json')

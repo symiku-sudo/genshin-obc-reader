@@ -248,19 +248,29 @@ def make_snippets(body, terms, limit=3):
     return snippets
 
 
-def search(query='', category='', text_type='', mode='all', page=1, page_size=20, favorite_ids=None, read_state='all'):
+def search(query='', category='', text_type='', mode='all', page=1, page_size=20, favorite_ids=None, read_state='all', keywords=None):
     if read_state not in ('all', 'read', 'unread'): raise ValueError('无效的阅读状态')
-    if mode not in ('all', 'phrase'): raise ValueError('无效的搜索模式')
+    if mode not in ('all', 'any', 'phrase'): raise ValueError('无效的搜索模式')
     if not 1 <= page <= 10000 or not 1 <= page_size <= 100: raise ValueError('无效的分页参数')
     terms = [query.casefold().strip()] if mode == 'phrase' and query.strip() else list(dict.fromkeys(query.casefold().split()))
+    if keywords is not None:
+        if not isinstance(keywords, list) or any(not isinstance(t, str) for t in keywords):
+            raise ValueError('关键词必须为文字列表')
+        terms = list(dict.fromkeys(t.strip().casefold() for t in keywords if t.strip()))
+        if mode == 'phrase': terms = [' '.join(terms)] if terms else []
+        query = ' '.join(terms)
     constraints = set().union(*(grams(t) for t in terms))
+    # A single-character OR term has no bigrams: it must not be excluded by the index.
+    if mode == 'any' and any(not grams(t) for t in terms): constraints = set()
     with connect() as db:
         sql = 'SELECT s.*,e.title AS entry_title,e.category,(r.entry_id IS NOT NULL) AS is_read FROM sections s JOIN entries e ON e.id=s.entry_id LEFT JOIN reading_state r ON r.entry_id=e.id'
         args, filters = [PARSER_VERSION], ['e.parser_version=?']
         if constraints:
-            marks = ','.join('?' for _ in constraints)
-            filters.append(f'(s.entry_id,s.section_id) IN (SELECT entry_id,section_id FROM grams WHERE gram IN ({marks}) GROUP BY entry_id,section_id HAVING COUNT(*)=?)')
-            args.extend(sorted(constraints)); args.append(len(constraints))
+            db.execute('CREATE TEMP TABLE search_grams(gram TEXT PRIMARY KEY)')
+            db.executemany('INSERT INTO search_grams VALUES(?)', ((g,) for g in constraints))
+            condition = '>=1' if mode == 'any' else '=?'
+            filters.append('(s.entry_id,s.section_id) IN (SELECT entry_id,section_id FROM grams WHERE gram IN (SELECT gram FROM search_grams) GROUP BY entry_id,section_id HAVING COUNT(*)'+condition+')')
+            if mode != 'any': args.append(len(constraints))
         if read_state == 'read': filters.append('r.entry_id IS NOT NULL')
         if read_state == 'unread': filters.append('r.entry_id IS NULL')
         if category: filters.append('e.category=?'); args.append(category)
@@ -275,7 +285,7 @@ def search(query='', category='', text_type='', mode='all', page=1, page_size=20
     found = {}
     for row in rows:
         haystack = (row['entry_title'] + '\n' + row['title'] + '\n' + row['text']).casefold()
-        if not all(t in haystack for t in terms): continue
+        if terms and not (any(t in haystack for t in terms) if mode == 'any' else all(t in haystack for t in terms)): continue
         score = 100 if query and query.casefold() == row['entry_title'].casefold() else 0
         score += sum(20 for t in terms if t in row['entry_title'].casefold())
         score += sum(3 for t in terms if t in row['title'].casefold())

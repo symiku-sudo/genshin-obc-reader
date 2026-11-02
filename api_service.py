@@ -20,7 +20,7 @@ class API:
         u = urllib.parse.urlsplit(self.path)
         q = urllib.parse.parse_qs(u.query)
         query = q.get('q', [''])[0].strip()
-        if len(query) > 100:
+        if u.path == '/api/remote' and len(query) > 100:
             return self.send(400, {'error': '搜索词请控制在 100 字以内'})
         try:
             if u.path == '/api/reading-backup':
@@ -58,11 +58,13 @@ class API:
     def post(self):
         try:
             size = len(self.body)
-            limit = 400000 if self.path == '/api/reading-restore' else 1024
+            limit = size if self.path == '/api/search' else (400000 if self.path == '/api/reading-restore' else 1024)
             if not 0 < size <= limit:
                 raise ValueError('请求大小无效')
             payload = json.loads(self.body)
             if not isinstance(payload, dict): raise ValueError('请求必须为 JSON 对象')
+            if self.path == '/api/search':
+                return self.send(200, core.search(category=payload.get('category',''), text_type=payload.get('type',''), mode=payload.get('mode','any'), page=int(payload.get('page',1)), favorite_ids=payload.get('favorites'), read_state=payload.get('read','all'), keywords=payload.get('keywords',[])))
             if self.path == '/api/reading-restore':
                 return self.send(200, core.merge_reading(payload.get('read_entries')))
             if self.path == '/api/read':

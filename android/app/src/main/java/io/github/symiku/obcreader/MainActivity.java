@@ -6,6 +6,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.*;
 import android.widget.TextView;
+import android.widget.FrameLayout;
+import android.view.WindowInsets;
+import android.os.Build;
 import androidx.webkit.WebViewAssetLoader;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
@@ -135,11 +138,23 @@ public class MainActivity extends Activity {
                 return true;
             }
         });
-        web.setOnApplyWindowInsetsListener((view, insets) -> {
+        // WebView CSS content ignores View padding on some Android versions. Inset
+        // its parent instead so the browser viewport itself excludes system bars.
+        FrameLayout frame = new FrameLayout(this);
+        frame.setBackgroundColor(android.graphics.Color.rgb(247, 246, 240));
+        frame.addView(web, new FrameLayout.LayoutParams(-1, -1));
+        if (Build.VERSION.SDK_INT >= 30) getWindow().setDecorFitsSystemWindows(false);
+        frame.setOnApplyWindowInsetsListener((view, insets) -> {
+            if (Build.VERSION.SDK_INT >= 30) {
+                android.graphics.Insets safe = insets.getInsets(WindowInsets.Type.systemBars() | WindowInsets.Type.displayCutout() | WindowInsets.Type.ime());
+                view.setPadding(safe.left, safe.top, safe.right, safe.bottom);
+                return WindowInsets.CONSUMED;
+            }
             view.setPadding(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom());
-            return insets;
+            return insets.consumeSystemWindowInsets();
         });
-        setContentView(web);
+        setContentView(frame);
+        frame.requestApplyInsets();
         web.loadUrl(restoredUrl != null && restoredUrl.startsWith(ORIGIN + "/web/index.html") ? restoredUrl : ORIGIN + "/web/index.html");
     }
 

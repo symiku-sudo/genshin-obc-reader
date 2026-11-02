@@ -1,5 +1,7 @@
 'use strict';
 let readingAnchors = store.get('anchors', {}), lastReading = store.get('last-reading', null);
+let recentReadings = store.get('recent-readings', lastReading ? [lastReading] : []).slice(0,2);
+let editingNote = null;
 let highlights = store.get('highlights', []), selectionParts = [];
 const prose = () => [...$('article').querySelectorAll('section > p:not(.section-meta)')];
 function paragraphKey(p) {
@@ -38,7 +40,8 @@ function rememberAnchor() {
     readingAnchors[current.id] = {...paragraphKey(p), offset, top:rect.top-top, quote:p.textContent.slice(offset,offset+32)};
     store.set('anchors',readingAnchors);
   }
-  lastReading = {id:current.id,title:current.title}; store.set('last-reading',lastReading); renderResume();
+  lastReading = {id:current.id,title:current.title}; store.set('last-reading',lastReading);
+  recentReadings=[lastReading,...recentReadings.filter(x=>x.id!==current.id)].slice(0,2);store.set('recent-readings',recentReadings);renderResume();
 }
 function restoreReadingAnchor(id, explicit) {
   const a = explicit || readingAnchors[id]; if (!a) return false;
@@ -52,10 +55,11 @@ function restoreReadingAnchor(id, explicit) {
   window.scrollTo(0,Math.max(0,window.scrollY+rect.top-readingTop()-(a.top||0)));return true;
 }
 function renderResume() {
-  $('resume-reading').hidden=!lastReading;
-  if(lastReading) $('resume-reading').textContent='继续阅读 · '+lastReading.title;
+  ['resume-reading','resume-reading-second'].forEach((id,index)=>{
+    const item=recentReadings[index];$(id).hidden=!item;
+    if(item){$(id).textContent='继续阅读 · '+item.title;$(id).onclick=()=>{activeTerms=[];navigate('#entry/'+item.id);};}
+  });
 }
-$('resume-reading').onclick=()=>{if(lastReading){activeTerms=[];navigate('#entry/'+lastReading.id);}};
 renderResume();
 let layoutTimer, layoutReleaseTimer;
 window.addEventListener('resize',()=>{
@@ -146,8 +150,36 @@ function renderHighlights(){
       try{localStorage.setItem('obc-highlights',JSON.stringify(next));}catch{$('highlights-status').textContent='删除未保存，请重试。';return;}
       highlights=next;applyHighlights();renderHighlights();
     };
-    card.append(title,quote,open,remove);$('highlights-list').append(card);
+    const noteText=document.createElement('p');noteText.className='highlight-note';noteText.textContent=note.note||'';noteText.hidden=!note.note;
+    const edit=document.createElement('button');edit.textContent=note.note?'编辑笔记':'添加笔记';edit.onclick=()=>openNoteEditor(note);
+    card.append(title,quote,noteText,open,edit,remove);$('highlights-list').append(card);
   }
 }
 $('open-highlights').onclick=()=>{renderHighlights();$('highlights-dialog').showModal();};
 $('close-highlights').onclick=()=>$('highlights-dialog').close();
+
+function openNoteEditor(note) {
+  editingNote=note;$('note-quote').textContent=note.parts.map(p=>p.quote).join('\n');$('note-text').value=note.note||'';$('note-status').textContent='';$('note-editor').showModal();
+}
+$('annotate-selection').addEventListener('pointerdown',e=>e.preventDefault());
+$('annotate-selection').onclick=()=>{
+  if(!current||!selectionParts.length)return;
+  const parts=selectionParts.map(p=>({...p}));
+  const existing=highlights.find(h=>h.entry===current.id&&JSON.stringify(h.parts)===JSON.stringify(parts));
+  const note=existing||{id:crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random(),entry:current.id,title:current.title,parts,created:Date.now()};
+  clearReadingSelection();openNoteEditor(note);
+};
+$('save-note').onclick=()=>{
+  if(!editingNote)return;
+  const updated={...editingNote,note:$('note-text').value,modified:Date.now()};
+  const next=highlights.some(h=>h.id===updated.id)?highlights.map(h=>h.id===updated.id?updated:h):[...highlights,updated];
+  try{localStorage.setItem('obc-highlights',JSON.stringify(next));}catch{$('note-status').textContent='笔记未保存，请释放存储空间后重试。';return;}
+  highlights=next;applyHighlights();renderHighlights();$('note-editor').close();editingNote=null;
+};
+$('cancel-note').onclick=()=>{$('note-editor').close();editingNote=null;};
+$('article').addEventListener('click',event=>{
+  const mark=event.target.closest('mark.user-highlight');if(!mark||!window.getSelection().isCollapsed)return;
+  const p=mark.closest('p'),key=paragraphKey(p);const range=document.createRange();range.selectNodeContents(p);range.setEndBefore(mark);const offset=range.toString().length;
+  const note=highlights.find(h=>h.entry===current.id&&h.parts.some(a=>a.section===key.section&&a.paragraph===key.paragraph&&a.start<=offset&&a.end>offset));
+  if(note)openNoteEditor(note);
+});

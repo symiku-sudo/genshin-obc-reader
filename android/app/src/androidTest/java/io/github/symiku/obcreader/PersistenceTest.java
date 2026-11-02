@@ -23,7 +23,7 @@ public class PersistenceTest extends DeviceTestBase {
         JSONObject expected = new JSONObject(new String(Files.readAllBytes(new File(context.getFilesDir(), "test-expected.json").toPath()), StandardCharsets.UTF_8));
         activity.launchActivity(new Intent(context, MainActivity.class));
         await("document.querySelectorAll('#results .card').length > 0");
-        assertEquals(3616, api("GET", "/api/stats", "").getInt("entries"));
+        assertEquals(3638, api("GET", "/api/stats", "").getInt("entries"));
         for (String key : new String[]{"font", "positions", "bookmarks"}) {
             assertEquals("Preserved " + key, expected.getString(key), js("localStorage.getItem('obc-"+key+"')"));
         }

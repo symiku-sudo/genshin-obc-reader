@@ -47,7 +47,7 @@ class Handler(BaseHTTPRequestHandler):
             return self.send(415, {'error': '需要 JSON 请求'})
         try:
             size = int(self.headers.get('Content-Length', '0'))
-            limit = 400000 if self.path == '/api/reading-restore' else 1024
+            limit = size if self.path == '/api/search' else (400000 if self.path == '/api/reading-restore' else 1024)
             if not 0 < size <= limit:
                 raise ValueError('请求大小无效')
             return self.send(*dispatch('POST', self.path, self.rfile.read(size), getattr(self.server, 'worker', None)))

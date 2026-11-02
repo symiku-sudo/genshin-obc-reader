@@ -24,13 +24,13 @@ class NativeAPITests(unittest.TestCase):
                 call('POST', '/api/read', {'id': '1600', 'is_read': True})
                 self.assertTrue(call('GET', '/api/entry/1600')['is_read'])
                 self.assertEqual(call('GET', '/api/search?read=read')['total'], 1)
-                self.assertEqual(call('GET', '/api/search?read=unread')['total'], 0)
+                self.assertEqual(call('GET', '/api/search?read=unread')['total'], 22)
                 self.assertEqual(call('GET', '/api/search?favorite_only=1&favorites=1600')['total'], 1)
                 call('POST', '/api/reading-restore', {'read_entries': ['999']})
                 self.assertEqual(set(call('GET', '/api/reading-backup')['read_entries']), {'1600', '999'})
-                self.assertEqual(len(call('GET', '/api/library')['categories']), 7)
+                self.assertEqual(len(call('GET', '/api/library')['categories']), 8)
                 self.assertTrue((Path(directory) / 'library.sqlite3').exists())
-                self.assertEqual(call('GET', '/api/stats')['entries'], 1)
+                self.assertEqual(call('GET', '/api/stats')['entries'], 23)
             finally:
                 if android_runtime._worker:
                     android_runtime._worker.stop()

@@ -13,7 +13,7 @@ w.HTMLDialogElement.prototype.showModal = function(){this.open=true;};
 w.HTMLDialogElement.prototype.close = function(){this.open=false;};
 w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {};
 w.fetch = async (url, options) => {
-  if(options?.method === 'POST') {
+  if(options?.method === 'POST' && url !== '/api/search') {
     writes.push({url, body:JSON.parse(options.body)});
     return {ok:true,json:async()=>['/api/read','/api/reading-restore'].includes(url) ? JSON.parse(options.body) : ({ids:['mock']})};
   }
@@ -29,13 +29,13 @@ w.addEventListener('error', e => errors.push(e.message));
 const sleep = ms=>new Promise(r=>setTimeout(r,ms));
 async function until(fn) {for(let i=0;i<100;i++){if(fn())return;await sleep(40);}throw new Error('DOM condition timed out');}
 (async()=>{
-  w.eval(fs.readFileSync(__dirname+'/static/app.js','utf8')+'\n'+fs.readFileSync(__dirname+'/static/reading.js','utf8')+'\n'+fs.readFileSync(__dirname+'/static/library.js','utf8')+'\n'+fs.readFileSync(__dirname+'/static/backup.js','utf8'));
+  w.eval(fs.readFileSync(__dirname+'/static/app.js','utf8')+'\n'+fs.readFileSync(__dirname+'/static/reading.js','utf8')+'\n'+fs.readFileSync(__dirname+'/static/search.js','utf8')+'\n'+fs.readFileSync(__dirname+'/static/library.js','utf8')+'\n'+fs.readFileSync(__dirname+'/static/backup.js','utf8'));
   await until(()=>$('results').children.length===20);
   assert($('search-form').hidden);assert(!$('management').open);
   assert.equal(reads.filter(x=>x==='/api/library').length,0,'no management polling during browsing');
   assert($('results').querySelector('[data-read-id]'));
   $('open-management').click();
-  await until(()=>$('results').children.length===20 && $('collection-options').querySelectorAll('input').length===7);
+  await until(()=>$('results').children.length===20 && $('collection-options').querySelectorAll('input').length===8);
   await until(()=>$('unsupported-categories').textContent.includes('NPC'));
   for (const name of ['背包','角色','食物']) assert($('collection-options').textContent.includes(name));
   const unsupportedNames = [...$('unsupported-categories').querySelectorAll('li')].map(li => li.firstChild.textContent.trim());

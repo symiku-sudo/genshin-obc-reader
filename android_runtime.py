@@ -20,6 +20,7 @@ def initialize(files_dir, resource_dir):
         core.init_db()
         from rebuild_text_cache import rebuild
         rebuild()
+        install_supplement()
         import_jobs.init_jobs(recover=True)
         _worker = import_jobs.Worker()
         _worker.start()
@@ -28,3 +29,12 @@ def initialize(files_dir, resource_dir):
 def request(method, path, body=''):
     status, data = dispatch(method, path, body.encode('utf-8'), _worker)
     return json.dumps({'status': status, 'data': data}, ensure_ascii=False)
+
+
+def install_supplement():
+    """Merge new bundled cards on upgrades without overwriting a user's newer cache."""
+    path = core.ROOT / 'research' / 'moon-cards.json'
+    if not path.exists(): return
+    for page in json.loads(path.read_text()):
+        if core.get_entry(str(page['id'])) is None:
+            core.save_entry(core.normalize(page), raw_page=page)
