@@ -1,0 +1,22 @@
+name: Publish verified release
+on:
+  push:
+    branches: ['release/*']
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish existing verified artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          RELEASE_BRANCH: ${{ github.ref_name }}
+        run: python tools/publish_verified_release.py
