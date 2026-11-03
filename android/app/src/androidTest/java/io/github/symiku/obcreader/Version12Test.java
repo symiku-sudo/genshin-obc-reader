@@ -36,7 +36,8 @@ public class Version12Test extends DeviceTestBase {
         check("highlights.some(h=>h.note==='二次编辑保存')");
         js("navigate('#entry/763');true");await("current && current.id==='763'");
         await("recentReadings.length===2 && recentReadings[0].id==='763' && recentReadings[1].id==='1600'");
-        js("const p=prose().find(p=>p.textContent.length>5);getSelection().addRange(characterRange(p,0,2));document.dispatchEvent(new Event('selectionchange'));document.getElementById('search-selection').click();true");
+        check("(()=>{const p=prose().find(p=>p.textContent.length>5);getSelection().removeAllRanges();getSelection().addRange(characterRange(p,0,2));document.dispatchEvent(new Event('selectionchange'));return selectionParts.length>0 && getSelection().toString().length>0;})()");
+        js("document.getElementById('search-selection').click();true");
         await("!document.getElementById('library').hidden && !document.getElementById('selection-return').hidden");
         asyncJs("searchKeywords=['北风','高塔'];document.getElementById('query').value='';document.getElementById('match-mode').value='all';renderKeywords();saveSearchHistory();await localSearch();document.getElementById('match-mode').value='any';saveSearchHistory();await localSearch();");
         check("searchHistory.some(h=>h.mode==='all'&&h.keywords.length===2)&&searchHistory.some(h=>h.mode==='any'&&h.keywords.length===2)");
