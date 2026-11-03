@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import org.json.JSONObject;
+import com.chaquo.python.Python;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
@@ -34,7 +35,20 @@ public class OnlineImportTest extends DeviceTestBase {
     @Test public void onlineRefreshPreservesReadingStateAndWorksOffline() throws Exception {
         launchOnline();
         api("POST", "/api/read", "{\"id\":\"763\",\"is_read\":true}");
-        JSONObject updated = api("POST", "/api/import", "{\"id\":\"763\",\"refresh\":true}");
+        JSONObject before = api("GET", "/api/entry/763", "");
+        JSONObject response = null;
+        for (int attempt=0; attempt<3; attempt++) {
+            response = new JSONObject(Python.getInstance().getModule("android_runtime").callAttr("request", "POST", "/api/import", "{\"id\":\"763\",\"refresh\":true}").toString());
+            if (response.getInt("status") != 502) break;
+            JSONObject cached = api("GET", "/api/entry/763", "");
+            assertEquals("Failed refresh must preserve text", before.getJSONArray("sections").toString(), cached.getJSONArray("sections").toString());
+            assertTrue("Failed refresh must preserve read state", cached.getBoolean("is_read"));
+            android.util.Log.i("TestRunner", "Upstream refresh temporarily unavailable, attempt " + (attempt+1));
+            if (attempt<2) Thread.sleep(3000);
+        }
+        assertNotNull(response);
+        assertEquals(response.toString(), 200, response.getInt("status"));
+        JSONObject updated = response.getJSONObject("data");
         assertEquals("763", updated.getString("id"));
         assertTrue(updated.getJSONArray("sections").length() > 0);
         assertTrue(updated.getBoolean("is_read"));
