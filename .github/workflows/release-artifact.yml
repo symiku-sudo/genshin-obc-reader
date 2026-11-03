@@ -1,0 +1,60 @@
+name: Copy verified APK to draft release
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        required: true
+        type: string
+      release_id:
+        required: true
+        type: string
+      version:
+        required: true
+        type: string
+      apk_sha256:
+        required: true
+        type: string
+permissions:
+  actions: read
+  contents: write
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: obc-reader-release
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ github.token }}
+          path: package
+      - name: Verify build and copy assets to draft
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          SOURCE_RUN: ${{ inputs.run_id }}
+          RELEASE_ID: ${{ inputs.release_id }}
+          VERSION: ${{ inputs.version }}
+          EXPECTED_SHA: ${{ inputs.apk_sha256 }}
+        run: |
+          python - <<'PY'
+          import os, json, subprocess, pathlib, hashlib, re
+          repo=os.environ['REPO']; run_id=os.environ['SOURCE_RUN']; release_id=os.environ['RELEASE_ID']; version=os.environ['VERSION']
+          assert run_id.isdigit() and release_id.isdigit() and re.fullmatch(r'\d+\.\d+\.\d+',version)
+          def api(path): return json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/'+path]))
+          run=api('actions/runs/'+run_id); release=api('releases/'+release_id)
+          assert run['conclusion']=='success' and run['head_repository']['full_name']==repo
+          assert release['draft'] and release['tag_name']=='v'+version
+          root=pathlib.Path('package'); apk=root/'app-release.apk'; digest=hashlib.sha256(apk.read_bytes()).hexdigest()
+          assert digest==os.environ['EXPECTED_SHA']==(root/'app-release.apk.sha256').read_text().split()[0]
+          apk=apk.rename(root/('obc-reader-'+version+'.apk'))
+          checksum=root/(apk.name+'.sha256'); checksum.write_text(digest+'  '+apk.name+'\n')
+          provenance=root/'provenance.json'; provenance.write_text(json.dumps({'source_commit':run['head_sha'],'run_id':int(run_id),'run_url':run['html_url'],'sha256':digest,'bytes':apk.stat().st_size},indent=2)+'\n')
+          paths=[apk,checksum,root/'signing-verification.txt',provenance]
+          subprocess.run(['gh','release','upload','v'+version,'--repo',repo,'--clobber',*[str(p) for p in paths]],check=True)
+          release=api('releases/'+release_id)
+          for p in paths:
+            asset=next(a for a in release['assets'] if a['name']==p.name)
+            assert asset['size']==p.stat().st_size and asset['digest']=='sha256:'+hashlib.sha256(p.read_bytes()).hexdigest()
+            print('Verified:',p.name)
+          PY
