@@ -1,5 +1,25 @@
 # Android offline parity acceptance
 
+## Version 1.2.1 acceptance
+
+[Successful build and Android acceptance](https://github.com/symiku-sudo/genshin-obc-reader/actions/runs/41610524720)
+uses commit `6b1c60b76c17089e71d9b718f2cb810fcade4074`.
+All shared backend, UI and Android device tests passed.
+
+- Compact plus/search SVG controls retain 44px targets; Android checks the actual
+  computed size and the fixed return button, with `Search121-screen.png` evidence.
+- UI tests cover note badge offsets without changing source text, overlapping notes,
+  one badge at the end of a cross-paragraph note, clearing notes, direct deletion
+  and cancelling deletion when a note is attached.
+- A single temporary search source retains its reading position. Opening a result
+  hides the return button; returning to search reveals it. A new selected-text
+  search replaces the source. Returning or switching to browse clears it.
+  Android tests verify opening another entry and returning to the search page.
+- Existing offline, replacement-install persistence, display-size continuity,
+  editable notes, search history and both live online tests remain passing.
+- Version code 4 / version name 1.2.1 uses the original signing key. Physical-device
+  testing is not claimed. The published APK is the tested artifact, not a rebuild.
+
 ## Version 1.2.0 acceptance
 
 [Successful 1.2.0 build and device acceptance](https://github.com/symiku-sudo/genshin-obc-reader/actions/runs/41570337620)
