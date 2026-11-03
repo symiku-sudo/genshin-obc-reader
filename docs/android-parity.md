@@ -1,5 +1,34 @@
 # Android offline parity acceptance
 
+## Version 1.2.0 acceptance
+
+[Successful 1.2.0 build and device acceptance](https://github.com/symiku-sudo/genshin-obc-reader/actions/runs/41570337620)
+uses commit `7ffce1404db8ced41aafe88421393038c0b88388`; details are recorded in release `provenance.json`.
+The published APK is copied from that build artifact without rebuilding.
+
+- 51 Python backend tests and UI/Android bridge regressions cover section-scoped
+  AND, OR (including single-character terms), 1201 keywords without SQL parameter
+  limits, grouped search history, note editing, two recent readings, selected-text
+  search/return, legacy backup compatibility and all new backup fields.
+- OfflineTest and PersistenceTest exercise the complete offline library, actual
+  `adb install -r`, process restart and retained reading records.
+- ReadingFeaturesTest checks selection/highlights and exact character-anchor
+  restoration during display-size changes. A viewport guard prevents scroll events
+  preceding resize from overwriting the original anchor.
+- Version12Test checks the actual WebView position below the status-bar inset,
+  white unread buttons, 22 moon cards, note creation/editing, two recent entries,
+  selected-text search/return, AND/OR history and persistence after Activity restart.
+- The original corpus snapshot remains 3616 entries / 17489 sections. A verified
+  supplemental file imports all text from 22 月谕圣牌 on first launch/upgrade without
+  replacing existing entries or reading flags, yielding 3638 entries / 17511 sections.
+- v1/v2/v3 signing remains enabled with the original certificate fingerprint listed
+  below. Physical vivo and folding-device testing is not claimed.
+
+Both live OnlineImportTest cases passed: remote title search and refresh followed
+by offline reading. Transient upstream 502 responses retry up to three times, with
+assertions that failed attempts retain existing text and read state. No failed or
+skipped device tests are counted as passed.
+
 ## Version 1.1.0 acceptance
 
 [Successful 1.1.0 build and device acceptance](https://github.com/symiku-sudo/genshin-obc-reader/actions/runs/40820602069)
