@@ -48,6 +48,7 @@ jobs:
           npm install --prefix .qa --no-save --no-package-lock jsdom@26.1.0
           node test_reading.cjs
           node test_v12.cjs
+          node test_v121.cjs
           node test_android_bridge.cjs
       - name: Shared backend tests
         run: python -m unittest discover -v

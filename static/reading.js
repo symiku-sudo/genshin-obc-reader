@@ -109,6 +109,7 @@ $('save-highlight').onclick=()=>{
 };
 function applyHighlights() {
   if(!current)return;
+  for(const badge of $('article').querySelectorAll('.note-badge'))badge.remove();
   // Unwrap only personal marks; search highlights remain untouched.
   for(const mark of $('article').querySelectorAll('mark.user-highlight'))mark.replaceWith(...mark.childNodes);
   $('article').normalize();
@@ -128,7 +129,16 @@ function applyHighlights() {
       const mark=document.createElement('mark');mark.className='user-highlight';range.surroundContents(mark);
     }
   }
+  // Empty buttons add no characters to source text, selections or saved anchors.
+  for(const note of highlights.filter(h=>h.entry===current.id && h.note?.trim())){
+    const part=note.parts.at(-1),p=anchorParagraph(part);
+    if(!p || p.textContent.slice(part.start,part.end)!==part.quote)continue;
+    const badge=document.createElement('button');badge.type='button';badge.className='note-badge';
+    badge.dataset.noteId=note.id;badge.setAttribute('aria-label','查看划线笔记');badge.title='查看划线笔记';
+    const range=characterRange(p,part.end,part.end);range.insertNode(badge);
+  }
 }
+
 function renderHighlights(){
   $('highlights-list').replaceChildren();$('highlights-status').textContent=highlights.length ? highlights.length+' 条划线' : '暂无划线。阅读时长按选择正文，再点“划线”。';
   for(const note of [...highlights].reverse()){
@@ -163,7 +173,7 @@ $('open-highlights').onclick=()=>{renderHighlights();$('highlights-dialog').show
 $('close-highlights').onclick=()=>$('highlights-dialog').close();
 
 function openNoteEditor(note) {
-  editingNote=note;$('note-quote').textContent=note.parts.map(p=>p.quote).join('\n');$('note-text').value=note.note||'';$('note-status').textContent='';$('note-editor').showModal();
+  editingNote=note;$('delete-note').hidden=!highlights.some(h=>h.id===note.id);$('note-quote').textContent=note.parts.map(p=>p.quote).join('\n');$('note-text').value=note.note||'';$('note-status').textContent='';$('note-editor').showModal();
 }
 $('annotate-selection').addEventListener('pointerdown',e=>e.preventDefault());
 $('annotate-selection').onclick=()=>{
@@ -180,8 +190,18 @@ $('save-note').onclick=()=>{
   try{localStorage.setItem('obc-highlights',JSON.stringify(next));}catch{$('note-status').textContent='笔记未保存，请释放存储空间后重试。';return;}
   highlights=next;applyHighlights();renderHighlights();$('note-editor').close();editingNote=null;
 };
+$('delete-note').onclick=()=>{
+  if(!editingNote)return;
+  const note=highlights.find(h=>h.id===editingNote.id);if(!note)return;
+  if(note.note?.trim() && !window.confirm('删除这条划线及其笔记？'))return;
+  const next=highlights.filter(h=>h.id!==note.id);
+  try{localStorage.setItem('obc-highlights',JSON.stringify(next));}catch{$('note-status').textContent='删除未保存，请重试。';return;}
+  highlights=next;clearReadingSelection();applyHighlights();renderHighlights();$('note-editor').close();editingNote=null;
+};
 $('cancel-note').onclick=()=>{$('note-editor').close();editingNote=null;};
 $('article').addEventListener('click',event=>{
+  const badge=event.target.closest('.note-badge');
+  if(badge){const note=highlights.find(h=>h.id===badge.dataset.noteId);if(note)openNoteEditor(note);return;}
   const mark=event.target.closest('mark.user-highlight');if(!mark||!window.getSelection().isCollapsed)return;
   const p=mark.closest('p'),key=paragraphKey(p);const range=document.createRange();range.selectNodeContents(p);range.setEndBefore(mark);const offset=range.toString().length;
   const note=highlights.find(h=>h.entry===current.id&&h.parts.some(a=>a.section===key.section&&a.paragraph===key.paragraph&&a.start<=offset&&a.end>offset));

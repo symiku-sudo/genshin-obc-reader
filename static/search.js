@@ -49,16 +49,29 @@ $('clear-search-history').onclick=()=>{try{localStorage.removeItem('obc-search-h
 $('search-selection').addEventListener('pointerdown',e=>e.preventDefault());
 $('search-selection').onclick=()=>{
   const selected=window.getSelection().toString().trim();if(!selected||!selectionParts.length)return;
-  selectionSource=current.id;$('selection-return').hidden=false;
-  remember();clearReadingSelection();++routeId;current=null;
+  remember();
+  selectionSource={id:current.id,anchor:readingAnchors[current.id]?{...readingAnchors[current.id]}:null,position:positions[current.id]||0};
+ clearReadingSelection();++routeId;current=null;
   history.pushState(null,'',location.pathname+location.search);$('reader').hidden=true;$('library').hidden=false;
   searchKeywords=[selected];$('query').value='';$('match-mode').value='any';
   switchView('search',false);renderKeywords();saveSearchHistory();localSearch();window.scrollTo(0,0);
 };
 renderKeywords();renderSearchHistory();
 
-function returnToSelectedSource(){
-  if(!selectionSource)return false;
-  const id=selectionSource;selectionSource=null;$('selection-return').hidden=true;activeTerms=[];navigate('#entry/'+id);return true;
+function renderSelectionReturn(){
+  if(!window.selectionReturnReady)return;
+  const visible=Boolean(selectionSource && viewMode==='search' && !$('library').hidden);
+  $('selection-return').hidden=!visible;
+  document.body.classList.toggle('has-selection-return',visible);
 }
+function clearSelectionSource(){selectionSource=null;renderSelectionReturn();}
+function returnToSelectedSource(){
+  if(!selectionSource || viewMode!=='search' || $('library').hidden)return false;
+  const source=selectionSource;clearSelectionSource();
+  if(source.anchor)readingAnchors[source.id]={...source.anchor};
+  positions[source.id]=source.position;
+  activeTerms=[];navigate('#entry/'+source.id);return true;
+}
+window.selectionReturnReady=true;
+renderSelectionReturn();
 $('selection-return').onclick=returnToSelectedSource;

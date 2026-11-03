@@ -1,0 +1,53 @@
+const {JSDOM}=require('./.qa/node_modules/jsdom');
+const fs=require('node:fs'),assert=require('node:assert/strict');
+const dom=new JSDOM(fs.readFileSync('static/index.html','utf8'),{url:'https://reader.test/',runScripts:'outside-only',pretendToBeVisual:true});
+const w=dom.window,$=id=>w.document.getElementById(id),requests=[];
+const style=w.document.createElement('style');style.textContent=fs.readFileSync('static/style.css','utf8');w.document.head.append(style);
+w.scrollTo=()=>{};w.HTMLElement.prototype.scrollIntoView=()=>{};
+w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};w.HTMLDialogElement.prototype.close=function(){this.open=false;};
+const entries=['1600','1601'].map((id,i)=>({id,title:'测试'+id,category:'书籍',source:'https://example.com',fetched_at:new Date().toISOString(),warnings:[],is_read:false,sections:[{id:'section-0',title:'章节',text:'北风经过高塔，月光照耀。\n第二段用于跨段笔记测试。',html:'<p>北风经过高塔，月光照耀。</p><p>第二段用于跨段笔记测试。</p>'}]}));
+w.fetch=async(url,options)=>{
+ let data;const payload=options?.body?JSON.parse(options.body):null;requests.push({url,payload});
+ if(url==='/api/stats')data={entries:2,sections:2,categories:['书籍'],text_types:['故事']};
+ else if(url.startsWith('/api/search'))data={items:structuredClone(entries),total:2,page_size:20};
+ else if(url.startsWith('/api/entry/'))data=structuredClone(entries.find(e=>url.endsWith(e.id)));
+ else if(url==='/api/read'){const e=entries.find(e=>e.id===payload.id);e.is_read=payload.is_read;data=payload;}
+ else if(url==='/api/reading-backup')data={read_entries:[]};
+ else if(url==='/api/reading-restore')data={};
+ else throw Error(url);
+ return {ok:true,json:async()=>data};
+};
+w.eval(['app','reading','search','backup'].map(n=>fs.readFileSync('static/'+n+'.js','utf8')).join('\n')+'\nwindow.qa={getSource:()=>selectionSource,applyHighlights,openNoteEditor,remember,navigate,characterRange,getSearchKeywords,getNotes:()=>highlights,getRecent:()=>recentReadings,getHistory:()=>searchHistory};');
+const wait=async fn=>{for(let i=0;i<150;i++){if(fn())return;await new Promise(r=>setTimeout(r,10));}throw Error('timeout');};
+const open=async id=>{w.qa.navigate('#entry/'+id);await wait(()=>$('reader-title').textContent==='测试'+id);await new Promise(r=>setTimeout(r,30));};
+(async()=>{
+ await wait(()=>$('results').querySelector('[data-read-id]'));
+ assert($('search-form').querySelector('[type=submit] svg'));
+ assert.equal(w.getComputedStyle($('add-keyword')).width,'44px');
+ await open('1600');
+ const original=$('article').textContent;
+ const select=(start,end)=>{w.getSelection().removeAllRanges();w.getSelection().addRange(w.qa.characterRange($('article').querySelector('section > p:not(.section-meta)'),start,end));w.document.dispatchEvent(new w.Event('selectionchange'));};
+ select(0,4);$('annotate-selection').click();assert($('delete-note').hidden);$('note-text').value='角标测试';$('save-note').click();
+ assert.equal($('article').querySelectorAll('.note-badge').length,1);assert.equal($('article').textContent,original);
+ const badge=$('article').querySelector('.note-badge');const before=w.document.createRange();before.selectNodeContents(badge.closest('p'));before.setEndBefore(badge);assert.equal(before.toString().length,4);
+ badge.click();assert(!$('delete-note').hidden);w.confirm=()=>false;$('delete-note').click();assert.equal(w.qa.getNotes().length,1);assert($('note-editor').open);
+ $('note-text').value='';$('save-note').click();assert.equal($('article').querySelectorAll('.note-badge').length,0);assert.equal(w.qa.getNotes().length,1);
+ $('article').querySelector('.user-highlight').click();$('delete-note').click();assert.equal(w.qa.getNotes().length,0);assert.equal($('article').textContent,original);
+ // Overlapping annotations keep separate, correctly targeted badges without changing text offsets.
+ select(0,5);$('annotate-selection').click();$('note-text').value='第一条';$('save-note').click();
+ select(2,8);$('annotate-selection').click();$('note-text').value='第二条';$('save-note').click();
+ w.qa.applyHighlights();assert.equal($('article').querySelectorAll('.note-badge').length,2);assert.equal($('article').textContent,original);
+ [...$('article').querySelectorAll('.note-badge')].find(b=>b.dataset.noteId===w.qa.getNotes()[1].id).click();assert.equal($('note-text').value,'第二条');w.confirm=()=>true;$('delete-note').click();assert.equal(w.qa.getNotes().length,1);assert.equal($('article').querySelectorAll('.note-badge').length,1);
+ select(0,2);$('search-selection').click();assert.equal(w.qa.getSource().id,'1600');assert(!$('selection-return').hidden);assert.equal(w.getComputedStyle($('selection-return')).position,'fixed');
+ await open('1601');assert($('selection-return').hidden);assert.equal(w.qa.getSource().id,'1600');
+ $('back').click();await wait(()=>!$('library').hidden);assert(!$('selection-return').hidden);assert.equal(w.qa.getSource().id,'1600');
+ $('query').value='月光';$('search-form').dispatchEvent(new w.Event('submit',{cancelable:true}));assert.equal(w.qa.getSource().id,'1600');
+ await open('1601');select(0,2);$('search-selection').click();assert.equal(w.qa.getSource().id,'1601');
+ $('selection-return').click();await wait(()=>$('reader-title').textContent==='测试1601');assert.equal(w.qa.getSource(),null);assert($('selection-return').hidden);
+ select(0,2);$('search-selection').click();$('browse-view').click();assert.equal(w.qa.getSource(),null);assert($('selection-return').hidden);$('search-view').click();assert($('selection-return').hidden);
+ await open('1600');
+ const paragraphs=$('article').querySelectorAll('section > p:not(.section-meta)'),cross=w.document.createRange();cross.setStart(paragraphs[0].lastChild,0);cross.setEnd(paragraphs[1].firstChild,4);w.getSelection().removeAllRanges();w.getSelection().addRange(cross);w.document.dispatchEvent(new w.Event('selectionchange'));$('annotate-selection').click();$('note-text').value='跨段笔记';$('save-note').click();
+ const last=w.qa.getNotes().at(-1),badges=[...$('article').querySelectorAll('.note-badge')].filter(b=>b.dataset.noteId===last.id);assert.equal(badges.length,1);assert.equal(badges[0].closest('p'),paragraphs[1]);
+ await new Promise(r=>setTimeout(r,50));
+ console.log('1.2.1 QA passed: compact icons, note badge offsets and overlap, delete/cancel, single source A/B replacement and clearing.');dom.window.close();
+})().catch(e=>{console.error(e);dom.window.close();process.exitCode=1;});

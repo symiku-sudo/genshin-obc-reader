@@ -151,12 +151,14 @@ async function route() {
   remember(); current = null;
   if (!match) {
     $('reader').hidden = true; $('library').hidden = false;
+    if(typeof renderSelectionReturn==='function')renderSelectionReturn();
     if (!remoteMode && !lastItems.length) await localSearch(false); else renderCards(lastItems, remoteMode ? lastItems.length : localTotal);
     if (ticket === routeId) window.scrollTo(0, listScroll);
     return;
   }
   if (!$('library').hidden) listScroll = window.scrollY;
   $('library').hidden = true; $('reader').hidden = false;
+  if(typeof renderSelectionReturn==='function')renderSelectionReturn();
   $('reader-title').textContent = '读取词条…'; $('reader-category').textContent = '';
   $('article').replaceChildren(); $('toc-links').replaceChildren(); $('warnings').textContent = '';
   $('updated').textContent = ''; $('source').removeAttribute('href');
@@ -179,6 +181,8 @@ async function route() {
 function switchView(mode, search = true) {
   clearTimeout(timer);
   viewMode = mode;
+  if(mode==='browse' && typeof clearSelectionSource==='function')clearSelectionSource();
+  if(typeof renderSelectionReturn==='function')renderSelectionReturn();
   $('browse-view').setAttribute('aria-pressed', String(mode === 'browse'));
   $('search-view').setAttribute('aria-pressed', String(mode === 'search'));
   $('search-form').hidden = mode !== 'search';

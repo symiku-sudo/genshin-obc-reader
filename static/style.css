@@ -9,3 +9,16 @@
 
 .read-toggle[aria-pressed=false]{background:#fff;color:var(--ink)}#resume-reading,#resume-reading-second{background:#e2edcf;border-color:#9ab478;font-weight:600;width:100%;text-align:left;margin:8px 0;padding:14px 16px;overflow-wrap:anywhere}
 #keyword-list{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0}.keyword{overflow-wrap:anywhere;max-width:100%;text-align:left;background:#e8efe0}.search-mode{display:flex;gap:10px;align-items:center;margin:12px 0;font-size:14px}.search-mode select{padding:10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}#search-history{margin:16px 0}#clear-search-history{margin:12px 0}.history-row{display:flex;gap:8px;margin:8px 0;align-items:flex-start}.history-query{flex:1;text-align:left;overflow-wrap:anywhere}#note-text{width:100%;font:inherit;line-height:1.8;padding:12px;margin:10px 0;resize:vertical}#note-quote{margin:14px 0;max-height:25vh;overflow:auto;white-space:pre-line}.highlight-note{white-space:pre-wrap;border-left:3px solid #9ab478;padding:10px 14px;background:#eaf0e3;overflow-wrap:anywhere}#selection-tools{display:flex;gap:6px;max-width:95vw;align-items:center}#selection-tools button{white-space:nowrap}
+
+/* Compact search controls with 44px touch targets. */
+#search-form .searchbar{padding:4px;gap:2px;align-items:center;border-radius:13px}
+#search-form .searchbar input{padding:10px 8px;font-size:16px}
+#search-form .search-icon{display:grid;place-items:center;width:44px;height:44px;padding:0;background:transparent;color:var(--ink);border-radius:9px}
+.search-icon svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#search-form .search-submit{background:#e7efe0}
+#selection-return{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);left:50%;transform:translateX(-50%);z-index:6;background:#e2edcf;border:1px solid #9ab478;box-shadow:0 3px 14px #183d3626;border-radius:24px;padding:10px 18px;min-height:44px;font-size:14px;font-weight:600;white-space:nowrap}
+body.has-selection-return .mast{margin-top:64px}
+.note-badge{display:inline-block;vertical-align:super;width:20px;height:20px;padding:0;margin:0 2px;border:0;border-radius:4px;background:#dce8c5;cursor:pointer;position:relative;line-height:1;text-decoration:none;user-select:none}
+.note-badge::before{content:'';position:absolute;inset:4px;border:1.5px solid #4b6838;border-radius:2px;background:linear-gradient(#4b6838,#4b6838) center 3px/6px 1px no-repeat,linear-gradient(#4b6838,#4b6838) center 6px/6px 1px no-repeat}
+.note-badge::after{content:'';position:absolute;inset:-6px}
+.danger-button{color:#963e32;margin-left:8px}
