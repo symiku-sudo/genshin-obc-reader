@@ -16,6 +16,9 @@ permissions:
   contents: read
 jobs:
   build:
+    # GitHub requires write access to read draft release assets.
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -86,6 +89,14 @@ jobs:
           path: |
             android/app/build/outputs/apk/release/*.apk*
             android/app/build/outputs/apk/release/signing-verification.txt
+      - name: Download previous release for real upgrade verification
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p data/upgrade
+          gh release download v1.2.1 --dir data/upgrade --pattern 'obc-reader-1.2.1.apk*'
+          cd data/upgrade
+          sha256sum -c obc-reader-1.2.1.apk.sha256
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules

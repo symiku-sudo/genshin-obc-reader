@@ -41,3 +41,18 @@ adb shell svc wifi enable
 adb shell am instrument -w -r -e class io.github.symiku.obcreader.OnlineImportTest \
   io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-online.log
 grep -Eq '^OK \([1-9][0-9]* tests?\)' device-online.log
+
+# Exercise the actual previous signed release, including its existing database and WebView storage.
+adb shell svc wifi disable
+adb shell svc data disable
+adb shell cmd connectivity airplane-mode enable
+adb uninstall io.github.symiku.obcreader
+adb install ../data/upgrade/obc-reader-1.2.1.apk
+adb shell am instrument -w -r -e upgradePhase seed -e class io.github.symiku.obcreader.UpgradeTest \
+  io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-upgrade-seed.log
+grep -Eq '^OK \([1-9][0-9]* tests?\)' device-upgrade-seed.log
+adb shell am force-stop io.github.symiku.obcreader
+adb install -r app/build/outputs/apk/release/app-release.apk
+adb shell am instrument -w -r -e class io.github.symiku.obcreader.UpgradeTest \
+  io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-upgrade.log
+grep -Eq '^OK \([1-9][0-9]* tests?\)' device-upgrade.log
