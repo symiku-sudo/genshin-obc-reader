@@ -99,18 +99,26 @@ public class OfflineTest extends DeviceTestBase {
         // Native Back, rather than a page-only simulation.
         device.pressBack();
         await("!document.getElementById('management').open");
+        // DocumentsUI changes the viewport; anchor restoration can legitimately adjust pixels.
+        // Compare against the settled reading position immediately before process recreation.
+        await("!readingLayoutChanged()");
+        js("remember();true");
+        check("positions['1600'] > 0 && !!readingAnchors['1600'].quote");
+        positions = js("localStorage.getItem('obc-positions')");
+        String anchors = js("localStorage.getItem('obc-anchors')");
         activity.finishActivity();
         activity.launchActivity(new Intent(context, MainActivity.class));
         await("document.querySelectorAll('#results .card').length > 0");
         assertEquals(font,js("localStorage.getItem('obc-font')"));
         assertEquals(positions,js("localStorage.getItem('obc-positions')"));
+        assertEquals(anchors,js("localStorage.getItem('obc-anchors')"));
         assertTrue(api("GET", "/api/entry/" + id, "").getBoolean("is_read"));
         check("JSON.parse(localStorage.getItem('obc-bookmarks')).length===1");
-        asyncJs("document.getElementById('read-filter').value='read';await localSearch(); if(localTotal!==1)throw Error('read filter'); document.getElementById('read-filter').value='unread';await localSearch();if(localTotal!==3637)throw Error('unread filter'); document.getElementById('read-filter').value='all';document.getElementById('favorites').checked=true;await localSearch();if(localTotal!==1)throw Error('favorite filter'); document.getElementById('favorites').checked=false;await localSearch();");
+        asyncJs("document.getElementById('read-filter').value='read';await localSearch(); if(localTotal!==1)throw Error('read filter'); document.getElementById('read-filter').value='unread';await localSearch();if(localTotal!==(await api('/api/stats')).entries-1)throw Error('unread filter'); document.getElementById('read-filter').value='all';document.getElementById('favorites').checked=true;await localSearch();if(localTotal!==1)throw Error('favorite filter'); document.getElementById('favorites').checked=false;await localSearch();");
 
         // Management is also local: manifests, import history, and sample fixtures.
         js("document.getElementById('open-management').click(); true");
-        await("document.querySelectorAll('#collection-options input').length===8 && document.querySelectorAll('#unsupported-categories li').length>0");
+        await("document.querySelectorAll('#collection-options input').length===13 && document.querySelectorAll('#unsupported-categories li').length>0");
         check("document.getElementById('coverage-status').textContent===''");
         js("document.getElementById('job-history').open=true;document.querySelector('#import-jobs [data-view]').click();true");
         await("!document.getElementById('job-results').hidden && document.querySelectorAll('#job-items .job-item').length>0");
