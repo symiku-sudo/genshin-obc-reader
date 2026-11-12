@@ -6,13 +6,19 @@ from contextlib import closing
 from datetime import datetime, timezone
 import core
 from text_extract import PARSER_VERSION
+from task_text import TASK_PARSER_VERSION
 
 
 def rebuild():
     core.init_db()
     with core.connect() as db:
         rows = db.execute('SELECT id,payload FROM entries').fetchall()
-    pending = [(r['id'], json.loads(r['payload'])) for r in rows if json.loads(r['payload']).get('parser_version') != PARSER_VERSION]
+    pending = []
+    for row in rows:
+        entry = json.loads(row['payload'])
+        task_needs_parse = (entry.get('category') == '任务' or entry.get('task')) and entry.get('task_parser_version') != TASK_PARSER_VERSION
+        if entry.get('parser_version') != PARSER_VERSION or task_needs_parse:
+            pending.append((row['id'], entry))
     if not pending:
         return {'updated': [], 'needs_refresh': [], 'backup': None}
     backup = core.DB.with_name('library-before-text-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%f') + '.sqlite3')
@@ -39,7 +45,7 @@ def rebuild():
         entry['fetched_at'] = old['fetched_at']
         if old.get('snapshot'):
             entry['snapshot'] = True
-        if all(entry.get(k) == old.get(k) for k in ('title', 'category', 'sections')):
+        if all(entry.get(k) == old.get(k) for k in ('title', 'category', 'sections', 'task', 'incomplete')):
             # Audit-only changes do not require rebuilding the identical search index.
             with core.connect() as db:
                 db.execute('UPDATE entries SET payload=?,parser_version=? WHERE id=?', (json.dumps(entry, ensure_ascii=False), PARSER_VERSION, entry_id))

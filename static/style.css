@@ -22,3 +22,5 @@ body.has-selection-return .mast{margin-top:64px}
 .note-badge::before{content:'';position:absolute;inset:4px;border:1.5px solid #4b6838;border-radius:2px;background:linear-gradient(#4b6838,#4b6838) center 3px/6px 1px no-repeat,linear-gradient(#4b6838,#4b6838) center 6px/6px 1px no-repeat}
 .note-badge::after{content:'';position:absolute;inset:-6px}
 .danger-button{color:#963e32;margin-left:8px}
+
+.task-branches{display:flex;flex-wrap:wrap;gap:.7rem;margin:1rem 0}.task-branches a{padding:.65rem;border:1px solid #b7c9bf;border-radius:.5rem}#task-missing{margin:1rem 0;padding:1rem;background:#fff4db;border-radius:.6rem}#toc-links details{margin:.5rem 0}#toc-links details a{display:block;margin:.5rem 1rem}

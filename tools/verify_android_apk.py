@@ -14,7 +14,7 @@ def verify(path):
         for name in ('assets/web/index.html', 'assets/web/app.js', 'assets/web/runtime.js',
                      'assets/web/reading.js', 'assets/web/library.js', 'assets/web/backup.js', 'assets/web/catalog-channels.json',
                      'assets/resources/research/entry-1600.json', 'assets/resources/research/moon-cards.json', 'assets/corpus.json',
-                     'assets/library.obc', 'classes.dex', 'AndroidManifest.xml'):
+                     'assets/library.obc', 'assets/resources/research/tasks.obc', 'classes.dex', 'AndroidManifest.xml'):
             if name not in names:
                 raise ValueError('Missing offline component: ' + name)
         if not any(name.startswith('META-INF/') and name.endswith('.RSA') for name in names):
@@ -25,6 +25,11 @@ def verify(path):
         cards = json.loads(apk.read('assets/resources/research/moon-cards.json'))
         if len(cards) != 22 or len({p['id'] for p in cards}) != 22: raise ValueError('Incomplete moon card supplement')
         manifest = json.loads(apk.read('assets/corpus.json'))
+        with apk.open('assets/resources/research/tasks.obc') as packed, gzip.GzipFile(fileobj=packed) as raw:
+            tasks=[json.loads(line) for line in raw if line.strip()]
+        categories={r['entry']['category'] for r in tasks if r['type']=='entry'}
+        if categories != {'魔神任务','世界任务','传说任务','邀约任务','限时任务'}:
+            raise ValueError('Missing one or more task categories in upgrade corpus')
         digest = hashlib.sha256()
         size = 0
         with apk.open('assets/library.obc') as packed, gzip.GzipFile(fileobj=packed) as raw:

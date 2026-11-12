@@ -1,0 +1,41 @@
+const {JSDOM}=require('./.qa/node_modules/jsdom');
+const fs=require('node:fs'),assert=require('node:assert/strict');
+const dom=new JSDOM(fs.readFileSync('static/index.html','utf8'),{url:'https://reader.test/',runScripts:'outside-only',pretendToBeVisual:true});
+const w=dom.window,$=id=>w.document.getElementById(id),requests=[];
+w.scrollTo=()=>{};w.HTMLElement.prototype.scrollIntoView=()=>{};
+w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};w.HTMLDialogElement.prototype.close=function(){this.open=false;};
+const entry={id:'399',title:'序章 第一幕',category:'魔神任务',task:{kind:'archon'},task_group:'蒙德',incomplete:true,missing:[{context:'第二节',module:'剧情对话',reason:'未提供正文'}],source:'https://example.com',fetched_at:new Date().toISOString(),warnings:['正文不完整'],sections:[{id:'task-aaaaaaaaaaaaaaaaaaaaaaaa',context:'第一节',title:'开场',text:'测试对白',html:'<p>测试对白</p>',links:[{id:'task-bbbbbbbbbbbbbbbbbbbbbbbb',title:'另一个选项'}]},{id:'task-bbbbbbbbbbbbbbbbbbbbbbbb',context:'第二节',title:'另一个选项',text:'选择后的对白',html:'<p>选择后的对白</p>',links:[]}]};
+w.fetch=async(url,options)=>{
+ requests.push({url,body:options?.body});let data;
+ if(url==='/api/stats')data={entries:1,sections:2,categories:['魔神任务','书籍'],text_types:['对白'],task_groups:[{category:'魔神任务',name:'蒙德',count:1}]};
+ else if(url.startsWith('/api/search'))data={items:[entry],total:1,page_size:20};
+ else if(url.startsWith('/api/entry/'))data=entry;
+ else if(url==='/api/samples')data={items:[]};
+ else throw Error(url);
+ return {ok:true,json:async()=>data};
+};
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+async function until(fn){for(let i=0;i<100;i++){if(fn())return;await sleep(20);}throw Error('timeout: '+$('status').textContent);}
+(async()=>{
+ w.eval(['app','reading','search','library','backup'].map(file=>fs.readFileSync('static/'+file+'.js','utf8')).join('\n')+'\nwindow.testValidateBackup=validateBackup;');
+ await until(()=>$('results').children.length===1);
+ assert($('results').textContent.includes('正文不完整'));
+ $('category').value='魔神任务';$('category').dispatchEvent(new w.Event('change'));
+ assert(!$('task-group-filter').hidden);
+ $('task-group').value='蒙德';$('task-group').dispatchEvent(new w.Event('change'));
+ await until(()=>requests.some(r=>r.url.includes('task_group=%E8%92%99%E5%BE%B7')));
+ $('results').querySelector('a').click();await until(()=>$('article').querySelectorAll('section').length===2);
+ assert(!$('task-missing').hidden);assert($('task-missing-list').textContent.includes('未提供正文'));
+ assert.equal($('toc-links').querySelectorAll('details').length,2);
+ const link=$('article').querySelector('.task-branches a');assert.equal(link.getAttribute('href'),'#entry/399/task-bbbbbbbbbbbbbbbbbbbbbbbb');
+ link.click();await until(()=>w.location.hash.endsWith('/task-bbbbbbbbbbbbbbbbbbbbbbbb') && !$('reader').hidden && $('article').querySelectorAll('section').length===2);
+ assert.equal($('article').querySelectorAll('section').length,2);
+ assert($('mark-read'));
+ $('back').click();await until(()=>!$('library').hidden);
+ $('category').value='书籍';$('category').dispatchEvent(new w.Event('change'));
+ assert($('task-group-filter').hidden);assert.equal($('task-group').value,'');
+ await until(()=>$('status').textContent==='');
+ w.testValidateBackup({format:'obc-reading-backup',version:1,read_entries:[],bookmarks:['399'],positions:{},font:18,anchors:{'399':{section:'task-aaaaaaaaaaaaaaaaaaaaaaaa',paragraph:0,offset:0,top:0,quote:'测试'}}});
+ console.log('1.3.0 UI QA passed: task regions, partial badges, missing details, grouped TOC and branch links.');
+ dom.window.close();
+})().catch(e=>{console.error(e);dom.window.close();process.exitCode=1;});

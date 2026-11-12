@@ -31,8 +31,8 @@ def upstream_request(path, params, static=False):
     with _lock:
         time.sleep(max(0, .5 - (time.monotonic() - _last_request)))
         _last_request = time.monotonic()
-        with urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=20) as response:
-            raw = response.read(12_000_001)
+    with urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=20) as response:
+        raw = response.read(12_000_001)
     if len(raw) > 12_000_000:
         raise ValueError('上游词条过大，暂不导入')
     result = json.loads(raw)
@@ -125,7 +125,8 @@ def clean(value):
 
 def normalize(page):
     from text_extract import extract_page
-    return extract_page(page)
+    from task_text import is_task, extract_task
+    return extract_task(page) if is_task(page) else extract_page(page)
 
 
 @contextmanager
@@ -147,7 +148,10 @@ def init_db():
         CREATE TABLE IF NOT EXISTS reading_state(entry_id TEXT PRIMARY KEY, read_at TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS sections(entry_id TEXT, section_id TEXT, title TEXT, text TEXT, PRIMARY KEY(entry_id,section_id));
         CREATE TABLE IF NOT EXISTS grams(gram TEXT, entry_id TEXT, section_id TEXT, PRIMARY KEY(gram,entry_id,section_id));
-        CREATE INDEX IF NOT EXISTS sections_entry ON sections(entry_id);''')
+        CREATE INDEX IF NOT EXISTS sections_entry ON sections(entry_id);
+        CREATE INDEX IF NOT EXISTS grams_entry ON grams(entry_id);
+        CREATE TABLE IF NOT EXISTS task_metadata(entry_id TEXT PRIMARY KEY,kind TEXT,region TEXT,incomplete INTEGER,sort_key TEXT);
+        CREATE INDEX IF NOT EXISTS task_groups ON task_metadata(kind,region);''')
         if 'parser_version' not in {r[1] for r in db.execute('PRAGMA table_info(entries)')}:
             db.execute('ALTER TABLE entries ADD COLUMN parser_version INTEGER DEFAULT 0')
         if 'text_type' not in {r[1] for r in db.execute('PRAGMA table_info(sections)')}:
@@ -159,17 +163,26 @@ def grams(text):
     return {t[i:i+2] for i in range(len(t)-1) if not any(c.isspace() for c in t[i:i+2])}
 
 
-def save_entry(entry, raw_page=None):
-    with connect() as db:
-        db.execute('INSERT OR REPLACE INTO entries(id,title,category,payload,parser_version) VALUES(?,?,?,?,?)', (entry['id'], entry['title'], entry['category'], json.dumps(entry, ensure_ascii=False), entry.get('parser_version', 0)))
-        if raw_page is not None:
-            db.execute('INSERT OR REPLACE INTO sources VALUES(?,?)', (entry['id'], json.dumps(raw_page, ensure_ascii=False)))
-        db.execute('DELETE FROM sections WHERE entry_id=?', (entry['id'],))
-        db.execute('DELETE FROM grams WHERE entry_id=?', (entry['id'],))
-        for sec in entry['sections']:
-            db.execute('INSERT INTO sections(entry_id,section_id,title,text,text_type) VALUES(?,?,?,?,?)', (entry['id'], sec['id'], sec['title'], sec['text'], sec.get('text_type', '描述')))
-            db.executemany('INSERT INTO grams VALUES(?,?,?)', [(g, entry['id'], sec['id']) for g in grams(entry['title'] + '\n' + sec['title'] + '\n' + sec['text'])])
-    entry['is_read'] = is_read(entry['id'])
+def save_entry(entry, raw_page=None, db=None):
+    if db is None:
+        with connect() as connection:
+            return save_entry(entry, raw_page, db=connection)
+    payload = {k: v for k, v in entry.items() if k not in ('is_read', 'requires_refresh')}
+    db.execute('INSERT OR REPLACE INTO entries(id,title,category,payload,parser_version) VALUES(?,?,?,?,?)', (entry['id'], entry['title'], entry['category'], json.dumps(payload, ensure_ascii=False), entry.get('parser_version', 0)))
+    if raw_page is not None:
+        db.execute('INSERT OR REPLACE INTO sources VALUES(?,?)', (entry['id'], json.dumps(raw_page, ensure_ascii=False)))
+    task = entry.get('task')
+    if task:
+        from task_text import task_sort_key
+        db.execute('INSERT OR REPLACE INTO task_metadata VALUES(?,?,?,?,?)', (entry['id'], task['kind'], task['group'], int(entry.get('incomplete', False)), task_sort_key(entry['title'])))
+    else:
+        db.execute('DELETE FROM task_metadata WHERE entry_id=?', (entry['id'],))
+    db.execute('DELETE FROM sections WHERE entry_id=?', (entry['id'],))
+    db.execute('DELETE FROM grams WHERE entry_id=?', (entry['id'],))
+    for sec in entry['sections']:
+        db.execute('INSERT INTO sections(entry_id,section_id,title,text,text_type) VALUES(?,?,?,?,?)', (entry['id'], sec['id'], sec['title'], sec['text'], sec.get('text_type', '描述')))
+        db.executemany('INSERT INTO grams VALUES(?,?,?)', [(g, entry['id'], sec['id']) for g in grams(entry['title'] + '\n' + sec['title'] + '\n' + sec['text'])])
+    entry['is_read'] = db.execute('SELECT 1 FROM reading_state WHERE entry_id=?',(entry['id'],)).fetchone() is not None
     return entry
 
 
@@ -248,7 +261,7 @@ def make_snippets(body, terms, limit=3):
     return snippets
 
 
-def search(query='', category='', text_type='', mode='all', page=1, page_size=20, favorite_ids=None, read_state='all', keywords=None):
+def search(query='', category='', text_type='', mode='all', page=1, page_size=20, favorite_ids=None, read_state='all', keywords=None, task_group=''):
     if read_state not in ('all', 'read', 'unread'): raise ValueError('无效的阅读状态')
     if mode not in ('all', 'any', 'phrase'): raise ValueError('无效的搜索模式')
     if not 1 <= page <= 10000 or not 1 <= page_size <= 100: raise ValueError('无效的分页参数')
@@ -263,7 +276,7 @@ def search(query='', category='', text_type='', mode='all', page=1, page_size=20
     # A single-character OR term has no bigrams: it must not be excluded by the index.
     if mode == 'any' and any(not grams(t) for t in terms): constraints = set()
     with connect() as db:
-        sql = 'SELECT s.*,e.title AS entry_title,e.category,(r.entry_id IS NOT NULL) AS is_read FROM sections s JOIN entries e ON e.id=s.entry_id LEFT JOIN reading_state r ON r.entry_id=e.id'
+        sql = 'SELECT s.*,e.title AS entry_title,e.category,t.region AS task_group,t.sort_key AS task_order,COALESCE(t.incomplete,0) AS incomplete,(r.entry_id IS NOT NULL) AS is_read FROM sections s JOIN entries e ON e.id=s.entry_id LEFT JOIN reading_state r ON r.entry_id=e.id LEFT JOIN task_metadata t ON t.entry_id=e.id'
         args, filters = [PARSER_VERSION], ['e.parser_version=?']
         if constraints:
             db.execute('CREATE TEMP TABLE search_grams(gram TEXT PRIMARY KEY)')
@@ -273,6 +286,7 @@ def search(query='', category='', text_type='', mode='all', page=1, page_size=20
             if mode != 'any': args.append(len(constraints))
         if read_state == 'read': filters.append('r.entry_id IS NOT NULL')
         if read_state == 'unread': filters.append('r.entry_id IS NULL')
+        if task_group: filters.append('t.region=?'); args.append(task_group)
         if category: filters.append('e.category=?'); args.append(category)
         if text_type: filters.append('s.text_type=?'); args.append(text_type)
         if favorite_ids is not None:
@@ -280,7 +294,9 @@ def search(query='', category='', text_type='', mode='all', page=1, page_size=20
                 raise ValueError('收藏列表无效或过长')
             if not favorite_ids: return {'items': [], 'total': 0, 'page': page, 'page_size': page_size}
             filters.append('e.id IN (' + ','.join('?' for _ in favorite_ids) + ')'); args.extend(favorite_ids)
-        sql += ' WHERE ' + ' AND '.join(filters) + ' ORDER BY e.id,s.rowid'
+        sql += ' WHERE ' + ' AND '.join(filters)
+        if not terms: sql += ' GROUP BY e.id'
+        sql += ' ORDER BY e.id,s.rowid'
         rows = db.execute(sql, args).fetchall()
     found = {}
     for row in rows:
@@ -290,11 +306,11 @@ def search(query='', category='', text_type='', mode='all', page=1, page_size=20
         score += sum(20 for t in terms if t in row['entry_title'].casefold())
         score += sum(3 for t in terms if t in row['title'].casefold())
         hits = [{'section_id': row['section_id'], 'section_title': row['title'], 'text_type': row['text_type'], 'snippet': snippet['text'], 'paragraph_index': snippet['paragraph_index'], 'score': score} for snippet in make_snippets(row['text'], terms)]
-        item = found.setdefault(row['entry_id'], {'id': row['entry_id'], 'title': row['entry_title'], 'category': row['category'], 'is_read': bool(row['is_read']), 'score': score, 'matches': [], 'match_count': 0})
+        item = found.setdefault(row['entry_id'], {'id': row['entry_id'], 'title': row['entry_title'], 'category': row['category'], 'is_read': bool(row['is_read']), 'task_group': row['task_group'], 'task_order': row['task_order'], 'incomplete': bool(row['incomplete']), 'score': score, 'matches': [], 'match_count': 0})
         item['match_count'] += len(hits)
         item['score'] = max(item['score'], score)
         item['matches'].extend(hits)
-    results = sorted(found.values(), key=lambda x: (-x['score'], x['title'], x['id']))
+    results = sorted(found.values(), key=lambda x: (-x['score'], x['category'] if not terms else '', x['task_group'] or '', x['task_order'] or x['title'], x['id']))
     start=(page-1)*page_size
     selected=results[start:start+page_size]
     for item in selected:
@@ -310,5 +326,6 @@ def stats():
             'entries': db.execute('SELECT COUNT(*) FROM entries WHERE parser_version=?', (PARSER_VERSION,)).fetchone()[0],
             'sections': db.execute('SELECT COUNT(*) FROM sections s JOIN entries e ON e.id=s.entry_id WHERE e.parser_version=?', (PARSER_VERSION,)).fetchone()[0],
             'categories': [r[0] for r in db.execute('SELECT DISTINCT category FROM entries WHERE parser_version=? ORDER BY category', (PARSER_VERSION,))],
+            'task_groups': [dict(r) for r in db.execute('SELECT e.category,t.region AS name,COUNT(*) AS count FROM task_metadata t JOIN entries e ON e.id=t.entry_id GROUP BY e.category,t.region ORDER BY e.category,t.region')],
             'text_types': [r[0] for r in db.execute('SELECT DISTINCT text_type FROM sections s JOIN entries e ON e.id=s.entry_id WHERE e.parser_version=? ORDER BY text_type', (PARSER_VERSION,))],
         }

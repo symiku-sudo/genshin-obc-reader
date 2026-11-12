@@ -28,7 +28,7 @@ class NativeAPITests(unittest.TestCase):
                 self.assertEqual(call('GET', '/api/search?favorite_only=1&favorites=1600')['total'], 1)
                 call('POST', '/api/reading-restore', {'read_entries': ['999']})
                 self.assertEqual(set(call('GET', '/api/reading-backup')['read_entries']), {'1600', '999'})
-                self.assertEqual(len(call('GET', '/api/library')['categories']), 8)
+                self.assertEqual(len(call('GET', '/api/library')['categories']), 13)
                 self.assertTrue((Path(directory) / 'library.sqlite3').exists())
                 self.assertEqual(call('GET', '/api/stats')['entries'], 23)
             finally:

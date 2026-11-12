@@ -7,6 +7,16 @@ const store = {
 let bookmarks = store.get('bookmarks', []), positions = store.get('positions', {});
 let fontSize = store.get('font', 18), current = null, requestId = 0, routeId = 0, timer;
 let viewMode = 'browse';
+let taskGroups = [];
+function updateTaskGroups() {
+  const groups = taskGroups.filter(g => g.category === $('category').value);
+  const selected = $('task-group').value;
+  $('task-group-filter').hidden = !groups.length;
+  $('task-group').replaceChildren(new Option('全部地区', ''), ...groups.map(g => new Option(`${g.name}（${g.count}）`, g.name)));
+  $('task-group').value = groups.some(g => g.name === selected) ? selected : '';
+}
+$('task-group').onchange = () => localSearch();
+$('category').addEventListener('change', () => { $('task-group').value = ''; updateTaskGroups(); });
 let listScroll = 0, remotePage = 1, remoteQuery = '', remoteMode = false;
 let listQuery = '', activeTerms = [], lastItems = [], localPage = 1, localTotal = 0;
 if (![16,18,20,22,24].includes(fontSize)) fontSize = 18;
@@ -43,6 +53,7 @@ async function updateStats() {
   const selected = $('category').value;
   $('category').replaceChildren(new Option('全部分类', ''), ...s.categories.map(c => new Option(c, c)));
   $('category').value = selected;
+  taskGroups = s.task_groups || []; updateTaskGroups();
   const selectedType = $('text-type').value;
   $('text-type').replaceChildren(new Option('全部文本', ''), ...s.text_types.map(t => new Option(t, t)));
   $('text-type').value = selectedType;
@@ -55,7 +66,7 @@ function renderCards(items, total) {
   $('results').innerHTML = visible.length ? visible.map(x => {
     const matches = x.matches || [], hit = activeTerms.length ? (matches[0] || x) : null;
     const extra = activeTerms.length && matches.length > 1 ? `<details class="hit-list"><summary>展开更多命中片段（本页展示 ${matches.length} 个）</summary>${matches.slice(1).map(h => `<a class="hit" href="${href(x,h)}"><span class="section-label">${esc(h.section_title)}</span><p>${highlighted(h.snippet)}</p></a>`).join('')}${x.match_count>12 ? '<p>还有更多命中，可进入词条查看原文。</p>' : ''}</details>` : '';
-    return `<div class="card${x.is_read ? ' is-read' : ''}"><a class="card-main" href="${href(x,hit)}"><span class="cat">${esc(x.category)}${x.text_type ? ' · ' + esc(x.text_type) : ''}${bookmarks.includes(x.id) ? ' · 已收藏' : ''}</span><h3>${highlighted(x.title)}</h3>${activeTerms.length && x.section_title ? `<span class="section-label">${esc(x.section_title)}</span>` : ''}${activeTerms.length && x.snippet ? `<p>${highlighted(x.snippet)}</p>` : remoteMode ? '<p>打开并加入文本库</p>' : ''}</a>${extra}${!remoteMode ? `<div class="card-foot"><span>${x.is_read ? '已读' : '未读'}</span><button class="read-toggle" data-read-id="${esc(x.id)}" aria-pressed="${Boolean(x.is_read)}">${x.is_read ? '标为未读' : '标为已读'}</button></div>` : ''}</div>`;
+    return `<div class="card${x.is_read ? ' is-read' : ''}"><a class="card-main" href="${href(x,hit)}"><span class="cat">${esc(x.category)}${x.task_group ? ' · ' + esc(x.task_group) : ''}${x.incomplete ? ' · 正文不完整' : ''}${x.text_type ? ' · ' + esc(x.text_type) : ''}${bookmarks.includes(x.id) ? ' · 已收藏' : ''}</span><h3>${highlighted(x.title)}</h3>${activeTerms.length && x.section_title ? `<span class="section-label">${esc(x.section_title)}</span>` : ''}${activeTerms.length && x.snippet ? `<p>${highlighted(x.snippet)}</p>` : remoteMode ? '<p>打开并加入文本库</p>' : ''}</a>${extra}${!remoteMode ? `<div class="card-foot"><span>${x.is_read ? '已读' : '未读'}</span><button class="read-toggle" data-read-id="${esc(x.id)}" aria-pressed="${Boolean(x.is_read)}">${x.is_read ? '标为未读' : '标为已读'}</button></div>` : ''}</div>`;
   }).join('') : '<p class="empty">没有匹配结果。可以缩短关键词，调整分类，或导入更多文本。</p>';
 }
 async function localSearch(reset = true) {
@@ -67,9 +78,9 @@ async function localSearch(reset = true) {
   $('results-title').textContent = listQuery ? '正文搜索结果' : (viewMode === 'browse' ? '自由浏览' : '全部文本');
   $('status').textContent = '正在搜索本地资料…';
   try {
-    let url = '/api/search?q=' + encodeURIComponent(listQuery) + '&category=' + encodeURIComponent($('category').value) + '&type=' + encodeURIComponent($('text-type').value) + '&mode=' + $('match-mode').value + '&page=' + localPage + '&read=' + $('read-filter').value;
+    let url = '/api/search?q=' + encodeURIComponent(listQuery) + '&category=' + encodeURIComponent($('category').value) + '&type=' + encodeURIComponent($('text-type').value) + '&mode=' + $('match-mode').value + '&page=' + localPage + '&read=' + $('read-filter').value + '&task_group=' + encodeURIComponent($('task-group').value);
     if ($('favorites').checked) url += '&favorite_only=1&favorites=' + encodeURIComponent(bookmarks.join(','));
-    const data = viewMode === 'search' ? await api('/api/search', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({keywords:activeTerms,mode:$('match-mode').value,category:$('category').value,type:$('text-type').value,page:localPage,read:$('read-filter').value,favorites:$('favorites').checked?bookmarks:null})}) : await api(url);
+    const data = viewMode === 'search' ? await api('/api/search', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({keywords:activeTerms,task_group:$('task-group').value,mode:$('match-mode').value,category:$('category').value,type:$('text-type').value,page:localPage,read:$('read-filter').value,favorites:$('favorites').checked?bookmarks:null})}) : await api(url);
     if (id !== requestId) return;
     localTotal = data.total;
     const lastPage = Math.max(1, Math.ceil(data.total / data.page_size));
@@ -118,17 +129,33 @@ function paintEntry(entry, target, paragraphIndex, readMs) {
   $('source').href = entry.source;
   $('updated').textContent = (entry.snapshot ? '样本采集于 ' : '缓存于 ') + new Date(entry.fetched_at).toLocaleString('zh-CN');
   $('warnings').textContent = entry.warnings.join('；');
+  $('task-missing').hidden = !(entry.missing || []).length;
+  $('task-missing-list').innerHTML = (entry.missing || []).map(m => `<li>${esc([m.context,m.module,m.reason].filter(Boolean).join(' · '))}</li>`).join('');
   $('toc-links').replaceChildren(...entry.sections.map(s => {
     const a = document.createElement('a'); a.textContent = (s.context ? s.context + ' · ' : '') + s.title; a.href = '#';
     a.onclick = e => { e.preventDefault(); $(s.id).scrollIntoView({behavior:'smooth'}); };
     return a;
   }));
+  if (entry.task) {
+    const groups = new Map();
+    entry.sections.forEach(s => {
+      const key = s.context || '正文';
+      if (!groups.has(key)) {
+        const details = document.createElement('details'), summary = document.createElement('summary');
+        summary.textContent = key; details.append(summary); groups.set(key, details);
+      }
+      const a = document.createElement('a'); a.textContent = s.title;
+      a.href = '#entry/' + encodeURIComponent(entry.id) + '/' + encodeURIComponent(s.id);
+      groups.get(key).append(a);
+    });
+    $('toc-links').replaceChildren(...groups.values());
+  }
   $('article').className = 'size-' + fontSize;
   // Extracted prose consists of plain-text paragraphs. Highlight before insertion,
   // avoiding a second walk and replacement of every matching DOM text node.
   $('article').innerHTML = entry.sections.map(s => {
     const body = activeTerms.length ? s.text.split(/\r?\n/).filter(line => line.trim()).map(line => '<p>' + highlighted(line) + '</p>').join('') : s.html;
-    return `<section id="${esc(s.id)}"><p class="section-meta">${esc([s.tab, s.context, s.text_type].filter(Boolean).join(' · '))}</p><h2>${highlighted(s.title)}</h2>${body}</section>`;
+    return `<section id="${esc(s.id)}"><p class="section-meta">${esc([s.tab, s.context, s.text_type].filter(Boolean).join(' · '))}</p><h2>${highlighted(s.title)}</h2>${body}${s.links?.length ? `<nav class="task-branches" aria-label="后续分支">${s.links.map(l => `<a href="#entry/${encodeURIComponent(entry.id)}/${encodeURIComponent(l.id)}">${esc(l.title)} →</a>`).join('')}</nav>` : ''}</section>`;
   }).join('');
   if (typeof applyHighlights === 'function') applyHighlights();
   setBookmark(); setReadButton(); $('reader-status').textContent = entry.requires_refresh ? '请更新此词条的缓存。' : '已保存中文原文，可断网阅读；不包含图片、音频和属性表。';
@@ -147,7 +174,7 @@ function paintEntry(entry, target, paragraphIndex, readMs) {
 async function route() {
   if (current && typeof clearReadingSelection === 'function') clearReadingSelection();
   const ticket = ++routeId;
-  const match = location.hash.match(/^#entry\/(\d{1,12})(?:\/(section-\d+(?:-\d+){0,2})(?:\/p(\d+))?)?$/);
+  const match = location.hash.match(/^#entry\/(\d{1,12})(?:\/(section-\d+(?:-\d+){0,2}|task-[a-f0-9]{24})(?:\/p(\d+))?)?$/);
   remember(); current = null;
   if (!match) {
     $('reader').hidden = true; $('library').hidden = false;

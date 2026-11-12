@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
         super.onCreate(saved);
         restoredUrl = saved == null ? null : saved.getString("readerUrl");
         TextView loading = new TextView(this);
-        loading.setText("正在准备本地文本库…\n首次启动需要解压文本，请稍候。");
+        loading.setText("正在准备本地文本库…\n首次启动或版本升级需要解压、合并文本，请稍候。");
         loading.setPadding(32, 80, 32, 32);
         setContentView(loading);
         IO.execute(() -> {

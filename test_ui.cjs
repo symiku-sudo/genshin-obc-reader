@@ -35,7 +35,7 @@ async function until(fn) {for(let i=0;i<100;i++){if(fn())return;await sleep(40);
   assert.equal(reads.filter(x=>x==='/api/library').length,0,'no management polling during browsing');
   assert($('results').querySelector('[data-read-id]'));
   $('open-management').click();
-  await until(()=>$('results').children.length===20 && $('collection-options').querySelectorAll('input').length===8);
+  await until(()=>$('results').children.length===20 && $('collection-options').querySelectorAll('input').length===13);
   await until(()=>$('unsupported-categories').textContent.includes('NPC'));
   for (const name of ['背包','角色','食物']) assert($('collection-options').textContent.includes(name));
   const unsupportedNames = [...$('unsupported-categories').querySelectorAll('li')].map(li => li.firstChild.textContent.trim());

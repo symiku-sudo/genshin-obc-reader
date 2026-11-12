@@ -9,7 +9,7 @@ function validateBackup(data) {
       Object.keys(data.positions).length > 20000 ||
       !Object.entries(data.positions).every(([k,v]) => id(k) && Number.isFinite(v) && v >= 0 && v <= 1e9) ||
       ![16,18,20,22,24].includes(data.font)) throw new Error('文件格式或记录内容不正确。');
-  const section = v => typeof v === 'string' && /^section-\d+(?:-\d+){0,2}$/.test(v);
+  const section = v => typeof v === 'string' && /^(?:section-\d+(?:-\d+){0,2}|task-[a-f0-9]{24})$/.test(v);
   const integer = v => Number.isSafeInteger(v) && v >= 0 && v <= 1e7;
   const part = v => v && section(v.section) && integer(v.paragraph);
   if (data.anchors !== undefined && (!data.anchors || Array.isArray(data.anchors) || typeof data.anchors !== 'object' || Object.keys(data.anchors).length > 20000 || !Object.entries(data.anchors).every(([k,v])=>id(k)&&part(v)&&integer(v.offset)&&Number.isFinite(v.top)&&Math.abs(v.top)<=1e7&&typeof v.quote==='string'&&v.quote.length<=32))) throw new Error('阅读位置格式不正确。');

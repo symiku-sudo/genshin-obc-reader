@@ -6,12 +6,13 @@ import hashlib
 import json
 import shutil
 import sqlite3
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'android/app/build/generated/reader'
 MODULES = ('core', 'text_extract', 'catalog', 'import_jobs', 'sample_corpus',
-           'rebuild_text_cache', 'api_service', 'android_runtime')
+           'rebuild_text_cache', 'api_service', 'android_runtime', 'task_text', 'corpus_upgrade')
 
 
 def prepare(corpus):
@@ -32,9 +33,25 @@ def prepare(corpus):
     for path in (ROOT / 'research').glob('entry-*.json'):
         shutil.copy(path, research)
     shutil.copy(ROOT / 'research/moon-cards.json', research)
+    task_supplement(corpus, research / 'tasks.obc')
     # AAPT treats .gz filenames specially. Keep gzip bytes under an opaque extension.
     shutil.copy(corpus, assets / 'library.obc')
     shutil.copy(corpus.with_suffix('.manifest.json'), assets / 'corpus.json')
+
+
+def task_supplement(corpus, target):
+    # Derive upgrade assets from the very same corpus used for fresh installations.
+    with tempfile.TemporaryDirectory() as directory:
+        db_path=Path(directory)/'corpus.sqlite3'
+        with gzip.open(corpus,'rb') as src, db_path.open('wb') as dst: shutil.copyfileobj(src,dst)
+        with sqlite3.connect(db_path) as db, gzip.open(target,'wt',encoding='utf-8') as out:
+            for payload,raw in db.execute("SELECT e.payload,s.payload FROM entries e LEFT JOIN sources s ON s.entry_id=e.id WHERE e.category IN ('魔神任务','世界任务','传说任务','邀约任务','限时任务') ORDER BY e.id"):
+                entry=json.loads(payload);entry.pop('is_read',None)
+                if not entry.get('task'): continue
+                out.write(json.dumps({'type':'entry','entry':entry,'source':json.loads(raw) if raw else None},ensure_ascii=False)+'\n')
+            for category,payload in db.execute('SELECT category,payload FROM catalogs'):
+                if category in ('archon','world','story','hangout','event'):
+                    out.write(json.dumps({'type':'catalog','manifest':json.loads(payload)},ensure_ascii=False)+'\n')
 
 
 def snapshot(source, target):
@@ -45,6 +62,11 @@ def snapshot(source, target):
             src.backup(dest)
             # Corpus distribution must not distribute personal reading flags.
             dest.execute('DELETE FROM reading_state')
+            for entry_id, payload in dest.execute('SELECT id,payload FROM entries').fetchall():
+                entry=json.loads(payload)
+                if 'is_read' in entry:
+                    entry.pop('is_read')
+                    dest.execute('UPDATE entries SET payload=? WHERE id=?',(json.dumps(entry,ensure_ascii=False),entry_id))
             dest.commit()
             dest.execute('VACUUM')
             assert dest.execute('PRAGMA integrity_check').fetchone()[0] == 'ok'

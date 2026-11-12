@@ -22,6 +22,8 @@ def initialize(files_dir, resource_dir):
         rebuild()
         install_supplement()
         import_jobs.init_jobs(recover=True)
+        from corpus_upgrade import install
+        install()
         _worker = import_jobs.Worker()
         _worker.start()
 

@@ -10,7 +10,7 @@ async function refreshLibrary() {
     loadCoverage(data.categories);
   }
   data.categories.forEach(c => {
-    $('collection-' + c.id).textContent = c.total == null ? '尚未获取目录' : `目录 ${c.total} · 已缓存 ${c.cached}` + (c.unlisted ? ` · 原站已移出目录 ${c.unlisted}` : '');
+    $('collection-' + c.id).textContent = c.total == null ? '尚未获取目录' : `目录 ${c.total} · 可读 ${c.cached}${c.partial ? `（其中不完整 ${c.partial}）` : ''}` + (c.unlisted ? ` · 原站已移出目录 ${c.unlisted}` : '');
   });
   $('library-storage').textContent = `本地数据库 ${(data.database_bytes / 1048576).toFixed(1)} MB · 迁移备份 ${(data.backup_bytes / 1048576).toFixed(1)} MB`;
   const active = data.jobs.filter(j => ['queued','scanning','running','pausing'].includes(j.state));
@@ -40,7 +40,7 @@ async function loadCoverage(supported) {
     const names = new Set(supported.map(c => c.name));
     const groups = new Map();
     for (const c of data.categories) {
-      if (names.has(c.name)) continue;
+      if (names.has(c.name) || (c.name === '任务' && data.categories && supported.some(s => s.id === 'archon'))) continue;
       if (!groups.has(c.group)) groups.set(c.group, []);
       groups.get(c.group).push(c);
     }

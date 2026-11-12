@@ -45,6 +45,15 @@ public abstract class DeviceTestBase {
         }
         fail("WebView condition timed out: " + expression);
     }
+    protected JSONObject corpusManifest() throws Exception {
+        Context context = ApplicationProvider.getApplicationContext();
+        try (java.io.InputStream in = context.getAssets().open("corpus.json")) {
+            java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
+            byte[] bytes = new byte[4096]; int n;
+            while ((n = in.read(bytes)) != -1) out.write(bytes, 0, n);
+            return new JSONObject(out.toString("UTF-8"));
+        }
+    }
     protected JSONObject api(String method, String path, String body) throws Exception {
         JSONObject result = new JSONObject(Python.getInstance().getModule("android_runtime").callAttr("request", method, path, body).toString());
         assertEquals(result.toString(), 200, result.getInt("status"));

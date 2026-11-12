@@ -26,9 +26,9 @@ public class OfflineTest extends DeviceTestBase {
         activity.launchActivity(new Intent(ApplicationProvider.getApplicationContext(), MainActivity.class));
         await("document.querySelectorAll('#results .card').length > 0");
         JSONObject stats = api("GET", "/api/stats", "");
-        assertEquals(3638, stats.getInt("entries"));
-        assertEquals(17511, stats.getInt("sections"));
-        assertEquals(8, api("GET", "/api/library", "").getJSONArray("categories").length());
+        assertEquals(corpusManifest().getInt("entries"), stats.getInt("entries"));
+        assertEquals(corpusManifest().getInt("sections"), stats.getInt("sections"));
+        assertEquals(13, api("GET", "/api/library", "").getJSONArray("categories").length());
 
         // Exercise pagination and every category through the real WebView bridge.
         asyncJs("const stats=await api('/api/stats'); for(const category of stats.categories){ const result=await api('/api/search?category='+encodeURIComponent(category)); if(!result.total || result.items.some(x=>x.category!==category)) throw Error('category filter'); } for(const type of stats.text_types){const result=await api('/api/search?type='+encodeURIComponent(type));if(!result.total)throw Error('text-type filter');} const first=await api('/api/search'); const second=await api('/api/search?page=2');if(first.items.some(a=>second.items.some(b=>a.id===b.id)))throw Error('pagination overlap');");

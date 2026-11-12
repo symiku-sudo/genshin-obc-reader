@@ -37,7 +37,7 @@ class API:
                 return self.send(200, core.stats())
             if u.path == '/api/search':
                 favorites = [x for x in q.get('favorites', [''])[0].split(',') if x] if q.get('favorite_only', ['0'])[0] == '1' else None
-                return self.send(200, core.search(query, q.get('category', [''])[0], q.get('type', [''])[0], mode=q.get('mode', ['all'])[0], page=int(q.get('page', ['1'])[0]), favorite_ids=favorites, read_state=q.get('read', ['all'])[0]))
+                return self.send(200, core.search(query, q.get('category', [''])[0], q.get('type', [''])[0], mode=q.get('mode', ['all'])[0], page=int(q.get('page', ['1'])[0]), favorite_ids=favorites, read_state=q.get('read', ['all'])[0], task_group=q.get('task_group', [''])[0]))
             if u.path == '/api/remote':
                 if not query:
                     return self.send(400, {'error': '请输入在线搜索词'})
@@ -64,7 +64,7 @@ class API:
             payload = json.loads(self.body)
             if not isinstance(payload, dict): raise ValueError('请求必须为 JSON 对象')
             if self.path == '/api/search':
-                return self.send(200, core.search(category=payload.get('category',''), text_type=payload.get('type',''), mode=payload.get('mode','any'), page=int(payload.get('page',1)), favorite_ids=payload.get('favorites'), read_state=payload.get('read','all'), keywords=payload.get('keywords',[])))
+                return self.send(200, core.search(category=payload.get('category',''), text_type=payload.get('type',''), mode=payload.get('mode','any'), page=int(payload.get('page',1)), favorite_ids=payload.get('favorites'), read_state=payload.get('read','all'), keywords=payload.get('keywords',[]), task_group=payload.get('task_group','')))
             if self.path == '/api/reading-restore':
                 return self.send(200, core.merge_reading(payload.get('read_entries')))
             if self.path == '/api/read':

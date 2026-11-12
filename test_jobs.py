@@ -12,7 +12,7 @@ import sample_corpus
 class JobTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory();self.db=patch.object(core,'DB',Path(self.tmp.name)/'db.sqlite3');self.db.start()
-        core.init_db();jobs.init_jobs();self.worker=jobs.Worker()
+        core.init_db();jobs.init_jobs();self.worker=jobs.Worker(concurrency=1)
         self.manifest={'category':'books','name':'书籍','channel_id':'68','fetched_at':catalog.now(),'raw_count':2,'duplicates':0,'items':[{'id':'503','title':'书籍A'},{'id':'625','title':'书籍B'}],'digest':'test','scope':'test'}
     def tearDown(self): self.db.stop();self.tmp.cleanup()
     def raw(self,id): return sample_corpus.raw_sample(id)[0]

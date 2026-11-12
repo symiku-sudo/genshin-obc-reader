@@ -4,8 +4,11 @@ import json
 import re
 from datetime import datetime, timezone
 import core
+from task_text import TASK_CATEGORIES, metadata
 
 CATEGORIES = {'books': ('书籍', '68'), 'weapons': ('武器', '5'), 'artifacts': ('圣遗物', '218'), 'map_texts': ('地图文本', '251'), 'characters': ('角色', '25'), 'food': ('食物', '21'), 'inventory': ('背包', '13'), 'moon_cards': ('月谕圣牌', '249')}
+
+CATEGORIES.update({key: (name, '43') for key, name in TASK_CATEGORIES.items()})
 
 
 def now():
@@ -18,7 +21,7 @@ def parse_manifest(data, category):
     if not isinstance(roots, list) or len(roots) != 1:
         raise ValueError('目录结构变化，未替换已有目录')
     root = roots[0]
-    if str(root.get('id')) != channel_id or root.get('name') != ('幻想真境剧诗' if category == 'moon_cards' else name):
+    if str(root.get('id')) != channel_id or root.get('name') != ('任务' if category in TASK_CATEGORIES else '幻想真境剧诗' if category == 'moon_cards' else name):
         raise ValueError('目录分类不匹配，未替换已有目录')
     if root.get('entry_limit') != 0 or root.get('children') or root.get('hidden'):
         raise ValueError('目录可能截断或出现子分类，需要重新适配')
@@ -28,6 +31,7 @@ def parse_manifest(data, category):
     for item in root['list']:
         entry_id = str(item.get('content_id', ''))
         title = core.clean(item.get('title', ''))[1]
+        if category in TASK_CATEGORIES and metadata(title, item.get('ext', {}))['kind'] != category: continue
         if category == 'moon_cards' and not title.startswith('月谕圣牌·'): continue
         if not re.fullmatch(r'\d{1,12}', entry_id) or not title:
             raise ValueError('目录含无效词条，未替换已有目录')

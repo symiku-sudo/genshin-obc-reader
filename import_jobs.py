@@ -4,6 +4,8 @@ import json
 import threading
 import uuid
 import urllib.error
+from concurrent.futures import ThreadPoolExecutor
+from task_text import TASK_PARSER_VERSION, is_task
 from datetime import datetime, timezone
 import core
 import catalog
@@ -11,6 +13,8 @@ from text_extract import PARSER_VERSION, TextExtractionError
 
 ACTIVE = ('queued', 'scanning', 'running', 'pausing')
 TERMINAL_ITEMS = ('success', 'unchanged', 'no_text', 'review', 'failed')
+_write_lock = threading.RLock()
+
 LABELS = {'pending':'等待', 'processing':'处理中', 'success':'已更新', 'unchanged':'未变化', 'no_text':'无所需文本', 'review':'待适配', 'failed':'获取失败'}
 
 
@@ -84,7 +88,7 @@ def dashboard():
             manifest=json.loads(saved['payload']) if saved else None
             cached=db.execute('SELECT COUNT(*) FROM catalog_items c JOIN entries e ON e.id=c.entry_id WHERE c.category=? AND c.listed=1 AND e.parser_version=?',(key,PARSER_VERSION)).fetchone()[0]
             categories.append({'id':key,'name':name,'total':len(manifest['items']) if manifest else None,
-                'cached':cached,'fetched_at':manifest['fetched_at'] if manifest else None,
+                'cached':cached,'partial':db.execute('SELECT COUNT(*) FROM catalog_items c JOIN task_metadata t ON t.entry_id=c.entry_id WHERE c.category=? AND c.listed=1 AND t.incomplete=1',(key,)).fetchone()[0], 'fetched_at':manifest['fetched_at'] if manifest else None,
                 'duplicates':manifest['duplicates'] if manifest else 0,
                 'unlisted':db.execute('SELECT COUNT(*) FROM catalog_items WHERE category=? AND listed=0',(key,)).fetchone()[0]})
         ids=[r[0] for r in db.execute('SELECT id FROM jobs ORDER BY created_at DESC LIMIT 15')]
@@ -143,6 +147,11 @@ def install_manifest(job_id, manifest):
 
 def fetch_and_check(entry_id):
     page=core.upstream('genshin/wapi/entry_page',{'entry_page_id':entry_id},static=True)['page']
+    with _write_lock:
+        return check_page(entry_id, page)
+
+
+def check_page(entry_id, page):
     if not isinstance(page, dict) or not isinstance(page.get('modules'), list) or not page.get('name'):
         raise ValueError('上游词条结构不完整，保留已有缓存')
     if str(page.get('id'))!=entry_id: raise ValueError('上游返回词条 ID 不匹配')
@@ -151,30 +160,34 @@ def fetch_and_check(entry_id):
     cached=core.get_entry(entry_id)
     with core.connect() as db:
         previous=db.execute('SELECT * FROM entry_checks WHERE entry_id=?',(entry_id,)).fetchone()
-    if previous and previous['parser_version']==PARSER_VERSION and previous['raw_hash']==raw_hash:
+    if previous and previous['parser_version']==PARSER_VERSION and previous['raw_hash']==raw_hash and (not is_task(page) or json.loads(previous['details']).get('task_parser_version') == TASK_PARSER_VERSION):
         status='unchanged' if previous['status']=='success' and cached and not cached.get('requires_refresh') else previous['status']
         if status != 'success':
             with core.connect() as db: db.execute('UPDATE entry_checks SET checked_at=? WHERE entry_id=?',(now(),entry_id))
             details=json.loads(previous['details']);details['unchanged']=True
             return status, details
+    entry_to_save = None
     try:
         entry=core.normalize(page)
         review=[r for r in entry['extraction'] if r['status']=='review']
-        status='review' if review else 'success'
-        details={'sections':len(entry['sections']),'review_modules':len(review),'retained_old':bool(review and cached and not cached.get('requires_refresh'))}
+        status='review' if review or entry.get('incomplete') else 'success'
+        details={'sections':len(entry['sections']),'review_modules':len(review),'retained_old':bool((review or entry.get('incomplete')) and cached and not cached.get('requires_refresh') and not cached.get('incomplete')), 'incomplete':bool(entry.get('incomplete'))}
         if not details['retained_old']:
-            core.save_entry(entry,raw_page=page)
+            entry_to_save = entry
     except TextExtractionError as exc:
         status='review' if exc.needs_review else 'no_text'
         details={'sections':0,'review_modules':sum(r['status']=='review' for r in exc.audit),'retained_old':bool(cached)}
+    if is_task(page): details['task_parser_version'] = TASK_PARSER_VERSION
     with core.connect() as db:
+        if entry_to_save is not None: core.save_entry(entry_to_save, db=db)
         db.execute('INSERT OR REPLACE INTO sources VALUES(?,?)',(entry_id,json.dumps(page,ensure_ascii=False)))
         db.execute('INSERT OR REPLACE INTO entry_checks VALUES(?,?,?,?,?,?,?)',(entry_id,version,raw_hash,PARSER_VERSION,status,now(),json.dumps(details,ensure_ascii=False)))
     return status,details
 
 
 class Worker:
-    def __init__(self):
+    def __init__(self, concurrency=2):
+        self.concurrency = max(1, min(4, concurrency))
         self.stop_event=threading.Event()
         self.wake=threading.Event()
         self.thread=None
@@ -215,30 +228,40 @@ class Worker:
             install_manifest(job_id,manifest)
         if acknowledge_pause(job_id): return
         with core.connect() as db: db.execute("UPDATE jobs SET state='running',updated_at=? WHERE id=? AND state IN ('scanning','queued')",(now(),job_id))
-        while not self.stop_event.is_set():
-            if acknowledge_pause(job_id): return
+        # Bound outstanding work. Downloads overlap; parsing and writes serialize.
+        with ThreadPoolExecutor(max_workers=self.concurrency, thread_name_prefix='text-fetch') as pool:
+            while not self.stop_event.is_set():
+                if acknowledge_pause(job_id): return
+                with core.connect() as db:
+                    items=db.execute("SELECT * FROM job_items WHERE job_id=? AND state='pending' ORDER BY CAST(entry_id AS INTEGER) LIMIT ?",(job_id,self.concurrency)).fetchall()
+                    if not items:
+                        db.execute("UPDATE jobs SET state=CASE WHEN state='pausing' THEN 'paused' ELSE 'completed' END,updated_at=? WHERE id=?",(now(),job_id));return
+                    db.executemany("UPDATE job_items SET state='processing',error='' WHERE job_id=? AND entry_id=?", [(job_id,i['entry_id']) for i in items])
+                futures=[pool.submit(self.process_item, job_id, dict(item)) for item in items]
+                for future in futures: future.result()
+        with core.connect() as db:
+            db.execute("UPDATE jobs SET state='paused',updated_at=? WHERE id=?",(now(),job_id))
+
+    def process_item(self, job_id, item):
+        status, details, error='failed',{},''
+        for attempt in range(3):
+            if self.stop_event.is_set(): break
             with core.connect() as db:
-                item=db.execute("SELECT * FROM job_items WHERE job_id=? AND state='pending' ORDER BY CAST(entry_id AS INTEGER) LIMIT 1",(job_id,)).fetchone()
-                if not item:
-                    db.execute("UPDATE jobs SET state=CASE WHEN state='pausing' THEN 'paused' ELSE 'completed' END,updated_at=? WHERE id=?",(now(),job_id));return
-                db.execute("UPDATE job_items SET state='processing',error='' WHERE job_id=? AND entry_id=?",(job_id,item['entry_id']))
-            status, details, error='failed',{},''
-            for attempt in range(3):
-                if self.stop_event.is_set(): break
-                with core.connect() as db: db.execute('UPDATE job_items SET attempts=attempts+1 WHERE job_id=? AND entry_id=?',(job_id,item['entry_id']))
-                try:
-                    status,details=fetch_and_check(item['entry_id']);break
-                except Exception as exc:
-                    error=str(exc)[:180] or type(exc).__name__
-                    if isinstance(exc, ValueError): break
-                    if attempt<2:
-                        if self.stop_event.wait(2**(attempt+1)): break
-                        if acknowledge_pause(job_id):
-                            with core.connect() as db: db.execute("UPDATE job_items SET state='pending' WHERE job_id=? AND entry_id=?",(job_id,item['entry_id']))
-                            return
-            with core.connect() as db:
-                if self.stop_event.is_set():
-                    db.execute("UPDATE job_items SET state='pending' WHERE job_id=? AND entry_id=?",(job_id,item['entry_id']))
-                    db.execute("UPDATE jobs SET state='paused',updated_at=? WHERE id=?",(now(),job_id));return
-                db.execute('UPDATE job_items SET state=?,error=?,details=? WHERE job_id=? AND entry_id=?',(status,error if status=='failed' else '',json.dumps(details,ensure_ascii=False),job_id,item['entry_id']))
-                db.execute('UPDATE jobs SET updated_at=? WHERE id=?',(now(),job_id))
+                state=db.execute('SELECT state FROM jobs WHERE id=?',(job_id,)).fetchone()[0]
+                if state in ('paused','pausing'):
+                    status='pending';break
+                db.execute('UPDATE job_items SET attempts=attempts+1 WHERE job_id=? AND entry_id=?',(job_id,item['entry_id']))
+            try:
+                status,details=fetch_and_check(item['entry_id']);break
+            except Exception as exc:
+                error=str(exc)[:180] or type(exc).__name__
+                if isinstance(exc, ValueError): break
+                delay = 2**(attempt+1)
+                if isinstance(exc, urllib.error.HTTPError) and exc.code in (429,503):
+                    try: delay = max(delay, min(60, float(exc.headers.get('Retry-After', delay))))
+                    except (TypeError, ValueError): pass
+                if attempt<2 and self.stop_event.wait(delay): break
+        with core.connect() as db:
+            if self.stop_event.is_set() and status=='failed': status='pending'
+            db.execute('UPDATE job_items SET state=?,error=?,details=? WHERE job_id=? AND entry_id=?',(status,error if status=='failed' else '',json.dumps(details,ensure_ascii=False),job_id,item['entry_id']))
+            db.execute('UPDATE jobs SET updated_at=? WHERE id=?',(now(),job_id))

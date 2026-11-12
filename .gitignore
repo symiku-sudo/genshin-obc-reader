@@ -19,3 +19,7 @@ data/android/
 *.jks
 *.keystore
 *.p12
+
+# Performance databases and bulk task source cache
+data/qa-v130/
+data/task-cache/
