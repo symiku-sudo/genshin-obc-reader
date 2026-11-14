@@ -2,6 +2,11 @@ name: Android offline APK
 on:
   workflow_dispatch:
     inputs:
+      export_run:
+        description: Optional successful run to export as a delta from the prior candidate
+        required: false
+        default: ''
+        type: string
       corpus_release:
         description: Private corpus release tag
         required: true
@@ -16,6 +21,7 @@ permissions:
   contents: read
 jobs:
   build:
+    if: ${{ !inputs.export_run }}
     # GitHub requires write access to read draft release assets.
     permissions:
       contents: write
@@ -133,3 +139,34 @@ jobs:
             android/app/build/outputs/androidTest-results/
             android/device-*.log
             android/device-evidence/
+
+  export_delta:
+    if: ${{ inputs.export_run != '' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export verified candidate delta
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET_RUN: ${{ inputs.export_run }}
+        run: |
+          test "$(gh run view "$TARGET_RUN" --json conclusion --jq '.conclusion')" = success
+          gh run view "$TARGET_RUN" --json headSha,url,conclusion > provenance.json
+          gh run download 43170991697 --name obc-reader-release --dir base
+          gh run download "$TARGET_RUN" --name obc-reader-release --dir target
+          (cd base && sha256sum -c app-release.apk.sha256)
+          (cd target && sha256sum -c app-release.apk.sha256)
+          python tools/apk_delta.py create base/app-release.apk target/app-release.apk candidate.delta.gz
+          python tools/apk_delta.py apply base/app-release.apk candidate.delta.gz reconstructed.apk
+          cmp reconstructed.apk target/app-release.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: candidate-delta
+          path: |
+            candidate.delta.gz
+            provenance.json
+            target/signing-verification.txt
+            target/app-release.apk.sha256
