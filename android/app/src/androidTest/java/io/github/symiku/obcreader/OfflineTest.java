@@ -24,6 +24,8 @@ public class OfflineTest extends DeviceTestBase {
         Context context = ApplicationProvider.getApplicationContext();
         ensureOffline();
         activity.launchActivity(new Intent(ApplicationProvider.getApplicationContext(), MainActivity.class));
+        assertTrue("Visible startup progress", device.wait(Until.hasObject(By.clazz("android.widget.ProgressBar")), 5000));
+        device.takeScreenshot(new File(context.getExternalFilesDir(null), "Startup-progress.png"));
         await("document.querySelectorAll('#results .card').length > 0");
         JSONObject stats = api("GET", "/api/stats", "");
         assertEquals(corpusManifest().getInt("entries"), stats.getInt("entries"));

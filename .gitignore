@@ -5,6 +5,7 @@ data/*.sock
 *.pid
 __pycache__/
 *.py[cod]
+.qa
 .qa/
 
 # Downloaded upstream bundles and raw page shell used for reverse engineering

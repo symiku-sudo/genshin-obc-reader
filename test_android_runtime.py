@@ -15,7 +15,13 @@ class NativeAPITests(unittest.TestCase):
         root = core.ROOT
         with tempfile.TemporaryDirectory() as directory, patch.object(core, 'ROOT', root), patch.object(core, 'DB'), patch.object(android_runtime, '_worker', None), patch.object(core, 'upstream', side_effect=AssertionError('network forbidden')):
             try:
-                android_runtime.initialize(directory, str(root))
+                class Progress:
+                    def __init__(self): self.events=[]
+                    def updateStartupProgress(self,stage,done,total): self.events.append((stage,done,total))
+                progress=Progress()
+                android_runtime.initialize(directory, str(root), progress)
+                self.assertEqual(progress.events[0][0], '初始化本地文本库')
+                self.assertEqual(progress.events[-1][0], '准备阅读界面')
                 def call(method, path, data=None):
                     result = json.loads(android_runtime.request(method, path, json.dumps(data) if data is not None else ''))
                     self.assertEqual(result['status'], 200, result)

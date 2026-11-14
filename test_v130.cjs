@@ -17,14 +17,19 @@ w.fetch=async(url,options)=>{
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function until(fn){for(let i=0;i<100;i++){if(fn())return;await sleep(20);}throw Error('timeout: '+$('status').textContent);}
 (async()=>{
- w.eval(['app','reading','search','library','backup'].map(file=>fs.readFileSync('static/'+file+'.js','utf8')).join('\n')+'\nwindow.testValidateBackup=validateBackup;');
+ w.eval(['app','reading','search','library','backup'].map(file=>fs.readFileSync('static/'+file+'.js','utf8')).join('\n')+'\nwindow.testValidateBackup=validateBackup;window.testRenderCards=renderCards;');
  await until(()=>$('results').children.length===1);
  assert($('results').textContent.includes('正文不完整'));
+ assert($('results').querySelector('h3').textContent.startsWith('【缺失】'));
+ w.testRenderCards([{...entry,incomplete:false}],1);
+ assert(!$('results').querySelector('h3').textContent.includes('【缺失】'));
+ w.testRenderCards([entry],1);
  $('category').value='魔神任务';$('category').dispatchEvent(new w.Event('change'));
  assert(!$('task-group-filter').hidden);
  $('task-group').value='蒙德';$('task-group').dispatchEvent(new w.Event('change'));
  await until(()=>requests.some(r=>r.url.includes('task_group=%E8%92%99%E5%BE%B7')));
  $('results').querySelector('a').click();await until(()=>$('article').querySelectorAll('section').length===2);
+ assert.equal($('reader-title').textContent,'【缺失】'+entry.title);
  assert(!$('task-missing').hidden);assert($('task-missing-list').textContent.includes('未提供正文'));
  assert.equal($('toc-links').querySelectorAll('details').length,2);
  const link=$('article').querySelector('.task-branches a');assert.equal(link.getAttribute('href'),'#entry/399/task-bbbbbbbbbbbbbbbbbbbbbbbb');

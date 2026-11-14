@@ -26,6 +26,7 @@ public class Version13Test extends DeviceTestBase {
         js("location.hash='#entry/1727'; true");
         await("!document.getElementById('task-missing').hidden && document.getElementById('reader-title').textContent.includes('芭芭拉')");
         check("document.getElementById('warnings').textContent.includes('正文不完整')");
+        check("document.getElementById('reader-title').textContent.startsWith('【缺失】')");
         check("!!validateBackup({format:'obc-reading-backup',version:1,read_entries:[],bookmarks:[],positions:{},font:18,anchors:{'1727':{section:document.querySelector('#article section').id,paragraph:0,offset:0,top:0,quote:''}}})");
     }
 }

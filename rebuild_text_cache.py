@@ -9,12 +9,13 @@ from text_extract import PARSER_VERSION
 from task_text import TASK_PARSER_VERSION
 
 
-def rebuild():
+def rebuild(progress=None):
     core.init_db()
     with core.connect() as db:
         rows = db.execute('SELECT id,payload FROM entries').fetchall()
     pending = []
-    for row in rows:
+    for index,row in enumerate(rows,1):
+        if progress: progress("检查本地文本",index,len(rows))
         entry = json.loads(row['payload'])
         task_needs_parse = (entry.get('category') == '任务' or entry.get('task')) and entry.get('task_parser_version') != TASK_PARSER_VERSION
         if entry.get('parser_version') != PARSER_VERSION or task_needs_parse:
@@ -22,10 +23,12 @@ def rebuild():
     if not pending:
         return {'updated': [], 'needs_refresh': [], 'backup': None}
     backup = core.DB.with_name('library-before-text-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%f') + '.sqlite3')
+    if progress: progress("备份原有文本",0,0)
     with core.connect() as db, closing(sqlite3.connect(backup)) as dest:
         db.backup(dest)
     result = {'updated': [], 'needs_refresh': [], 'backup': str(backup)}
-    for entry_id, old in pending:
+    for index,(entry_id, old) in enumerate(pending):
+        if progress: progress("更新文本格式",index,len(pending))
         with core.connect() as db:
             row = db.execute('SELECT payload FROM sources WHERE entry_id=?', (entry_id,)).fetchone()
         page = json.loads(row['payload']) if row else None

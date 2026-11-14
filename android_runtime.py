@@ -10,20 +10,26 @@ _worker = None
 _lock = threading.Lock()
 
 
-def initialize(files_dir, resource_dir):
+def initialize(files_dir, resource_dir, progress=None):
     global _worker
+    def report(stage, done=0, total=0):
+        if progress is not None: progress.updateStartupProgress(stage,done,total)
     with _lock:
         if _worker is not None:
             return
         core.ROOT = Path(resource_dir)
         core.DB = Path(files_dir) / 'library.sqlite3'
+        report("初始化本地文本库")
         core.init_db()
         from rebuild_text_cache import rebuild
-        rebuild()
+        rebuild(progress=report)
+        report("检查补充文本")
         install_supplement()
         import_jobs.init_jobs(recover=True)
         from corpus_upgrade import install
-        install()
+        report("合并任务文本")
+        install(progress=lambda done,total: report("合并任务文本",done,total))
+        report("准备阅读界面")
         _worker = import_jobs.Worker()
         _worker.start()
 

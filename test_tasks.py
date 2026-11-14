@@ -85,7 +85,10 @@ class TaskDBTests(unittest.TestCase):
         b=copy.deepcopy(a);b['version']='1800000000';b['title']='更新后的标题'
         path=Path(self.temp.name)/'tasks.obc'
         with gzip.open(path,'wt') as out:out.write(json.dumps({'type':'entry','entry':b})+'\n')
-        self.assertEqual(corpus_upgrade.install(path)['installed'],1)
+        path.with_suffix('.json').write_text(json.dumps({'entries':1}))
+        progress=[]
+        self.assertEqual(corpus_upgrade.install(path,progress=lambda done,total:progress.append((done,total)))['installed'],1)
+        self.assertEqual(progress,[(0,1),(1,1)])
         self.assertTrue(core.get_entry(a['id'])['is_read'])
         self.assertTrue(corpus_upgrade.install(path)['already_installed'])
         self.assertFalse(corpus_upgrade.should_replace(b,a))

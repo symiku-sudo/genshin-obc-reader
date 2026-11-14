@@ -66,7 +66,7 @@ function renderCards(items, total) {
   $('results').innerHTML = visible.length ? visible.map(x => {
     const matches = x.matches || [], hit = activeTerms.length ? (matches[0] || x) : null;
     const extra = activeTerms.length && matches.length > 1 ? `<details class="hit-list"><summary>展开更多命中片段（本页展示 ${matches.length} 个）</summary>${matches.slice(1).map(h => `<a class="hit" href="${href(x,h)}"><span class="section-label">${esc(h.section_title)}</span><p>${highlighted(h.snippet)}</p></a>`).join('')}${x.match_count>12 ? '<p>还有更多命中，可进入词条查看原文。</p>' : ''}</details>` : '';
-    return `<div class="card${x.is_read ? ' is-read' : ''}"><a class="card-main" href="${href(x,hit)}"><span class="cat">${esc(x.category)}${x.task_group ? ' · ' + esc(x.task_group) : ''}${x.incomplete ? ' · 正文不完整' : ''}${x.text_type ? ' · ' + esc(x.text_type) : ''}${bookmarks.includes(x.id) ? ' · 已收藏' : ''}</span><h3>${highlighted(x.title)}</h3>${activeTerms.length && x.section_title ? `<span class="section-label">${esc(x.section_title)}</span>` : ''}${activeTerms.length && x.snippet ? `<p>${highlighted(x.snippet)}</p>` : remoteMode ? '<p>打开并加入文本库</p>' : ''}</a>${extra}${!remoteMode ? `<div class="card-foot"><span>${x.is_read ? '已读' : '未读'}</span><button class="read-toggle" data-read-id="${esc(x.id)}" aria-pressed="${Boolean(x.is_read)}">${x.is_read ? '标为未读' : '标为已读'}</button></div>` : ''}</div>`;
+    return `<div class="card${x.is_read ? ' is-read' : ''}"><a class="card-main" href="${href(x,hit)}"><span class="cat">${esc(x.category)}${x.task_group ? ' · ' + esc(x.task_group) : ''}${x.incomplete ? ' · 正文不完整' : ''}${x.text_type ? ' · ' + esc(x.text_type) : ''}${bookmarks.includes(x.id) ? ' · 已收藏' : ''}</span><h3>${x.incomplete ? '<span class="missing-title">【缺失】</span>' : ''}${highlighted(x.title)}</h3>${activeTerms.length && x.section_title ? `<span class="section-label">${esc(x.section_title)}</span>` : ''}${activeTerms.length && x.snippet ? `<p>${highlighted(x.snippet)}</p>` : remoteMode ? '<p>打开并加入文本库</p>' : ''}</a>${extra}${!remoteMode ? `<div class="card-foot"><span>${x.is_read ? '已读' : '未读'}</span><button class="read-toggle" data-read-id="${esc(x.id)}" aria-pressed="${Boolean(x.is_read)}">${x.is_read ? '标为未读' : '标为已读'}</button></div>` : ''}</div>`;
   }).join('') : '<p class="empty">没有匹配结果。可以缩短关键词，调整分类，或导入更多文本。</p>';
 }
 async function localSearch(reset = true) {
@@ -124,7 +124,7 @@ function setBookmark() {
 function paintEntry(entry, target, paragraphIndex, readMs) {
   const renderStart = performance.now();
   current = entry;
-  $('reader-title').textContent = entry.title;
+  $('reader-title').textContent = (entry.incomplete ? '【缺失】' : '') + entry.title;
   $('reader-category').textContent = entry.category;
   $('source').href = entry.source;
   $('updated').textContent = (entry.snapshot ? '样本采集于 ' : '缓存于 ') + new Date(entry.fetched_at).toLocaleString('zh-CN');

@@ -6,6 +6,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.*;
 import android.widget.TextView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.os.SystemClock;
 import android.widget.FrameLayout;
 import android.view.WindowInsets;
 import android.os.Build;
@@ -25,6 +28,12 @@ public class MainActivity extends Activity {
     private static final ExecutorService IO = Executors.newFixedThreadPool(3);
     private static final Object INIT = new Object();
     private static boolean ready;
+    private static volatile String startupStage = "准备本地文本库";
+    private static volatile long startupDone, startupTotal;
+    public void updateStartupProgress(String stage, long done, long total) {
+        startupStage = stage; startupDone = done; startupTotal = total;
+    }
+
     WebView web;
     volatile String startupError;
     private ValueCallback<Uri[]> fileCallback;
@@ -34,10 +43,37 @@ public class MainActivity extends Activity {
     @Override public void onCreate(Bundle saved) {
         super.onCreate(saved);
         restoredUrl = saved == null ? null : saved.getString("readerUrl");
+        LinearLayout panel = new LinearLayout(this);
+        panel.setOrientation(LinearLayout.VERTICAL);
+        int padding = (int)(24 * getResources().getDisplayMetrics().density);
+        panel.setPadding(padding, padding * 3, padding, padding);
         TextView loading = new TextView(this);
-        loading.setText("正在准备本地文本库…\n首次启动或版本升级需要解压、合并文本，请稍候。");
-        loading.setPadding(32, 80, 32, 32);
-        setContentView(loading);
+        loading.setTextSize(18);
+        ProgressBar progress = new ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal);
+        progress.setMax(100);
+        TextView detail = new TextView(this);
+        panel.addView(loading);
+        panel.addView(progress, new LinearLayout.LayoutParams(-1, padding * 2));
+        panel.addView(detail);
+        setContentView(panel);
+        long started = SystemClock.elapsedRealtime();
+        loading.post(new Runnable() {
+            @Override public void run() {
+                if (isDestroyed() || web != null || startupError != null) return;
+                String stage = startupStage;
+                long done = startupDone, total = startupTotal;
+                loading.setText(stage + "…");
+                progress.setIndeterminate(total <= 0);
+                int percent = total > 0 ? (int)Math.min(100, done * 100 / total) : 0;
+                if (total > 0) progress.setProgress(percent);
+                String count = total > 0 ? (stage.startsWith("解压")
+                    ? String.format(java.util.Locale.ROOT, "%.1f / %.1f MiB", done / 1048576.0, total / 1048576.0)
+                    : done + " / " + total + " 项") + " · " + percent + "%\n" : "";
+                detail.setText(count + "已等待 " + (SystemClock.elapsedRealtime()-started)/1000 + " 秒\n首次安装或升级可能需要较长时间，请保持应用开启。");
+                progress.setContentDescription(stage + (total > 0 ? " " + percent + "%" : " 正在处理"));
+                loading.postDelayed(this, 200);
+            }
+        });
         IO.execute(() -> {
             try {
                 synchronized (INIT) {
@@ -45,10 +81,12 @@ public class MainActivity extends Activity {
                         android.util.Log.i("OBCStartup", "Installing bundled corpus");
                         installCorpus();
                         android.util.Log.i("OBCStartup", "Corpus verified; copying resources");
+                        updateStartupProgress("准备阅读资源",0,0);
                         copyAssets("resources", new File(getFilesDir(), "resources"));
                         android.util.Log.i("OBCStartup", "Starting embedded Python");
+                        updateStartupProgress("启动阅读引擎",0,0);
                         if (!Python.isStarted()) Python.start(new AndroidPlatform(getApplicationContext()));
-                        Python.getInstance().getModule("android_runtime").callAttr("initialize", getFilesDir().getPath(), new File(getFilesDir(), "resources").getPath());
+                        Python.getInstance().getModule("android_runtime").callAttr("initialize", getFilesDir().getPath(), new File(getFilesDir(), "resources").getPath(), this);
                         ready = true;
                         android.util.Log.i("OBCStartup", "Local database ready");
                     }
@@ -57,7 +95,7 @@ public class MainActivity extends Activity {
             } catch (Exception e) {
                 startupError = e.toString();
                 android.util.Log.e("OBCStartup", "Initialization failed", e);
-                runOnUiThread(() -> loading.setText("无法准备文本库：" + e.getMessage() + "\n请检查可用存储空间后重新打开。"));
+                runOnUiThread(() -> { progress.setVisibility(android.view.View.GONE); detail.setText(""); loading.setText("无法准备文本库：" + e.getMessage() + "\n请检查可用存储空间后重新打开。"); });
             }
         });
     }
@@ -72,10 +110,13 @@ public class MainActivity extends Activity {
         File staging = new File(getFilesDir(), "library.installing");
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         long count = 0;
+        long total = manifest.getLong("bytes");
+        updateStartupProgress("解压并校验文本",0,total);
         try (InputStream in = new GZIPInputStream(getAssets().open("library.obc")); OutputStream out = new FileOutputStream(staging)) {
             byte[] block = new byte[65536]; int size;
-            while ((size = in.read(block)) != -1) { out.write(block, 0, size); digest.update(block, 0, size); count += size; }
+            while ((size = in.read(block)) != -1) { out.write(block, 0, size); digest.update(block, 0, size); count += size; updateStartupProgress("解压并校验文本",count,total); }
         }
+        updateStartupProgress("核对文本完整性",0,0);
         StringBuilder hash = new StringBuilder();
         for (byte b : digest.digest()) hash.append(String.format("%02x", b & 255));
         if (count != manifest.getLong("bytes") || !hash.toString().equals(manifest.getString("sha256"))) {

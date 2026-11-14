@@ -16,7 +16,7 @@ def should_replace(old, incoming):
     return True
 
 
-def install(path=None):
+def install(path=None, progress=None):
     path=Path(path) if path else core.ROOT/'research/tasks.obc'
     if not path.exists(): return {'installed':0,'kept':0}
     digest=hashlib.sha256(path.read_bytes()).hexdigest()
@@ -25,6 +25,9 @@ def install(path=None):
         if db.execute('SELECT 1 FROM installed_corpora WHERE digest=?',(digest,)).fetchone():
             return {'installed':0,'kept':0,'already_installed':True}
     installed=kept=0
+    metadata=path.with_suffix('.json')
+    total=json.loads(metadata.read_text()).get('entries',0) if metadata.exists() else 0
+    if progress: progress(0,total)
     with gzip.open(path,'rt',encoding='utf-8') as stream:
         for line in stream:
             row=json.loads(line)
@@ -44,6 +47,7 @@ def install(path=None):
                             db.execute('INSERT OR REPLACE INTO entry_checks VALUES(?,?,?,?,?,?,?)',(entry['id'],str(entry.get('version') or ''),raw_hash,entry['parser_version'],'review' if entry.get('incomplete') else 'success',entry['fetched_at'],json.dumps(details)))
                     installed+=1
                 else: kept+=1
+                if progress: progress(installed+kept,total)
             elif row['type']=='catalog':
                 m=row['manifest']
                 with core.connect() as db:

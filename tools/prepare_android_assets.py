@@ -44,15 +44,18 @@ def task_supplement(corpus, target):
     with tempfile.TemporaryDirectory() as directory:
         db_path=Path(directory)/'corpus.sqlite3'
         with gzip.open(corpus,'rb') as src, db_path.open('wb') as dst: shutil.copyfileobj(src,dst)
+        count=0
         with sqlite3.connect(db_path) as db, gzip.open(target,'wt',encoding='utf-8') as out:
             for payload,raw in db.execute("SELECT e.payload,s.payload FROM entries e LEFT JOIN sources s ON s.entry_id=e.id WHERE e.category IN ('魔神任务','世界任务','传说任务','邀约任务','限时任务') ORDER BY e.id"):
                 entry=json.loads(payload);entry.pop('is_read',None)
                 if not entry.get('task'): continue
+                count+=1
                 out.write(json.dumps({'type':'entry','entry':entry,'source':json.loads(raw) if raw else None},ensure_ascii=False)+'\n')
             for category,payload in db.execute('SELECT category,payload FROM catalogs'):
                 if category in ('archon','world','story','hangout','event'):
                     out.write(json.dumps({'type':'catalog','manifest':json.loads(payload)},ensure_ascii=False)+'\n')
 
+    target.with_suffix('.json').write_text(json.dumps({'entries':count}))
 
 def snapshot(source, target):
     target.parent.mkdir(parents=True, exist_ok=True)
