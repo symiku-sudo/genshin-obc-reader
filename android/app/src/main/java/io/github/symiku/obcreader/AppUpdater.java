@@ -122,7 +122,7 @@ final class AppUpdater {
     private boolean deleteDownloads(){return (!partial.exists()||partial.delete())&&(!apk.exists()||apk.delete());}
     synchronized void download(){
         if(busy)return;
-        busy=true;paused=false;phase="checking";message="";
+        busy=true;paused=false;phase="preparing";message="";
         worker.execute(()->{
             try {
                 refresh();

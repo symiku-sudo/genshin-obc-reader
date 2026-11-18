@@ -5,6 +5,7 @@ let sent, fetched;
 const context = {
   Response, Map, Promise, Error,
   ReaderNative: {
+    appUpdate(...args) { sent = args; },
     request(...args) { sent = args; },
     saveDocument(...args) { sent = args; }
   },
@@ -28,5 +29,9 @@ vm.runInNewContext(fs.readFileSync('android/runtime.js','utf8'), context);
   const cancel = context.window.saveReadingFile('reading.json','{}');
   context.window.readerNativeResult('4',{error:'已取消保存'});
   await assert.rejects(cancel,/已取消保存/);
+  const update = context.window.readerAppUpdate('check');
+  assert.deepEqual(sent, ['5','check']);
+  context.window.readerNativeResult('5',{installed:'1.3.1',phase:'checking'});
+  assert.equal((await update).phase,'checking');
   console.log('Android bridge checks passed: API, static assets, HTTP errors, document save/cancel.');
 })().catch(e=>{console.error(e);process.exitCode=1;});
