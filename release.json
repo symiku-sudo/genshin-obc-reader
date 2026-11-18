@@ -1,6 +1,6 @@
 {
-  "version": "1.3.0",
-  "run_id": 43545684812,
-  "source_commit": "9765d9a6a6e7eddff9c9c42ed43dba1f6eb44f1b",
-  "artifact_digest": "sha256:54c6f01d364c2a0e5cb3cb7d70d8d825d6c8d5968325ffb2ee490a5b36815c3a"
+  "version": "1.3.1",
+  "run_id": 44284842491,
+  "source_commit": "f74ee30281802538382c12a4b420fc338c19c48e",
+  "artifact_digest": "sha256:6063490fdbe850ebbeff309f7b8c2d698542485b78ac72f8c701ddb605c5becc"
 }
