@@ -199,7 +199,13 @@ function renderHighlights(){
     };
     const noteText=document.createElement('p');noteText.className='highlight-note';noteText.textContent=note.note||'';noteText.hidden=!note.note;
     const edit=document.createElement('button');edit.textContent=note.note?'编辑笔记':'添加笔记';edit.onclick=()=>openNoteEditor(note);
-    card.append(categoryLabel,title,quote,noteText,open,edit,remove);$('highlights-list').append(card);
+    const source=document.createElement('div');source.className='highlight-source';source.append(title,categoryLabel);
+    const actions=document.createElement('div');actions.className='highlight-actions';
+    const more=document.createElement('details');more.className='highlight-more';
+    const summary=document.createElement('summary');summary.textContent='⋯';summary.setAttribute('aria-label','更多划线操作');
+    const menu=document.createElement('div');menu.className='highlight-menu';menu.append(edit,remove);remove.className='danger-button';
+    more.append(summary,menu);actions.append(open,more);
+    card.append(quote,noteText,source,actions);$('highlights-list').append(card);
   }
   if(!$('highlights-page').hidden)window.scrollTo(0,scroll);
 }

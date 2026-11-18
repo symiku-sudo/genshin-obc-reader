@@ -23,8 +23,8 @@ const open=async id=>{w.qa.navigate('#entry/'+id);await wait(()=>$('reader-title
 (async()=>{
  await wait(()=>$('results').querySelector('[data-read-id]'));
  const button=$('results').querySelector('[data-read-id]');button.click();await wait(()=>button.getAttribute('aria-pressed')==='true');
- button.click();await wait(()=>button.getAttribute('aria-pressed')==='false');assert.equal(w.getComputedStyle(button).backgroundColor,'rgb(255, 255, 255)');
- await open('1600');$('mark-read').click();await wait(()=>$('mark-read').getAttribute('aria-pressed')==='true');$('mark-read').click();await wait(()=>$('mark-read').getAttribute('aria-pressed')==='false');assert.equal(w.getComputedStyle($('mark-read')).backgroundColor,'rgb(255, 255, 255)');
+ button.click();await wait(()=>button.getAttribute('aria-pressed')==='false');assert.equal(w.getComputedStyle(button).backgroundColor,'rgba(0, 0, 0, 0)');
+ await open('1600');$('mark-read').click();await wait(()=>$('mark-read').getAttribute('aria-pressed')==='true');$('mark-read').click();await wait(()=>$('mark-read').getAttribute('aria-pressed')==='false');assert.equal(w.getComputedStyle($('mark-read')).backgroundColor,'rgba(0, 0, 0, 0)');
  // Chromium may deliver scroll before resize after Android changes the viewport.
  const savedPositions=w.localStorage.getItem('obc-positions');
  const oldWidth=w.innerWidth;w.innerWidth=oldWidth+100;w.scrollY=777;w.qa.remember();
@@ -41,6 +41,6 @@ const open=async id=>{w.qa.navigate('#entry/'+id);await wait(()=>$('reader-title
  const allHistory=[...$('search-history-list').querySelectorAll('.history-query')].find(b=>b.textContent==='北风 且 高塔');allHistory.click();assert.equal($('match-mode').value,'all');assert.deepEqual(JSON.parse(JSON.stringify(w.qa.getSearchKeywords())),['北风','高塔']);
  await open('1600');w.getSelection().removeAllRanges();w.getSelection().addRange(w.qa.characterRange($('article').querySelector('section > p:not(.section-meta)'),0,2));w.document.dispatchEvent(new w.Event('selectionchange'));$('search-selection').click();assert(!$('library').hidden);assert.equal(w.qa.getHistory()[0].keywords[0],'北风');assert(!$('selection-return').hidden);$('selection-return').click();await wait(()=>$('reader-title').textContent==='测试1600');
  let exported;w.saveReadingFile=async(name,text)=>{exported=JSON.parse(text);};$('export-reading').click();await wait(()=>exported);assert.equal(exported.highlights[0].note,'二次编辑');assert.equal(exported.recent_readings.length,2);assert(exported.search_history.some(x=>x.mode==='all'&&x.keywords.length===2));
- assert.notEqual(w.getComputedStyle($('resume-reading')).backgroundColor,'rgb(255, 255, 255)');
+ assert.notEqual(w.getComputedStyle($('resume-reading').parentElement).backgroundColor,'rgba(0, 0, 0, 0)');
  console.log('1.2 UI QA passed: colors, editable notes, two resume entries, AND/OR chips and grouped history, selected-text search and return, backup fields.');dom.window.close();
 })().catch(e=>{console.error(e);dom.window.close();process.exitCode=1;});

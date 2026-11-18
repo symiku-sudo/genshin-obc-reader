@@ -25,8 +25,8 @@ public class Version131Test extends DeviceTestBase {
         }return file;
     }
     private JSONObject release(File file) throws Exception {
-        return new JSONObject().put("tag_name","v1.3.2").put("draft",false).put("prerelease",false).put("body","测试更新说明")
-            .put("assets",new JSONArray().put(new JSONObject().put("id",123).put("name","obc-reader-1.3.2.apk").put("size",file.length()).put("digest","sha256:"+AppUpdater.sha256(file)).put("state","uploaded").put("browser_download_url",AppUpdater.REPO+"/releases/download/v1.3.2/obc-reader-1.3.2.apk")));
+        return new JSONObject().put("tag_name","v1.3.3").put("draft",false).put("prerelease",false).put("body","测试更新说明")
+            .put("assets",new JSONArray().put(new JSONObject().put("id",123).put("name","obc-reader-1.3.3.apk").put("size",file.length()).put("digest","sha256:"+AppUpdater.sha256(file)).put("state","uploaded").put("browser_download_url",AppUpdater.REPO+"/releases/download/v1.3.3/obc-reader-1.3.3.apk")));
     }
     private AppUpdater updater(String name,FakeServer server){
         return new AppUpdater(context,"test-update-"+name,new File(context.getCacheDir(),"updates-"+name),server);
@@ -67,9 +67,9 @@ public class Version131Test extends DeviceTestBase {
         }
     }
     @Test public void versionAndReleaseValidation() throws Exception {
-        assertTrue(AppUpdater.newer("1.10.0","1.9.9"));assertFalse(AppUpdater.newer("1.3.1","1.3.1"));assertFalse(AppUpdater.newer("1.3.2-beta","1.3.1"));assertFalse(AppUpdater.newer("9999999999.0.0","1.3.1"));
-        JSONObject data=release(fixture("update-valid.apk"));assertEquals("1.3.2",AppUpdater.parseRelease(data,"1.3.1").getString("version"));
-        assertEquals(0,AppUpdater.parseRelease(data,"1.3.2").length());
+        assertTrue(AppUpdater.newer("1.10.0","1.9.9"));assertFalse(AppUpdater.newer("1.3.1","1.3.1"));assertFalse(AppUpdater.newer("1.3.3-beta","1.3.1"));assertFalse(AppUpdater.newer("9999999999.0.0","1.3.1"));
+        JSONObject data=release(fixture("update-valid.apk"));assertEquals("1.3.3",AppUpdater.parseRelease(data,"1.3.1").getString("version"));
+        assertEquals(0,AppUpdater.parseRelease(data,"1.3.3").length());
         data.getJSONArray("assets").getJSONObject(0).put("browser_download_url","https://evil.example/update.apk");
         try{AppUpdater.parseRelease(data,"1.3.1");fail("foreign URL accepted");}catch(IOException expected){}
         try{AppUpdater.open(new URL("http://github.com/a"),0);fail("insecure URL accepted");}catch(IOException expected){}
@@ -112,10 +112,29 @@ public class Version131Test extends DeviceTestBase {
         await("!document.getElementById('highlights-page').hidden && document.querySelectorAll('.highlight-card').length===50");
         check("document.getElementById('library').hidden && document.getElementById('reader').hidden");
         js("document.getElementById('highlights-more').click();true");check("document.querySelectorAll('.highlight-card').length===100");
+        await("document.getElementById('highlight-category').options.length>1");
         device.takeScreenshot(new File(context.getExternalFilesDir(null),"highlights-131.png"));
+        check("getComputedStyle(document.querySelector('.mast')).display==='none'");
+        check("!document.querySelector('.highlight-more').open");
+        js("document.querySelector('.highlight-more summary').click();true");
+        check("document.querySelector('.highlight-more').open");
+        device.takeScreenshot(new File(context.getExternalFilesDir(null),"highlights-menu-132.png"));
+        js("document.querySelector('.highlight-more summary').click();true");
         js("document.getElementById('highlight-query').value='单关键词';document.getElementById('highlight-query').dispatchEvent(new Event('input'));true");check("document.querySelectorAll('.highlight-card').length===1");
-        asyncJs("const state=await readerAppUpdate('status');if(state.installed!=='1.3.1')throw Error('version');");
+        asyncJs("const state=await readerAppUpdate('status');if(state.installed!=='1.3.2')throw Error('version');");
         check("!document.getElementById('app-update').hidden");
         js("highlights=window.oldTestHighlights;document.getElementById('highlight-query').value='';document.getElementById('close-highlights').click();true");
+        js("navigate('');window.scrollTo(0,0);true");
+        await("!document.getElementById('library').hidden");
+        device.takeScreenshot(new File(context.getExternalFilesDir(null),"library-132.png"));
+        js("navigate('#entry/1600');true");
+        await("current && current.id==='1600'");
+        js("fontSize=18;document.getElementById('article').className='size-18';window.scrollTo(0,0);true");
+        device.takeScreenshot(new File(context.getExternalFilesDir(null),"reader-132.png"));
+        js("document.querySelector('#reading-appearance summary').click();true");
+        check("document.getElementById('reading-appearance').open");
+        js("document.getElementById('larger').click();true");
+        check("document.getElementById('article').className==='size-20'");
+        js("document.querySelector('#reading-appearance summary').click();true");
     }
 }

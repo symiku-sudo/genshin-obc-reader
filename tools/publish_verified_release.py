@@ -67,7 +67,7 @@ def main():
             assert asset['digest'] == 'sha256:' + hashlib.sha256(path.read_bytes()).hexdigest()
             print('Verified asset:', path.name, asset['size'], asset['digest'], flush=True)
         if release['draft']:
-            release = api('releases/' + str(release['id']), 'PATCH', {'draft': False, 'make_latest': 'true'})
+            release = api('releases/' + str(release['id']), 'PATCH', {'draft': False, 'prerelease': bool(config.get('prerelease', False)), 'make_latest': 'false' if config.get('prerelease') else 'true'})
         print('Published:', release['html_url'], flush=True)
 
 
