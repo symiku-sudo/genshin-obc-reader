@@ -17,6 +17,7 @@ const input=text=>{$('highlight-query').value=text;$('highlight-query').dispatch
 (async()=>{
  await wait(()=>$('results').querySelector('.card'));
  assert.deepEqual(updateActions,['auto']);assert(!$('app-update').hidden);assert($('app-update-notice').hidden);
+ w.scrollY=321;
  $('open-highlights').click();await wait(()=>$('highlight-category').options.length===3);
  assert.equal(w.location.hash,'#highlights');assert($('library').hidden);assert($('reader').hidden);assert(!$('highlights-page').hidden);assert.equal($('highlights-page').tagName,'SECTION');
  assert.equal($('highlights-list').children.length,50);assert.equal(w.localStorage.getItem('obc-highlights'),JSON.stringify(notes),'legacy records unchanged');
@@ -31,7 +32,7 @@ const input=text=>{$('highlight-query').value=text;$('highlight-query').dispatch
  $('back').click();await wait(()=>!$('highlights-page').hidden);assert.equal(w.scrollY,900);assert.equal($('highlights-list').children.length,62);assert.equal($('highlight-query').value,'北风');
  $('highlights-list').firstElementChild.querySelectorAll('button')[2].click();assert.equal(w.qa.getNotes().length,124);assert.equal($('highlight-category').value,'书籍');
  input('不存在');assert.equal($('highlights-list').children.length,0);assert($('highlights-status').textContent.includes('没有匹配'));
- $('close-highlights').click();assert(!$('library').hidden);assert($('highlights-page').hidden);
+ $('close-highlights').click();assert(!$('library').hidden);assert($('highlights-page').hidden);assert.equal(w.scrollY,321,'return to library preserves its scroll');
  updateState={installed:'1.3.1',phase:'paused',busy:false,received:1024,release:{version:'1.3.2',size:2048,notes:'<script>bad()</script>',page:'https://github.com/symiku-sudo/genshin-obc-reader/releases/tag/v1.3.2'}};
  $('app-update-check').click();await wait(()=>!$('app-update-notice').hidden);assert.equal($('app-update-notes').querySelector('script'),null);assert.equal($('app-update-download').textContent,'继续下载');assert.equal($('app-update-progress').value,1024);assert($('app-update-count').textContent.includes('50%'));assert(!updateActions.includes('download'));
  $('app-update-download').click();await wait(()=>updateActions.includes('download')&&!$('app-update-check').disabled);updateState={...updateState,phase:'ready',received:2048};$('app-update-check').click();await wait(()=>!$('app-update-install').hidden);assert($('app-update-download').hidden);

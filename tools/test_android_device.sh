@@ -64,4 +64,3 @@ adb shell svc wifi enable
 adb shell am instrument -w -r -e class io.github.symiku.obcreader.OnlineImportTest \
   io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-online.log
 grep -Eq '^OK \([1-9][0-9]* tests?\)' device-online.log
-
