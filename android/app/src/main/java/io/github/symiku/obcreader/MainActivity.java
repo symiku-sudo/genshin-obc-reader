@@ -206,7 +206,45 @@ public class MainActivity extends Activity {
     }
     private void fail(String id, String message) { reply(id, "{\"error\":" + JSONObject.quote(message) + "}"); }
 
+    private void installUpdate(String id) {
+        if(Build.VERSION.SDK_INT>=26 && !getPackageManager().canRequestPackageInstalls()){
+            runOnUiThread(()->{
+                try {startActivity(new Intent(android.provider.Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES, Uri.parse("package:"+getPackageName())));
+                    fail(id,"请允许本应用安装更新，然后返回再次点击“安装更新”。");}
+                catch(Exception e){fail(id,"请在系统设置中允许本应用安装更新，再点击“安装更新”。");}
+            });return;
+        }
+        AppUpdater.get(this).install(new AppUpdater.Installer(){
+            public void ready(File file){runOnUiThread(()->{
+                if(isDestroyed())return;
+                try {
+                    Uri uri=androidx.core.content.FileProvider.getUriForFile(MainActivity.this,getPackageName()+".updates",file);
+                    startActivity(new Intent(Intent.ACTION_VIEW).setDataAndType(uri,"application/vnd.android.package-archive").addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION));
+                    reply(id,"{\"opened\":true}");
+                }catch(Exception e){fail(id,"无法打开系统安装器，请从发布页下载安装包。");}
+            });}
+            public void failed(String message){fail(id,message);}
+        });
+    }
     private class Bridge {
+        @JavascriptInterface public void appUpdate(String id,String action) {
+            IO.execute(()->{
+                try {
+                    AppUpdater updater=AppUpdater.get(MainActivity.this);
+                    switch(action){
+                        case "auto": updater.check(false);break;
+                        case "check": updater.check(true);break;
+                        case "download": updater.download();break;
+                        case "pause": updater.pause();break;
+                        case "status": break;
+                        case "install": installUpdate(id);return;
+                        default: throw new IllegalArgumentException("不支持的更新操作");
+                    }
+                    reply(id,updater.status().toString());
+                }catch(Exception e){fail(id,"更新操作失败："+e.getMessage());}
+            });
+        }
+
         @JavascriptInterface public void request(String id, String method, String path, String body) {
             IO.execute(() -> {
                 try { reply(id, Python.getInstance().getModule("android_runtime").callAttr("request", method, path, body).toString()); }

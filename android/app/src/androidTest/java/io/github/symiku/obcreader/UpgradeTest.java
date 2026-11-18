@@ -25,7 +25,7 @@ public class UpgradeTest extends DeviceTestBase {
         File snapshot = new File(context.getFilesDir(), "upgrade-expected.json");
         String[] keys = {"bookmarks", "positions", "anchors", "highlights", "font", "search-history", "recent-readings", "last-reading"};
         if (seed) {
-            assertEquals("1.2.1", context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName);
+            assertEquals("1.3.0", context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName);
             api("POST", "/api/read", "{\"id\":\"1600\",\"is_read\":true}");
             js("navigate('#entry/1600');true");
             await("current && current.id==='1600' && prose().length>0");
@@ -40,7 +40,7 @@ public class UpgradeTest extends DeviceTestBase {
             expected.put("reading", api("GET", "/api/reading-backup", "").getJSONArray("read_entries").toString());
             Files.write(snapshot.toPath(), expected.toString().getBytes(StandardCharsets.UTF_8));
         } else {
-            assertEquals("1.3.0", context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName);
+            assertEquals("1.3.1", context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName);
             JSONObject expected = new JSONObject(new String(Files.readAllBytes(snapshot.toPath()), StandardCharsets.UTF_8));
             for (String key : keys) assertEquals("Preserved " + key, expected.getString(key), js("localStorage.getItem('obc-"+key+"')"));
             assertEquals(expected.getString("reading"), api("GET", "/api/reading-backup", "").getJSONArray("read_entries").toString());

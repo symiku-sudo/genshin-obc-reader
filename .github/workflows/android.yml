@@ -10,7 +10,7 @@ on:
       corpus_release:
         description: Private corpus release tag
         required: true
-        default: android-corpus-v1
+        default: android-corpus-v130-candidate
         type: string
   push:
     branches: [android-offline]
@@ -51,7 +51,7 @@ jobs:
       - name: Download private corpus
         env:
           GH_TOKEN: ${{ github.token }}
-          CORPUS_RELEASE: ${{ inputs.corpus_release || 'android-corpus-v1' }}
+          CORPUS_RELEASE: ${{ inputs.corpus_release || 'android-corpus-v130-candidate' }}
         run: |
           mkdir -p data/android
           gh release download "$CORPUS_RELEASE" --dir data/android --pattern 'library.sqlite3.*'
@@ -67,6 +67,7 @@ jobs:
           node test_v12.cjs
           node test_v121.cjs
           node test_v130.cjs
+          node test_v131.cjs
           node test_android_bridge.cjs
       - name: Shared backend tests
         run: python -m unittest discover -v
@@ -79,6 +80,8 @@ jobs:
           chmod 600 "$RUNNER_TEMP/reader.p12"
           echo "OBC_SIGNING_FILE=$RUNNER_TEMP/reader.p12" >> "$GITHUB_ENV"
           echo "OBC_SIGNING_PASSWORD=$SIGNING_PASSWORD" >> "$GITHUB_ENV"
+      - name: Build update verification fixtures
+        run: bash tools/build_update_test_fixtures.sh
       - name: Build APK
         working-directory: android
         run: |
@@ -100,9 +103,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p data/upgrade
-          gh release download v1.2.1 --dir data/upgrade --pattern 'obc-reader-1.2.1.apk*'
+          gh release download v1.3.0 --dir data/upgrade --pattern 'obc-reader-1.3.0.apk*'
           cd data/upgrade
-          sha256sum -c obc-reader-1.2.1.apk.sha256
+          sha256sum -c obc-reader-1.3.0.apk.sha256
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules

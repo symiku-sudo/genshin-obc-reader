@@ -97,7 +97,9 @@ async function onlineSearch(next = false) {
   const q = next ? remoteQuery : $('remote-query').value.trim();
   if (!q) { $('status').textContent = '先输入需要在线查找的词条名称。'; return; }
   $('management').close();
-  if (!$('reader').hidden) {
+  if (!$('reader').hidden || !$('highlights-page').hidden) {
+    if(typeof rememberHighlights==='function')rememberHighlights();
+    $('highlights-page').hidden=true;
     remember(); ++routeId; current = null;
     history.pushState(null, '', location.pathname);
     $('reader').hidden = true; $('library').hidden = false;
@@ -175,7 +177,10 @@ async function route() {
   if (current && typeof clearReadingSelection === 'function') clearReadingSelection();
   const ticket = ++routeId;
   const match = location.hash.match(/^#entry\/(\d{1,12})(?:\/(section-\d+(?:-\d+){0,2}|task-[a-f0-9]{24})(?:\/p(\d+))?)?$/);
+  if(typeof rememberHighlights==='function')rememberHighlights();
   remember(); current = null;
+  if(location.hash==='#highlights'){queueMicrotask(()=>{if(ticket===routeId){if(typeof showHighlights==='function')showHighlights();else setTimeout(route,0);}});return;}
+  $('highlights-page').hidden=true;
   if (!match) {
     $('reader').hidden = true; $('library').hidden = false;
     if(typeof renderSelectionReturn==='function')renderSelectionReturn();
@@ -266,7 +271,11 @@ $('local-prev').onclick = () => { if(localPage>1){localPage--;localSearch(false)
 $('local-next').onclick = () => { if(localPage*20<localTotal){localPage++;localSearch(false);} };
 $('favorites').onchange = () => remoteMode ? renderCards(lastItems, lastItems.length) : localSearch();
 $('remote').onclick = () => onlineSearch(); $('more').onclick = () => onlineSearch(true);
-$('back').onclick = () => navigate('');
+$('back').onclick = () => {
+  if(location.hash==='#highlights'){$('close-highlights').click();return;}
+  if(typeof highlightReaderReturn!=='undefined' && highlightReaderReturn){highlightReaderReturn=false;navigate('#highlights');return;}
+  navigate('');
+};
 $('bookmark').onclick = () => {
   if (!current) return;
   bookmarks = bookmarks.includes(current.id) ? bookmarks.filter(x => x !== current.id) : [...bookmarks, current.id];
@@ -289,6 +298,8 @@ window.addEventListener('scroll', () => { clearTimeout(scrollTimer); scrollTimer
 window.addEventListener('pagehide', remember);
 function navigate(hash) {
   if (viewMode==='search' && !$('library').hidden && hash.startsWith('#entry/') && typeof saveSearchHistory==='function') saveSearchHistory();
+  if(typeof rememberHighlights==='function')rememberHighlights();
+  if(hash==='' && typeof highlightReaderReturn!=='undefined')highlightReaderReturn=false;
   remember();
   history.pushState(null, '', location.pathname + location.search + hash);
   route();

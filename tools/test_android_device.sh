@@ -36,6 +36,10 @@ adb shell am instrument -w -r -e class io.github.symiku.obcreader.Version13Test 
   io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-version13.log
 grep -Eq '^OK \([1-9][0-9]* tests?\)' device-version13.log
 
+adb shell am instrument -w -r -e class io.github.symiku.obcreader.Version131Test \
+  io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-version131.log
+grep -Eq '^OK \([1-9][0-9]* tests?\)' device-version131.log
+
 adb shell cmd connectivity airplane-mode disable
 adb shell svc wifi enable
 adb shell am instrument -w -r -e class io.github.symiku.obcreader.OnlineImportTest \
@@ -49,7 +53,7 @@ adb shell svc wifi disable
 adb shell svc data disable
 adb shell cmd connectivity airplane-mode enable
 adb uninstall io.github.symiku.obcreader
-adb install ../data/upgrade/obc-reader-1.2.1.apk
+adb install ../data/upgrade/obc-reader-1.3.0.apk
 adb shell am instrument -w -r -e upgradePhase seed -e class io.github.symiku.obcreader.UpgradeTest \
   io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-upgrade-seed.log
 grep -Eq '^OK \([1-9][0-9]* tests?\)' device-upgrade-seed.log

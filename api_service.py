@@ -33,6 +33,8 @@ class API:
                 return self.send(200, import_jobs.job_details(q.get('id', [''])[0], q.get('state', [''])[0], page))
             if u.path == '/api/samples':
                 return self.send(200, {'items': sample_corpus.sample_list()})
+            if u.path == '/api/entry-metadata':
+                return self.send(200, core.entry_metadata())
             if u.path == '/api/stats':
                 return self.send(200, core.stats())
             if u.path == '/api/search':

@@ -18,6 +18,16 @@ class ReaderTests(unittest.TestCase):
     def tearDown(self):
         self.db_patch.stop(); self.tmp.cleanup()
 
+    def test_highlight_metadata_does_not_load_or_change_bodies(self):
+        import api_service
+        with core.connect() as db:
+            db.execute("UPDATE entries SET payload='invalid JSON' WHERE id='103'")
+        status, data = api_service.dispatch('GET', '/api/entry-metadata')
+        self.assertEqual(status, 200)
+        self.assertEqual(len(data['items']), 3)
+        self.assertTrue(all(set(item) == {'id', 'title', 'category'} for item in data['items']))
+        self.assertEqual(next(x for x in data['items'] if x['id'] == '103')['title'], '甜甜花酿鸡')
+
     def test_body_phrase_and_section_target(self):
         results = core.search('细嫩的禽肉')['items']
         self.assertEqual(results[0]['id'], '103')

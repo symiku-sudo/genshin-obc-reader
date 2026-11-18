@@ -23,6 +23,7 @@
     const result = await call('request', options.method || 'GET', url, options.body || '');
     return new Response(JSON.stringify(result.data), {status: result.status, headers: {'Content-Type': 'application/json'}});
   };
+  window.readerAppUpdate = action => call('appUpdate', action);
   window.saveReadingFile = (name, data) => call('saveDocument', name, data);
   window.readerBack = () => {
     const modal = [...document.querySelectorAll('dialog[open]')].at(-1);

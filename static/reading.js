@@ -100,7 +100,7 @@ $('save-highlight').addEventListener('pointerdown',e=>e.preventDefault());
 $('save-highlight').onclick=()=>{
   if(!current || !selectionParts.length)return;
   const parts=selectionParts;
-  const note={id:crypto.randomUUID ? crypto.randomUUID() : Date.now()+'-'+Math.random().toString(16).slice(2),entry:current.id,title:current.title,parts,created:Date.now()};
+  const note={id:crypto.randomUUID ? crypto.randomUUID() : Date.now()+'-'+Math.random().toString(16).slice(2),entry:current.id,title:current.title,category:current.category,parts,created:Date.now()};
   const duplicate=highlights.some(h=>h.entry===note.entry&&JSON.stringify(h.parts)===JSON.stringify(parts));
   const next=duplicate?highlights:[...highlights,note];
   try {localStorage.setItem('obc-highlights',JSON.stringify(next));}
@@ -139,15 +139,48 @@ function applyHighlights() {
   }
 }
 
+let highlightScroll = 0, highlightLimit = 50, highlightOrigin = '', highlightReaderReturn = false;
+let highlightSources = new Map(), highlightSourceRequest = 0;
+const highlightCategory = note => highlightSources.get(String(note.entry))?.category || (typeof note.category==='string'&&note.category) || '未分类';
+function rememberHighlights() {
+  if (!$('highlights-page').hidden) highlightScroll = window.scrollY;
+}
+async function loadHighlightSources() {
+  const ticket = ++highlightSourceRequest;
+  try {
+    const result = await api('/api/entry-metadata');
+    if(ticket !== highlightSourceRequest)return;
+    highlightSources = new Map(result.items.map(x=>[String(x.id),x]));
+    $('highlight-source-status').textContent='';renderHighlights();
+  } catch {
+    if(ticket === highlightSourceRequest)$('highlight-source-status').textContent='部分旧划线的分类暂时无法读取，可重新打开本页重试；划线和笔记仍可搜索。';
+  }
+}
+function showHighlights() {
+  $('library').hidden=true;$('reader').hidden=true;$('highlights-page').hidden=false;
+  $('selection-return').hidden=true;document.body.classList.remove('has-selection-return');
+  renderHighlights();window.scrollTo(0,highlightScroll);loadHighlightSources();
+}
 function renderHighlights(){
-  $('highlights-list').replaceChildren();$('highlights-status').textContent=highlights.length ? highlights.length+' 条划线' : '暂无划线。阅读时长按选择正文，再点“划线”。';
-  for(const note of [...highlights].reverse()){
+  const scroll = $('highlights-page').hidden ? highlightScroll : window.scrollY;
+  const category=$('highlight-category').value;
+  const categories=[...new Set(highlights.map(highlightCategory))].sort((a,b)=>a.localeCompare(b,'zh-CN'));
+  if(category&&!categories.includes(category))categories.push(category);
+  $('highlight-category').replaceChildren(new Option('全部分类',''),...categories.map(c=>new Option(c,c)));
+  $('highlight-category').value=category;
+  const keyword=$('highlight-query').value.trim().toLocaleLowerCase();
+  const matches=highlights.filter(note=>(!category||highlightCategory(note)===category)&&(!keyword||[note.title,highlightSources.get(String(note.entry))?.title,note.note,...note.parts.map(p=>p.quote)].join('\n').toLocaleLowerCase().includes(keyword))).sort((a,b)=>b.created-a.created);
+  $('highlights-list').replaceChildren();
+  $('highlights-status').textContent=!highlights.length?'暂无划线。阅读时长按选择正文，再点“划线”。':!matches.length?'没有匹配的划线，试试更换关键词或分类。':`共 ${highlights.length} 条 · 匹配 ${matches.length} 条 · 最新在前`;
+  $('highlights-more').hidden=matches.length<=highlightLimit;
+  for(const note of matches.slice(0,highlightLimit)){
     const card=document.createElement('section');card.className='highlight-card';
     const title=document.createElement('h3');title.textContent=note.title;
+    const categoryLabel=document.createElement('p');categoryLabel.className='section-meta';categoryLabel.textContent=highlightCategory(note);
     const quote=document.createElement('blockquote');quote.textContent=note.parts.map(p=>p.quote).join('\n');
     const open=document.createElement('button');open.textContent='查看原文';
     open.onclick=async()=>{
-      $('highlights-dialog').close();activeTerms=[];navigate('#entry/'+note.entry);
+      rememberHighlights();highlightReaderReturn=true;activeTerms=[];navigate('#entry/'+note.entry);
       const ticket=routeId;
       for(let tries=0;tries<100;tries++){
         await new Promise(r=>setTimeout(r,50));if(ticket!==routeId)return;
@@ -166,11 +199,20 @@ function renderHighlights(){
     };
     const noteText=document.createElement('p');noteText.className='highlight-note';noteText.textContent=note.note||'';noteText.hidden=!note.note;
     const edit=document.createElement('button');edit.textContent=note.note?'编辑笔记':'添加笔记';edit.onclick=()=>openNoteEditor(note);
-    card.append(title,quote,noteText,open,edit,remove);$('highlights-list').append(card);
+    card.append(categoryLabel,title,quote,noteText,open,edit,remove);$('highlights-list').append(card);
   }
+  if(!$('highlights-page').hidden)window.scrollTo(0,scroll);
 }
-$('open-highlights').onclick=()=>{renderHighlights();$('highlights-dialog').showModal();};
-$('close-highlights').onclick=()=>$('highlights-dialog').close();
+$('open-highlights').onclick=()=>{
+  if(location.hash==='#highlights')return;
+  highlightOrigin=location.hash;highlightReaderReturn=false;navigate('#highlights');
+};
+$('close-highlights').onclick=()=>{highlightReaderReturn=false;navigate(highlightOrigin==='#highlights'?'':highlightOrigin);};
+function filterHighlights(){highlightLimit=50;highlightScroll=0;window.scrollTo(0,0);renderHighlights();}
+$('highlight-query').oninput=filterHighlights;
+$('highlight-category').onchange=filterHighlights;
+$('highlights-more').onclick=()=>{highlightLimit+=50;renderHighlights();};
+window.addEventListener('scroll',rememberHighlights,{passive:true});
 
 function openNoteEditor(note) {
   editingNote=note;$('delete-note').hidden=!highlights.some(h=>h.id===note.id);$('note-quote').textContent=note.parts.map(p=>p.quote).join('\n');$('note-text').value=note.note||'';$('note-status').textContent='';$('note-editor').showModal();
@@ -180,7 +222,7 @@ $('annotate-selection').onclick=()=>{
   if(!current||!selectionParts.length)return;
   const parts=selectionParts.map(p=>({...p}));
   const existing=highlights.find(h=>h.entry===current.id&&JSON.stringify(h.parts)===JSON.stringify(parts));
-  const note=existing||{id:crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random(),entry:current.id,title:current.title,parts,created:Date.now()};
+  const note=existing||{id:crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random(),entry:current.id,title:current.title,category:current.category,parts,created:Date.now()};
   clearReadingSelection();openNoteEditor(note);
 };
 $('save-note').onclick=()=>{

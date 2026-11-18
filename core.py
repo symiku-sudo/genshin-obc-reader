@@ -329,3 +329,9 @@ def stats():
             'task_groups': [dict(r) for r in db.execute('SELECT e.category,t.region AS name,COUNT(*) AS count FROM task_metadata t JOIN entries e ON e.id=t.entry_id GROUP BY e.category,t.region ORDER BY e.category,t.region')],
             'text_types': [r[0] for r in db.execute('SELECT DISTINCT text_type FROM sections s JOIN entries e ON e.id=s.entry_id WHERE e.parser_version=? ORDER BY text_type', (PARSER_VERSION,))],
         }
+
+
+def entry_metadata():
+    """Small source index for legacy highlights, without reading large payloads."""
+    with connect() as db:
+        return {'items': [dict(row) for row in db.execute('SELECT id,title,category FROM entries')]}
