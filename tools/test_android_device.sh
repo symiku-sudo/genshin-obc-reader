@@ -40,11 +40,6 @@ adb shell am instrument -w -r -e class io.github.symiku.obcreader.Version131Test
   io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-version131.log
 grep -Eq '^OK \([1-9][0-9]* tests?\)' device-version131.log
 
-adb shell cmd connectivity airplane-mode disable
-adb shell svc wifi enable
-adb shell am instrument -w -r -e class io.github.symiku.obcreader.OnlineImportTest \
-  io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-online.log
-grep -Eq '^OK \([1-9][0-9]* tests?\)' device-online.log
 
 collect
 
@@ -62,3 +57,11 @@ adb install -r app/build/outputs/apk/release/app-release.apk
 adb shell am instrument -w -r -e class io.github.symiku.obcreader.UpgradeTest \
   io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-upgrade.log
 grep -Eq '^OK \([1-9][0-9]* tests?\)' device-upgrade.log
+
+# External availability must not prevent the offline upgrade checks above.
+adb shell cmd connectivity airplane-mode disable
+adb shell svc wifi enable
+adb shell am instrument -w -r -e class io.github.symiku.obcreader.OnlineImportTest \
+  io.github.symiku.obcreader.test/androidx.test.runner.AndroidJUnitRunner | tee device-online.log
+grep -Eq '^OK \([1-9][0-9]* tests?\)' device-online.log
+

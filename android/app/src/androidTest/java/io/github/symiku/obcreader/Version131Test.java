@@ -112,6 +112,7 @@ public class Version131Test extends DeviceTestBase {
         await("!document.getElementById('highlights-page').hidden && document.querySelectorAll('.highlight-card').length===50");
         check("document.getElementById('library').hidden && document.getElementById('reader').hidden");
         js("document.getElementById('highlights-more').click();true");check("document.querySelectorAll('.highlight-card').length===100");
+        device.takeScreenshot(new File(context.getExternalFilesDir(null),"highlights-131.png"));
         js("document.getElementById('highlight-query').value='单关键词';document.getElementById('highlight-query').dispatchEvent(new Event('input'));true");check("document.querySelectorAll('.highlight-card').length===1");
         asyncJs("const state=await readerAppUpdate('status');if(state.installed!=='1.3.1')throw Error('version');");
         check("!document.getElementById('app-update').hidden");

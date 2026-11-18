@@ -29,7 +29,16 @@ public class OnlineImportTest extends DeviceTestBase {
     @Test public void onlineTitleSearch() throws Exception {
         launchOnline();
         String title = api("GET", "/api/entry/763", "").getString("title");
-        assertTrue(api("GET", "/api/remote?q=" + java.net.URLEncoder.encode(title, "UTF-8"), "").getJSONArray("items").length() > 0);
+        JSONObject response=null;
+        for(int attempt=0;attempt<3;attempt++){
+            response=new JSONObject(Python.getInstance().getModule("android_runtime").callAttr("request","GET","/api/remote?q="+java.net.URLEncoder.encode(title,"UTF-8"),"").toString());
+            if(response.getInt("status")!=502)break;
+            android.util.Log.i("TestRunner","Upstream search temporarily unavailable, attempt "+(attempt+1));
+            if(attempt<2)Thread.sleep(3000);
+        }
+        assertNotNull(response);
+        assertEquals(response.toString(),200,response.getInt("status"));
+        assertTrue(response.getJSONObject("data").getJSONArray("items").length()>0);
     }
 
     @Test public void onlineRefreshPreservesReadingStateAndWorksOffline() throws Exception {
