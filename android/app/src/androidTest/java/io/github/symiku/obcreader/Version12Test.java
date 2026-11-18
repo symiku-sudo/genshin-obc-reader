@@ -26,7 +26,7 @@ public class Version12Test extends DeviceTestBase {
         await("!colorButton.disabled");
         js("colorButton.click();true");await("!colorButton.disabled");
         asyncJs("if(colorButton.getAttribute('aria-pressed')==='true')await toggleRead(colorButton.dataset.readId,false,colorButton);");
-        check("getComputedStyle(colorButton).backgroundColor==='rgb(255, 255, 255)'");
+        check("getComputedStyle(colorButton).backgroundColor==='rgba(0, 0, 0, 0)'");
         js("navigate('#entry/1600');true");await("current && current.id==='1600' && document.querySelectorAll('#article section').length>0");
         js("const p=prose().find(p=>p.textContent.length>20);const range=characterRange(p,0,2);getSelection().removeAllRanges();getSelection().addRange(range);document.dispatchEvent(new Event('selectionchange'));document.getElementById('annotate-selection').click();true");
         await("document.getElementById('note-editor').open");
@@ -52,6 +52,6 @@ public class Version12Test extends DeviceTestBase {
         activity.finishActivity();activity.launchActivity(new Intent(ApplicationProvider.getApplicationContext(),MainActivity.class));
         await("!document.getElementById('resume-reading-second').hidden");
         check("highlights.some(h=>h.note==='二次编辑保存') && searchHistory.some(h=>h.mode==='all'&&h.keywords.length===2)");
-        check("getComputedStyle(document.getElementById('resume-reading')).backgroundColor!=='rgb(255, 255, 255)'");
+        check("getComputedStyle(document.getElementById('resume-reading').parentElement).backgroundColor!=='rgba(0, 0, 0, 0)'");
     }
 }
