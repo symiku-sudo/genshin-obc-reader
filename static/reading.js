@@ -249,3 +249,5 @@ $('article').addEventListener('click',event=>{
   const note=highlights.find(h=>h.entry===current.id&&h.parts.some(a=>a.section===key.section&&a.paragraph===key.paragraph&&a.start<=offset&&a.end>offset));
   if(note)openNoteEditor(note);
 });
+
+window.readingReady=true;

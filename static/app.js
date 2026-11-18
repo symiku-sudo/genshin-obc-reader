@@ -179,7 +179,7 @@ async function route() {
   const match = location.hash.match(/^#entry\/(\d{1,12})(?:\/(section-\d+(?:-\d+){0,2}|task-[a-f0-9]{24})(?:\/p(\d+))?)?$/);
   if(typeof rememberHighlights==='function')rememberHighlights();
   remember(); current = null;
-  if(location.hash==='#highlights'){queueMicrotask(()=>{if(ticket===routeId){if(typeof showHighlights==='function')showHighlights();else setTimeout(route,0);}});return;}
+  if(location.hash==='#highlights'){if(window.readingReady)showHighlights();else setTimeout(()=>{if(ticket===routeId)route();},0);return;}
   $('highlights-page').hidden=true;
   if (!match) {
     $('reader').hidden = true; $('library').hidden = false;
