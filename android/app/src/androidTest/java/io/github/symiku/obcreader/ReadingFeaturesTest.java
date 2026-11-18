@@ -46,6 +46,8 @@ public class ReadingFeaturesTest extends DeviceTestBase {
         await("!document.getElementById('resume-reading').hidden");
         js("document.getElementById('resume-reading').click();true");
         await("current && current.id==='1600' && document.querySelector('#article mark.user-highlight')!==null");
+        // Entry DOM is prepared before the animation frame restores its reading anchor.
+        asyncJs("await new Promise(requestAnimationFrame);");
         check("Math.abs(characterRange(anchorParagraph(readingAnchors['1600']),readingAnchors['1600'].offset).getBoundingClientRect().top-readingTop()-readingAnchors['1600'].top)<5");
         js("document.getElementById('open-highlights').click();true");
         await("document.querySelectorAll('#highlights-list .highlight-card').length>0");
