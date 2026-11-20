@@ -35,6 +35,9 @@ public class UpgradeTest extends DeviceTestBase {
             await("highlights.some(h=>h.note==='升级保留笔记') && positions['1600']>0");
             js("navigate('#library');true");
             await("!document.getElementById('library').hidden");
+            // Chromium commits localStorage asynchronously. Seed an established session
+            // before the harness force-stops the old process for a package upgrade.
+            Thread.sleep(6000);
             JSONObject expected = new JSONObject();
             for (String key : keys) expected.put(key, js("localStorage.getItem('obc-"+key+"')"));
             expected.put("reading", api("GET", "/api/reading-backup", "").getJSONArray("read_entries").toString());

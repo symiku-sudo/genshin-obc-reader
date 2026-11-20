@@ -9,8 +9,9 @@ grep -q 'versionCode=6' repaired/package-verification.txt
 grep -q 'versionName=1.3.1' repaired/package-verification.txt
 adb shell am start -W -n io.github.symiku.obcreader/.MainActivity
 for attempt in $(seq 1 40); do
-  adb shell uiautomator dump /sdcard/window.xml >/dev/null
-  adb shell cat /sdcard/window.xml > repaired/window.xml
+  # The first corpus extraction can keep accessibility busy; retry until ready.
+  adb shell uiautomator dump /sdcard/window.xml >/dev/null || true
+  if ! adb shell cat /sdcard/window.xml > repaired/window.xml; then sleep 3; continue; fi
   if grep -q '观测观测枢' repaired/window.xml; then exit 0; fi
   sleep 3
 done
