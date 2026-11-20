@@ -10,7 +10,11 @@ adb shell svc wifi disable
 adb shell svc data disable
 adb shell cmd connectivity airplane-mode enable
 adb logcat -c
+# Gradle may regenerate the release APK while compiling instrumentation. Keep
+# device checks pinned to the exact signed artifact uploaded by this run.
+cp app/build/outputs/apk/release/app-release.apk "$RUNNER_TEMP/verified-release.apk"
 gradle :app:assembleReleaseAndroidTest --stacktrace
+cp "$RUNNER_TEMP/verified-release.apk" app/build/outputs/apk/release/app-release.apk
 adb install -r app/build/outputs/apk/release/app-release.apk
 adb install -r app/build/outputs/apk/androidTest/release/app-release-androidTest.apk
 adb shell 'mkdir -p /sdcard/Download; printf "[]" > /sdcard/Download/obc-invalid.json'
