@@ -39,7 +39,7 @@ body.has-selection-return .mast{margin-top:64px}
 
 /* 1.3.2: quiet, text-first layouts. Keep controls comfortably tappable. */
 :root{--ink:#293530;--muted:#6b756f;--paper:#faf9f5;--line:#e5e8e1;--accent:#e8f0e9}
-button{min-height:44px;border-radius:12px}button:disabled{cursor:default}.brand{color:#285e4b;font-size:19px;letter-spacing:.5px}.mast{border-bottom:0;padding:18px 24px}.mast-actions{gap:0}.quiet-button{color:#52675b;min-width:48px}
+button:not(.note-badge){min-height:44px}button{border-radius:12px}button:disabled{cursor:default}.brand{color:#285e4b;font-size:19px;letter-spacing:.5px}.mast{border-bottom:0;padding:18px 24px}.mast-actions{gap:0}.quiet-button{color:#52675b;min-width:48px}
 main{max-width:920px;padding-top:4px}.resume-stack{margin:4px 0 22px}.resume-stack:has(button:not([hidden])){padding:4px 16px;background:#edf2e9;border-radius:16px;border-left:3px solid #527a60}.resume-stack:not(:has(button:not([hidden]))){display:none}
 #resume-reading,#resume-reading-second{background:none;border:0;border-radius:0;padding:12px 0;margin:0;line-height:1.6;color:#294c3d}#resume-reading-second{border-top:1px solid #dce5d7;font-size:13px;font-weight:400;color:#657264;padding:8px 0}
 .view-switch{background:transparent;border-bottom:1px solid var(--line);border-radius:0;padding:0;gap:24px;margin:0 0 16px;width:100%}.view-switch button{flex:0 1 auto;min-width:0;padding:10px 2px;border-radius:0;color:var(--muted);border-bottom:2px solid transparent}.view-switch button[aria-pressed=true]{box-shadow:none;background:none;border-bottom-color:#38664f;color:#285e4b}
