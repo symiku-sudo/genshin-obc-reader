@@ -56,8 +56,13 @@ def main():
                           'name': '观测观测枢 ' + version, 'draft': True,
                           'body': Path(f'docs/releases/{version}.md').read_text()})
         paths = [apk, checksum, root / 'signing-verification.txt', provenance]
-        # Never replace assets of a published release. A repeat only verifies it.
-        if release['draft']:
+        # Published assets can only be replaced with an explicitly pinned prior APK.
+        replace_digest = config.get('replace_asset_sha256')
+        if replace_digest and not release['draft']:
+            assert re.fullmatch(r'[0-9a-f]{64}', replace_digest)
+            existing = next(a for a in release['assets'] if a['name'] == apk.name)
+            assert existing['digest'] in {'sha256:' + replace_digest, 'sha256:' + digest}
+        if release['draft'] or replace_digest:
             subprocess.run(['gh', 'release', 'upload', tag, '--repo', repo, '--clobber',
                             *map(str, paths)], check=True)
         release = api('releases/' + str(release['id']))
@@ -68,6 +73,11 @@ def main():
             print('Verified asset:', path.name, asset['size'], asset['digest'], flush=True)
         if release['draft']:
             release = api('releases/' + str(release['id']), 'PATCH', {'draft': False, 'prerelease': bool(config.get('prerelease', False)), 'make_latest': 'false' if config.get('prerelease') else 'true'})
+        elif replace_digest:
+            release = api('releases/' + str(release['id']), 'PATCH', {
+                'body': Path(f'docs/releases/{version}.md').read_text(),
+                'prerelease': bool(config.get('prerelease', False)),
+                'make_latest': 'false' if config.get('prerelease') else 'true'})
         print('Published:', release['html_url'], flush=True)
 
 
